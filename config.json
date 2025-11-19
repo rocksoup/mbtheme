@@ -1,8 +1,11 @@
 {
   "title": "Saunter",
   "params": {
-    "mainSections": ["post", "posts"],
-    "rssURL": "feed.json",
+    "mainSections": [
+      "post",
+      "posts"
+    ],
+    "rssURL": "feed.xml",
     "author_name": "Saunter",
     "description": "Attentive notes on the web, reading, and prototypes.",
     "newsletter": {
@@ -24,11 +27,31 @@
   },
   "menu": {
     "main": [
-      { "name": "Subscribe", "url": "/subscribe/", "weight": 1 },
-      { "name": "About", "url": "/about/", "weight": 2 },
-      { "name": "Archive", "url": "/archive/", "weight": 3 },
-      { "name": "Reading", "url": "/reading/", "weight": 4 },
-      { "name": "Tweets", "url": "/tweets/", "weight": 5 }
+      {
+        "name": "Subscribe",
+        "url": "/subscribe/",
+        "weight": 1
+      },
+      {
+        "name": "About",
+        "url": "/about/",
+        "weight": 2
+      },
+      {
+        "name": "Archive",
+        "url": "/archive/",
+        "weight": 3
+      },
+      {
+        "name": "Reading",
+        "url": "/reading/",
+        "weight": 4
+      },
+      {
+        "name": "Tweets",
+        "url": "/tweets/",
+        "weight": 5
+      }
     ]
   }
 }
