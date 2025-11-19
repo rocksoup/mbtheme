@@ -60,8 +60,6 @@ Use Micro.blog's built-in newsletter functionality:
   "params": {
     "newsletter": {
       "enabled": true,
-      "title": "Subscribe to get updates in your inbox",
-      "copy": "",
       "action": "https://micro.blog/users/follow",
       "method": "post",
       "placeholder": "you@email.com",
@@ -71,7 +69,7 @@ Use Micro.blog's built-in newsletter functionality:
 }
 ```
 
-> Leave out the `copy` key (or set it to an empty string) if you want to hide the subtitle entirely.
+> The Saunter theme now renders a fixed heading (“Subscribe to get updates in your inbox”) with no subtitle, so you only need to configure the form endpoint, placeholder, and button text.
 
 **How to enable:**
 1. In Micro.blog dashboard, go to **Posts → Design → Newsletter**
@@ -99,8 +97,6 @@ Use Mailchimp with an RSS-triggered campaign:
   "params": {
     "newsletter": {
       "enabled": true,
-      "title": "Subscribe to get updates in your inbox",
-      "copy": "",
       "action": "https://yourlist.mailchimp.com/subscribe/post",
       "method": "post",
       "placeholder": "you@email.com",
@@ -110,7 +106,7 @@ Use Mailchimp with an RSS-triggered campaign:
 }
 ```
 
-Leave the `copy` key empty (or remove it) to match the clean prototype footer.
+The heading and subtitle are handled entirely by the theme—just supply your Mailchimp action URL and related form values.
 
 Add the hidden honeypot input Mailchimp provides as `mailchimp_honeypot`:
 
