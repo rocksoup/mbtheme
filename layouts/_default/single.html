@@ -124,6 +124,7 @@
   })();
   </script>
   {{ else }}
+  {{ $isPage := eq .Kind "page" }}
   <article class="post-detail">
     {{/* Featured image rendering - check featured_image first, then image, then images[0] */}}
     {{ $featuredImage := "" }}
@@ -157,12 +158,13 @@
       {{ .Content }}
     </div>
 
-    {{ if .Title }}
+    {{ if and .Title (not $isPage) }}
     <p class="meta post-title">
       {{ .Title }}{{ with .Params.bookmark_of }} (via <a href="{{ . }}" rel="noopener" target="_blank">{{ . | replaceRE "^https?://(www\\.)?" "" | replaceRE "/.*$" "" | title }}</a>){{ end }}
     </p>
     {{ end }}
 
+    {{ if not $isPage }}
     <div class="meta badges">
       {{ range .Params.categories }}
         {{ partial "category-badge.html" . }}
@@ -170,6 +172,7 @@
     </div>
 
     <p class="meta post-date">{{ .Date.Format "January 2, 2006" }}</p>
+    {{ end }}
   </article>
   {{ end }}
 {{ end }}
