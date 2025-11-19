@@ -300,6 +300,10 @@ article.post-summary + article.post-summary {
   margin: var(--space-4) 0;
 }
 
+.post-detail .microblog-conversation {
+  display: none;
+}
+
 .image-link {
   display: block;
   margin-bottom: var(--space-4);
