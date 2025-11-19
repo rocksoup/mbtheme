@@ -1,4 +1,5 @@
 name = "Saunter"
+version = "0.1.7"
 license = "MIT"
 licenselink = "https://github.com/rocksoup/mbtheme/blob/main/LICENSE"
 description = "An editorial-style Hugo theme for Micro.blog with built-in support for dark mode, category badges, and newsletter integration"
