@@ -95,13 +95,13 @@ Add specific styling for copyright and footer links to match prototype design.
 ## Implementation Checklist
 
 - [x] Analyzed all 4 regression issues
-- [ ] Created REGRESSION_FIX_PLAN.md
-- [ ] Fixed featured image placement
-- [ ] Enhanced category badge styling
-- [ ] Fixed newsletter centering
-- [ ] Refined footer styling
-- [ ] Updated version to 0.1.7
-- [ ] Committed and pushed changes
+- [x] Created REGRESSION_FIX_PLAN.md
+- [x] Fixed featured image placement
+- [x] Enhanced category badge styling
+- [x] Fixed newsletter centering
+- [x] Refined footer styling
+- [x] Updated version to 0.1.7
+- [x] Committed and pushed changes
 - [ ] Tested on live site
 
 ---
