@@ -724,3 +724,40 @@ body.saunter.dark-mode .category-badge .emoji {
   margin: 0;
   color: var(--color-text-muted);
 }
+
+.colophon {
+  max-width: 720px;
+  margin: var(--space-12) auto;
+}
+
+.colophon header {
+  text-align: left;
+  margin-bottom: var(--space-8);
+}
+
+.colophon .lead {
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.colophon article {
+  margin-bottom: var(--space-6);
+}
+
+.colophon h2 {
+  margin-bottom: 0.5rem;
+}
+
+.colophon ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+}
+
+.colophon ul ul {
+  margin-top: 0.35rem;
+}
+
+.colophon p {
+  color: var(--color-text-muted);
+}
