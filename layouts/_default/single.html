@@ -1,17 +1,17 @@
 {{ define "main" }}
   <article class="post-detail">
-    <header>
-      <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
-      {{ if .Title }}
-      <h1>{{ .Title }}</h1>
-      {{ end }}
-    </header>
-
     <div class="content">
       {{ .Content }}
     </div>
 
+    <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
+
+    {{ if or .Title .Params.categories .Params.bookmark_of }}
     <div class="meta badges">
+      {{ if .Title }}
+      <p class="post-title-meta">{{ .Title }}</p>
+      {{ end }}
+
       {{ range .Params.categories }}
         {{ partial "category-badge.html" . }}
       {{ end }}
@@ -20,5 +20,6 @@
       <a class="bookmark-link" href="{{ . }}" rel="noopener" target="_blank">Original ↗</a>
       {{ end }}
     </div>
+    {{ end }}
   </article>
 {{ end }}
