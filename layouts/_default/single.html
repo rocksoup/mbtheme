@@ -1,18 +1,5 @@
 {{ define "main" }}
-  {{- $image := "" -}}
-  {{- with .Params.featured_image }}{{ $image = . }}{{ end -}}
-  {{- if not $image }}
-    {{- with .Params.image }}{{ $image = . }}{{ end -}}
-  {{- end -}}
-  {{- if not $image }}
-    {{- with .Params.images }}{{ if gt (len .) 0 }}{{ $image = index . 0 }}{{ end }}{{ end -}}
-  {{- end -}}
-
   <article class="post-detail">
-    {{ if $image }}
-    <img src="{{ $image | absURL }}" alt="" class="detail-image" loading="lazy">
-    {{ end }}
-
     <header>
       <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
       {{ if .Title }}
