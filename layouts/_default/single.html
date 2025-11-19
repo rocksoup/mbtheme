@@ -1,5 +1,129 @@
 {{ define "main" }}
-  {{ $isSearchPage := or (eq .RelPermalink "/search/") (eq .RelPermalink "/search") }}
+  {{ $isSearchPage := hasPrefix .RelPermalink "/search" }}
+  {{ if $isSearchPage }}
+  <section class="search-page">
+    <div class="search-header">
+      <h1>Search</h1>
+      <form class="search-form" onsubmit="return false;">
+        <label for="site-search-input" class="sr-only">Search</label>
+        <input id="site-search-input" type="search" placeholder="Search posts…" autocomplete="off">
+      </form>
+    </div>
+    <div id="site-search-status" class="search-status" aria-live="polite">Loading posts…</div>
+    <div id="site-search-results" class="search-results"></div>
+  </section>
+  <script>
+  (function() {
+    const input = document.getElementById("site-search-input");
+    const status = document.getElementById("site-search-status");
+    const results = document.getElementById("site-search-results");
+    if (!input || !status || !results) return;
+
+    let archive = null;
+
+    const updateURL = (value) => {
+      const url = new URL(window.location.href);
+      if (value) {
+        url.searchParams.set("q", value);
+      } else {
+        url.searchParams.delete("q");
+      }
+      window.history.replaceState({}, "", url);
+    };
+
+    const renderMatches = (query) => {
+      results.innerHTML = "";
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        status.textContent = "Type to search posts.";
+        status.hidden = false;
+        return;
+      }
+
+      const keywords = q.split(/\s+/);
+      const matches = [];
+
+      archive.items.forEach(item => {
+        const content = ((item.title || "") + " " + (item.content_text || "")).toLowerCase();
+        const hit = keywords.every(kw => content.includes(kw));
+        if (hit) matches.push(item);
+      });
+
+      if (matches.length === 0) {
+        status.textContent = "No matches found.";
+        status.hidden = false;
+        return;
+      }
+
+      status.hidden = true;
+      matches.forEach(item => {
+        const article = document.createElement("article");
+        article.className = "search-result";
+
+        const titleEl = document.createElement("h2");
+        const link = document.createElement("a");
+        link.href = item.url;
+        link.textContent = item.title || item.url;
+        titleEl.appendChild(link);
+
+        const meta = document.createElement("p");
+        meta.className = "search-result-meta";
+        if (item.date_published) {
+          const date = new Date(item.date_published);
+          meta.textContent = date.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          });
+        }
+
+        const summary = document.createElement("p");
+        summary.className = "search-result-summary";
+        const snippet = (item.content_text || "").trim();
+        if (snippet.length > 200) {
+          summary.textContent = snippet.substring(0, 200) + "…";
+        } else {
+          summary.textContent = snippet;
+        }
+
+        article.appendChild(titleEl);
+        if (meta.textContent) article.appendChild(meta);
+        if (snippet) article.appendChild(summary);
+        results.appendChild(article);
+      });
+    };
+
+    const loadArchive = () => {
+      fetch("/archive/index.json")
+        .then(response => response.json())
+        .then(data => {
+          archive = data;
+          const params = new URLSearchParams(window.location.search);
+          const q = params.get("q") || "";
+          if (q) {
+            input.value = q;
+            renderMatches(q);
+          } else {
+            status.textContent = "Type to search posts.";
+          }
+        })
+        .catch(() => {
+          status.textContent = "Unable to load posts right now.";
+        });
+    };
+
+    input.addEventListener("input", event => {
+      const value = event.target.value;
+      updateURL(value);
+      if (archive) {
+        renderMatches(value);
+      }
+    });
+
+    loadArchive();
+  })();
+  </script>
+  {{ else }}
   <article class="post-detail">
     {{/* Featured image rendering - check featured_image first, then image, then images[0] */}}
     {{ $featuredImage := "" }}
@@ -33,22 +157,19 @@
       {{ .Content }}
     </div>
 
-    {{ if and .Title (not $isSearchPage) }}
+    {{ if .Title }}
     <p class="meta post-title">
       {{ .Title }}{{ with .Params.bookmark_of }} (via <a href="{{ . }}" rel="noopener" target="_blank">{{ . | replaceRE "^https?://(www\\.)?" "" | replaceRE "/.*$" "" | title }}</a>){{ end }}
     </p>
     {{ end }}
 
-    {{ if not $isSearchPage }}
     <div class="meta badges">
       {{ range .Params.categories }}
         {{ partial "category-badge.html" . }}
       {{ end }}
     </div>
-    {{ end }}
 
-    {{ if not $isSearchPage }}
     <p class="meta post-date">{{ .Date.Format "January 2, 2006" }}</p>
-    {{ end }}
   </article>
+  {{ end }}
 {{ end }}
