@@ -25,6 +25,7 @@
 
   <div class="newsletter">
     <h3>{{ $title }}</h3>
+    <p>{{ $copy }}</p>
     {{ if $action }}
     <form class="newsletter-form" action="{{ $action }}" method="{{ $method }}" target="_blank">
       <label for="newsletter-email" class="sr-only">Email address</label>
