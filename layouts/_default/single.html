@@ -4,22 +4,18 @@
       {{ .Content }}
     </div>
 
-    <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
+    {{ if .Title }}
+    <p class="meta post-title">
+      {{ .Title }}{{ with .Params.bookmark_of }} (via <a href="{{ . }}" rel="noopener" target="_blank">{{ . | replaceRE "^https?://(www\\.)?" "" | replaceRE "/.*$" "" | title }}</a>){{ end }}
+    </p>
+    {{ end }}
 
-    {{ if or .Title .Params.categories .Params.bookmark_of }}
     <div class="meta badges">
-      {{ if .Title }}
-      <p class="post-title-meta">{{ .Title }}</p>
-      {{ end }}
-
       {{ range .Params.categories }}
         {{ partial "category-badge.html" . }}
       {{ end }}
-
-      {{ with .Params.bookmark_of }}
-      <a class="bookmark-link" href="{{ . }}" rel="noopener" target="_blank">Original ↗</a>
-      {{ end }}
     </div>
-    {{ end }}
+
+    <p class="meta post-date">{{ .Date.Format "January 2, 2006" }}</p>
   </article>
 {{ end }}
