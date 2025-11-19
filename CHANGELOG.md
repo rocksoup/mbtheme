@@ -5,20 +5,43 @@ All notable changes to the Saunter theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-**IMPORTANT:** The `version` field in `config.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch.
+**IMPORTANT:** The `version` field in `plugin.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch. Also update the version in the `<meta name="generator">` tag in `layouts/partials/head.html` to verify updates in the live site's HTML source.
+
+## [0.1.5] - 2025-11-19
+
+### Fixed
+- Replaced HTML comment with `<meta name="generator">` tag for version tracking (Micro.blog strips HTML comments)
+- Version now visible in page source as `<meta name="generator" content="Saunter 0.1.5">`
+
+### Changed
+- Updated deployment documentation to reflect plugin.json and meta tag version updates
+
+## [0.1.4] - 2025-11-19
+
+### Fixed
+- Reverted test CSS (hot pink background) back to normal color
+
+## [0.1.3] - 2025-11-19
+
+### Fixed
+- **CRITICAL FIX:** Removed `config.json` from theme repository - this file was preventing Micro.blog from detecting updates
+- Micro.blog themes should only use `theme.toml` and `plugin.json` for metadata
+- Theme updates now work correctly when `plugin.json` version is incremented
+
+### Added
+- `theme.toml` file with theme metadata and Hugo version requirements
+- `plugin.json` file for Micro.blog theme plugin settings
+
+### Documentation
+- Updated deployment documentation to use `plugin.json` instead of `config.json`
 
 ## [0.1.1] - 2025-11-19
 
-### Changed
-- Restored `version` field in `config.json` for Micro.blog update detection
-- Updated deployment documentation in README with version increment requirements
-
-### Removed
-- GitHub releases workflow (now using version-based updates on main branch)
-
 ### Documentation
 - Added "Deploying Updates" section to README
-- Added version increment reminders to CHANGELOG
+
+### Removed
+- GitHub releases workflow (attempted to use version-based updates on main branch)
 
 ## [0.1.0] - 2025-11-18
 

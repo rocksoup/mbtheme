@@ -170,18 +170,20 @@ See the [Development Guide](docs/development.md) for more details.
 
 ### Deploying Updates
 
-**IMPORTANT:** When pushing bug fixes or updates to the theme, you MUST increment the version number in `config.json` for Micro.blog to detect and pull the changes.
+**IMPORTANT:** When pushing bug fixes or updates to the theme, you MUST increment the version number for Micro.blog to detect and pull the changes.
 
 ```bash
 # 1. Make your changes to the theme files
-# 2. Update the version in config.json (e.g., "0.1.1" → "0.1.2")
+# 2. Update the version in TWO places:
+#    - plugin.json (e.g., "0.1.4" → "0.1.5")
+#    - layouts/partials/head.html meta tag (e.g., "Saunter 0.1.4" → "Saunter 0.1.5")
 # 3. Commit and push to main
 git add .
 git commit -m "fix: your bug fix description"
 git push
 ```
 
-Micro.blog monitors the `version` field in `config.json` to detect updates. Without incrementing this version, Micro.blog will not pull your latest changes from the main branch.
+Micro.blog monitors the `version` field in `plugin.json` to detect updates. Without incrementing this version, Micro.blog will not pull your latest changes from the main branch. The meta tag in head.html allows you to verify the version in the live site's HTML source.
 
 **Version Numbering:**
 - Patch versions (0.1.x) - Bug fixes and minor changes
