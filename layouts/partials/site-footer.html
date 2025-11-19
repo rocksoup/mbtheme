@@ -4,7 +4,36 @@
   {{ end }}
 
   {{ with .Site.Params.city_tagline }}
-  <p class="city-note">{{ or .text "Made with ❤️ in" }} <a href="{{ .url | relURL }}">{{ .location }}</a>.</p>
+    {{ $city := . }}
+    {{ $label := "Made with ❤️ in" }}
+    {{ $location := "" }}
+    {{ $url := "" }}
+
+    {{ if kindIs "map" $city }}
+      {{ with index $city "text" }}{{ $label = . }}{{ end }}
+      {{ with index $city "location" }}{{ $location = . }}{{ end }}
+      {{ with index $city "url" }}{{ $url = . }}{{ end }}
+    {{ else }}
+      {{ $location = $city }}
+    {{ end }}
+
+    {{ if $location }}
+      {{ $href := "" }}
+      {{ if $url }}
+        {{ $href = $url }}
+        {{ if not (or (hasPrefix $url "http://") (hasPrefix $url "https://")) }}
+          {{ $href = $url | relURL }}
+        {{ end }}
+      {{ end }}
+      <p class="city-note">
+        {{ $label }}
+        {{ if $href }}
+          <a href="{{ $href }}">{{ $location }}</a>
+        {{ else }}
+          {{ $location }}
+        {{ end }}.
+      </p>
+    {{ end }}
   {{ end }}
   {{ with .Site.Params.description }}
   <p class="site-description">{{

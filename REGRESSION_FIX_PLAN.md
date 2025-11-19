@@ -92,15 +92,40 @@ Add specific styling for copyright and footer links to match prototype design.
 
 ---
 
+## Issue 5: Footer + Newsletter Content Mismatch (MAJOR)
+
+### Problem
+The live site footer still shows the legacy Micro.blog subscribe button, omits the “Made in Seattle” line, and does not surface the Colophon link—even though the local preview includes all three elements.
+
+### Root Cause
+The new footer components depend on structured configuration (`newsletter.action`, `city_tagline`, `colophonURL`, `mailchimp_honeypot`) that is undocumented and partially incompatible with the old single-string `city_tagline`.
+
+### Solution
+Document the required configuration, provide a working sample config, and update the footer partial so it gracefully accepts both the new object format and the legacy single string.
+
+**Files:**
+- `docs/configuration.md`
+- `config.json`
+- `layouts/partials/site-footer.html`
+
+**Changes:**
+- Add Mailchimp + footer configuration guidance with concrete JSON (matching the screenshot/local preview)
+- Ship a sample `config.json` with the Mailchimp form, Seattle footer line, and Colophon URL enabled
+- Update the footer partial to detect whether `city_tagline` is a string or map so existing installs do not break
+
+---
+
 ## Implementation Checklist
 
-- [x] Analyzed all 4 regression issues
-- [ ] Created REGRESSION_FIX_PLAN.md
-- [ ] Fixed featured image placement
-- [ ] Enhanced category badge styling
-- [ ] Fixed newsletter centering
-- [ ] Refined footer styling
-- [ ] Updated version to 0.1.7
+- [x] Analyzed all 5 regression issues
+- [x] Created REGRESSION_FIX_PLAN.md
+- [x] Fixed featured image placement
+- [x] Enhanced category badge styling
+- [x] Fixed newsletter centering
+- [x] Refined footer styling
+- [x] Updated version to 0.1.7
+- [x] Documented Mailchimp/footer configuration requirements
+- [x] Added backwards-compatible footer rendering logic
 - [ ] Committed and pushed changes
 - [ ] Tested on live site
 
