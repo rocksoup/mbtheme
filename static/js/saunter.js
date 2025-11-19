@@ -104,53 +104,84 @@ function refreshSeattleCam() {
 }
 
 function setupSearch() {
-  const form = document.querySelector(".search-page form");
+  const form = document.querySelector("[data-search-form]");
   const resultsContainer = document.querySelector("[data-search-results]");
   if (!form || !resultsContainer) return;
 
   const input = form.querySelector("input[name=\"q\"]");
-  const query = input.value.trim();
-  if (!query) return;
+  const searchButton = form.querySelector("button[type=\"submit\"]");
 
-  fetch(`/search.json?q=${encodeURIComponent(query)}`)
-    .then(response => response.json())
-    .then(data => {
-      resultsContainer.innerHTML = "";
-      if (!data || data.length === 0) {
-        resultsContainer.innerHTML = "<p>No matches found.</p>";
-        return;
-      }
+  const params = new URLSearchParams(window.location.search);
+  const initialQuery = params.get("q") || "";
+  if (initialQuery) {
+    input.value = initialQuery;
+    fetchResults(initialQuery);
+  }
 
-      const list = document.createElement("div");
-      list.className = "search-results-list";
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const query = input.value.trim();
+    if (!query) return;
 
-      data.forEach(item => {
-        const article = document.createElement("article");
-        article.className = "search-result";
+    const url = new URL(window.location.href);
+    url.searchParams.set("q", query);
+    window.history.replaceState({}, "", url);
 
-        const title = document.createElement("h2");
-        const link = document.createElement("a");
-        link.href = item.url;
-        link.textContent = item.title || item.summary || item.url;
-        title.appendChild(link);
+    fetchResults(query);
+  });
 
-        const meta = document.createElement("p");
-        meta.className = "search-result-meta";
-        meta.textContent = item.date || "";
+  function setLoading(state) {
+    if (!searchButton) return;
+    searchButton.disabled = state;
+    searchButton.textContent = state ? "Searching…" : "Search";
+  }
 
-        const summary = document.createElement("p");
-        summary.className = "search-result-summary";
-        summary.textContent = item.summary || "";
+  function fetchResults(query) {
+    setLoading(true);
+    resultsContainer.innerHTML = "<p>Searching…</p>";
+    fetch(`/search.json?q=${encodeURIComponent(query)}`)
+      .then(response => response.json())
+      .then(data => {
+        resultsContainer.innerHTML = "";
+        if (!data || data.length === 0) {
+          resultsContainer.innerHTML = "<p>No matches found.</p>";
+          return;
+        }
 
-        article.appendChild(title);
-        if (item.date) article.appendChild(meta);
-        if (item.summary) article.appendChild(summary);
-        list.appendChild(article);
+        const list = document.createElement("div");
+        list.className = "search-results-list";
+
+        data.forEach(item => {
+          const article = document.createElement("article");
+          article.className = "search-result";
+
+          const title = document.createElement("h2");
+          const link = document.createElement("a");
+          link.href = item.url;
+          link.textContent = item.title || item.summary || item.url;
+          title.appendChild(link);
+
+          const meta = document.createElement("p");
+          meta.className = "search-result-meta";
+          meta.textContent = item.date || "";
+
+          const summary = document.createElement("p");
+          summary.className = "search-result-summary";
+          summary.textContent = item.summary || "";
+
+          article.appendChild(title);
+          if (item.date) article.appendChild(meta);
+          if (item.summary) article.appendChild(summary);
+          list.appendChild(article);
+        });
+
+        resultsContainer.appendChild(list);
+      })
+      .catch(() => {
+        resultsContainer.innerHTML = "<p>Unable to load results right now.</p>";
+      })
+      .finally(() => {
+        setLoading(false);
       });
-
-      resultsContainer.appendChild(list);
-    })
-    .catch(() => {
-      resultsContainer.innerHTML = "<p>Unable to load results right now.</p>";
-    });
+  }
 }
