@@ -1,0 +1,12 @@
+name = "Saunter"
+license = "MIT"
+licenselink = "https://github.com/rocksoup/mbtheme/blob/main/LICENSE"
+description = "An editorial-style Hugo theme for Micro.blog with built-in support for dark mode, category badges, and newsletter integration"
+homepage = "https://github.com/rocksoup/mbtheme"
+tags = ["blog", "micro.blog", "editorial", "dark-mode", "responsive", "minimal"]
+features = ["Dark Mode", "Newsletter Integration", "Category Badges", "Search", "Responsive Design", "Location Pages"]
+min_version = "0.91"
+
+[author]
+  name = "Jared Stoneberg"
+  homepage = "https://github.com/rocksoup"
