@@ -1,0 +1,27 @@
+{
+  "title": "Saunter Demo Site",
+  "description": "A demo site showcasing the Saunter theme for Micro.blog",
+  "author": {
+    "name": "Demo User",
+    "url": "https://example.micro.blog"
+  },
+  "params": {
+    "description": "Exploring design, technology, and ideas",
+    "city_tagline": "Seattle, WA",
+    "show_categories": true,
+    "dark_mode": "auto",
+    "newsletter": {
+      "enabled": true,
+      "title": "Subscribe to the newsletter",
+      "copy": "Get updates on new posts and projects.",
+      "action": "https://micro.blog/users/follow",
+      "method": "post",
+      "placeholder": "you@email.com",
+      "button": "Subscribe"
+    },
+    "social": {
+      "twitter": "yourusername",
+      "github": "yourusername"
+    }
+  }
+}

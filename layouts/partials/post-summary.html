@@ -1,0 +1,40 @@
+{{- $image := "" -}}
+{{- with .Params.featured_image }}{{ $image = . }}{{ end -}}
+{{- if not $image }}
+  {{- with .Params.image }}{{ $image = . }}{{ end -}}
+{{- end -}}
+{{- if not $image }}
+  {{- with .Params.images }}{{ if gt (len .) 0 }}{{ $image = index . 0 }}{{ end }}{{ end -}}
+{{- end -}}
+
+{{- $title := .Title -}}
+{{- if not $title }}
+  {{- $title = (.Summary | plainify | truncate 80) -}}
+{{- end -}}
+{{- $showTitle := and $title (not .Params.microblog) -}}
+
+<article class="post-summary">
+  {{ if $image }}
+  <a class="image-link" href="{{ .RelPermalink }}">
+    <img src="{{ $image | absURL }}" alt="" class="summary-image" loading="lazy">
+  </a>
+  {{ end }}
+
+  {{ if $showTitle }}
+  <h2><a href="{{ .RelPermalink }}">{{ $title }}</a></h2>
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <div class="meta">
+    <a class="post-date" href="{{ .RelPermalink }}">{{ .Date.Format "January 2, 2006" }}</a>
+    {{ with .Params.bookmark_of }}
+    <a class="bookmark-link" href="{{ . }}" rel="noopener" target="_blank">Source ↗</a>
+    {{ end }}
+    {{ range .Params.categories }}
+      {{ partial "category-badge.html" . }}
+    {{ end }}
+  </div>
+</article>

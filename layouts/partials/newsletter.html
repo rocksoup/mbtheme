@@ -1,0 +1,41 @@
+{{- $newsletter := .Site.Params.newsletter -}}
+{{- $enabled := true -}}
+{{- if $newsletter }}
+  {{- if isset $newsletter "enabled" }}
+    {{- $enabled = $newsletter.enabled -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $enabled }}
+  {{- $title := "Subscribe to the newsletter" -}}
+  {{- $copy := "Updates on new posts and prototypes, straight to your inbox." -}}
+  {{- $placeholder := "your@email.com" -}}
+  {{- $button := "Subscribe" -}}
+  {{- $action := "" -}}
+  {{- $method := "post" -}}
+
+  {{- with $newsletter }}
+    {{- with .title }}{{ $title = . }}{{ end -}}
+    {{- with .copy }}{{ $copy = . }}{{ end -}}
+    {{- with .placeholder }}{{ $placeholder = . }}{{ end -}}
+    {{- with .button }}{{ $button = . }}{{ end -}}
+    {{- with .action }}{{ $action = . }}{{ end -}}
+    {{- with .method }}{{ $method = . }}{{ end -}}
+  {{- end }}
+
+  <div class="newsletter">
+    <h3>{{ $title }}</h3>
+    {{ if $action }}
+    <form class="newsletter-form" action="{{ $action }}" method="{{ $method }}" target="_blank">
+      <label for="newsletter-email" class="sr-only">Email address</label>
+      <input id="newsletter-email" type="email" name="EMAIL" placeholder="{{ $placeholder }}" required>
+      {{ with .Site.Params.mailchimp_honeypot }}
+      <input type="text" name="{{ . }}" tabindex="-1" aria-hidden="true" class="mc-honeypot">
+      {{ end }}
+    <button type="submit">{{ $button }}</button>
+    </form>
+    {{ else }}
+    <a class="button" href="https://micro.blog/users/follow">Subscribe on Micro.blog</a>
+    {{ end }}
+  </div>
+{{- end }}

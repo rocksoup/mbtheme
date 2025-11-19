@@ -1,0 +1,37 @@
+{{ define "main" }}
+  {{ $sections := .Site.Params.mainSections }}
+  {{ if not $sections }}
+    {{ $sections = slice }}
+  {{ end }}
+
+  {{ $pages := .Site.RegularPages }}
+  {{ if gt (len $sections) 0 }}
+    {{ $pages = where $pages "Type" "in" $sections }}
+  {{ else }}
+    {{ $pages = where $pages "Section" "matches" "^[0-9]{4}$" }}
+  {{ end }}
+
+  {{ $paginator := .Paginate $pages }}
+
+  {{ range $paginator.Pages }}
+    {{ partial "post-summary.html" . }}
+  {{ end }}
+
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="pagination" aria-label="Pagination">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL | relURL }}">← Newer</a>
+    {{ else }}
+    <span class="disabled">← Newer</span>
+    {{ end }}
+
+    <span>Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL | relURL }}">Older →</a>
+    {{ else }}
+    <span class="disabled">Older →</span>
+    {{ end }}
+  </nav>
+  {{ end }}
+{{ end }}
