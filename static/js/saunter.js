@@ -97,7 +97,7 @@ function refreshSeattleCam() {
   if (!camImg) return;
   const baseSrc = camImg.getAttribute("data-src") || camImg.src;
   const ts = Date.now();
-  const url = new URL(baseSrc, window.location.origin);
+  const url = new URL(baseSrc);
   url.searchParams.set("cachebust", ts);
   camImg.src = url.toString();
 }
