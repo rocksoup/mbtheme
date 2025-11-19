@@ -676,6 +676,17 @@ body.saunter.dark-mode .category-badge .emoji {
   font-size: var(--font-size-base);
 }
 
+.search-form button {
+  margin-left: 0.75rem;
+  padding: 0.45rem 1.25rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--color-link);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .search-results-list {
   display: flex;
   flex-direction: column;
