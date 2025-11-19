@@ -1,2 +1,205 @@
-# mbtheme
-Micro.blog theme for https://noise.stoneberg.net
+# Saunter
+
+An editorial-style Hugo theme for Micro.blog with built-in support for Pinboard integration, dark mode, and newsletter signup.
+
+<!-- TODO: Add screenshot -->
+<!-- ![Saunter Theme Screenshot](screenshot.png) -->
+
+## Features
+
+- **Editorial Card Layout** – Each post rendered as a full article with clean typography
+- **Dark Mode Support** – Automatic theme switching based on system preferences with manual toggle
+- **Category Badges** – Visual organization with emoji-based category tags
+- **Built-in Search** – Integrates with Micro.blog's Search plugin
+- **Newsletter Integration** – Configurable signup form for building your audience
+- **Responsive Design** – Looks great on desktop, tablet, and mobile
+- **Pinboard-Aware** – Designed to work seamlessly with Pinboard bookmark sync
+- **Location Pages** – Optional city/location page template (e.g., `/seattle`)
+
+## Installation
+
+### For Micro.blog Hosted Sites
+
+1. Go to your Micro.blog dashboard
+2. Navigate to **Design → Edit Custom Theme**
+3. Click **Clone Theme** and enter this repository URL:
+   ```
+   https://github.com/rocksoup/mbtheme
+   ```
+4. Micro.blog will automatically pull the theme and apply it to your site
+
+The theme will be live immediately. Any updates you push to the repository will be pulled automatically by Micro.blog.
+
+### For Custom Hosting
+
+If you're self-hosting with Hugo:
+
+```bash
+cd your-site
+git clone https://github.com/rocksoup/mbtheme.git themes/saunter
+```
+
+Then set the theme in your `config.toml`:
+
+```toml
+theme = "saunter"
+```
+
+## Quick Start
+
+### Basic Configuration
+
+Add these parameters to your site's `config.json`:
+
+```json
+{
+  "params": {
+    "description": "Your site tagline",
+    "city_tagline": "Your City, State",
+    "newsletter": {
+      "enabled": true,
+      "title": "Subscribe to the newsletter",
+      "copy": "Get updates on new posts.",
+      "action": "https://micro.blog/users/follow",
+      "method": "post",
+      "placeholder": "you@email.com",
+      "button": "Subscribe"
+    }
+  }
+}
+```
+
+### Adding the Search Plugin
+
+1. In Micro.blog, go to **Design → Plug-ins**
+2. Click **Find Plug-ins**
+3. Search for "Search Page" and click **Install**
+4. Enable the plugin
+
+The search page will automatically be added to your navigation.
+
+## Documentation
+
+- **[Configuration Guide](docs/configuration.md)** – Complete guide to all theme options
+- **[Customization Guide](docs/customization.md)** – How to customize colors, fonts, and layouts
+- **[Development Guide](docs/development.md)** – Local testing and theme development
+
+## Theme Structure
+
+```
+mbtheme/
+├── config.json               # Theme metadata and default params
+├── layouts/
+│   ├── _default/
+│   │   ├── baseof.html       # Base template with header/footer
+│   │   ├── list.html         # Archive and section pages
+│   │   ├── single.html       # Individual post view
+│   │   ├── taxonomy.html     # Category/tag detail pages
+│   │   └── terms.html        # Category/tag index
+│   ├── index.html            # Homepage timeline
+│   ├── location/
+│   │   └── single.html       # Custom location page template
+│   └── partials/
+│       ├── category-badge.html
+│       ├── head.html
+│       ├── newsletter.html
+│       ├── post-summary.html
+│       ├── site-footer.html
+│       └── site-header.html
+└── static/
+    ├── css/main.css          # Theme styles
+    └── js/saunter.js         # Theme toggle and utilities
+```
+
+## Customization Examples
+
+### Custom Colors
+
+Create `static/css/custom.css` in your site:
+
+```css
+:root {
+  --primary-color: #your-color;
+  --background-color: #your-bg;
+}
+```
+
+### Disable Newsletter
+
+```json
+{
+  "params": {
+    "newsletter": {
+      "enabled": false
+    }
+  }
+}
+```
+
+### Custom City Page
+
+Create `content/seattle.md`:
+
+```yaml
+---
+title: "Seattle"
+type: "location"
+---
+
+Your content about your city...
+```
+
+## Development
+
+To test the theme locally:
+
+```bash
+# Clone the theme
+git clone https://github.com/rocksoup/mbtheme.git
+
+# Create a test site
+hugo new site test-site
+cd test-site
+ln -s /path/to/mbtheme themes/saunter
+
+# Run Hugo
+hugo server
+```
+
+See the [Development Guide](docs/development.md) for more details.
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## Requirements
+
+- Micro.blog hosted site or Hugo Extended 0.100+
+- Optional: Micro.blog Search plugin for search functionality
+
+## Credits
+
+- **Design Inspiration:** Wonky Editorial prototype
+- **Author:** [Jared Stoneberg](https://github.com/rocksoup)
+- **License:** MIT
+
+## Support
+
+- 📖 [Documentation](docs/)
+- 🐛 [Issue Tracker](https://github.com/rocksoup/mbtheme/issues)
+- 💬 [Micro.blog Community](https://micro.blog/help)
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and updates.
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+Made with ❤️ for the Micro.blog community

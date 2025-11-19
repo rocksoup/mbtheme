@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+{{ partial "head.html" . }}
+<body class="saunter">
+  {{ partial "site-header.html" . }}
+
+  <main id="main-content">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "site-footer.html" . }}
+
+  <script src="{{ "js/saunter.js" | relURL }}" defer></script>
+  {{ range .Site.Params.plugins_js }}
+  <script src="{{ . }}" defer></script>
+  {{ end }}
+</body>
+</html>

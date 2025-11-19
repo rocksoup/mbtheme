@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <section class="location-hero">
+    <h1>{{ .Title }}</h1>
+  </section>
+
+  {{ with .Params.hero_image }}
+  <figure class="location-hero-image">
+    {{ if hasPrefix . "http" }}
+      <img src="{{ . }}" data-src="{{ . }}" data-seattle-cam alt="Seattle waterfront live view" loading="lazy">
+    {{ else }}
+      <img src="{{ . | relURL }}" alt="Seattle waterfront live view" loading="lazy">
+    {{ end }}
+    {{ with $.Params.hero_caption }}
+    <figcaption>{{ . }}</figcaption>
+    {{ end }}
+  </figure>
+  {{ end }}
+
+  {{/* Newsletter only appears in footer */}}
+{{ end }}

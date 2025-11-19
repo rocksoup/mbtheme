@@ -1,0 +1,37 @@
+{{ define "main" }}
+  {{- $image := "" -}}
+  {{- with .Params.featured_image }}{{ $image = . }}{{ end -}}
+  {{- if not $image }}
+    {{- with .Params.image }}{{ $image = . }}{{ end -}}
+  {{- end -}}
+  {{- if not $image }}
+    {{- with .Params.images }}{{ if gt (len .) 0 }}{{ $image = index . 0 }}{{ end }}{{ end -}}
+  {{- end -}}
+
+  <article class="post-detail">
+    {{ if $image }}
+    <img src="{{ $image | absURL }}" alt="" class="detail-image" loading="lazy">
+    {{ end }}
+
+    <header>
+      <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
+      {{ if .Title }}
+      <h1>{{ .Title }}</h1>
+      {{ end }}
+    </header>
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <div class="meta badges">
+      {{ range .Params.categories }}
+        {{ partial "category-badge.html" . }}
+      {{ end }}
+
+      {{ with .Params.bookmark_of }}
+      <a class="bookmark-link" href="{{ . }}" rel="noopener" target="_blank">Original ↗</a>
+      {{ end }}
+    </div>
+  </article>
+{{ end }}

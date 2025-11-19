@@ -1,0 +1,13 @@
+{{- $category := . -}}
+{{- $lower := lower $category -}}
+{{- $emojiMap := dict "journal" "🗒️" "journals" "🗒️" "links" "🔗" "link" "🔗" "books" "📚" "book" "📚" "reading" "📚" "movies" "🎬" "movie" "🎬" "films" "🎬" "film" "🎬" "photos" "📷" "photo" "📷" "notes" "🗒️" -}}
+{{- $emoji := "🌀" -}}
+{{- if $emojiMap -}}
+  {{- with index $emojiMap $lower -}}
+    {{- $emoji = . -}}
+  {{- end -}}
+{{- end -}}
+<span class="category-badge">
+  <span class="emoji">{{ $emoji }}</span>
+  {{ $category }}
+</span>

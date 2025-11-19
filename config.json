@@ -1,0 +1,32 @@
+{
+  "name": "Saunter",
+  "description": "Editorial-style Micro.blog theme with full-content cards, category badges, dark mode, and newsletter integration.",
+  "version": "0.1.0",
+  "author": "Jared Stoneberg",
+  "params": {
+    "description": "A blog about design, technology, and ideas.",
+    "author_name": "Your Name",
+    "author_username": "yourusername",
+    "city_tagline": {
+      "text": "Made with ❤️ in",
+      "location": "Your City",
+      "url": "/your-city/"
+    },
+    "mainSections": ["post", "posts"],
+    "colophonURL": "/colophon/",
+    "rssURL": "feed.json",
+    "newsletter": {
+      "enabled": true,
+      "title": "Subscribe to the newsletter",
+      "copy": "Get updates on new posts and projects.",
+      "placeholder": "you@email.com",
+      "button": "Subscribe",
+      "action": "https://micro.blog/users/follow",
+      "method": "post"
+    }
+  },
+  "microblog": {
+    "type": "theme",
+    "requires_version": "2.0"
+  }
+}
