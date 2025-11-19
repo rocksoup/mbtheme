@@ -304,6 +304,12 @@ article.post-summary + article.post-summary {
   display: none;
 }
 
+body.saunter.page .post-title,
+body.saunter.page .badges,
+body.saunter.page .post-date {
+  display: none;
+}
+
 body.saunter .post-categories,
 body.saunter .post-actions {
   display: none !important;
