@@ -1,0 +1,65 @@
+{{ define "main" }}
+  <section class="colophon">
+    <header>
+      <h1>Colophon</h1>
+      <p class="lead">System notes for Saunter — how the publishing stack fits together.</p>
+    </header>
+
+    <article>
+      <h2>Purpose</h2>
+      <p>Saunter is my personal link log. Pinboard bookmarks flow into Micro.blog via the <code>microintegrations</code> middleware, so this page captures what powers the site for future me (or another builder).</p>
+    </article>
+
+    <article>
+      <h2>Platform &amp; Hosting</h2>
+      <ul>
+        <li><strong>Engine:</strong> Hugo compiled by Micro.blog with this Saunter theme bundled in the repo.</li>
+        <li><strong>Hosting:</strong> Micro.blog serves the static site and handles uploads.</li>
+        <li><strong>Automation:</strong> GitHub Actions in <a href="https://github.com/rocksoup/microintegrations">microintegrations</a> sync Pinboard to Micro.blog every hour and commit updates.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h2>Theme &amp; Front-end</h2>
+      <ul>
+        <li><strong>Theme:</strong> Custom Saunter theme (Fraunces for headings, Inter for body text, palette inspired by the Wonky Editorial prototype).</li>
+        <li><strong>Components:</strong>
+          <ul>
+            <li>Timeline cards render full content with category badges.</li>
+            <li>The <code>/seattle</code> live cam pulls a fresh waterfront frame on each page load.</li>
+            <li>Light/dark toggle respects local time, OS preference, and manual overrides stored in <code>localStorage</code>.</li>
+          </ul>
+        </li>
+        <li><strong>Assets:</strong> Fonts from Google Fonts; icons are inline SVGs.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h2>Newsletter &amp; Forms</h2>
+      <ul>
+        <li><strong>Provider:</strong> Mailchimp audience <code>f981f7d258</code>. Footer opt-ins post directly to Mailchimp with a honeypot field.</li>
+        <li><strong>Search roadmap:</strong> <code>/search</code> embeds user-scoped search results so readers stay on-site while scanning the archives.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h2>Middleware</h2>
+      <ul>
+        <li><strong>Repository:</strong> <a href="https://github.com/rocksoup/microintegrations">github.com/rocksoup/microintegrations</a></li>
+        <li><strong>Scripts:</strong> <code>scripts/microblog-sync.mjs</code> orchestrates Pinboard RSS → Micro.blog posts.</li>
+        <li><strong>Env Vars:</strong> <code>PINBOARD_MICROBLOG_FEED_URL</code>, <code>MICROBLOG_TOKEN</code>, <code>DRY_RUN</code>.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h2>Credits &amp; Thanks</h2>
+      <ul>
+        <li>Micro.blog for the platform and Micro.blog API.</li>
+        <li>Pinboard for the simple RSS feed powering the integration.</li>
+        <li>The waterfront facing live cam embedded on <code>/seattle</code>.</li>
+        <li>Everyone filing issues in this repo—you shape the roadmap.</li>
+      </ul>
+      <p>If you notice something broken or want to borrow ideas, <a href="https://github.com/rocksoup/mbtheme/issues">open an issue</a> or ping me on Micro.blog <a href="https://micro.blog/jfunk">@jfunk</a>.</p>
+    </article>
+  </section>
+{{ end }}

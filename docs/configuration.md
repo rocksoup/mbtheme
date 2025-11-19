@@ -174,6 +174,25 @@ To match the local preview footer (Seattle note, Colophon link, updated copyrigh
 - `colophonURL` should point to an existing page on your site; it's optional, but the footer link only appears when provided.
 - `author_name` lets you control the copyright text without changing the site title.
 
+## Colophon Page
+
+Saunter ships with a dedicated Colophon layout that mirrors the local preview above. To enable it on Micro.blog:
+
+1. Create a new page in the Micro.blog dashboard (or add `content/colophon.md` in your repo).
+2. Set the page's `type` to `colophon` in the front matter. Example:
+
+```markdown
+---
+title: "Colophon"
+type: "colophon"
+url: "/colophon/"
+menu: "main"
+weight: 100
+---
+```
+
+The layout renders the purpose, stack, middleware, and credits text automatically, so the body of the page can stay blank. Update `url`/`menu` to place the Colophon link wherever you want.
+
 ## Search Functionality
 
 The Saunter theme supports Micro.blog's built-in Search plugin.
