@@ -1,5 +1,7 @@
-<footer class="site-footer">
+<footer class="site-footer{{ if eq .Type "location" }} location-footer{{ end }}">
+  {{ if ne .Type "location" }}
   {{ partial "newsletter.html" . }}
+  {{ end }}
 
   {{ with .Site.Params.city_tagline }}
   <p class="city-note">{{ or .text "Made with ❤️ in" }} <a href="{{ .url | relURL }}">{{ .location }}</a>.</p>
@@ -24,6 +26,8 @@
     </a>
   </div>
 
+  {{ if ne .Type "location" }}
   {{- $author := or .Site.Params.author_name .Site.Title -}}
   <p class="copyright">© {{ now.Format "2006" }} {{ $author }}</p>
+  {{ end }}
 </footer>
