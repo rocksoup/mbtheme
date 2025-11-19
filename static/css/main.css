@@ -304,6 +304,11 @@ article.post-summary + article.post-summary {
   display: none;
 }
 
+body.saunter .post-categories,
+body.saunter .post-actions {
+  display: none !important;
+}
+
 .image-link {
   display: block;
   margin-bottom: var(--space-4);

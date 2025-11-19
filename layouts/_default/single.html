@@ -14,9 +14,17 @@
       {{ end }}
     {{ end }}
 
-    {{ with $featuredImage }}
+    {{ $renderFeatured := false }}
+    {{ if and $featuredImage (not .Params.hide_featured_image) }}
+      {{ $renderFeatured = true }}
+      {{ if in .Content $featuredImage }}
+        {{ $renderFeatured = false }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $renderFeatured }}
     <div class="featured-image">
-      <img src="{{ . }}" alt="{{ $.Title }}" />
+      <img src="{{ $featuredImage }}" alt="{{ .Title }}" />
     </div>
     {{ end }}
 
