@@ -8,7 +8,7 @@
 
 {{- if $enabled }}
   {{- $title := "Subscribe to the newsletter" -}}
-  {{- $copy := "Updates on new posts and prototypes, straight to your inbox." -}}
+  {{- $copy := "" -}}
   {{- $placeholder := "your@email.com" -}}
   {{- $button := "Subscribe" -}}
   {{- $action := "" -}}
@@ -25,7 +25,9 @@
 
   <div class="newsletter">
     <h3>{{ $title }}</h3>
+    {{ if $copy }}
     <p>{{ $copy }}</p>
+    {{ end }}
     {{ if $action }}
     <form class="newsletter-form" action="{{ $action }}" method="{{ $method }}" target="_blank">
       <label for="newsletter-email" class="sr-only">Email address</label>
