@@ -294,6 +294,16 @@ article.post-summary + article.post-summary {
   border-left: 2px solid var(--color-border);
 }
 
+.post-detail .content img {
+  max-width: 100%;
+  height: auto;
+  margin: var(--space-4) 0;
+}
+
+.post-detail .microblog-conversation {
+  display: none;
+}
+
 .image-link {
   display: block;
   margin-bottom: var(--space-4);
