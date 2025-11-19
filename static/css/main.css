@@ -451,6 +451,11 @@ body.saunter.dark-mode .newsletter-form input[type="email"] {
   text-align: center;
 }
 
+.site-footer.location-footer {
+  border-top: none;
+  padding-top: 0;
+}
+
 .city-note {
   font-size: 0.95rem;
   margin: 0 0 var(--space-4);
