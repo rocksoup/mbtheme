@@ -71,6 +71,8 @@ Use Micro.blog's built-in newsletter functionality:
 }
 ```
 
+> Leave out the `copy` key (or set it to an empty string) if you want to hide the subtitle under “Subscribe to the newsletter.”
+
 **How to enable:**
 1. In Micro.blog dashboard, go to **Posts → Design → Newsletter**
 2. Enable the newsletter feature
@@ -107,6 +109,8 @@ Use Mailchimp with an RSS-triggered campaign:
   }
 }
 ```
+
+The subtitle is optional here as well—omit `copy` to match the clean prototype footer.
 
 Add the hidden honeypot input Mailchimp provides as `mailchimp_honeypot`:
 

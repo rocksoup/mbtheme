@@ -1,0 +1,41 @@
+{{ define "main" }}
+  <article class="post-detail">
+    {{/* Featured image rendering - check featured_image first, then image, then images[0] */}}
+    {{ $featuredImage := "" }}
+    {{ if .Params.featured_image }}
+      {{ $featuredImage = .Params.featured_image }}
+    {{ else if .Params.image }}
+      {{ $featuredImage = .Params.image }}
+    {{ else }}
+      {{ with .Params.images }}
+        {{ if gt (len .) 0 }}
+          {{ $featuredImage = index . 0 }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ with $featuredImage }}
+    <div class="featured-image">
+      <img src="{{ . }}" alt="{{ $.Title }}" />
+    </div>
+    {{ end }}
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    {{ if .Title }}
+    <p class="meta post-title">
+      {{ .Title }}{{ with .Params.bookmark_of }} (via <a href="{{ . }}" rel="noopener" target="_blank">{{ . | replaceRE "^https?://(www\\.)?" "" | replaceRE "/.*$" "" | title }}</a>){{ end }}
+    </p>
+    {{ end }}
+
+    <div class="meta badges">
+      {{ range .Params.categories }}
+        {{ partial "category-badge.html" . }}
+      {{ end }}
+    </div>
+
+    <p class="meta post-date">{{ .Date.Format "January 2, 2006" }}</p>
+  </article>
+{{ end }}
