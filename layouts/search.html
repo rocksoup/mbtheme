@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <section class="search-page">
+    <h1>Search</h1>
+    <form class="search-form" action="{{ "/search" | relURL }}" method="get">
+      <label for="search-query" class="sr-only">Search</label>
+      <input
+        id="search-query"
+        class="search-input"
+        type="search"
+        name="q"
+        value="{{ .Get "q" }}"
+        placeholder="Search posts..."
+        required>
+    </form>
+
+    <div id="search-results" data-search-results></div>
+  </section>
+{{ end }}

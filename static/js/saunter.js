@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeTheme();
   setupThemeToggle();
   refreshSeattleCam();
+  setupSearch();
 });
 
 function refreshSeattleCam() {
@@ -100,4 +101,56 @@ function refreshSeattleCam() {
   const url = new URL(baseSrc);
   url.searchParams.set("cachebust", ts);
   camImg.src = url.toString();
+}
+
+function setupSearch() {
+  const form = document.querySelector(".search-page form");
+  const resultsContainer = document.querySelector("[data-search-results]");
+  if (!form || !resultsContainer) return;
+
+  const input = form.querySelector("input[name=\"q\"]");
+  const query = input.value.trim();
+  if (!query) return;
+
+  fetch(`/search.json?q=${encodeURIComponent(query)}`)
+    .then(response => response.json())
+    .then(data => {
+      resultsContainer.innerHTML = "";
+      if (!data || data.length === 0) {
+        resultsContainer.innerHTML = "<p>No matches found.</p>";
+        return;
+      }
+
+      const list = document.createElement("div");
+      list.className = "search-results-list";
+
+      data.forEach(item => {
+        const article = document.createElement("article");
+        article.className = "search-result";
+
+        const title = document.createElement("h2");
+        const link = document.createElement("a");
+        link.href = item.url;
+        link.textContent = item.title || item.summary || item.url;
+        title.appendChild(link);
+
+        const meta = document.createElement("p");
+        meta.className = "search-result-meta";
+        meta.textContent = item.date || "";
+
+        const summary = document.createElement("p");
+        summary.className = "search-result-summary";
+        summary.textContent = item.summary || "";
+
+        article.appendChild(title);
+        if (item.date) article.appendChild(meta);
+        if (item.summary) article.appendChild(summary);
+        list.appendChild(article);
+      });
+
+      resultsContainer.appendChild(list);
+    })
+    .catch(() => {
+      resultsContainer.innerHTML = "<p>Unable to load results right now.</p>";
+    });
 }
