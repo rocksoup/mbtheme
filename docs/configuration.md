@@ -25,9 +25,15 @@ Add these parameters to your Micro.blog site configuration (`config.json` or `hu
 {
   "params": {
     "description": "Your site tagline or description",
-    "city_tagline": "Seattle, WA",
+    "city_tagline": {
+      "text": "Made with ❤️ in",
+      "location": "Seattle, Washington",
+      "url": "/location/"
+    },
     "show_categories": true,
-    "dark_mode": "auto"
+    "dark_mode": "auto",
+    "author_name": "Your Name",
+    "colophonURL": "/colophon/"
   }
 }
 ```
@@ -35,9 +41,11 @@ Add these parameters to your Micro.blog site configuration (`config.json` or `hu
 #### Available Parameters
 
 - `description` (string) – Site description shown in the header
-- `city_tagline` (string) – Optional city/location shown in footer (e.g., "Seattle, WA")
+- `city_tagline` (string or object) – Footer location line. Use a simple string (`"Seattle, WA"`) for text-only output or provide an object with `text`, `location`, and `url` keys to match the “Made with ❤️ in Seattle, Washington” preview.
 - `show_categories` (boolean) – Enable/disable category badges on posts
 - `dark_mode` (string) – Options: `"auto"`, `"light"`, `"dark"`
+- `author_name` (string) – Explicit author name for footer copyright (falls back to site title)
+- `colophonURL` (string) – Relative URL used for the “Colophon” footer link
 
 ## Newsletter Integration
 
@@ -100,6 +108,18 @@ Use Mailchimp with an RSS-triggered campaign:
 }
 ```
 
+Add the hidden honeypot input Mailchimp provides as `mailchimp_honeypot`:
+
+```json
+{
+  "params": {
+    "mailchimp_honeypot": "b_abc123_def456"
+  }
+}
+```
+
+This keeps the embedded form identical to the working local preview and helps block spambots that submit the extra hidden field.
+
 **How to set up:**
 1. Create a Mailchimp account and audience
 2. Set up an RSS-triggered campaign pointing to your Micro.blog feed
@@ -131,6 +151,28 @@ To remove the newsletter form entirely:
   }
 }
 ```
+
+## Footer Enhancements
+
+To match the local preview footer (Seattle note, Colophon link, updated copyright), configure the following:
+
+```json
+{
+  "params": {
+    "city_tagline": {
+      "text": "Made with ❤️ in",
+      "location": "Seattle, Washington",
+      "url": "/location/"
+    },
+    "colophonURL": "/colophon/",
+    "author_name": "Saunter"
+  }
+}
+```
+
+- `city_tagline` accepts either the object shown above (for linked text) or a simple string (`"Seattle, WA"`) if you only need the location label.
+- `colophonURL` should point to an existing page on your site; it's optional, but the footer link only appears when provided.
+- `author_name` lets you control the copyright text without changing the site title.
 
 ## Search Functionality
 

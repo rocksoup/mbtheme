@@ -6,13 +6,17 @@
       {{ $featuredImage = .Params.featured_image }}
     {{ else if .Params.image }}
       {{ $featuredImage = .Params.image }}
-    {{ else if .Params.images }}
-      {{ $featuredImage = index .Params.images 0 }}
+    {{ else }}
+      {{ with .Params.images }}
+        {{ if gt (len .) 0 }}
+          {{ $featuredImage = index . 0 }}
+        {{ end }}
+      {{ end }}
     {{ end }}
 
-    {{ if $featuredImage }}
+    {{ with $featuredImage }}
     <div class="featured-image">
-      <img src="{{ $featuredImage }}" alt="{{ .Title }}" />
+      <img src="{{ . }}" alt="{{ $.Title }}" />
     </div>
     {{ end }}
 

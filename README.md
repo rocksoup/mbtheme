@@ -55,7 +55,13 @@ Add these parameters to your site's `config.json`:
 {
   "params": {
     "description": "Your site tagline",
-    "city_tagline": "Your City, State",
+    "city_tagline": {
+      "text": "Made with ❤️ in",
+      "location": "Your City, State",
+      "url": "/location/"
+    },
+    "colophonURL": "/colophon/",
+    "mailchimp_honeypot": "b_abc123_def456",
     "newsletter": {
       "enabled": true,
       "title": "Subscribe to the newsletter",
@@ -68,6 +74,8 @@ Add these parameters to your site's `config.json`:
   }
 }
 ```
+
+> Tip: `city_tagline` also accepts a simple string if you only need plain text, and the optional `mailchimp_honeypot` value should match the hidden field name Mailchimp generates for your audience.
 
 ### Adding the Search Plugin
 
