@@ -8,8 +8,9 @@
     {{ $label := "Made with ❤️ in" }}
     {{ $location := "" }}
     {{ $url := "" }}
+    {{ $cityType := printf "%T" $city }}
 
-    {{ if kindIs "map" $city }}
+    {{ if hasPrefix $cityType "map" }}
       {{ with index $city "text" }}{{ $label = . }}{{ end }}
       {{ with index $city "location" }}{{ $location = . }}{{ end }}
       {{ with index $city "url" }}{{ $url = . }}{{ end }}
