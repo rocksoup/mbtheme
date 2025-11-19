@@ -168,6 +168,26 @@ hugo server
 
 See the [Development Guide](docs/development.md) for more details.
 
+### Deploying Updates
+
+**IMPORTANT:** When pushing bug fixes or updates to the theme, you MUST increment the version number in `config.json` for Micro.blog to detect and pull the changes.
+
+```bash
+# 1. Make your changes to the theme files
+# 2. Update the version in config.json (e.g., "0.1.1" → "0.1.2")
+# 3. Commit and push to main
+git add .
+git commit -m "fix: your bug fix description"
+git push
+```
+
+Micro.blog monitors the `version` field in `config.json` to detect updates. Without incrementing this version, Micro.blog will not pull your latest changes from the main branch.
+
+**Version Numbering:**
+- Patch versions (0.1.x) - Bug fixes and minor changes
+- Minor versions (0.x.0) - New features
+- Major versions (x.0.0) - Breaking changes
+
 ## Browser Support
 
 - Chrome/Edge (latest)

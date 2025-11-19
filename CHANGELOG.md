@@ -5,6 +5,21 @@ All notable changes to the Saunter theme will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+**IMPORTANT:** The `version` field in `config.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch.
+
+## [0.1.1] - 2025-11-19
+
+### Changed
+- Restored `version` field in `config.json` for Micro.blog update detection
+- Updated deployment documentation in README with version increment requirements
+
+### Removed
+- GitHub releases workflow (now using version-based updates on main branch)
+
+### Documentation
+- Added "Deploying Updates" section to README
+- Added version increment reminders to CHANGELOG
+
 ## [0.1.0] - 2025-11-18
 
 ### Added

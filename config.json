@@ -1,6 +1,7 @@
 {
   "name": "Saunter",
   "description": "Posts from the PNW",
+  "version": "0.1.1",
   "author": "Jared Stoneberg",
   "params": {
     "description": "A blog about design, technology, and ideas.",
