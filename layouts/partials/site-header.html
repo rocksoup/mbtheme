@@ -6,7 +6,9 @@
   <nav class="primary-nav">
     {{ if .Site.Menus.main }}
       {{ range .Site.Menus.main }}
+        {{ if ne .Name "Search" }}
         <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a>
+        {{ end }}
       {{ end }}
     {{ else }}
       <a href="{{ "/" | relURL }}" class="{{ if .IsHome }}active{{ end }}">All</a>
