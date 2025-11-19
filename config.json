@@ -1,7 +1,6 @@
 {
   "name": "Saunter",
   "description": "Posts from the PNW",
-  "version": "0.1.0",
   "author": "Jared Stoneberg",
   "params": {
     "description": "A blog about design, technology, and ideas.",
@@ -14,15 +13,7 @@
     },
     "mainSections": ["post", "posts"],
     "colophonURL": "/colophon/",
-    "rssURL": "feed.json",
-    "newsletter": {
-      "enabled": true,
-      "title": "Subscribe to the newsletter",
-      "placeholder": "you@email.com",
-      "button": "Subscribe",
-      "action": "https://micro.blog/users/follow",
-      "method": "post"
-    }
+    "rssURL": "feed.json"
   },
   "microblog": {
     "type": "theme",
