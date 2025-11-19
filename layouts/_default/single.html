@@ -1,49 +1,64 @@
 {{ define "main" }}
-  <article class="post-detail">
-    {{/* Featured image rendering - check featured_image first, then image, then images[0] */}}
-    {{ $featuredImage := "" }}
-    {{ if .Params.featured_image }}
-      {{ $featuredImage = .Params.featured_image }}
-    {{ else if .Params.image }}
-      {{ $featuredImage = .Params.image }}
-    {{ else }}
-      {{ with .Params.images }}
-        {{ if gt (len .) 0 }}
-          {{ $featuredImage = index . 0 }}
+  {{ $isSearchPage := or (eq .RelPermalink "/search/") (eq .RelPermalink "/search") (eq .Params.layout "search") }}
+  {{ if $isSearchPage }}
+    <section class="search-page">
+      <div class="search-header">
+        <h1>Search</h1>
+        <form class="search-form" data-search-form action="/search/" method="get">
+          <label class="sr-only" for="search-query">Search</label>
+          <input id="search-query" type="search" name="q" placeholder="Search posts..." autocomplete="off">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      <div id="search-results" data-search-results></div>
+    </section>
+  {{ else }}
+    <article class="post-detail">
+      {{/* Featured image rendering - check featured_image first, then image, then images[0] */}}
+      {{ $featuredImage := "" }}
+      {{ if .Params.featured_image }}
+        {{ $featuredImage = .Params.featured_image }}
+      {{ else if .Params.image }}
+        {{ $featuredImage = .Params.image }}
+      {{ else }}
+        {{ with .Params.images }}
+          {{ if gt (len .) 0 }}
+            {{ $featuredImage = index . 0 }}
+          {{ end }}
         {{ end }}
       {{ end }}
-    {{ end }}
 
-    {{ $renderFeatured := false }}
-    {{ if and $featuredImage (not .Params.hide_featured_image) }}
-      {{ $renderFeatured = true }}
-      {{ if in .Content $featuredImage }}
-        {{ $renderFeatured = false }}
+      {{ $renderFeatured := false }}
+      {{ if and $featuredImage (not .Params.hide_featured_image) }}
+        {{ $renderFeatured = true }}
+        {{ if in .Content $featuredImage }}
+          {{ $renderFeatured = false }}
+        {{ end }}
       {{ end }}
-    {{ end }}
 
-    {{ if $renderFeatured }}
-    <div class="featured-image">
-      <img src="{{ $featuredImage }}" alt="{{ .Title }}" />
-    </div>
-    {{ end }}
-
-    <div class="content">
-      {{ .Content }}
-    </div>
-
-    {{ if .Title }}
-    <p class="meta post-title">
-      {{ .Title }}{{ with .Params.bookmark_of }} (via <a href="{{ . }}" rel="noopener" target="_blank">{{ . | replaceRE "^https?://(www\\.)?" "" | replaceRE "/.*$" "" | title }}</a>){{ end }}
-    </p>
-    {{ end }}
-
-    <div class="meta badges">
-      {{ range .Params.categories }}
-        {{ partial "category-badge.html" . }}
+      {{ if $renderFeatured }}
+      <div class="featured-image">
+        <img src="{{ $featuredImage }}" alt="{{ .Title }}" />
+      </div>
       {{ end }}
-    </div>
 
-    <p class="meta post-date">{{ .Date.Format "January 2, 2006" }}</p>
-  </article>
+      <div class="content">
+        {{ .Content }}
+      </div>
+
+      {{ if .Title }}
+      <p class="meta post-title">
+        {{ .Title }}{{ with .Params.bookmark_of }} (via <a href="{{ . }}" rel="noopener" target="_blank">{{ . | replaceRE "^https?://(www\\.)?" "" | replaceRE "/.*$" "" | title }}</a>){{ end }}
+      </p>
+      {{ end }}
+
+      <div class="meta badges">
+        {{ range .Params.categories }}
+          {{ partial "category-badge.html" . }}
+        {{ end }}
+      </div>
+
+      <p class="meta post-date">{{ .Date.Format "January 2, 2006" }}</p>
+    </article>
+  {{ end }}
 {{ end }}

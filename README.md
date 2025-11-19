@@ -64,8 +64,6 @@ Add these parameters to your site's `config.json`:
     "mailchimp_honeypot": "b_abc123_def456",
     "newsletter": {
       "enabled": true,
-      "title": "Subscribe to get updates in your inbox",
-      "copy": "",
       "action": "https://micro.blog/users/follow",
       "method": "post",
       "placeholder": "you@email.com",
@@ -75,7 +73,7 @@ Add these parameters to your site's `config.json`:
 }
 ```
 
-> Tip: `city_tagline` also accepts a simple string if you only need plain text, omit the `newsletter.copy` key to hide the subtitle, and the optional `mailchimp_honeypot` value should match the hidden field name Mailchimp generates for your audience.
+> Tip: `city_tagline` also accepts a simple string if you only need plain text, and the optional `mailchimp_honeypot` value should match the hidden field name Mailchimp generates for your audience.
 
 ### Adding the Search Plugin
 

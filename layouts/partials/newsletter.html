@@ -7,16 +7,12 @@
 {{- end -}}
 
 {{- if $enabled }}
-  {{- $title := "Subscribe to get updates in your inbox" -}}
-  {{- $copy := "" -}}
   {{- $placeholder := "your@email.com" -}}
   {{- $button := "Subscribe" -}}
   {{- $action := "" -}}
   {{- $method := "post" -}}
 
   {{- with $newsletter }}
-    {{- with .title }}{{ $title = . }}{{ end -}}
-    {{- with .copy }}{{ $copy = . }}{{ end -}}
     {{- with .placeholder }}{{ $placeholder = . }}{{ end -}}
     {{- with .button }}{{ $button = . }}{{ end -}}
     {{- with .action }}{{ $action = . }}{{ end -}}
@@ -24,10 +20,7 @@
   {{- end }}
 
   <div class="newsletter">
-    <h3>{{ $title }}</h3>
-    {{ if $copy }}
-    <p>{{ $copy }}</p>
-    {{ end }}
+    <h3>Subscribe to get updates in your inbox</h3>
     {{ if $action }}
     <form class="newsletter-form" action="{{ $action }}" method="{{ $method }}" target="_blank">
       <label for="newsletter-email" class="sr-only">Email address</label>
