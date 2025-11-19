@@ -60,8 +60,8 @@ Use Micro.blog's built-in newsletter functionality:
   "params": {
     "newsletter": {
       "enabled": true,
-      "title": "Subscribe to the newsletter",
-      "copy": "Updates on new posts and prototypes.",
+      "title": "Subscribe to get updates in your inbox",
+      "copy": "",
       "action": "https://micro.blog/users/follow",
       "method": "post",
       "placeholder": "you@email.com",
@@ -71,7 +71,7 @@ Use Micro.blog's built-in newsletter functionality:
 }
 ```
 
-> Leave out the `copy` key (or set it to an empty string) if you want to hide the subtitle under “Subscribe to the newsletter.”
+> Leave out the `copy` key (or set it to an empty string) if you want to hide the subtitle entirely.
 
 **How to enable:**
 1. In Micro.blog dashboard, go to **Posts → Design → Newsletter**
@@ -99,8 +99,8 @@ Use Mailchimp with an RSS-triggered campaign:
   "params": {
     "newsletter": {
       "enabled": true,
-      "title": "Subscribe via Mailchimp",
-      "copy": "Get new posts delivered to your inbox.",
+      "title": "Subscribe to get updates in your inbox",
+      "copy": "",
       "action": "https://yourlist.mailchimp.com/subscribe/post",
       "method": "post",
       "placeholder": "you@email.com",
@@ -110,7 +110,7 @@ Use Mailchimp with an RSS-triggered campaign:
 }
 ```
 
-The subtitle is optional here as well—omit `copy` to match the clean prototype footer.
+Leave the `copy` key empty (or remove it) to match the clean prototype footer.
 
 Add the hidden honeypot input Mailchimp provides as `mailchimp_honeypot`:
 

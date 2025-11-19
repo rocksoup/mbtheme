@@ -64,8 +64,8 @@ Add these parameters to your site's `config.json`:
     "mailchimp_honeypot": "b_abc123_def456",
     "newsletter": {
       "enabled": true,
-      "title": "Subscribe to the newsletter",
-      "copy": "Get updates on new posts.",
+      "title": "Subscribe to get updates in your inbox",
+      "copy": "",
       "action": "https://micro.blog/users/follow",
       "method": "post",
       "placeholder": "you@email.com",
