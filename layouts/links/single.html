@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="page-description">{{ . }}</div>
+    {{ end }}
+  </header>
+
+  {{/* Filter posts by Links category (case-insensitive) */}}
+  {{ $linksPosts := slice }}
+  {{ range $page := .Site.RegularPages }}
+    {{ $hasLinksCategory := false }}
+    {{ range $page.Params.categories }}
+      {{ if or (eq (lower .) "links") (eq . "Links") }}
+        {{ $hasLinksCategory = true }}
+      {{ end }}
+    {{ end }}
+    {{ if $hasLinksCategory }}
+      {{ $linksPosts = $linksPosts | append $page }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $linksPosts }}
+    {{ range $linksPosts }}
+      {{ partial "post-summary.html" . }}
+    {{ end }}
+  {{ else }}
+    <div class="empty-state">
+      <p>No link posts found.</p>
+      <p class="empty-hint">To add links, create posts with the "Links" category on Micro.blog, or add <code>categories: ["Links"]</code> to post frontmatter.</p>
+    </div>
+  {{ end }}
+{{ end }}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en" }}">
+<html lang="{{ .Site.LanguageCode | default " en" }}">
 {{ partial "head.html" . }}
+
 <body class="saunter">
   {{ $cacheBust := or .Site.Params.theme_seconds (now.Unix) }}
   {{ partial "site-header.html" . }}
@@ -12,8 +13,11 @@
   {{ partial "site-footer.html" . }}
 
   <script src="{{ "js/saunter.js" | relURL }}?{{ $cacheBust }}" defer></script>
+
+
   {{ range .Site.Params.plugins_js }}
   <script src="{{ . }}" defer></script>
   {{ end }}
 </body>
+
 </html>

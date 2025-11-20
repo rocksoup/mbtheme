@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Announcement on Saunter (Local Dev)</title>
+    <link>http://localhost:1313/categories/announcement/</link>
+    <description>Recent content in Announcement on Saunter (Local Dev)</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 18 Nov 2025 10:00:00 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/announcement/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to the Saunter Theme</title>
+      <link>http://localhost:1313/posts/welcome-to-saunter/</link>
+      <pubDate>Tue, 18 Nov 2025 10:00:00 -0800</pubDate>
+      <guid>http://localhost:1313/posts/welcome-to-saunter/</guid>
+      <description>&lt;p&gt;Welcome to Saunter, an editorial-style Hugo theme designed specifically for Micro.blog. This theme combines clean typography with modern design patterns to create a beautiful reading experience.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;p&gt;Saunter includes everything you need for a modern blog:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Editorial card layout&lt;/strong&gt; that makes your content shine&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Dark mode support&lt;/strong&gt; that respects system preferences&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Category badges&lt;/strong&gt; for easy content organization&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Built-in search&lt;/strong&gt; integration with Micro.blog&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Newsletter integration&lt;/strong&gt; for building your audience&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Responsive design&lt;/strong&gt; that works on all devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;design-philosophy&#34;&gt;Design Philosophy&lt;/h2&gt;&#xA;&lt;p&gt;The theme draws inspiration from editorial design, focusing on readability and visual hierarchy. Each post is presented as a card, giving your content room to breathe while maintaining a cohesive layout.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
