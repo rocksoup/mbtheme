@@ -263,6 +263,24 @@ article.post-summary + article.post-summary {
   padding-top: var(--space-12);
 }
 
+.post-thumbnail {
+  margin-bottom: var(--space-6);
+}
+
+.post-thumbnail a {
+  display: block;
+  line-height: 0;
+}
+
+.post-thumbnail img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  aspect-ratio: 16 / 9;
+}
+
 .post-summary h2 {
   font-family: var(--font-heading);
   font-size: var(--font-size-lg);

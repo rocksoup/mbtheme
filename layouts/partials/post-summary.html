@@ -4,7 +4,30 @@
 {{- end -}}
 {{- $showTitle := and $title (not .Params.microblog) -}}
 
+{{- $featuredImage := "" -}}
+{{- with .Params.featured_image }}
+  {{- $featuredImage = . -}}
+{{- else }}
+  {{- with .Params.image }}
+    {{- $featuredImage = . -}}
+  {{- else }}
+    {{- with .Params.images }}
+      {{- if gt (len .) 0 }}
+        {{- $featuredImage = index . 0 -}}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end -}}
+
 <article class="post-summary">
+  {{ if $featuredImage }}
+  <div class="post-thumbnail">
+    <a href="{{ .RelPermalink }}">
+      <img src="{{ $featuredImage }}" alt="{{ $title }}" loading="lazy" />
+    </a>
+  </div>
+  {{ end }}
+
   {{ if $showTitle }}
   <h2><a href="{{ .RelPermalink }}">{{ $title }}</a></h2>
   {{ end }}

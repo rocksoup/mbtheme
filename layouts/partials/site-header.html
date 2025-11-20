@@ -29,6 +29,7 @@
       <a href="{{ "/categories/links/" | relURL }}" class="{{ if or (hasPrefix $currentPath "/categories/links/") (hasPrefix $currentPath "/links/") }}active{{ end }}">Links</a>
       <a href="{{ "/categories/books/" | relURL }}" class="{{ if or (hasPrefix $currentPath "/categories/books/") (hasPrefix $currentPath "/books/") }}active{{ end }}">Books</a>
       <a href="{{ "/categories/movies/" | relURL }}" class="{{ if or (hasPrefix $currentPath "/categories/movies/") (hasPrefix $currentPath "/movies/") }}active{{ end }}">Movies</a>
+      <a href="{{ "/watching/" | relURL }}" class="{{ if or (hasPrefix $currentPath "/categories/watching/") (hasPrefix $currentPath "/watching/") }}active{{ end }}">Watching</a>
     {{ end }}
   </nav>
 
