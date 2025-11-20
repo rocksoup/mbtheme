@@ -1,0 +1,198 @@
+{{ define "main" }}
+  <div class="styleguide">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Content }}</p>
+    </header>
+
+    <section class="sg-section">
+      <h2>Typography</h2>
+
+      <h3>Headings</h3>
+      <h1>Heading 1 - Fraunces</h1>
+      <h2>Heading 2 - Fraunces</h2>
+      <h3>Heading 3 - Fraunces</h3>
+      <h4>Heading 4 - Fraunces</h4>
+      <h5>Heading 5 - Fraunces</h5>
+      <h6>Heading 6 - Fraunces</h6>
+
+      <h3>Body Text</h3>
+      <p>This is body text using Inter. It has a relaxed line height of 1.75 for comfortable reading. The font size is 1rem (16px) by default. Body text uses the <code>--font-body</code> variable and <code>--color-text</code> for color.</p>
+
+      <p class="meta">This is metadata text using <code>--color-text-muted</code> for a softer appearance. Often used for dates, bylines, and supplementary information.</p>
+
+      <h3>Links</h3>
+      <p>Here is a <a href="#">standard link</a> using <code>--color-link</code>. Links are underlined by default and lose the underline on hover. <a href="#">Visited links</a> use <code>--color-link-visited</code>.</p>
+
+      <h3>Lists</h3>
+      <ul>
+        <li>Unordered list item one</li>
+        <li>Unordered list item two with <a href="#">a link</a></li>
+        <li>Unordered list item three</li>
+      </ul>
+      <ol>
+        <li>Ordered list item one</li>
+        <li>Ordered list item two</li>
+        <li>Ordered list item three</li>
+      </ol>
+
+      <h3>Blockquote</h3>
+      <blockquote>
+        <p>This is a blockquote. It should stand out from regular body text with appropriate spacing and styling.</p>
+      </blockquote>
+
+      <h3>Code</h3>
+      <p>Inline code looks like <code>const foo = "bar";</code> and uses monospace font.</p>
+      <pre><code>// Code block example
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}</code></pre>
+    </section>
+
+    <section class="sg-section">
+      <h2>Colors</h2>
+
+      <h3>Text Colors</h3>
+      <div class="sg-color-grid">
+        <div class="sg-color-sample">
+          <div class="sg-color-swatch" style="background: var(--color-text);"></div>
+          <code>--color-text</code>
+        </div>
+        <div class="sg-color-sample">
+          <div class="sg-color-swatch" style="background: var(--color-text-muted);"></div>
+          <code>--color-text-muted</code>
+        </div>
+        <div class="sg-color-sample">
+          <div class="sg-color-swatch" style="background: var(--color-link);"></div>
+          <code>--color-link</code>
+        </div>
+        <div class="sg-color-sample">
+          <div class="sg-color-swatch" style="background: var(--color-link-visited);"></div>
+          <code>--color-link-visited</code>
+        </div>
+        <div class="sg-color-sample">
+          <div class="sg-color-swatch" style="background: var(--color-bg);"></div>
+          <code>--color-bg</code>
+        </div>
+        <div class="sg-color-sample">
+          <div class="sg-color-swatch" style="background: var(--color-border); border: 1px solid #ccc;"></div>
+          <code>--color-border</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section">
+      <h2>Spacing</h2>
+      <div class="sg-spacing">
+        <div class="sg-spacing-sample"><div style="width: var(--space-4); height: var(--space-4); background: var(--color-link);"></div><code>--space-4 (1rem)</code></div>
+        <div class="sg-spacing-sample"><div style="width: var(--space-6); height: var(--space-6); background: var(--color-link);"></div><code>--space-6 (1.5rem)</code></div>
+        <div class="sg-spacing-sample"><div style="width: var(--space-8); height: var(--space-8); background: var(--color-link);"></div><code>--space-8 (2rem)</code></div>
+        <div class="sg-spacing-sample"><div style="width: var(--space-12); height: var(--space-12); background: var(--color-link);"></div><code>--space-12 (3rem)</code></div>
+      </div>
+    </section>
+
+    <section class="sg-section">
+      <h2>Components</h2>
+
+      <h3>Category Badges</h3>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        {{ partial "category-badge.html" "journal" }}
+        {{ partial "category-badge.html" "links" }}
+        {{ partial "category-badge.html" "books" }}
+        {{ partial "category-badge.html" "movies" }}
+      </div>
+
+      <h3>Buttons</h3>
+      <p>
+        <button type="button" style="padding: 0.5rem 1.5rem; background: var(--color-link); color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Primary Button</button>
+      </p>
+
+      <h3>Newsletter Signup</h3>
+      {{ partial "newsletter.html" . }}
+
+      <h3>Pagination</h3>
+      <nav class="pagination" aria-label="Pagination">
+        <a href="#">← Newer</a>
+        <span>Page 2 of 5</span>
+        <a href="#">Older →</a>
+      </nav>
+    </section>
+
+    <section class="sg-section">
+      <h2>Post Summary Card</h2>
+      <p>Example of how post summaries appear in list views:</p>
+
+      <article class="post-summary">
+        <h2><a href="#">Example Post Title</a></h2>
+        <div class="post-content">
+          <p>This is an example of post content. It shows how the summary card renders with title, content, date, and category badges.</p>
+        </div>
+        <div class="meta">
+          <a class="post-date" href="#">November 20, 2025</a>
+          {{ partial "category-badge.html" "journal" }}
+        </div>
+      </article>
+    </section>
+
+    <section class="sg-section">
+      <h2>Dark Mode</h2>
+      <p>This theme supports automatic dark mode based on system preferences, with manual override. Use the theme toggle in the header to switch between light, dark, and system modes. All components adapt to the selected theme.</p>
+    </section>
+  </div>
+
+  <style>
+    .styleguide {
+      max-width: 100%;
+    }
+
+    .sg-section {
+      margin-top: var(--space-12);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .sg-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .sg-color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .sg-color-sample {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .sg-color-swatch {
+      height: 60px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }
+
+    .sg-spacing {
+      display: flex;
+      gap: var(--space-8);
+      align-items: flex-end;
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+
+    .sg-spacing-sample {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .meta {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+{{ end }}

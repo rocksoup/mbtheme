@@ -23,11 +23,12 @@
         {{ end }}
       {{ end }}
     {{ else }}
+      {{ $currentPath := .RelPermalink }}
       <a href="{{ "/" | relURL }}" class="{{ if .IsHome }}active{{ end }}">All</a>
-      <a href="{{ "/categories/journal/" | relURL }}">Journal</a>
-      <a href="{{ "/categories/links/" | relURL }}">Links</a>
-      <a href="{{ "/categories/books/" | relURL }}">Books</a>
-      <a href="{{ "/categories/movies/" | relURL }}">Movies</a>
+      <a href="{{ "/categories/journal/" | relURL }}" class="{{ if or (hasPrefix $currentPath "/categories/journal/") (hasPrefix $currentPath "/journal/") }}active{{ end }}">Journal</a>
+      <a href="{{ "/categories/links/" | relURL }}" class="{{ if or (hasPrefix $currentPath "/categories/links/") (hasPrefix $currentPath "/links/") }}active{{ end }}">Links</a>
+      <a href="{{ "/categories/books/" | relURL }}" class="{{ if or (hasPrefix $currentPath "/categories/books/") (hasPrefix $currentPath "/books/") }}active{{ end }}">Books</a>
+      <a href="{{ "/categories/movies/" | relURL }}" class="{{ if or (hasPrefix $currentPath "/categories/movies/") (hasPrefix $currentPath "/movies/") }}active{{ end }}">Movies</a>
     {{ end }}
   </nav>
 
