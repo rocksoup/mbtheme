@@ -11,6 +11,9 @@
     <loc>http://localhost:1313/reading/</loc>
     <lastmod>2025-11-19T13:14:03-08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/watching/</loc>
+    <lastmod>2025-11-19T13:14:03-08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/search/</loc>
   </url><url>
     <loc>http://localhost:1313/colophon/</loc>
@@ -95,6 +98,9 @@
     <lastmod>2025-11-14T09:04:00-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/2025/11/14/watched-her-surprised-how-a.html</loc>
+    <lastmod>2025-11-14T08:17:48-08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/watching/</loc>
     <lastmod>2025-11-14T08:17:48-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/2025/11/14/watched-pretty-woman-a-time.html</loc>

@@ -30,6 +30,13 @@
       <description>&lt;p&gt;These are the books I’m currently reading. I also have a list of books &lt;a href=&#34;http://localhost:1313/want-to-read&#34;&gt;I want to read&lt;/a&gt; and &lt;a href=&#34;http://localhost:1313/finished-reading&#34;&gt;books I have read&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9781668045145&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3Dx8f0EAAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for Ministry of time&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;Ministry of time&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by &lt;/span&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Watching</title>
+      <link>http://localhost:1313/watching/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/watching/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Search</title>
       <link>http://localhost:1313/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
