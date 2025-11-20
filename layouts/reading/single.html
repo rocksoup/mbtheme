@@ -1,64 +1,93 @@
 {{ define "main" }}
-  <div class="reading-page">
-    <header class="page-header">
-      <h1>{{ .Title }}</h1>
-      {{ with .Content }}
-        <p>{{ . }}</p>
+<div class="reading-page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+    <p>{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{/* Currently Reading */}}
+  <section class="bookshelf-section">
+    <h2>Currently Reading</h2>
+    <div class="books-grid">
+      {{ range .Site.Data.bookshelves.currentlyreading }}
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE " /300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        {{ else }}
+        <div class="book-cover-placeholder">No Cover</div>
+        {{ end }}
+        <div class="book-info">
+          <div class="book-title">{{ .title }}</div>
+          <div class="book-author">{{ .author }}</div>
+        </div>
+      </a>
+      {{ else }}
+      <p>No books currently being read.</p>
       {{ end }}
-    </header>
+    </div>
+  </section>
 
-    {{/* Currently Reading */}}
-    <section class="bookshelf-section">
-      <h2>Currently Reading</h2>
-      <div class="books-grid">
-        {{/* Placeholder for currently reading books */}}
-        {{/* In production, this would fetch from Micro.blog Bookshelves API */}}
-        {{/* Example: {{ range .Site.Data.bookshelves.current }} */}}
-        <div class="book-card">
-          <div class="book-cover-placeholder">
-            <p>Connect Micro.blog Bookshelves to display currently reading books here.</p>
-            <p class="book-hint">Add books to your "Currently Reading" shelf on Micro.blog and they'll appear automatically.</p>
-          </div>
+  {{/* Want to Read */}}
+  <section class="bookshelf-section">
+    <h2>Books I Want to Read</h2>
+    <div class="books-grid">
+      {{ range .Site.Data.bookshelves.wanttoread }}
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE " /300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        {{ else }}
+        <div class="book-cover-placeholder">No Cover</div>
+        {{ end }}
+        <div class="book-info">
+          <div class="book-title">{{ .title }}</div>
+          <div class="book-author">{{ .author }}</div>
         </div>
-      </div>
-    </section>
+      </a>
+      {{ else }}
+      <p>No books in the want-to-read list.</p>
+      {{ end }}
+    </div>
+  </section>
 
-    {{/* Want to Read */}}
-    <section class="bookshelf-section">
-      <h2>Books I Want to Read</h2>
-      <div class="books-grid">
-        <div class="book-card">
-          <div class="book-cover-placeholder">
-            <p>Connect Micro.blog Bookshelves to display want-to-read books here.</p>
-            <p class="book-hint">Add books to your "Want to Read" shelf on Micro.blog.</p>
-          </div>
+  {{/* Have Read */}}
+  <section class="bookshelf-section">
+    <h2>Books I Have Read</h2>
+    <div class="books-grid">
+      {{ range .Site.Data.bookshelves.finishedreading }}
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE " /300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        {{ else }}
+        <div class="book-cover-placeholder">No Cover</div>
+        {{ end }}
+        <div class="book-info">
+          <div class="book-title">{{ .title }}</div>
+          <div class="book-author">{{ .author }}</div>
         </div>
-      </div>
-    </section>
+      </a>
+      {{ else }}
+      <p>No finished books yet.</p>
+      {{ end }}
+    </div>
+  </section>
 
-    {{/* Have Read */}}
-    <section class="bookshelf-section">
-      <h2>Books I Have Read</h2>
-      <div class="books-grid">
-        <div class="book-card">
-          <div class="book-cover-placeholder">
-            <p>Connect Micro.blog Bookshelves to display finished books here.</p>
-            <p class="book-hint">Add books to your "Finished" shelf on Micro.blog.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <aside class="integration-note">
-      <h3>How to Connect Bookshelves</h3>
-      <p>To display your books from Micro.blog:</p>
-      <ol>
-        <li>Set up your Bookshelves on <a href="https://micro.blog" target="_blank" rel="noopener">Micro.blog</a> (see <a href="https://help.micro.blog/t/bookshelves/515" target="_blank" rel="noopener">Bookshelves documentation</a>)</li>
-        <li>Configure Hugo data source to fetch from Micro.blog Bookshelves API</li>
-        <li>Update this template to render books from <code>.Site.Data.bookshelves</code></li>
-      </ol>
-      <p>Example data structure expected:</p>
-      <pre><code>{
+  <aside class="integration-note">
+    <h3>How to Connect Bookshelves</h3>
+    <p>To display your books from Micro.blog:</p>
+    <ol>
+      <li>Set up your Bookshelves on <a href="https://micro.blog" target="_blank" rel="noopener">Micro.blog</a> (see <a
+          href="https://help.micro.blog/t/bookshelves/515" target="_blank" rel="noopener">Bookshelves documentation</a>)
+      </li>
+      <li>Configure Hugo data source to fetch from Micro.blog Bookshelves API</li>
+      <li>Update this template to render books from <code>.Site.Data.bookshelves</code></li>
+    </ol>
+    <p>Example data structure expected:</p>
+    <pre><code>{
   "current": [
     {
       "title": "Book Title",
@@ -70,108 +99,108 @@
   "want": [...],
   "finished": [...]
 }</code></pre>
-    </aside>
-  </div>
+  </aside>
+</div>
 
-  <style>
-    .reading-page {
-      max-width: 100%;
-    }
+<style>
+  .reading-page {
+    max-width: 100%;
+  }
 
-    .bookshelf-section {
-      margin-top: var(--space-12);
-    }
+  .bookshelf-section {
+    margin-top: var(--space-12);
+  }
 
-    .bookshelf-section h2 {
-      font-family: var(--font-heading);
-      font-size: var(--font-size-xl);
-      margin-bottom: var(--space-6);
-    }
+  .bookshelf-section h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-6);
+  }
 
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .book-cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .book-cover-placeholder {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: var(--color-border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .book-hint {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .book-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .book-author {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .integration-note {
+    margin-top: var(--space-12);
+    padding: var(--space-6);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-link);
+  }
+
+  body.saunter.dark-mode .integration-note {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .integration-note h3 {
+    margin-top: 0;
+    font-size: var(--font-size-lg);
+  }
+
+  .integration-note pre {
+    background: var(--color-bg);
+    padding: var(--space-4);
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+  }
+
+  body.saunter.dark-mode .integration-note pre {
+    background: #0D1117;
+  }
+
+  @media (max-width: 640px) {
     .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: var(--space-6);
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
-
-    .book-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .book-cover {
-      width: 100%;
-      aspect-ratio: 2 / 3;
-      object-fit: cover;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .book-cover-placeholder {
-      width: 100%;
-      aspect-ratio: 2 / 3;
-      background: var(--color-border);
-      border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-4);
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-    }
-
-    .book-hint {
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
-    }
-
-    .book-title {
-      font-weight: 600;
-      font-size: 0.9rem;
-      line-height: 1.3;
-    }
-
-    .book-author {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-    }
-
-    .integration-note {
-      margin-top: var(--space-12);
-      padding: var(--space-6);
-      background: rgba(0, 0, 0, 0.03);
-      border-radius: 8px;
-      border-left: 3px solid var(--color-link);
-    }
-
-    body.saunter.dark-mode .integration-note {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .integration-note h3 {
-      margin-top: 0;
-      font-size: var(--font-size-lg);
-    }
-
-    .integration-note pre {
-      background: var(--color-bg);
-      padding: var(--space-4);
-      border-radius: 4px;
-      overflow-x: auto;
-      font-size: 0.85rem;
-    }
-
-    body.saunter.dark-mode .integration-note pre {
-      background: #0D1117;
-    }
-
-    @media (max-width: 640px) {
-      .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      }
-    }
-  </style>
+  }
+</style>
 {{ end }}

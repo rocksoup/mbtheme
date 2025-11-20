@@ -1,0 +1,614 @@
+Starting Saunter Theme Development Server...
+Theme Source: /Users/jaredstoneberg/Documents/projects/mbtheme
+Demo Site: examples/demo-site
+--------------------------------------------------
+ERROR deprecated: site config key paginate was deprecated in Hugo v0.128.0 and subsequently removed. Use pagination.pagerSize instead.
+Watching for changes in /Users/jaredstoneberg/Documents/projects/mbtheme/{examples,layouts,static}
+Watching for config changes in /Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/config.json, /Users/jaredstoneberg/Documents/projects/mbtheme/config.json
+Start building sites … 
+hugo v0.152.2+extended+withdeploy darwin/arm64 BuildDate=2025-10-24T15:31:49Z VendorInfo=brew
+
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/about.md:1:1": duplicate menu entry with identifier "About" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/archive.md:1:1": duplicate menu entry with identifier "Archive" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/reading.md:1:1": duplicate menu entry with identifier "Reading" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/subscribe.md:1:1": duplicate menu entry with identifier "Subscribe" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/tweets.md:1:1": duplicate menu entry with identifier "Tweets" in menu "main"
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/07/09/011731.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/09/01/000654.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/07/09/relaxing-in-mn.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/12/30/crafters.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/12/27/nerds.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/07/28/ummmm.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/09/01/jared-jr.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/07/24/silly-guy.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/12/26/202452.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/11/19/jj.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/12/25/201808.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/09/05/chessmaster.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/12/06/tree-reward-unlocked.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2011/11/30/015636.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2025/11/18/064629.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/01/02/preparing-for-juice.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/01/07/today-is-all.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/12/01/wassup.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/11/20/growing-ccjaredjunior.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2025/11/17/the-artwork-for-this-article.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/02/13/working-on-valentines.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/11/09/making-soup.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/02/19/053526.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/06/09/garage-sale.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/02/19/053534.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/02/19/053529.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2025/11/15/one-place-for-everything-you.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/02/19/my-cool-wife.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/06/08/after-school-reading.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2025/11/14/a-tribute-to-the-s.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/06/07/storytime.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/02/26/best-yr-old.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/06/01/game-night.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2012/03/04/talking-to-grandma.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2024/10/28/vote.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2023/11/01/rip-chef.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2021/03/23/song-of-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2014/06/04/texas-style.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2014/07/26/044619.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2021/03/04/digging-my-new.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2015/12/27/apple-heroes-save.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2015/12/20/jr-getting-ready.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2021/02/26/123214.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/08/21/180659.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2016/10/03/182733.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2016/01/19/fried-rice-cleaning.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/12/19/oh-yeah-a.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/08/21/180747.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/12/15/calling-bullshit-creative.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/12/09/oven-pancake-in.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/09/24/alki-beach-stroll.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/12/09/lady-bird-was.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/12/06/finding-olympic-qualifying.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/11/23/headed-to-town.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/09/29/so-many-questions.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/11/19/a-fantastic-secular.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/11/13/on-the-move.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/11/12/tasty.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/11/10/punta-mita-morning.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/11/02/last-hunt-of.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/10/31/rip-tyler.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/10/02/soup-time.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/09/25/this-always-makes.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2017/08/21/see-you-in.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/10/16/golden-hour.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/10/09/k-in-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/08/18/years-of-wedded.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/lamp-number-seven.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/kopel-en-casa.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/toes-up-on.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/ish.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/v-j-k.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/warrior.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/chop.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/beach-smores.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/jr-paddling-out.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/gliding-across-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/these-guys.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/vintage-date-night.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/family-portrait.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/tuesday-nights.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/last-hit-before.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/sweet-sweet-win.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/when-given-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/desert-fav.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/a-vulgar-truth.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/08/months-between-visits.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/top-of-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/01/18/we-are-missing.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/12/24/in-a-church.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/12/22/solstice-progressive-dinner.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/12/15/soupstice.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/02/04/drupal-summit.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/12/15/despite-good-intentions.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/10/234525.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/not-impressed.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/chauffeur-sr.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/so.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/country-cruising.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/10/053022.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/10/house-rules.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/dudes-in-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/07/18/social-distance-focused.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/01/28/turns.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/01/02/a-new-year.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/12/the-way-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/10/spring-pilgrimage.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/10/mckymonroe-custom-build.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2020/02/06/jr-sporting-some.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/13/see-you-next.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/18/comedy.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/11/02/seattle-doing-its.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/18/tramlines.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/12/15/nutcracker.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/12/031935.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/25/doug-and-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/12/02/first-mixed-win.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/13/another-year-of.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/03/31/cool-customer.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/04/01/181039.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/04/06/bringing-some-courage.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/11/29/old-s-holiday.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/04/08/221746.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/11/22/day-wjr.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/04/20/favorite-date-night.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/04/24/so-due.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/04/11/ive-been-through.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/04/05/022527.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/04/29/fettuccine-tasting.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/05/22/celebrating-months-of.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/11/18/mexico.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/05/24/summer-dessert.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/11/18/170646.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/11/10/vern-loves-community.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/10/30/spencer-shared-his.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/05/29/fricassee.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/05/27/prefunk-as-you.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/10/29/badcamp.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/10/06/kishi-bashi-puts.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/05/18/is-good-medicine.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/06/02/tough-night-for.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/06/11/st-place-on.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/10/21/mushroom-weekend-edition.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/10/14/birthday-picking-at.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/05/31/some-people-think.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/09/08/there-are-kindergarteners.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/06/25/olympic-tradition-edition.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/06/21/aloha-graduate.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/cousin-connection.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/paper-it-forward.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/06/17/solstice.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/chbp-really-enjoyed.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/foshay-tower.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/10/07/annual-kinetics-trip.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/me-and-marge.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/found-artifacts-from.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/07/10/bolted.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/th-in-prosser.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/160556.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/06/28/happy-birthday.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/take-the-damn.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/07/10/for-tomorrow-is.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/07/21/only-halfway-through.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/06/20/peninsula.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/08/11/kishi-bashi-and.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/08/19/gypsy-temple-rocked.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/05/27/rhett-bringing-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/08/19/la-fans-are.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/05/20/western.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/09/05/miss-watching-this.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/09/01/fun-day-at.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/05/18/the-lemonheads-have.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/09/10/with-the.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/09/10/014624.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/05/16/the-twins-are.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2018/09/07/that-englishman-was.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/05/13/got-the-band.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/04/29/this-guy.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/04/22/vanderslice.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/04/19/starting-the-weekend.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/04/17/with-dan-and.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/04/16/215334.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/03/26/sunshine-and-blue.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/03/23/mariners-fan-fest.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/01/12/while-there-are.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/03/19/better-oblivion-community.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/03/19/another-beauty-in.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/02/20/team-hb-in.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/01/21/semiahmoo-scenes.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/02/04/ozomatli.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/01/10/a-visit-to.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/01/24/data-lookout.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/01/29/socal-daveed-side.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/2019/01/06/pdx.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/newsletters/11640.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/reading.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/finished-reading.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/subscribe.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+WARN  Raw HTML omitted while rendering "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/want-to-read.md"; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+You can suppress this warning by adding the following to your site configuration:
+ignoreLogs = ['warning-goldmark-raw-html']
+Built in 79 ms
+Error: error building site: logged 1 error(s)
