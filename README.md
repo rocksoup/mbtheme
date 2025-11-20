@@ -96,6 +96,10 @@ The search page will automatically be added to your navigation.
 - Reading page reads `data/bookshelves.json` or the `data/bookshelves/` folder with `currentlyreading`, `wanttoread`, and `finishedreading` arrays; prefer enriched `cover_url` values and fall back to placeholders.
 - For local demos, drop sample files into `examples/demo-site/data/` (a sample `watched.enriched.json` is included).
 
+## Demo Site
+
+The `examples/demo-site/` folder has been removed from the repo to keep the theme lean. Run your own demo site in a separate checkout or a scratch directory if needed.***
+
 ## Theme Structure
 
 ```
