@@ -8,6 +8,8 @@ summary: ""
 date: 2025-11-14T08:17:48-0800
 lastmod: 2025-11-14T08:17:48-0800
 type: post
+categories:
+- "watching"
 url: /2025/11/14/watched-her-surprised-how-a.html
 ---
 Watched: [Her](https://www.themoviedb.org/movie/152601) 🍿

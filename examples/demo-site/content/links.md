@@ -1,5 +1,6 @@
 ---
 title: "Links"
+type: links
 navigation: true
 menu: main
 weight: 1
