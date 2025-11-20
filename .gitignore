@@ -31,6 +31,7 @@ yarn-error.log*
 *.temp
 .cache/
 tmp/
+scratch/
 
 # OS generated files
 Thumbs.db
