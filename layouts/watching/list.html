@@ -1,0 +1,201 @@
+{{ define "main" }}
+  <div class="watching-page">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </header>
+
+    {{/* Filter posts by watching category/type */}}
+    {{ $watchingPosts := where .Site.RegularPages "Params.categories" "intersect" (slice "watching") }}
+    {{ if not $watchingPosts }}
+      {{ $watchingPosts = where .Site.RegularPages "Type" "watching" }}
+    {{ end }}
+
+    {{ if $watchingPosts }}
+      {{ range $watchingPosts }}
+        {{/* Render each watching post with poster art */}}
+        {{ $featuredImage := "" }}
+        {{ with .Params.featured_image }}
+          {{ $featuredImage = . }}
+        {{ else }}
+          {{ with .Params.image }}
+            {{ $featuredImage = . }}
+          {{ else }}
+            {{ with .Params.images }}
+              {{ if gt (len .) 0 }}
+                {{ $featuredImage = index . 0 }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+        <article class="watching-item">
+          {{ if $featuredImage }}
+          <div class="watching-poster">
+            <a href="{{ .RelPermalink }}">
+              <img src="{{ $featuredImage }}" alt="{{ .Title }}" loading="lazy" />
+            </a>
+          </div>
+          {{ end }}
+
+          <div class="watching-content">
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <div class="watching-meta">
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+              {{ range .Params.categories }}
+                {{ if ne . "watching" }}
+                  {{ partial "category-badge.html" . }}
+                {{ end }}
+              {{ end }}
+            </div>
+            {{ with .Summary }}
+              <div class="watching-summary">{{ . }}</div>
+            {{ end }}
+          </div>
+        </article>
+      {{ end }}
+    {{ else }}
+      <div class="empty-state">
+        <p>No watching posts found.</p>
+        <p class="empty-hint">To add watched movies/shows, create posts with the "watching" category on Micro.blog, or add <code>categories: ["watching"]</code> to post frontmatter.</p>
+        <p class="empty-hint">Example: <a href="https://noise.stoneberg.net/2025/11/14/watched-pretty-woman-a-time.html" target="_blank" rel="noopener">Micro.blog watching post</a></p>
+      </div>
+    {{ end }}
+
+    <aside class="integration-note">
+      <h3>How to Add Watching Posts</h3>
+      <p>To display your watched movies and shows:</p>
+      <ol>
+        <li>Create posts on Micro.blog with the "watching" category</li>
+        <li>Add poster art as the featured image (<code>featured_image</code> or <code>image</code> in frontmatter)</li>
+        <li>Posts will automatically appear on this page with poster thumbnails</li>
+      </ol>
+      <p>Optional: Configure a custom category/tag via theme params:</p>
+      <pre><code>{
+  "params": {
+    "watchingCategory": "watching",
+    "watchingType": "watching"
+  }
+}</code></pre>
+    </aside>
+  </div>
+
+  <style>
+    .watching-page {
+      max-width: 100%;
+    }
+
+    .watching-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-12);
+      padding-bottom: var(--space-12);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .watching-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .watching-poster {
+      position: relative;
+    }
+
+    .watching-poster a {
+      display: block;
+      line-height: 0;
+    }
+
+    .watching-poster img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .watching-content h2 {
+      margin-top: 0;
+      font-family: var(--font-heading);
+      font-size: var(--font-size-lg);
+    }
+
+    .watching-content h2 a {
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    .watching-content h2 a:hover {
+      text-decoration: underline;
+    }
+
+    .watching-meta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    .watching-summary {
+      line-height: var(--line-height-relaxed);
+    }
+
+    .empty-state {
+      padding: var(--space-12) var(--space-6);
+      text-align: center;
+      color: var(--color-text-muted);
+    }
+
+    .empty-hint {
+      font-size: 0.9rem;
+      margin-top: var(--space-4);
+    }
+
+    .integration-note {
+      margin-top: var(--space-12);
+      padding: var(--space-6);
+      background: rgba(0, 0, 0, 0.03);
+      border-radius: 8px;
+      border-left: 3px solid var(--color-link);
+    }
+
+    body.saunter.dark-mode .integration-note {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .integration-note h3 {
+      margin-top: 0;
+      font-size: var(--font-size-lg);
+    }
+
+    .integration-note pre {
+      background: var(--color-bg);
+      padding: var(--space-4);
+      border-radius: 4px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+    }
+
+    body.saunter.dark-mode .integration-note pre {
+      background: #0D1117;
+    }
+
+    @media (max-width: 640px) {
+      .watching-item {
+        grid-template-columns: 1fr;
+      }
+
+      .watching-poster img {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+{{ end }}
