@@ -8,6 +8,8 @@ summary: ""
 date: 2025-11-14T08:16:12-0800
 lastmod: 2025-11-14T08:16:13-0800
 type: post
+categories:
+- "watching"
 url: /2025/11/14/watched-mad-max-fury-road.html
 ---
 Watched: [Mad Max: Fury Road](https://www.themoviedb.org/movie/76341) 🍿

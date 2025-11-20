@@ -7,18 +7,13 @@
       {{ end }}
     </header>
 
-    {{/* Filter posts by watching category/type or posts that start with "Watched:" */}}
+    {{/* Filter posts by watching category */}}
     {{ $watchingPosts := slice }}
-    {{ range $page := .Site.RegularPages }}
-      {{ $hasWatchingCategory := false }}
-      {{ range $page.Params.categories }}
-        {{ if or (eq (lower .) "watching") (eq . "Watching") }}
-          {{ $hasWatchingCategory = true }}
+    {{ range .Site.RegularPages }}
+      {{ if isset .Params "categories" }}
+        {{ if in .Params.categories "watching" }}
+          {{ $watchingPosts = $watchingPosts | append . }}
         {{ end }}
-      {{ end }}
-      {{ $startsWithWatched := hasPrefix $page.Content "Watched:" }}
-      {{ if or $hasWatchingCategory (eq $page.Type "watching") $startsWithWatched }}
-        {{ $watchingPosts = $watchingPosts | append $page }}
       {{ end }}
     {{ end }}
 

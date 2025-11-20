@@ -8,6 +8,8 @@ summary: ""
 date: 2025-11-14T08:13:39-0800
 lastmod: 2025-11-14T08:13:39-0800
 type: post
+categories:
+- "watching"
 url: /2025/11/14/watched-bugonia-cinerama-was-the.html
 ---
 Watched: [Bugonia](https://www.themoviedb.org/movie/701387) 🍿
