@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **IMPORTANT:** The `version` field in `plugin.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch. Also update the version in the `<meta name="generator">` tag in `layouts/partials/head.html` to verify updates in the live site's HTML source.
 
+## [0.1.18] - 2025-11-20
+
+### Changed
+- Watching page now renders from enriched data (`data/watched.enriched.json`) via a reusable grid partial, matching the reading grid style.
+- Documented expected data feeds for watching/reading in the README.
+
+### Removed
+- Checked-in `examples/demo-site/public/` build output to keep the repo clean (build artifacts should not be versioned).
+
 ## [0.1.5] - 2025-11-19
 
 ### Fixed
