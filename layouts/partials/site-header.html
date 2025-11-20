@@ -3,7 +3,19 @@
     <h1 class="site-title"><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1>
   </div>
 
-  <nav class="primary-nav">
+  <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+    <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+
+  <nav class="primary-nav" id="primary-nav">
     {{ if .Site.Menus.main }}
       {{ range .Site.Menus.main }}
         {{ if ne .Name "Search" }}
@@ -15,6 +27,7 @@
       <a href="{{ "/categories/journal/" | relURL }}">Journal</a>
       <a href="{{ "/categories/links/" | relURL }}">Links</a>
       <a href="{{ "/categories/books/" | relURL }}">Books</a>
+      <a href="{{ "/categories/movies/" | relURL }}">Movies</a>
     {{ end }}
   </nav>
 

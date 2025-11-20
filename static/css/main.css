@@ -132,6 +132,29 @@ a:hover {
   gap: 0.75rem;
 }
 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger .close-icon {
+  display: none;
+}
+
+.hamburger[aria-expanded="true"] .hamburger-icon {
+  display: none;
+}
+
+.hamburger[aria-expanded="true"] .close-icon {
+  display: block;
+}
+
 .search-form input,
 .search-form .field {
   padding: 0.35rem 0.75rem;
@@ -230,6 +253,10 @@ article.post-summary {
   margin-bottom: 0;
   padding-bottom: var(--space-12);
   border-bottom: 1px solid var(--color-border);
+}
+
+article.post-summary:last-of-type {
+  border-bottom: none;
 }
 
 article.post-summary + article.post-summary {
@@ -459,6 +486,64 @@ body.saunter.dark-mode .newsletter-form input[type="email"] {
   opacity: 0.9;
 }
 
+.newsletter-confirmation,
+.newsletter-error {
+  display: none;
+  max-width: 400px;
+  padding: var(--space-4);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.newsletter-confirmation {
+  background: #D1FAE5;
+  color: #065F46;
+  border: 1px solid #6EE7B7;
+}
+
+.newsletter-error {
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FCA5A5;
+}
+
+body.saunter.dark-mode .newsletter-confirmation {
+  background: #064E3B;
+  color: #6EE7B7;
+  border-color: #047857;
+}
+
+body.saunter.dark-mode .newsletter-error {
+  background: #7F1D1D;
+  color: #FCA5A5;
+  border-color: #991B1B;
+}
+
+.newsletter-confirmation p,
+.newsletter-error p {
+  margin: 0;
+  color: inherit;
+}
+
+.newsletter-iframe {
+  display: none;
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+.newsletter.submitted .newsletter-form {
+  display: none;
+}
+
+.newsletter.submitted .newsletter-confirmation {
+  display: block;
+}
+
+.newsletter.error .newsletter-error {
+  display: block;
+}
+
 .button {
   padding: 0.5rem 1.5rem;
   background: var(--color-link);
@@ -637,6 +722,67 @@ body.saunter.dark-mode .category-badge {
 body.saunter.dark-mode .category-badge .emoji {
   filter: grayscale(100%);
   opacity: 0.7;
+}
+
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .site-header {
+    position: relative;
+  }
+
+  .primary-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    padding: var(--space-4);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 100;
+  }
+
+  body.saunter.dark-mode .primary-nav {
+    background: #1F2937;
+    border-color: #374151;
+  }
+
+  .primary-nav.open {
+    display: flex;
+  }
+
+  .primary-nav a {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+  }
+
+  body.saunter.dark-mode .primary-nav a {
+    border-bottom-color: #374151;
+  }
+
+  .primary-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .primary-nav a:hover,
+  .primary-nav a.active {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  body.saunter.dark-mode .primary-nav a:hover,
+  body.saunter.dark-mode .primary-nav a.active {
+    background: rgba(255, 255, 255, 0.05);
+  }
 }
 
 @media (max-width: 640px) {

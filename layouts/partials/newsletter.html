@@ -22,14 +22,21 @@
   <div class="newsletter">
     <h3>Subscribe to get updates in your inbox</h3>
     {{ if $action }}
-    <form class="newsletter-form" action="{{ $action }}" method="{{ $method }}" target="_blank">
+    <form class="newsletter-form" action="{{ $action }}" method="{{ $method }}" target="newsletter-frame" data-newsletter-form>
       <label for="newsletter-email" class="sr-only">Email address</label>
       <input id="newsletter-email" type="email" name="EMAIL" placeholder="{{ $placeholder }}" required>
       {{ with .Site.Params.mailchimp_honeypot }}
       <input type="text" name="{{ . }}" tabindex="-1" aria-hidden="true" class="mc-honeypot">
       {{ end }}
-    <button type="submit">{{ $button }}</button>
+      <button type="submit">{{ $button }}</button>
     </form>
+    <div class="newsletter-confirmation" data-newsletter-confirmation role="status" aria-live="polite">
+      <p>Thank you for subscribing.</p>
+    </div>
+    <div class="newsletter-error" data-newsletter-error role="alert" aria-live="assertive">
+      <p>Something went wrong. Please try again.</p>
+    </div>
+    <iframe name="newsletter-frame" class="newsletter-iframe" aria-hidden="true"></iframe>
     {{ else }}
     <a class="button" href="https://micro.blog/users/follow">Subscribe on Micro.blog</a>
     {{ end }}
