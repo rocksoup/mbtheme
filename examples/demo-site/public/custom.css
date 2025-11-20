@@ -1,0 +1,55 @@
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.masthead-title span{
+  display: none;
+}
+
+.e-content img{
+  max-height: none !important;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,900|Source+Sans+Pro:400,400i');
+
+.masthead h1, 
+.masthead h1 a{
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 46px;
+  line-height: 52px;
+}
+
+h1, h1 a{
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 24px;
+}
+
+h1.page-title{
+  font-size: 32px;
+  line-height: 36px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2, h2 a{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.masthead .masthead-nav,
+.masthead .masthead-nav a{
+  text-transform: none;
+  font-size: 12px;
+}
+
+.masthead .masthead-nav{
+  border-bottom: 1px solid #efefef;
+}
+
+.h-entry p img{
+  width: 100%;
+  height: auto;
+}
+

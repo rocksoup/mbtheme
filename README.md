@@ -90,6 +90,12 @@ The search page will automatically be added to your navigation.
 - **[Customization Guide](docs/customization.md)** – How to customize colors, fonts, and layouts
 - **[Development Guide](docs/development.md)** – Local testing and theme development
 
+## Data Feeds (automation)
+
+- Watching page expects `data/watched.enriched.json` (or `data/watched.json`) with a `movies` array containing `title`, `watched_date`, optional `year`/`notes`, `poster_url`, and `placeholder` (true when no art).
+- Reading page reads `data/bookshelves.json` or the `data/bookshelves/` folder with `currentlyreading`, `wanttoread`, and `finishedreading` arrays; prefer enriched `cover_url` values and fall back to placeholders.
+- For local demos, drop sample files into `examples/demo-site/data/` (a sample `watched.enriched.json` is included).
+
 ## Theme Structure
 
 ```

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Micro on Saunter (Local Dev)</title>
+    <link>http://localhost:1313/categories/micro/</link>
+    <description>Recent content in Micro on Saunter (Local Dev)</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 18 Nov 2025 14:30:00 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/micro/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/short-micro-post/</link>
+      <pubDate>Tue, 18 Nov 2025 14:30:00 -0800</pubDate>
+      <guid>http://localhost:1313/posts/short-micro-post/</guid>
+      <description>&lt;p&gt;This is a short micro post demonstrating how brief updates look in the Saunter theme. Perfect for quick thoughts, links, or photos without needing a full article.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
