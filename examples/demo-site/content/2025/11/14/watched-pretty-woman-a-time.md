@@ -10,6 +10,7 @@ lastmod: 2025-11-14T08:16:51-0800
 type: post
 categories:
 - "watching"
+featured_image: https://media.themoviedb.org/t/p/w500/hVHUfT801LQATGd26VPzhorIYza.jpg
 url: /2025/11/14/watched-pretty-woman-a-time.html
 ---
 Watched: [Pretty Woman](https://www.themoviedb.org/movie/114) 🍿

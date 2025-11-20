@@ -10,6 +10,7 @@ lastmod: 2025-11-14T08:14:58-0800
 type: post
 categories:
 - "watching"
+featured_image: https://media.themoviedb.org/t/p/w500/4T7OKBdkNBorRKWw7VSeuA225z1.jpg
 url: /2025/11/14/watched-singles-love-the-seattle.html
 ---
 Watched: [Singles](https://www.themoviedb.org/movie/11068) 🍿

@@ -10,6 +10,7 @@ lastmod: 2025-11-14T08:17:48-0800
 type: post
 categories:
 - "watching"
+featured_image: https://media.themoviedb.org/t/p/w500/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg
 url: /2025/11/14/watched-her-surprised-how-a.html
 ---
 Watched: [Her](https://www.themoviedb.org/movie/152601) 🍿

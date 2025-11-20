@@ -24,8 +24,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css?1762704289">
+
+
 
   
 </head>
@@ -34,16 +38,19 @@
   
   <header class="site-header">
   <div class="brand">
-    <h1 class="site-title"><a href="/">Saunter (Local Dev)</a></h1>
+    <h1 class="site-title"><a href="/%20/">Saunter (Local Dev)</a></h1>
   </div>
 
-  <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
-    <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+    aria-controls="primary-nav" data-nav-toggle>
+    <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2">
       <line x1="3" y1="6" x2="21" y2="6"></line>
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="18" x2="21" y2="18"></line>
     </svg>
-    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2">
       <line x1="18" y1="6" x2="6" y2="18"></line>
       <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
@@ -51,68 +58,105 @@
 
   <nav class="primary-nav" id="primary-nav">
     
-      
-        
-        <a href="/links/">Links</a>
-        
-      
-        
-        <a href="/subscribe/">Subscribe</a>
-        
-      
-        
-        <a href="/about/">About</a>
-        
-      
-        
-        <a href="/archive/">Archive</a>
-        
-      
-        
-        <a href="/reading/">Reading</a>
-        
-      
-        
-        <a href="/tweets/">Tweets</a>
-        
-      
-        
-      
+    
+    
+    <a href="/links/" >Links</a>
+    
+    
+    
+    <a href="/subscribe/" >Subscribe</a>
+    
+    
+    
+    <a href="/about/" >About</a>
+    
+    
+    
+    <a href="/archive/" >Archive</a>
+    
+    
+    
+    <a href="/reading/" >Reading</a>
+    
+    
+    
+    <a href="/tweets/" >Tweets</a>
+    
+    
+    
+    <a href="/watching/" >Watching</a>
+    
+    
+    
+    
     
   </nav>
 
   <div class="nav-tools">
-    <a href="/search/" class="icon-button" aria-label="Search">
+    <div class="search-wrapper">
+      <a href="/search/" class="icon-button" aria-label="Search">
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <circle cx="11" cy="11" r="8"></circle>
     <path d="m21 21-4.35-4.35"></path>
   </svg>
 </a>
 
+      <a href="/search/" class="search-link">Search</a>
+    </div>
+
+    <div class="theme-options">
+      <button class="theme-option-item" data-theme="light">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+        </svg>
+        Light
+      </button>
+      <button class="theme-option-item" data-theme="dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        Dark
+      </button>
+      <button class="theme-option-item" data-theme="system">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <path d="M12 3v18M3 12h18"></path>
+        </svg>
+        System
+      </button>
+    </div>
 
     <div class="theme-toggle" data-theme-toggle>
       <button type="button" class="icon-button" aria-haspopup="true" aria-expanded="false" aria-controls="theme-menu">
         <span class="sr-only">Toggle color modes</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="5"></circle>
-          <path d="M12 1v2m0 18v2m11-11h-2M3 12H1m19.071 7.071-1.414-1.414M6.343 6.343 4.929 4.929m12.728 0 1.414-1.414M6.343 17.657l-1.414 1.414"></path>
+          <path
+            d="M12 1v2m0 18v2m11-11h-2M3 12H1m19.071 7.071-1.414-1.414M6.343 6.343 4.929 4.929m12.728 0 1.414-1.414M6.343 17.657l-1.414 1.414">
+          </path>
         </svg>
       </button>
       <div class="theme-menu" id="theme-menu">
         <button class="theme-option" data-theme="light">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
           </svg>
           Light
         </button>
         <button class="theme-option" data-theme="dark">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
           Dark
         </button>
         <button class="theme-option" data-theme="system">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
             <path d="M12 3v18M3 12h18"></path>
           </svg>
           System
@@ -121,7 +165,6 @@
     </div>
   </div>
 </header>
-
 
   <main id="main-content">
     
@@ -260,6 +303,9 @@
 
 
   <script src="/js/saunter.js?1762704289" defer></script>
+
+
   
 </body>
+
 </html>
