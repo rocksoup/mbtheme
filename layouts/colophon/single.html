@@ -25,20 +25,23 @@
         <li><strong>Theme:</strong> Custom Saunter theme (Fraunces for headings, Inter for body text, palette inspired by the Wonky Editorial prototype).</li>
         <li><strong>Components:</strong>
           <ul>
-            <li>Timeline cards render full content with category badges.</li>
+            <li>Responsive navigation with hamburger menu for mobile viewports.</li>
+            <li>Timeline cards render full content with category badges and featured images.</li>
             <li>The <code>/seattle</code> live cam pulls a fresh waterfront frame on each page load.</li>
             <li>Light/dark toggle respects local time, OS preference, and manual overrides stored in <code>localStorage</code>.</li>
+            <li>Inline newsletter signup with Mailchimp confirmation messages.</li>
           </ul>
         </li>
         <li><strong>Assets:</strong> Fonts from Google Fonts; icons are inline SVGs.</li>
+        <li><strong>Analytics:</strong> Privacy-focused Umami analytics for basic traffic insights.</li>
       </ul>
     </article>
 
     <article>
-      <h2>Newsletter &amp; Forms</h2>
+      <h2>Newsletter &amp; Search</h2>
       <ul>
-        <li><strong>Provider:</strong> Mailchimp audience <code>f981f7d258</code>. Footer opt-ins post directly to Mailchimp with a honeypot field.</li>
-        <li><strong>Search roadmap:</strong> <code>/search</code> embeds user-scoped search results so readers stay on-site while scanning the archives.</li>
+        <li><strong>Newsletter:</strong> Mailchimp integration with inline confirmation messages. Submissions include honeypot anti-spam protection and submit via hidden iframe to prevent navigation.</li>
+        <li><strong>Search:</strong> User-scoped search interface allows readers to scan the archives while staying on-site.</li>
       </ul>
     </article>
 

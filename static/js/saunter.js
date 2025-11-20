@@ -86,9 +86,105 @@ const setupThemeToggle = () => {
   }
 };
 
+const setupNavigation = () => {
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const nav = document.querySelector(".primary-nav");
+  if (!toggle || !nav) return;
+
+  const closeNav = () => {
+    toggle.setAttribute("aria-expanded", "false");
+    nav.classList.remove("open");
+  };
+
+  const openNav = () => {
+    toggle.setAttribute("aria-expanded", "true");
+    nav.classList.add("open");
+  };
+
+  toggle.addEventListener("click", () => {
+    const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+    if (isExpanded) {
+      closeNav();
+    } else {
+      openNav();
+      // Focus first link
+      const firstLink = nav.querySelector("a");
+      if (firstLink) {
+        setTimeout(() => firstLink.focus(), 100);
+      }
+    }
+  });
+
+  // Close on outside click
+  document.addEventListener("click", event => {
+    if (!toggle.contains(event.target) && !nav.contains(event.target)) {
+      closeNav();
+    }
+  });
+
+  // Close on Esc key
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      closeNav();
+      toggle.focus();
+    }
+  });
+
+  // Close on nav link click
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      closeNav();
+    });
+  });
+
+  // Trap focus when menu is open
+  nav.addEventListener("keydown", event => {
+    if (event.key === "Tab" && toggle.getAttribute("aria-expanded") === "true") {
+      const links = Array.from(nav.querySelectorAll("a"));
+      const firstLink = links[0];
+      const lastLink = links[links.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstLink) {
+        event.preventDefault();
+        lastLink.focus();
+      } else if (!event.shiftKey && document.activeElement === lastLink) {
+        event.preventDefault();
+        firstLink.focus();
+      }
+    }
+  });
+};
+
+const setupNewsletter = () => {
+  const form = document.querySelector("[data-newsletter-form]");
+  if (!form) return;
+
+  const newsletter = form.closest(".newsletter");
+  if (!newsletter) return;
+
+  form.addEventListener("submit", () => {
+    // Set a timeout to show confirmation after form submits to iframe
+    setTimeout(() => {
+      newsletter.classList.add("submitted");
+      newsletter.classList.remove("error");
+    }, 1000);
+  });
+
+  // Listen for errors (if iframe can't load)
+  const iframe = newsletter.querySelector(".newsletter-iframe");
+  if (iframe) {
+    iframe.addEventListener("error", () => {
+      newsletter.classList.add("error");
+      newsletter.classList.remove("submitted");
+    });
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeTheme();
   setupThemeToggle();
+  setupNavigation();
+  setupNewsletter();
   refreshSeattleCam();
 });
 
