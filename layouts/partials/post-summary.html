@@ -1,22 +1,22 @@
 {{- $title := .Title -}}
 {{- if not $title }}
-  {{- $title = (.Summary | plainify | truncate 80) -}}
+{{- $title = (.Summary | plainify | truncate 80) -}}
 {{- end -}}
 {{- $showTitle := and $title (not .Params.microblog) -}}
 
 {{- $featuredImage := "" -}}
 {{- with .Params.featured_image }}
-  {{- $featuredImage = . -}}
+{{- $featuredImage = . -}}
 {{- else }}
-  {{- with .Params.image }}
-    {{- $featuredImage = . -}}
-  {{- else }}
-    {{- with .Params.images }}
-      {{- if gt (len .) 0 }}
-        {{- $featuredImage = index . 0 -}}
-      {{- end }}
-    {{- end }}
-  {{- end }}
+{{- with .Params.image }}
+{{- $featuredImage = . -}}
+{{- else }}
+{{- with .Params.images }}
+{{- if gt (len .) 0 }}
+{{- $featuredImage = index . 0 -}}
+{{- end }}
+{{- end }}
+{{- end }}
 {{- end -}}
 
 <article class="post-summary">
@@ -42,7 +42,7 @@
     <a class="bookmark-link" href="{{ . }}" rel="noopener" target="_blank">Source ↗</a>
     {{ end }}
     {{ range .Params.categories }}
-      {{ partial "category-badge.html" . }}
+    {{ partial "category-badge.html" . }}
     {{ end }}
   </div>
 </article>

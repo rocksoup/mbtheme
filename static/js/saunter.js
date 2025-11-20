@@ -76,6 +76,15 @@ const setupThemeToggle = () => {
     });
   });
 
+  // Also handle theme-option-item buttons (for mobile menu)
+  const themeOptionItems = document.querySelectorAll(".theme-option-item");
+  themeOptionItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const mode = item.getAttribute("data-theme") || "system";
+      setTheme(mode);
+    });
+  });
+
   if (window.matchMedia) {
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
       const stored = localStorage.getItem(storageKey) || "system";
@@ -157,17 +166,40 @@ const setupNavigation = () => {
 
 const setupNewsletter = () => {
   const form = document.querySelector("[data-newsletter-form]");
-  if (!form) return;
+  if (!form) {
+    return;
+  }
 
   const newsletter = form.closest(".newsletter");
-  if (!newsletter) return;
+  if (!newsletter) {
+    return;
+  }
+
+  const button = form.querySelector("button[type='submit']");
+  const originalButtonText = button ? button.textContent : "Subscribe";
 
   form.addEventListener("submit", () => {
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Submitting...";
+      button.style.opacity = "0.7";
+      button.style.cursor = "wait";
+    }
+
     // Set a timeout to show confirmation after form submits to iframe
+    // We use a slightly longer timeout to make it feel like a real request processing
     setTimeout(() => {
       newsletter.classList.add("submitted");
       newsletter.classList.remove("error");
-    }, 1000);
+
+      // Reset button state in case they navigate back or something (though form is hidden)
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalButtonText;
+        button.style.opacity = "";
+        button.style.cursor = "";
+      }
+    }, 1500);
   });
 
   // Listen for errors (if iframe can't load)
@@ -176,6 +208,13 @@ const setupNewsletter = () => {
     iframe.addEventListener("error", () => {
       newsletter.classList.add("error");
       newsletter.classList.remove("submitted");
+
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalButtonText;
+        button.style.opacity = "";
+        button.style.cursor = "";
+      }
     });
   }
 };
