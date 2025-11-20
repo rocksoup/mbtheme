@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+  <body>
+    <outline type="collection" text="Finished reading">
+      <outline type="book" text="I'm Not Trying To Be Difficult" name="I'm Not Trying To Be Difficult" author="Drew Nieporent" isbn="9781538765593"/>
+      <outline type="book" text="Accidentally on Purpose" name="Accidentally on Purpose" author="Kristen Kish" isbn="9780316580939"/>
+      <outline type="book" text="Uses for Obsession" name="Uses for Obsession" author="Ben Shewry" isbn="9781761189999"/>
+      <outline type="book" text="Setting the Table" name="Setting the Table" author="Danny Meyer" isbn="9780061868245"/>
+      <outline type="book" text="Unreasonable Hospitality" name="Unreasonable Hospitality" author="Will Guidara" isbn="9780593418581"/>
+      <outline type="book" text="Going Zero" name="Going Zero" author="Anthony McCarten" isbn="9780063227088"/>
+      <outline type="book" text="The Adventures of Dog Man 1: Dog Man" name="The Adventures of Dog Man 1: Dog Man" author="Dav Pilkey" isbn="9781407140407"/>
+      <outline type="book" text="The Art of Leadership" name="The Art of Leadership" author="Michael Lopp" isbn="9781492045649"/>
+      <outline type="book" text="Parable of the Sower" name="Parable of the Sower" author="Octavia E. Butler" isbn="9781453263617"/>
+      <outline type="book" text="Termination Shock: A Novel" name="Termination Shock: A Novel" author="Neal Stephenson" isbn="9780063028074"/>
+      <outline type="book" text="Sing Backwards and Weep" name="Sing Backwards and Weep" author="Mark Lanegan" isbn="9780306922794"/>
+      <outline type="book" text="Snow Crash" name="Snow Crash" author="Neal Stephenson" isbn="9780553898194"/>
+      <outline type="book" text="Imaginable" name="Imaginable" author="Jane McGonigal" isbn="9781473598546"/>
+      <outline type="book" text="The Ministry for the Future: A Novel" name="The Ministry for the Future: A Novel" author="Kim Stanley Robinson" isbn="9780316300162"/>
+    </outline>
+  </body>
+</opml>

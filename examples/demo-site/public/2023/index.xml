@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2023s on Saunter (Local Dev)</title>
+    <link>http://localhost:1313/2023/</link>
+    <description>Recent content in 2023s on Saunter (Local Dev)</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 21 May 2025 09:57:35 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/2023/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2023/11/01/rip-chef.html</link>
+      <pubDate>Wed, 01 Nov 2023 11:02:28 -0800</pubDate>
+      <guid>http://localhost:1313/2023/11/01/rip-chef.html</guid>
+      <description>&lt;p&gt;RIP Chef&lt;/p&gt;&#xA;&lt;p&gt;&lt;video controls=&#34;controls&#34; playsinline=&#34;playsinline&#34; src=&#34;https://noise.stoneberg.net/uploads/2023/movie.mov&#34; width=&#34;640&#34; height=&#34;360&#34; poster=&#34;https://noise.stoneberg.net/uploads/2023/poster.png&#34; preload=&#34;none&#34;&gt;&lt;/video&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

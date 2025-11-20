@@ -1,0 +1,1580 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saunter (Local Dev)</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Saunter (Local Dev)</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Nov 2025 13:14:03 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Links</title>
+      <link>http://localhost:1313/links/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/links/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;posts from the PNW&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reading</title>
+      <link>http://localhost:1313/reading/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/reading/</guid>
+      <description>&lt;p&gt;These are the books I’m currently reading. I also have a list of books &lt;a href=&#34;http://localhost:1313/want-to-read&#34;&gt;I want to read&lt;/a&gt; and &lt;a href=&#34;http://localhost:1313/finished-reading&#34;&gt;books I have read&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9781668045145&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3Dx8f0EAAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for Ministry of time&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;Ministry of time&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by &lt;/span&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Search</title>
+      <link>http://localhost:1313/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/search/</guid>
+      <description>&lt;script language=&#34;javascript&#34;&gt;&#xA;&#xA;var archive_results = {};&#xA;&#xA;function runSearch(q) {&#xA;&#x9;let results_node = document.getElementById(&#34;list_results&#34;);&#xA;&#x9;results_node.innerHTML = &#34;&#34;;&#xA;&#x9;if (q.length &gt; 0) {&#xA;&#x9;&#x9;// split query into lowercase words&#xA;&#x9;&#x9;let keywords = q.toLowerCase().trim().split(/\s+/);&#xA;&#xA;&#x9;&#x9;for (let i = 0; i &lt; archive_results.items.length; i++) {&#xA;&#x9;&#x9;&#x9;let item = archive_results.items[i];&#xA;&#x9;&#x9;&#x9;let title_lower = item.title.toLowerCase();&#xA;&#x9;&#x9;&#x9;let text_lower = item.content_text.toLowerCase();&#xA;&#xA;&#x9;&#x9;&#x9;// combine title and text into one searchable string&#xA;&#x9;&#x9;&#x9;let full_text = title_lower + &#34; &#34; + text_lower;&#xA;&#xA;&#x9;&#x9;&#x9;// check if every keyword exists&#xA;&#x9;&#x9;&#x9;let match = keywords.every(function(k) {&#xA;&#x9;&#x9;&#x9;&#x9;return full_text.includes(k);&#xA;&#x9;&#x9;&#x9;});&#xA;&#xA;&#x9;&#x9;&#x9;if (match) {&#xA;&#x9;&#x9;&#x9;&#x9;let p_node = document.createElement(&#34;p&#34;);        &#xA;&#x9;&#x9;&#x9;&#x9;let link_node = document.createElement(&#34;a&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;let d = Date.parse(item.date_published);&#xA;&#x9;&#x9;&#x9;&#x9;let date_s = new Date(d).toISOString().substr(0, 10);&#xA;&#x9;&#x9;&#x9;&#x9;let date_node = document.createTextNode(date_s); &#xA;&#x9;&#x9;&#x9;&#x9;link_node.appendChild(date_node);&#xA;&#x9;&#x9;&#x9;&#x9;link_node.href = item.url;&#xA;              &#x9;let title_node = null;&#xA;&#x9;&#x9;&#x9;&#x9;if (item.title.length &gt; 0) {&#xA;              &#x9;&#x9;title_node = document.createElement(&#34;span&#34;);&#xA;                  &#x9;title_node.innerHTML = &#34;: &lt;b&gt;&#34; + item.title + &#34;&lt;/b&gt;&#34;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;let s = item.content_text;&#xA;&#x9;&#x9;&#x9;&#x9;if (s.length &gt; 200) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;s = s.substr(0, 200) + &#34;...&#34;;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;              &#x9;let text_node = document.createElement(&#34;span&#34;);&#xA;             &#x9;text_node.innerHTML = &#34;: &#34; + s&#xA;&#x9;&#x9;&#x9;&#x9;p_node.appendChild(link_node);&#xA;              &#x9;if (title_node != null) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;p_node.appendChild(title_node);&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;p_node.appendChild(text_node);&#xA;&#x9;&#x9;&#x9;&#x9;results_node.appendChild(p_node);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;&#xA;function submitSearch(q) {&#xA;&#x9;runSearch(q);&#xA;&#x9;&#xA;&#x9;// push query into URL&#xA;&#x9;const url = new URL(window.location.href);&#xA;&#x9;url.searchParams.set(&#34;q&#34;, q);&#xA;&#x9;history.pushState({}, &#34;&#34;, url);&#xA;}&#xA;&#xA;document.addEventListener(&#34;DOMContentLoaded&#34;, function() {&#xA;&#x9;let loading_timer = setTimeout(function() {&#xA;&#x9;&#x9;// show status text if archive doesn&#39;t load very quickly&#xA;&#x9;&#x9;document.getElementById(&#34;list_loading&#34;).style.display = &#34;flex&#34;;&#xA;&#x9;}, 1500);&#xA;&#xA;&#x9;fetch(&#34;/archive/index.json&#34;).then(response =&gt; response.json()).then(data =&gt; {&#xA;&#x9;&#x9;archive_results = data;&#xA;&#xA;&#x9;&#x9;clearTimeout(loading_timer);&#xA;&#x9;&#x9;document.getElementById(&#34;list_loading&#34;).style.display = &#34;none&#34;;&#xA;&#xA;&#x9;&#x9;// restore from search args&#xA;&#x9;&#x9;const url = window.location.href;&#xA;&#x9;&#x9;const params = new URLSearchParams(new URL(url).search);&#xA;&#x9;&#x9;const q = params.get(&#34;q&#34;);&#xA;&#x9;&#x9;if (q &amp;&amp; (q.length &gt; 0)) {&#xA;&#x9;&#x9;&#x9;document.getElementById(&#34;input_search&#34;).value = q;&#xA;&#x9;&#x9;&#x9;runSearch(q);&#xA;&#x9;&#x9;}&#xA;&#x9;});&#xA;});&#xA;&#x9;&#xA;&lt;/script&gt;&#xA;&lt;style&gt;&#xA;&#xA;#search {&#xA;&#x9;display: none;&#xA;}&#xA;&#xA;form {&#xA;&#x9;display: flex;&#xA;&#x9;justify-content: center;&#xA;}&#xA;&#xA;#list_loading {&#xA;&#x9;display: none;&#xA;&#x9;font-size: 14px;&#xA;&#x9;justify-content: center;&#xA;}&#xA;&#xA;.field {&#xA;&#x9;width: 270px;&#xA;&#x9;height: 34px;&#xA;&#x9;font-size: 13px;&#xA;&#x9;font-weight: 400;&#xA;&#x9;padding-left: 12px;&#xA;&#x9;border: 2px solid #eee;&#xA;&#x9;margin-top: 20px;&#xA;&#x9;margin-bottom: 20px;&#xA;&#x9;border-radius: 17px;&#xA;&#x9;-webkit-appearance: none;&#xA;}&#xA;&#xA;&lt;/style&gt;&#xA;&lt;form onSubmit=&#34;return false;&#34;&gt;&#xA;&#x9;&lt;input class=&#34;field&#34; type=&#34;text&#34; name=&#34;q&#34; id=&#34;input_search&#34; placeholder=&#34;Search&#34; onChange=&#34;submitSearch(this.value.toLowerCase());&#34;&gt;&#xA;&lt;/form&gt;&#xA;&lt;div id=&#34;list_loading&#34;&gt;&#xA;&#x9;Loading posts...&#xA;&lt;/div&gt;&#xA;&lt;div id=&#34;list_results&#34;&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Colophon</title>
+      <link>http://localhost:1313/colophon/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/colophon/</guid>
+      <description>&lt;h3&gt;Purpose&lt;/h3&gt;&#xA;&lt;p&gt;Saunter is my personal link log—Pinboard bookmarks flow into Micro.blog via the microintegrations middleware. This page collects the credits and moving pieces so future me (or another builder) knows what powers the site.&lt;/p&gt;&#xA;&lt;h3 id=&#34;platform--hosting&#34;&gt;Platform &amp;amp; Hosting&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Engine:&lt;/strong&gt; &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; compiled by Micro.blog. Each deploy renders the &lt;code&gt;Saunter&lt;/code&gt; theme bundled in this repo.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hosting:&lt;/strong&gt; Micro.blog serves the static site and handles media uploads.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Automation:&lt;/strong&gt; GitHub Actions in &lt;code&gt;microintegrations&lt;/code&gt; run the Pinboard → Micro.blog sync every hour and commit state updates.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;theme--front-end&#34;&gt;Theme &amp;amp; Front-end&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Theme:&lt;/strong&gt; Custom &lt;code&gt;Saunter&lt;/code&gt; theme (Fraunces for headings, Inter for body text, color palette inspired by the Wonky Editorial prototype).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Components:&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Timeline cards render full post content with category badges.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;/seattle/&lt;/code&gt; live cam pulls a fresh waterfront frame on each page load.&lt;/li&gt;&#xA;&lt;li&gt;Light/dark toggle respects local time, OS preference, and manual overrides stored in &lt;code&gt;localStorage&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Assets:&lt;/strong&gt; Fonts from Google Fonts; icons are inline SVGs in the templates.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;newsletter--forms&#34;&gt;Newsletter &amp;amp; Forms&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Provider:&lt;/strong&gt; Mailchimp audience &lt;code&gt;f901f7d258&lt;/code&gt;. The footer form posts directly to the Mailchimp endpoint with a honeypot field for bots.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Search roadmap:&lt;/strong&gt; &lt;code&gt;/search/&lt;/code&gt; will embed Micro.blog’s user-scoped search results so readers stay on the site while searching the archives.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;middleware&#34;&gt;Middleware&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Repository:&lt;/strong&gt; &lt;a href=&#34;https://github.com/rocksoup/microintegrations&#34;&gt;&lt;code&gt;github.com/rocksoup/microintegrations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Scripts:&lt;/strong&gt; &lt;code&gt;scripts/microblog-sync.mjs&lt;/code&gt; orchestrates Pinboard RSS → Micropub posts. State lives in &lt;code&gt;.microblog-state.json&lt;/code&gt; and is trimmed to 500 entries on save.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Env Vars:&lt;/strong&gt; &lt;code&gt;PINBOARD_MICROBLOG_FEED_URL&lt;/code&gt;, &lt;code&gt;MICROBLOG_TOKEN&lt;/code&gt;, &lt;code&gt;DRY_RUN&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;credits--thanks&#34;&gt;Credits &amp;amp; Thanks&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Micro.blog for the platform and Micropub API.&lt;/li&gt;&#xA;&lt;li&gt;Pinboard for the simple RSS feed powering the integration.&lt;/li&gt;&#xA;&lt;li&gt;The Seattle waterfront cam for giving &lt;code&gt;/seattle/&lt;/code&gt; a live skyline view.&lt;/li&gt;&#xA;&lt;li&gt;Everyone filing issues in this repo—your notes shape the roadmap.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;If you notice something broken or want to borrow ideas, &lt;a href=&#34;https://github.com/rocksoup/microintegrations/issues&#34;&gt;open an issue&lt;/a&gt; or ping me on Micro.blog (&lt;code&gt;@jfunk&lt;/code&gt;).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Finished Reading</title>
+      <link>http://localhost:1313/finished-reading/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/finished-reading/</guid>
+      <description>&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9781538765593&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DTZpLEQAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for I&#39;m Not Trying To Be Difficult&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;I&#39;m Not Trying To Be Difficult&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by Drew Nieporent&lt;/span&gt;&lt;/p&gt;&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9780316580939&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3D_o4cEQAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for Accidentally on Purpose&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;Accidentally on Purpose&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by Kristen Kish&lt;/span&gt;&lt;/p&gt;&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9781761189999&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DCSAGEQAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for Uses for Obsession&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;Uses for Obsession&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by Ben Shewry&lt;/span&gt;&lt;/p&gt;&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9780061868245&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3Depnumt9tRsAC%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for Setting the Table&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;Setting the Table&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by Danny Meyer&lt;/span&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Real-time view of Elliott Bay and the Space Needle</title>
+      <link>http://localhost:1313/seattle/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/seattle/</guid>
+      <description>&lt;figure class=&#34;location-hero-image&#34;&gt;&#xA;      &lt;img src=&#34;https://cdn.tegna-media.com/king/weather/queenanne.jpg?cachebust=1763522396194&#34; data-src=&#34;https://cdn.tegna-media.com/king/weather/queenanne.jpg&#34; data-seattle-cam=&#34;&#34; alt=&#34;Seattle waterfront live view&#34; loading=&#34;lazy&#34;&gt;&#xA;    &lt;figcaption&gt;Image refreshes every 5 minutes from the Seattle Waterfront cam.&lt;/figcaption&gt; &#xA;&lt;/figure&gt;</description>
+    </item>
+    <item>
+      <title>Tweets</title>
+      <link>http://localhost:1313/tweets/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/tweets/</guid>
+      <description>&lt;style&gt;&#xA;&#x9;#tweets_form {&#xA;&#x9;&#x9;margin-top: 15px;&#xA;&#x9;&#x9;text-align: center;&#xA;&#x9;}&#xA;&#x9;&#x9;&#xA;&#x9;#tweets_form select {&#xA;&#x9;&#x9;font-size: 17px;&#xA;&#x9;&#x9;width: 80px;&#xA;&#x9;}&#xA;&#xA;&#x9;#tweets_form input {&#xA;&#x9;&#x9;font-size: 17px;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;.tweet {&#xA;&#x9;&#x9;padding-top: 10px;&#xA;&#x9;&#x9;padding-bottom: 10px;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;.tweet time {&#xA;&#x9;&#x9;color: gray;&#xA;&#x9;&#x9;font-size: 14px;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;.tweet .post {&#xA;&#x9;&#x9;margin: 0;&#xA;&#x9;&#x9;font-size: 17px;&#xA;&#x9;&#x9;line-height: 1.7;&#xA;&#x9;&#x9;padding-top: 6px;&#xA;&#x9;&#x9;padding-bottom: 6px;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;.tweet .twitter_link {&#xA;&#x9;&#x9;padding-top: 5px;&#xA;&#x9;&#x9;padding-bottom: 5px;&#xA;&#x9;&#x9;padding-right: 5px;&#xA;&#x9;&#x9;text-decoration: none;&#xA;&#x9;&#x9;border-bottom: none;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;.tweet .twitter_link svg {&#xA;&#x9;&#x9;color: #26a7de;&#xA;&#x9;&#x9;width: 12px;&#xA;&#x9;&#x9;height: 12px;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;#progress_spinner {&#xA;&#x9;&#x9;visibility: hidden;&#xA;&#x9;&#x9;width: 25px;&#xA;&#x9;&#x9;height: 25px;&#xA;&#x9;&#x9;vertical-align: middle;&#xA;&#x9;&#x9;padding: 0;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;#footer {&#xA;&#x9;&#x9;visibility: hidden;&#xA;&#x9;}&#xA;&lt;/style&gt;&#xA;&#xA;&lt;script&gt;&#xA;&#x9;function showProgress() {&#x9;&#xA;&#x9;&#x9;let progress_img = document.getElementById(&#34;progress_spinner&#34;);&#xA;&#x9;&#x9;progress_img.style.visibility = &#34;visible&#34;;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;function hideProgress() {&#x9;&#x9;&#xA;&#x9;&#x9;let progress_img = document.getElementById(&#34;progress_spinner&#34;);&#xA;&#x9;&#x9;progress_img.style.visibility = &#34;hidden&#34;;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;function showFooter() {&#xA;&#x9;&#x9;let footer_tags = document.getElementsByTagName(&#34;footer&#34;);&#xA;&#x9;&#x9;if (footer_tags.length &gt; 0) {&#xA;&#x9;&#x9;&#x9;let last_tag = footer_tags[elements.length - 1];&#xA;&#x9;&#x9;&#x9;last_tag.style.visibility = &#34;visible&#34;;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#xA;&#x9;function hideFooter() {&#xA;&#x9;&#x9;let footer_tags = document.getElementsByTagName(&#34;footer&#34;);&#xA;&#x9;&#x9;if (footer_tags.length &gt; 0) {&#xA;&#x9;&#x9;&#x9;let last_tag = footer_tags[footer_tags.length - 1];&#xA;&#x9;&#x9;&#x9;last_tag.style.visibility = &#34;hidden&#34;;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#xA;&#x9;function showFooter() {&#xA;&#x9;&#x9;let footer_tags = document.getElementsByTagName(&#34;footer&#34;);&#xA;&#x9;&#x9;for (var tag of footer_tags) {&#xA;&#x9;&#x9;&#x9;tag.style.visibility = &#34;visible&#34;;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;function clearTweets() {&#xA;&#x9;&#x9;let tweets_div = document.getElementById(&#34;tweets&#34;);&#xA;&#x9;&#x9;tweets_div.innerHTML = &#34;&#34;;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;function loadTweets(site_id, path) {&#x9;&#x9;&#xA;&#x9;&#x9;showProgress();&#xA;&#x9;&#x9;hideFooter();&#xA;&#xA;&#x9;&#x9;let tweets_div = document.getElementById(&#34;tweets&#34;);&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;let url = &#34;https://micro.blog/twitter/archive/&#34; + site_id + &#34;/&#34; + path;&#xA;&#x9;&#x9;fetch(url).then(response =&gt; response.json()).then(data =&gt; {&#xA;&#x9;&#x9;&#x9;clearTweets();&#xA;&#xA;&#x9;&#x9;&#x9;for (var item of data.items) {&#xA;&#x9;&#x9;&#x9;&#x9;var post_div = document.createElement(&#34;div&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;post_div.setAttribute(&#34;class&#34;, &#34;tweet&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;var content_tag = document.createElement(&#34;div&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;content_tag.setAttribute(&#34;class&#34;, &#34;post&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;content_tag.innerHTML = item.content_html;&#xA;&#x9;&#x9;&#x9;&#x9;post_div.appendChild(content_tag);&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;var tweet_link = document.createElement(&#34;a&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;tweet_link.setAttribute(&#34;href&#34;, item._microblog.twitter_url);&#xA;&#x9;&#x9;&#x9;&#x9;tweet_link.setAttribute(&#34;class&#34;, &#34;twitter_link&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;tweet_link.innerHTML = &#39;&lt;svg role=&#34;img&#34; viewBox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;title&gt;Twitter&lt;/title&gt;&lt;path fill=&#34;currentColor&#34; d=&#34;M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z&#34;/&gt;&lt;/svg&gt;&#39;;&#xA;&#x9;&#x9;&#x9;&#x9;post_div.appendChild(tweet_link);&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;var d = new Date(item.date_published);&#xA;&#x9;&#x9;&#x9;&#x9;const date_options = { year: &#39;numeric&#39;, month: &#39;numeric&#39;, day: &#39;numeric&#39;, hour: &#39;numeric&#39;, minute: &#39;numeric&#39; };&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;var time_tag = document.createElement(&#34;time&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;time_tag.innerText = d.toLocaleDateString(&#34;en-US&#34;, date_options);&#xA;&#x9;&#x9;&#x9;&#x9;post_div.appendChild(time_tag);&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;tweets_div.appendChild(post_div);&#xA;&#x9;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;&#x9;hideProgress();&#xA;&#x9;&#x9;&#x9;showFooter();&#xA;&#x9;&#x9;});&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;function loadYears(site_id) {&#xA;&#x9;&#x9;const year_tag = document.getElementById(&#34;years_select&#34;);&#xA;&#xA;&#x9;&#x9;let url = &#34;https://micro.blog/twitter/archive/&#34; + site_id + &#34;/years.json&#34;;&#xA;&#x9;&#x9;fetch(url).then(response =&gt; response.json()).then(data =&gt; {&#xA;&#x9;&#x9;&#x9;for (var y of data) {&#xA;&#x9;&#x9;&#x9;&#x9;var option_tag = document.createElement(&#34;option&#34;);&#xA;&#x9;&#x9;&#x9;&#x9;option_tag.setAttribute(&#34;value&#34;, y);&#xA;&#x9;&#x9;&#x9;&#x9;option_tag.innerText = y;&#xA;&#x9;&#x9;&#x9;&#x9;year_tag.appendChild(option_tag);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;});&#xA;&#x9;}&#xA;&#xA;&#x9;let site_id =  106541 ;&#xA;&#x9;var year = &#34;&#34;;&#xA;&#x9;var month = &#34;&#34;;&#xA;&#xA;&#x9;document.addEventListener(&#34;DOMContentLoaded&#34;, () =&gt; {&#xA;&#x9;&#x9;loadTweets(site_id, &#34;recent.json&#34;);&#xA;&#x9;&#x9;loadYears(site_id);&#xA;&#xA;&#x9;&#x9;const year_tag = document.getElementById(&#34;years_select&#34;);&#xA;&#x9;&#x9;year_tag.addEventListener(&#34;change&#34;, (event) =&gt; {&#xA;&#x9;&#x9;&#x9;year = event.target.value;&#xA;&#x9;&#x9;&#x9;if ((year.toString().length &gt; 0) &amp;&amp; (month.toString().length &gt; 0)) {&#xA;&#x9;&#x9;&#x9;&#x9;loadTweets(site_id, `${year}/${month}.json`);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;});&#x9;&#xA;&#xA;&#x9;&#x9;const months_tag = document.getElementById(&#34;months_select&#34;);&#xA;&#x9;&#x9;months_tag.addEventListener(&#34;change&#34;, (event) =&gt; {&#xA;&#x9;&#x9;&#x9;month = event.target.value;&#xA;&#x9;&#x9;&#x9;if ((year.toString().length &gt; 0) &amp;&amp; (month.toString().length &gt; 0)) {&#xA;&#x9;&#x9;&#x9;&#x9;loadTweets(site_id, `${year}/${month}.json`)&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;});&#xA;&#xA;&#x9;&#x9;for (let i = 0; i &lt; 12; i++) {&#xA;&#x9;&#x9;&#x9;const d = new Date(2000, i, 1);&#xA;&#x9;&#x9;&#x9;const month_abbreviation = d.toLocaleDateString(navigator.language, { month: &#34;short&#34; });&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;var option_tag = document.createElement(&#34;option&#34;);&#xA;&#x9;&#x9;&#x9;option_tag.setAttribute(&#34;value&#34;, i + 1);&#xA;&#x9;&#x9;&#x9;option_tag.innerText = month_abbreviation;&#xA;&#x9;&#x9;&#x9;months_tag.appendChild(option_tag);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;const search_tag = document.getElementById(&#34;search&#34;);&#xA;&#x9;&#x9;search_tag.addEventListener(&#34;change&#34;, (event) =&gt; {&#xA;&#x9;&#x9;&#x9;var q = event.target.value;&#xA;&#x9;&#x9;&#x9;loadTweets(site_id, `search.json?q=${q}`)&#xA;&#x9;&#x9;});&#xA;&#xA;&#x9;&#x9;const form_tag = document.getElementById(&#34;tweets_form&#34;);&#xA;&#x9;&#x9;form_tag.addEventListener(&#34;submit&#34;, (event) =&gt; {&#xA;&#x9;&#x9;&#x9;event.preventDefault();&#xA;&#x9;&#x9;});&#xA;&#x9;});&#x9;&#xA;&lt;/script&gt;&#xA;&#xA;&lt;form id=&#34;tweets_form&#34;&gt;&#xA;&#x9;&lt;select id=&#34;years_select&#34;&gt;&#xA;&#x9;&#x9;&lt;option value=&#34;&#34;&gt;Year&lt;/option&gt;&#xA;&#x9;&lt;/select&gt;&#xA;&#x9;&lt;select id=&#34;months_select&#34;&gt;&#xA;&#x9;&#x9;&lt;option value=&#34;&#34;&gt;Month&lt;/option&gt;&#xA;&#x9;&lt;/select&gt;&#xA;&#x9;&#xA;&#x9;&lt;input type=&#34;search&#34; id=&#34;search&#34; size=&#34;20&#34; placeholder=&#34;Search tweets...&#34;&gt; &#xA;&#x9;&#xA;&#x9;&lt;img id=&#34;progress_spinner&#34; src=&#34;http://localhost:1313/images/progress_spinner.svg&#34; width=&#34;25&#34; height=&#34;25&#34; alt=&#34;Progress spinner&#34;&gt;&#xA;&lt;/form&gt;&#xA;&#xA;&lt;div id=&#34;tweets&#34;&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Want to read</title>
+      <link>http://localhost:1313/want-to-read/</link>
+      <pubDate>Wed, 19 Nov 2025 13:14:03 -0800</pubDate>
+      <guid>http://localhost:1313/want-to-read/</guid>
+      <description>&lt;p&gt;These are the books currently in my “want to read” queue.&lt;/p&gt;&#xA;&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9780593189603&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DG5rmDwAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for No One Is Talking About This&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;No One Is Talking About This&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by Patricia Lockwood&lt;/span&gt;&lt;/p&gt;&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9781524739553&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3DXP1EDQAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for The Very Hungry Caterpillar&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;The Very Hungry Caterpillar&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by Eric Carle&lt;/span&gt;&lt;/p&gt;&lt;p class=&#34;bookshelf_book&#34; style=&#34;clear: both;&#34;&gt;&lt;a href=&#34;https://micro.blog/books/9780385545143&#34;&gt;&lt;img src=&#34;https://cdn.micro.blog/photos/100px/https%3A%2F%2Fbooks.google.com%2Fbooks%2Fcontent%3Fid%3Db9AOEAAAQBAJ%26printsec%3Dfrontcover%26img%3D1%26zoom%3D5%26source%3Dgbs_api&#34; align=&#34;left&#34; style=&#34;max-width: 50px; border-radius: 0px; padding-right: 5px; margin-right: 3px;&#34; alt=&#34;Cover for Harlem Shuffle: A Novel&#34;&gt;&lt;/a&gt;&lt;span class=&#34;bookshelf_title&#34;&gt;Harlem Shuffle: A Novel&lt;/span&gt;&lt;br /&gt;&lt;span class=&#34;bookshelf_author&#34;&gt;by Colson Whitehead&lt;/span&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/19/beautiful-colors-quality-tool-slice.html</link>
+      <pubDate>Wed, 19 Nov 2025 11:03:42 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/19/beautiful-colors-quality-tool-slice.html</guid>
+      <description>&lt;p&gt;Beautiful colors, quality tool.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Slice through tasks with precision and confidence. The Chroma Scissors are engineered for performance and designed to be seen.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://craighill.co/collections/shop-all/products/chroma-scissors&#34;&gt;craighill.co/collectio&amp;hellip;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/18/a-super-cute-crossstitch-kit.html</link>
+      <pubDate>Tue, 18 Nov 2025 18:26:42 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/18/a-super-cute-crossstitch-kit.html</guid>
+      <description>&lt;p&gt;A super cute cross-stitch kit gift, with a cute kawaii style pattern perfect for beginners or enthusiasts wanting a quick project.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.etsy.com/listing/1203510376/kawaii-mini-cross-stitch-kit-kawaii?utm_custom1=nytimes.com%252525252Fwirecutter%252525252F&amp;amp;source=aw&amp;amp;sv1=affiliate&amp;amp;sv_campaign_id=78888&amp;amp;sv_tax1=affiliate&amp;amp;sv_tax2=1242643%252525257C1249301&amp;amp;sv_tax3=Skimlinks&amp;amp;sv_tax4=nytimes.com%252525252Fwirecutter%252525252F&amp;amp;sv_affiliateId=78888&amp;amp;awc=6220_1763516296_6a8bafb853e115a2662cdf70da821269&#34;&gt;www.etsy.com/listing/1&amp;hellip;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/18/064629.html</link>
+      <pubDate>Tue, 18 Nov 2025 06:46:29 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/18/064629.html</guid>
+      <description>&lt;p&gt;Truth. (via &lt;a href=&#34;https://www.densediscovery.com/issues/365&#34;&gt;Dense Discovery&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2025/img-1060.jpg&#34;&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/17/the-artwork-for-this-article.html</link>
+      <pubDate>Mon, 17 Nov 2025 09:07:48 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/17/the-artwork-for-this-article.html</guid>
+      <description>&lt;p&gt;The artwork for this article is chef&amp;rsquo;s kiss 🫰&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.nytimes.com/2025/11/12/opinion/silicon-valley-meta-apple-trump.html&#34;&gt;I Worked All Over Silicon Valley. This Is How It Lost Its Spine.&lt;/a&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2025/img-5839.jpg&#34;&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/15/346304.html</link>
+      <pubDate>Sat, 15 Nov 2025 09:42:33 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/15/346304.html</guid>
+      <description>&lt;p&gt;&amp;mdash; Very cool earrings&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.itsnicethat.com/the-nice-list/oyster-hoops&#34;&gt;www.itsnicethat.com/the-nice-&amp;hellip;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/15/one-place-for-everything-you.html</link>
+      <pubDate>Sat, 15 Nov 2025 09:42:32 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/15/one-place-for-everything-you.html</guid>
+      <description>&lt;p&gt;One place for everything you care about. No need to file it, label or even tag it. It’s all magically organized and visualized for you. &amp;mdash; Very cool looking collecting/bookmarking app. Love the commitment to privacy&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://mymind.com/&#34;&gt;mymind.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2025/mymind-is-the-extension-for-your-mind-.jpg&#34;&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/my-goal-is-to-live.html</link>
+      <pubDate>Fri, 14 Nov 2025 14:03:51 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/my-goal-is-to-live.html</guid>
+      <description>&lt;p&gt;my goal is to live in a constant stream of creativity, effortlessly moving between purposeful curiosity and making things with other people” and then a subtweet that reads “the goal is the process&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.are.na/editorial/personal-business&#34;&gt;www.are.na/editorial&amp;hellip;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/120418.html</link>
+      <pubDate>Fri, 14 Nov 2025 12:04:18 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/120418.html</guid>
+      <description>&lt;p&gt;Little Guys t-shirt&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tom-bingham.com/products/little-guys-unisex-heavyweight-t-shirt&#34;&gt;tom-bingham.com/products/&amp;hellip;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/a-tribute-to-the-s.html</link>
+      <pubDate>Fri, 14 Nov 2025 12:04:18 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/a-tribute-to-the-s.html</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;A tribute to the 1960s and 70s era of graphic design when dry transfer lettering was prevalent; we’ve crafted a jacquard woven blanket using Goodman — our revival of Gesh Ortega Roman 275, originally released in 1972. The blanket’s design replicates a partially used dry transfer lettering sheet.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.thedesignersfoundry.com/goods/goodman-blanket&#34;&gt;Design Foundry&lt;/a&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2025/blanket.jpg&#34;&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/my-youtube-video-of-the.html</link>
+      <pubDate>Fri, 14 Nov 2025 10:04:28 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/my-youtube-video-of-the.html</guid>
+      <description>&lt;p&gt;&amp;mdash; My youtube video of the year.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Mh5LY4Mz15o&amp;amp;t=1s&#34;&gt;www.youtube.com/watch&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/cool-rings-nice-customizable-jewelry.html</link>
+      <pubDate>Fri, 14 Nov 2025 09:04:00 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/cool-rings-nice-customizable-jewelry.html</guid>
+      <description>&lt;p&gt;Cool rings &amp;mdash; Nice customizable jewelry&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.susanalexandra.com/collections/rings?srsltid=AfmBOor3P_WvZi76JoXssIXXlNt0gkOv-5mNScJzw-FFs1n47d-ognac&#34;&gt;www.susanalexandra.com/collectio&amp;hellip;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/watched-her-surprised-how-a.html</link>
+      <pubDate>Fri, 14 Nov 2025 08:17:48 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/watched-her-surprised-how-a.html</guid>
+      <description>&lt;p&gt;Watched: &lt;a href=&#34;https://www.themoviedb.org/movie/152601&#34;&gt;Her&lt;/a&gt; 🍿&lt;/p&gt;&#xA;&lt;p&gt;Surprised how a movie 12 years old feels so relevent. 🇲🇽 2025&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/watched-pretty-woman-a-time.html</link>
+      <pubDate>Fri, 14 Nov 2025 08:16:51 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/watched-pretty-woman-a-time.html</guid>
+      <description>&lt;p&gt;Watched: &lt;a href=&#34;https://www.themoviedb.org/movie/114&#34;&gt;Pretty Woman&lt;/a&gt; 🍿&lt;/p&gt;&#xA;&lt;p&gt;A time capsule. 🇲🇽 2025&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/watched-mad-max-fury-road.html</link>
+      <pubDate>Fri, 14 Nov 2025 08:16:12 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/watched-mad-max-fury-road.html</guid>
+      <description>&lt;p&gt;Watched: &lt;a href=&#34;https://www.themoviedb.org/movie/76341&#34;&gt;Mad Max: Fury Road&lt;/a&gt; 🍿&lt;/p&gt;&#xA;&lt;p&gt;Watching again but with people who know the details revealed a lot that I was missing&amp;hellip; 🇲🇽 2025&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/watched-singles-love-the-seattle.html</link>
+      <pubDate>Fri, 14 Nov 2025 08:14:58 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/watched-singles-love-the-seattle.html</guid>
+      <description>&lt;p&gt;Watched: &lt;a href=&#34;https://www.themoviedb.org/movie/11068&#34;&gt;Singles&lt;/a&gt; 🍿&lt;/p&gt;&#xA;&lt;p&gt;Love the Seattle vibes. 🇲🇽 2025&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2025/11/14/watched-bugonia-cinerama-was-the.html</link>
+      <pubDate>Fri, 14 Nov 2025 08:13:39 -0800</pubDate>
+      <guid>http://localhost:1313/2025/11/14/watched-bugonia-cinerama-was-the.html</guid>
+      <description>&lt;p&gt;Watched: &lt;a href=&#34;https://www.themoviedb.org/movie/701387&#34;&gt;Bugonia&lt;/a&gt; 🍿&lt;/p&gt;&#xA;&lt;p&gt;Cinerama was the right screen to see it on. 🤯&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>New posts from noise.stoneberg.net</title>
+      <link>http://localhost:1313/newsletters/2024/11/01/11640.html</link>
+      <pubDate>Fri, 01 Nov 2024 08:30:28 -0800</pubDate>
+      <guid>http://localhost:1313/newsletters/2024/11/01/11640.html</guid>
+      <description>&lt;style&gt;&#xA;&#x9;.microblog_permalink {&#xA;&#x9;&#x9;color: gray;&#xA;&#x9;&#x9;font-style: italic;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;.microblog_divider {&#xA;&#x9;&#x9;color: gray;&#xA;&#x9;} &lt;/style&gt; &lt;div class=&#34;microblog_email&#34;&gt; &#xA;&lt;p&gt; &lt;/p&gt; &lt;hr&gt; &#xA;&lt;p&gt; &lt;/p&gt; &#xA;&lt;p&gt;&lt;em&gt;Vote&lt;/em&gt;&lt;/p&gt; &lt;img src=&#34;https://noise.stoneberg.net/uploads/2024/image.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; style=&#34;max-width: 100%; height: auto;&#34;&gt; &#xA;&lt;p&gt; &lt;a href=&#34;https://noise.stoneberg.net/2024/10/28/vote.html&#34; class=&#34;microblog_permalink&#34;&gt;2024-10-28&lt;/a&gt; &lt;/p&gt; &lt;hr&gt; &lt;/div&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2024/10/28/vote.html</link>
+      <pubDate>Mon, 28 Oct 2024 11:28:05 -0800</pubDate>
+      <guid>http://localhost:1313/2024/10/28/vote.html</guid>
+      <description>&lt;p&gt;&lt;em&gt;Vote&lt;/em&gt;&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2024/image.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34;&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2023/11/01/rip-chef.html</link>
+      <pubDate>Wed, 01 Nov 2023 11:02:28 -0800</pubDate>
+      <guid>http://localhost:1313/2023/11/01/rip-chef.html</guid>
+      <description>&lt;p&gt;RIP Chef&lt;/p&gt;&#xA;&lt;p&gt;&lt;video controls=&#34;controls&#34; playsinline=&#34;playsinline&#34; src=&#34;https://noise.stoneberg.net/uploads/2023/movie.mov&#34; width=&#34;640&#34; height=&#34;360&#34; poster=&#34;https://noise.stoneberg.net/uploads/2023/poster.png&#34; preload=&#34;none&#34;&gt;&lt;/video&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2021/03/23/song-of-the.html</link>
+      <pubDate>Tue, 23 Mar 2021 19:03:21 -0800</pubDate>
+      <guid>http://localhost:1313/2021/03/23/song-of-the.html</guid>
+      <description>&lt;p&gt;Song of the day&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2021/08197aab59.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2021/03/04/digging-my-new.html</link>
+      <pubDate>Thu, 04 Mar 2021 16:01:02 -0800</pubDate>
+      <guid>http://localhost:1313/2021/03/04/digging-my-new.html</guid>
+      <description>&lt;p&gt;Digging my new stick&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2021/3f77685169.jpg&#34; width=&#34;599&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2021/02/26/123214.html</link>
+      <pubDate>Fri, 26 Feb 2021 12:32:14 -0800</pubDate>
+      <guid>http://localhost:1313/2021/02/26/123214.html</guid>
+      <description>&lt;img src=&#34;uploads/2021/bb9e7e540e.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title>Winning more matches with the same game 🎾</title>
+      <link>http://localhost:1313/2021/02/06/winning-more-matches.html</link>
+      <pubDate>Sat, 06 Feb 2021 12:09:00 -0800</pubDate>
+      <guid>http://localhost:1313/2021/02/06/winning-more-matches.html</guid>
+      <description>&lt;p&gt;Lately my biggest insight on the tennis court has been about how to find ways to do more with what I have(something I imagine will be more important as I get older), and I have been surprised at the positive results I have seen.&lt;/p&gt;&#xA;&lt;p&gt;The two big ideas I have been focusing on both have to do with an awareness of what is happening on the other side of the net.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2021/01/30/pandemic-fine-httpstwittercomsarahesmithstatuss.html</link>
+      <pubDate>Sat, 30 Jan 2021 19:48:51 -0800</pubDate>
+      <guid>http://localhost:1313/2021/01/30/pandemic-fine-httpstwittercomsarahesmithstatuss.html</guid>
+      <description>&lt;p&gt;Pandemic Fine™️ 💯&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://twitter.com/sarahesmith23/status/1354893722174054406?s=20&#34;&gt;twitter.com/sarahesmi&amp;hellip;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/10/25/083059.html</link>
+      <pubDate>Sun, 25 Oct 2020 07:30:59 -0800</pubDate>
+      <guid>http://localhost:1313/2020/10/25/083059.html</guid>
+      <description>&lt;p&gt;✅&#xA;&lt;img src=&#34;https://noise.stoneberg.net/uploads/2020/700176283d.jpg&#34; alt=&#34;82266E13-856F-434E-9C76-882ED8EEFCBC.jpg&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/10/16/golden-hour.html</link>
+      <pubDate>Fri, 16 Oct 2020 07:13:20 -0800</pubDate>
+      <guid>http://localhost:1313/2020/10/16/golden-hour.html</guid>
+      <description>&lt;p&gt;Golden hour&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/3adeb6fb73.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title>🎂 10K in the fall forest </title>
+      <link>http://localhost:1313/2020/10/09/k-in-the.html</link>
+      <pubDate>Fri, 09 Oct 2020 11:25:17 -0800</pubDate>
+      <guid>http://localhost:1313/2020/10/09/k-in-the.html</guid>
+      <description>&lt;p&gt;Perfect day to run my furthest distance at the start of another year&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2020/bb93713c6f.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;Mt Rainier National Forest Nisqually Entrance&#34; /&gt;&lt;img src=&#34;uploads/2020/6f9670122c.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;10K Trained for with an app&#34; /&gt;&lt;img src=&#34;uploads/2020/4d0d0435a6.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;Seeing this always gives me pause&#34; /&gt;&lt;img src=&#34;uploads/2020/e7e6a47156.jpg&#34; width=&#34;600&#34; height=&#34;370&#34; alt=&#34;Shining sun and perfect weather&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/08/18/years-of-wedded.html</link>
+      <pubDate>Tue, 18 Aug 2020 16:33:09 -0800</pubDate>
+      <guid>http://localhost:1313/2020/08/18/years-of-wedded.html</guid>
+      <description>&lt;p&gt;20 years of wedded bliss&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2020/6c797c3e11.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;&lt;img src=&#34;uploads/2020/b9f64bb9f6.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/lamp-number-seven.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:41:02 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/lamp-number-seven.html</guid>
+      <description>&lt;p&gt;Lamp number seven&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/ae5b2c4883.jpg&#34; width=&#34;536&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/kopel-en-casa.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:38:26 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/kopel-en-casa.html</guid>
+      <description>&lt;p&gt;Kopel en casa&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/7ea40db0fc.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/toes-up-on.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:35:50 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/toes-up-on.html</guid>
+      <description>&lt;p&gt;Toes up on the Strait of Juan de Fuca&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/2aafe4c780.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/ish.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:34:08 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/ish.html</guid>
+      <description>&lt;p&gt;ish&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/6d3641eaad.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/v-j-k.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:33:13 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/v-j-k.html</guid>
+      <description>&lt;p&gt;V J K J&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/3155015772.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/warrior.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:31:35 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/warrior.html</guid>
+      <description>&lt;p&gt;Warrior&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/84cea74272.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/chop.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:30:54 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/chop.html</guid>
+      <description>&lt;p&gt;CHOP&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/d4c260fbcf.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/beach-smores.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:29:58 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/beach-smores.html</guid>
+      <description>&lt;p&gt;Beach s’mores&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/25f0ae7be4.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/jr-paddling-out.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:28:26 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/jr-paddling-out.html</guid>
+      <description>&lt;p&gt;Jr paddling out&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/bde1bc84cb.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/gliding-across-the.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:27:46 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/gliding-across-the.html</guid>
+      <description>&lt;p&gt;Gliding across the Hood Canal&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/94f915ed05.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/these-guys.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:19:37 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/these-guys.html</guid>
+      <description>&lt;p&gt;These guys&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/cd76a469e3.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/vintage-date-night.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:17:42 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/vintage-date-night.html</guid>
+      <description>&lt;p&gt;Vintage date night&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/f32497ab28.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/family-portrait.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:11:08 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/family-portrait.html</guid>
+      <description>&lt;p&gt;2020 Family Portrait&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/057aa4e9aa.jpg&#34; width=&#34;400&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/tuesday-nights.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:09:52 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/tuesday-nights.html</guid>
+      <description>&lt;p&gt;Tuesday nights&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/2ad8eead07.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/last-hit-before.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:08:23 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/last-hit-before.html</guid>
+      <description>&lt;p&gt;Last hit before Rona hiatus&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/09417eaf5b.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/sweet-sweet-win.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:07:07 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/sweet-sweet-win.html</guid>
+      <description>&lt;p&gt;Sweet sweet win with Jason&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/72b9a98653.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/when-given-the.html</link>
+      <pubDate>Sat, 18 Jul 2020 12:03:00 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/when-given-the.html</guid>
+      <description>&lt;p&gt;When given the choice, Jared(s) choose 🍣&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/b0d8976fbb.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/desert-fav.html</link>
+      <pubDate>Sat, 18 Jul 2020 11:59:14 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/desert-fav.html</guid>
+      <description>&lt;p&gt;Desert fav&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/d32649c861.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/a-vulgar-truth.html</link>
+      <pubDate>Sat, 18 Jul 2020 11:55:46 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/a-vulgar-truth.html</guid>
+      <description>&lt;p&gt;A vulgar truth at the bus stop&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/e5d6ce8a86.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/08/months-between-visits.html</link>
+      <pubDate>Wed, 08 Jul 2020 16:21:52 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/08/months-between-visits.html</guid>
+      <description>&lt;p&gt;4 months between visits&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/4bede82a19.jpg&#34; width=&#34;600&#34; height=&#34;409&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/top-of-the.html</link>
+      <pubDate>Sat, 04 Jul 2020 16:49:00 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/top-of-the.html</guid>
+      <description>&lt;p&gt;Top of the hill looking at Lummi Island&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/dfdee74b41.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/not-impressed.html</link>
+      <pubDate>Sun, 24 May 2020 12:22:00 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/not-impressed.html</guid>
+      <description>&lt;p&gt;Not impressed&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/927d982593.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/chauffeur-sr.html</link>
+      <pubDate>Fri, 15 May 2020 12:20:00 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/chauffeur-sr.html</guid>
+      <description>&lt;p&gt;Chauffeur Sr&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/593590f197.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/so.html</link>
+      <pubDate>Sat, 02 May 2020 12:18:00 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/so.html</guid>
+      <description>&lt;p&gt;So 😀&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/087034e7f6.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/country-cruising.html</link>
+      <pubDate>Thu, 30 Apr 2020 12:15:00 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/country-cruising.html</guid>
+      <description>&lt;p&gt;Country cruising&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/a942cd1698.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/dudes-in-the.html</link>
+      <pubDate>Thu, 30 Apr 2020 12:14:00 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/dudes-in-the.html</guid>
+      <description>&lt;p&gt;Dudes in the woods&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/009fffa6ef.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/07/18/social-distance-focused.html</link>
+      <pubDate>Thu, 30 Apr 2020 12:12:00 -0800</pubDate>
+      <guid>http://localhost:1313/2020/07/18/social-distance-focused.html</guid>
+      <description>&lt;p&gt;Social distance focused field trip&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/36194bbaac.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2020/02/06/jr-sporting-some.html</link>
+      <pubDate>Thu, 06 Feb 2020 08:43:52 -0800</pubDate>
+      <guid>http://localhost:1313/2020/02/06/jr-sporting-some.html</guid>
+      <description>&lt;p&gt;Jr sporting some new duds at the game&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2020/027de35081.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/11/02/seattle-doing-its.html</link>
+      <pubDate>Sat, 02 Nov 2019 11:47:29 -0800</pubDate>
+      <guid>http://localhost:1313/2019/11/02/seattle-doing-its.html</guid>
+      <description>&lt;p&gt;Seattle doing its best November&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/e5c12655f0.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/e5c12655f0.jpg&#34; width=&#34;600&#34; height=&#34;240&#34; alt=&#34;Seattle Skyline&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/10/06/kishi-bashi-puts.html</link>
+      <pubDate>Sun, 06 Oct 2019 22:37:16 -0800</pubDate>
+      <guid>http://localhost:1313/2019/10/06/kishi-bashi-puts.html</guid>
+      <description>&lt;p&gt;Kishi Bashi puts on a helluva show&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/6b421cf6a7.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/6b421cf6a7.jpg&#34; width=&#34;600&#34; height=&#34;350&#34; alt=&#34;&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/09/08/there-are-kindergarteners.html</link>
+      <pubDate>Sun, 08 Sep 2019 20:54:59 -0800</pubDate>
+      <guid>http://localhost:1313/2019/09/08/there-are-kindergarteners.html</guid>
+      <description>&lt;p&gt;There are 21 kindergarteners who have the good fortune of starting their school career in this lady’s classroom tomorrow, and their lives will be better for it. This master teacher is skilled and dedicated and is committed to the success of each of those kids. I am proud of what she is about to do.&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/8e2654a314.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/08/11/cousin-connection.html</link>
+      <pubDate>Sun, 11 Aug 2019 15:27:16 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/cousin-connection.html</guid>
+      <description>&lt;p&gt;Cousin Connection&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2019/5dfcc63e10.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;img src=&#34;uploads/2019/1f123a5faf.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/08/11/paper-it-forward.html</link>
+      <pubDate>Sun, 11 Aug 2019 15:17:39 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/paper-it-forward.html</guid>
+      <description>&lt;p&gt;Paper it forward 🔂&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/0863bfa81c.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/08/11/chbp-really-enjoyed.html</link>
+      <pubDate>Sun, 21 Jul 2019 15:26:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/chbp-really-enjoyed.html</guid>
+      <description>&lt;p&gt;CHBP 2019&#xA;Really enjoyed Little Wins and Scarlet Parke&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2019/7d5ec6a77a.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;img src=&#34;uploads/2019/b40a2a4aa3.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;img src=&#34;uploads/2019/f4431cb09d.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/08/11/foshay-tower.html</link>
+      <pubDate>Wed, 17 Jul 2019 15:15:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/foshay-tower.html</guid>
+      <description>&lt;p&gt;Foshay Tower&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/12c7632700.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/08/11/me-and-marge.html</link>
+      <pubDate>Wed, 17 Jul 2019 15:15:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/me-and-marge.html</guid>
+      <description>&lt;p&gt;Me and Marge&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/d112f10482.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/08/11/found-artifacts-from.html</link>
+      <pubDate>Sun, 14 Jul 2019 15:14:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/found-artifacts-from.html</guid>
+      <description>&lt;p&gt;Found artifacts from many moons ago&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/af4751be2b.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title>4th in Prosser</title>
+      <link>http://localhost:1313/2019/08/11/th-in-prosser.html</link>
+      <pubDate>Thu, 04 Jul 2019 15:09:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/th-in-prosser.html</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;uploads/2019/9ecd5721ab.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;img src=&#34;uploads/2019/1f1ddeea27.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;img src=&#34;uploads/2019/98b97beae9.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>New Rig</title>
+      <link>http://localhost:1313/2019/08/11/160556.html</link>
+      <pubDate>Mon, 24 Jun 2019 15:05:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/160556.html</guid>
+      <description>&lt;img src=&#34;uploads/2019/5fbc1c5444.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/08/11/take-the-damn.html</link>
+      <pubDate>Sun, 23 Jun 2019 15:03:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/take-the-damn.html</guid>
+      <description>&lt;p&gt;Take the damn photo dad&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2019/975bf81d44.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;img src=&#34;uploads/2019/9c34c72bba.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2019 Peninsula</title>
+      <link>http://localhost:1313/2019/06/20/peninsula.html</link>
+      <pubDate>Thu, 20 Jun 2019 19:11:06 -0800</pubDate>
+      <guid>http://localhost:1313/2019/06/20/peninsula.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/4dcb1abd10.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/4dcb1abd10.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/44e2a5e61f.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/44e2a5e61f.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/675928382f.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/675928382f.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/f00823ebb9.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/f00823ebb9.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/498976a5ff.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/498976a5ff.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/08/11/kishi-bashi-and.html</link>
+      <pubDate>Sun, 16 Jun 2019 15:00:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/08/11/kishi-bashi-and.html</guid>
+      <description>&lt;p&gt;Kishi Bashi and crew deliver a memorable performance&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/a26e95b620.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/05/27/rhett-bringing-the.html</link>
+      <pubDate>Mon, 27 May 2019 21:59:37 -0800</pubDate>
+      <guid>http://localhost:1313/2019/05/27/rhett-bringing-the.html</guid>
+      <description>&lt;p&gt;Rhett bringing the rock makes me want to get to Sixth Street&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/80adb763b8.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title>Western </title>
+      <link>http://localhost:1313/2019/05/20/western.html</link>
+      <pubDate>Mon, 20 May 2019 11:18:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/05/20/western.html</guid>
+      <description>&lt;p&gt;Hard to beat a college tour that ends with Death Cab and Odesza&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/4ae0fd0a45.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/4ae0fd0a45.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/a28e13c5ad.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/a28e13c5ad.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/eb98a24cc7.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/eb98a24cc7.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/318264a7f8.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/318264a7f8.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/8e0324183e.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/8e0324183e.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/73612be7c7.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/73612be7c7.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/05/18/the-lemonheads-have.html</link>
+      <pubDate>Fri, 17 May 2019 23:24:44 -0800</pubDate>
+      <guid>http://localhost:1313/2019/05/18/the-lemonheads-have.html</guid>
+      <description>&lt;p&gt;The Lemonheads have a well worn rut in the rotation of my youth, it was great to expand that connection tonight at the Tractor&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/bfddfce7f7.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/bfddfce7f7.jpg&#34; width=&#34;600&#34; height=&#34;369&#34; alt=&#34;&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/05/16/the-twins-are.html</link>
+      <pubDate>Thu, 16 May 2019 18:28:29 -0800</pubDate>
+      <guid>http://localhost:1313/2019/05/16/the-twins-are.html</guid>
+      <description>&lt;p&gt;The Twins are in town. Catching some ⚾️ with the dog&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/7c001ebae0.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/7c001ebae0.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/05/13/got-the-band.html</link>
+      <pubDate>Mon, 13 May 2019 19:41:37 -0800</pubDate>
+      <guid>http://localhost:1313/2019/05/13/got-the-band.html</guid>
+      <description>&lt;p&gt;Got the band back together&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/de35dbbedd.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/de35dbbedd.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/d0bb8f731a.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/d0bb8f731a.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/0e773f26f0.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/0e773f26f0.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/04/29/this-guy.html</link>
+      <pubDate>Mon, 29 Apr 2019 13:38:27 -0800</pubDate>
+      <guid>http://localhost:1313/2019/04/29/this-guy.html</guid>
+      <description>&lt;p&gt;This guy&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/f0787cbbcc.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/f0787cbbcc.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/04/22/vanderslice.html</link>
+      <pubDate>Mon, 22 Apr 2019 22:31:29 -0800</pubDate>
+      <guid>http://localhost:1313/2019/04/22/vanderslice.html</guid>
+      <description>&lt;p&gt;Vanderslice&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/5c8c9c1e3d.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/5c8c9c1e3d.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/04/19/starting-the-weekend.html</link>
+      <pubDate>Fri, 19 Apr 2019 17:46:15 -0800</pubDate>
+      <guid>http://localhost:1313/2019/04/19/starting-the-weekend.html</guid>
+      <description>&lt;p&gt;Starting the weekend with a blue Pastis&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/499c0708ae.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/499c0708ae.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; alt=&#34;&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/04/17/with-dan-and.html</link>
+      <pubDate>Wed, 17 Apr 2019 17:32:19 -0800</pubDate>
+      <guid>http://localhost:1313/2019/04/17/with-dan-and.html</guid>
+      <description>&lt;p&gt;⚾️ with Dan and John&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/3196834e69.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/3196834e69.jpg&#34; width=&#34;600&#34; height=&#34;391&#34; alt=&#34;&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Drupalcon 2019</title>
+      <link>http://localhost:1313/2019/04/16/215334.html</link>
+      <pubDate>Tue, 16 Apr 2019 21:53:00 -0800</pubDate>
+      <guid>http://localhost:1313/2019/04/16/215334.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/c457d6222f.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/c457d6222f.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/a62f6deef0.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/a62f6deef0.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/2859777553.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/2859777553.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/04/02/words-for-consideration.html</link>
+      <pubDate>Tue, 02 Apr 2019 21:24:27 -0800</pubDate>
+      <guid>http://localhost:1313/2019/04/02/words-for-consideration.html</guid>
+      <description>&lt;p&gt;Words for consideration: active, connected, curious. Brain Maintain&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/03/26/sunshine-and-blue.html</link>
+      <pubDate>Tue, 26 Mar 2019 17:09:07 -0800</pubDate>
+      <guid>http://localhost:1313/2019/03/26/sunshine-and-blue.html</guid>
+      <description>&lt;p&gt;Sunshine and blue skies in Seattle today&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/220d4bc7cf.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/220d4bc7cf.jpg&#34; width=&#34;600&#34; height=&#34;531&#34; alt=&#34;&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/03/23/mariners-fan-fest.html</link>
+      <pubDate>Sat, 23 Mar 2019 13:41:04 -0800</pubDate>
+      <guid>http://localhost:1313/2019/03/23/mariners-fan-fest.html</guid>
+      <description>&lt;p&gt;Mariners fan fest 2019&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/b45f42cb2e.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/b45f42cb2e.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/fba118043d.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/fba118043d.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/ef875435f7.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/ef875435f7.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/b8193e2276.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/b8193e2276.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/fdce26d39d.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/fdce26d39d.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/03/19/better-oblivion-community.html</link>
+      <pubDate>Tue, 19 Mar 2019 19:19:47 -0800</pubDate>
+      <guid>http://localhost:1313/2019/03/19/better-oblivion-community.html</guid>
+      <description>&lt;p&gt;Better Oblivion Community Center provides a reason to stay up very late with Team Shafer&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/ba01ed29df.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/ba01ed29df.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/01af291962.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/01af291962.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/c5399a5101.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/c5399a5101.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/3a70f1450e.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/3a70f1450e.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/03/19/another-beauty-in.html</link>
+      <pubDate>Tue, 19 Mar 2019 19:16:56 -0800</pubDate>
+      <guid>http://localhost:1313/2019/03/19/another-beauty-in.html</guid>
+      <description>&lt;p&gt;Another beauty in the desert &lt;br /&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/3e2942b5da.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/3e2942b5da.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;https://noise.stoneberg.net/uploads/2019/9527e7b6c7.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/9527e7b6c7.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; alt=&#34;&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/02/20/team-hb-in.html</link>
+      <pubDate>Wed, 20 Feb 2019 22:25:28 -0800</pubDate>
+      <guid>http://localhost:1313/2019/02/20/team-hb-in.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/044e7dcdf0.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/044e7dcdf0.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/79980fca64.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/79980fca64.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/ef3d4821a6.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/ef3d4821a6.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Team HB1879 in Olympia&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/02/04/ozomatli.html</link>
+      <pubDate>Mon, 04 Feb 2019 11:40:02 -0800</pubDate>
+      <guid>http://localhost:1313/2019/02/04/ozomatli.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/410ab6df6b.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/410ab6df6b.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/b683718a0b.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/b683718a0b.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/156c0f1c71.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/156c0f1c71.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/05cba3e547.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/05cba3e547.jpg&#34; width=&#34;600&#34; height=&#34;535&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Ozomatli 🎷🎺 🥁 🎸&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/01/29/socal-daveed-side.html</link>
+      <pubDate>Tue, 29 Jan 2019 12:40:13 -0800</pubDate>
+      <guid>http://localhost:1313/2019/01/29/socal-daveed-side.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/9f06efc863.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/9f06efc863.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/58aaa0097f.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/58aaa0097f.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/721877d611.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/721877d611.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/e91bdf3a5b.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/e91bdf3a5b.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/f91846053f.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/f91846053f.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/443612a87c.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/443612a87c.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/198453b3f0.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/198453b3f0.jpg&#34; width=&#34;600&#34; height=&#34;346&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/99d9c1ec2e.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/99d9c1ec2e.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/c36d36e91a.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/c36d36e91a.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/01/24/data-lookout.html</link>
+      <pubDate>Thu, 24 Jan 2019 16:29:59 -0800</pubDate>
+      <guid>http://localhost:1313/2019/01/24/data-lookout.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/44c71c36d0.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/44c71c36d0.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Data1 Lookout&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/01/21/semiahmoo-scenes.html</link>
+      <pubDate>Mon, 21 Jan 2019 22:28:19 -0800</pubDate>
+      <guid>http://localhost:1313/2019/01/21/semiahmoo-scenes.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/f7bae56173.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/f7bae56173.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/d83315a871.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/d83315a871.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/e2c6119625.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/e2c6119625.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/2a9652f6b6.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/2a9652f6b6.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/7d0f559141.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/7d0f559141.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Semiahmoo scenes&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/01/12/while-there-are.html</link>
+      <pubDate>Sat, 12 Jan 2019 21:00:27 -0800</pubDate>
+      <guid>http://localhost:1313/2019/01/12/while-there-are.html</guid>
+      <description>&lt;p&gt;While there are many good answers here, there is only one correct answer&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/452d1e6f9d.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/01/10/a-visit-to.html</link>
+      <pubDate>Thu, 10 Jan 2019 18:26:14 -0800</pubDate>
+      <guid>http://localhost:1313/2019/01/10/a-visit-to.html</guid>
+      <description>&lt;p&gt;A visit to Zig Zag with a Manhattan for Tyler&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2019/6f64ddbecd.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; alt=&#34;&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2019/01/06/pdx.html</link>
+      <pubDate>Sun, 06 Jan 2019 22:03:45 -0800</pubDate>
+      <guid>http://localhost:1313/2019/01/06/pdx.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/362f6e5e14.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/362f6e5e14.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/a93b9603ca.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/a93b9603ca.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/044e59e3d0.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/044e59e3d0.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/20c6a22d45.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/20c6a22d45.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/faf3737412.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/faf3737412.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/5e5cb9134b.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/5e5cb9134b.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/37dd8ca8bd.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/37dd8ca8bd.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/899eb6b985.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/899eb6b985.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2019/72ad23d733.jpg&#34;&gt;&lt;img src=&#34;uploads/2019/72ad23d733.jpg&#34; width=&#34;600&#34; height=&#34;277&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/12/24/in-a-church.html</link>
+      <pubDate>Mon, 24 Dec 2018 18:10:59 -0800</pubDate>
+      <guid>http://localhost:1313/2018/12/24/in-a-church.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/5e58a95267.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/5e58a95267.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;In a church&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/12/22/solstice-progressive-dinner.html</link>
+      <pubDate>Sat, 22 Dec 2018 09:12:14 -0800</pubDate>
+      <guid>http://localhost:1313/2018/12/22/solstice-progressive-dinner.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/663bc4e05a.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/663bc4e05a.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Solstice Progressive Dinner 2018&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/12/15/soupstice.html</link>
+      <pubDate>Sat, 15 Dec 2018 20:58:08 -0800</pubDate>
+      <guid>http://localhost:1313/2018/12/15/soupstice.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/fb0b63df2c.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/fb0b63df2c.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/59669e98f2.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/59669e98f2.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Soupstice 2018&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/12/15/despite-good-intentions.html</link>
+      <pubDate>Sat, 15 Dec 2018 20:56:10 -0800</pubDate>
+      <guid>http://localhost:1313/2018/12/15/despite-good-intentions.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/f6d6ee38c7.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/f6d6ee38c7.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Despite good intentions this is the only photo of a meal with many photo worthy courses and wonderful, reflective conversation&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/12/15/nutcracker.html</link>
+      <pubDate>Sat, 15 Dec 2018 17:36:53 -0800</pubDate>
+      <guid>http://localhost:1313/2018/12/15/nutcracker.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/c7a237c888.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/c7a237c888.jpg&#34; width=&#34;600&#34; height=&#34;452&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;2018 Nutcracker&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/12/02/first-mixed-win.html</link>
+      <pubDate>Sun, 02 Dec 2018 22:52:15 -0800</pubDate>
+      <guid>http://localhost:1313/2018/12/02/first-mixed-win.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/7bf8dd21f0.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/7bf8dd21f0.jpg&#34; width=&#34;475&#34; height=&#34;600&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;First mixed win- took a 3rd set TB but hung in and beat a mentally tough team&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/11/29/old-s-holiday.html</link>
+      <pubDate>Thu, 29 Nov 2018 00:38:50 -0800</pubDate>
+      <guid>http://localhost:1313/2018/11/29/old-s-holiday.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/a841b8b199.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/a841b8b199.jpg&#34; width=&#34;600&#34; height=&#34;399&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Old 97’s Holiday Extravaganza&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/11/22/day-wjr.html</link>
+      <pubDate>Thu, 22 Nov 2018 18:57:31 -0800</pubDate>
+      <guid>http://localhost:1313/2018/11/22/day-wjr.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/3de28d496f.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/3de28d496f.jpg&#34; width=&#34;600&#34; height=&#34;431&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/e2adb617fc.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/e2adb617fc.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;🦃 day 2018 w/Jr&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title> 🇲🇽</title>
+      <link>http://localhost:1313/2018/11/18/mexico.html</link>
+      <pubDate>Sun, 18 Nov 2018 21:22:49 -0800</pubDate>
+      <guid>http://localhost:1313/2018/11/18/mexico.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/e3740d28ee.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/e3740d28ee.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/2a8dd20986.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/2a8dd20986.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/17f014ad77.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/17f014ad77.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/9c4b094538.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/9c4b094538.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/894cecfbea.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/894cecfbea.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/e1565db868.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/e1565db868.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/fb2c154108.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/fb2c154108.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/2a1bfcd6f0.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/2a1bfcd6f0.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/48967e7953.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/48967e7953.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/3b0bdbf5e6.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/3b0bdbf5e6.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/11/18/170646.html</link>
+      <pubDate>Sun, 18 Nov 2018 09:06:46 -0800</pubDate>
+      <guid>http://localhost:1313/2018/11/18/170646.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/ec7d0c5a43.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/ec7d0c5a43.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/97d0680874.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/97d0680874.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;🎂 2018&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/11/10/vern-loves-community.html</link>
+      <pubDate>Sat, 10 Nov 2018 11:23:27 -0800</pubDate>
+      <guid>http://localhost:1313/2018/11/10/vern-loves-community.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/445886d0cd.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/445886d0cd.jpg&#34; width=&#34;600&#34; height=&#34;410&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Vern loves community dinner&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/10/30/spencer-shared-his.html</link>
+      <pubDate>Tue, 30 Oct 2018 18:28:58 -0800</pubDate>
+      <guid>http://localhost:1313/2018/10/30/spencer-shared-his.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/352086a5cf.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/352086a5cf.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Spencer shared his story of this journey as a blood donor to donate 200 pints over 40+ years&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/10/29/badcamp.html</link>
+      <pubDate>Mon, 29 Oct 2018 05:46:45 -0800</pubDate>
+      <guid>http://localhost:1313/2018/10/29/badcamp.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/a1e1b4f009.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/a1e1b4f009.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/5e7c8f1ae9.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/5e7c8f1ae9.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/f3222c8ffc.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/f3222c8ffc.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/474d1f39ff.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/474d1f39ff.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/f762fc08fe.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/f762fc08fe.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Badcamp 2018 💧&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/10/21/mushroom-weekend-edition.html</link>
+      <pubDate>Sun, 21 Oct 2018 16:31:18 -0800</pubDate>
+      <guid>http://localhost:1313/2018/10/21/mushroom-weekend-edition.html</guid>
+      <description>&lt;p&gt;2018-10-20&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/43072730bb.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/43072730bb.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/c04052a4b9.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/c04052a4b9.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/87607ed1d5.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/87607ed1d5.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/580d25465c.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/580d25465c.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/0d05af67a8.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/0d05af67a8.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/d0f7636ac6.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/d0f7636ac6.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Mushroom 🍄 Weekend 2018 Edition&lt;/p&gt;&#xA;&lt;p&gt;2018-10-21&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/ec2bfcf436.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/ec2bfcf436.jpg&#34; width=&#34;600&#34; height=&#34;399&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/6ea660cc9f.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/6ea660cc9f.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/10/14/birthday-picking-at.html</link>
+      <pubDate>Sun, 14 Oct 2018 14:10:41 -0800</pubDate>
+      <guid>http://localhost:1313/2018/10/14/birthday-picking-at.html</guid>
+      <description>&lt;p&gt;2018-10-12&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/6047e89b88.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/6047e89b88.jpg&#34; width=&#34;600&#34; height=&#34;584&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Birthday picking at the mountain&lt;/p&gt;&#xA;&lt;p&gt;2018-10-13&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/0fc83bb8e0.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/0fc83bb8e0.jpg&#34; width=&#34;449&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/3740e10ef0.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/3740e10ef0.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/e6384df6a8.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/e6384df6a8.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/10/07/annual-kinetics-trip.html</link>
+      <pubDate>Sun, 07 Oct 2018 13:32:54 -0800</pubDate>
+      <guid>http://localhost:1313/2018/10/07/annual-kinetics-trip.html</guid>
+      <description>&lt;p&gt;2018-10-05&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/311a188a95.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/311a188a95.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Annual Kinetics trip to the peninsula and PT.&lt;/p&gt;&#xA;&lt;p&gt;2018-10-06&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/9af95d5217.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/9af95d5217.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/409bb5a1a5.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/409bb5a1a5.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/4ad98d7099.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/4ad98d7099.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/07e3d12139.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/07e3d12139.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/a8cc1991de.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/a8cc1991de.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/e8fe0e31a2.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/e8fe0e31a2.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/da9e8dc327.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/da9e8dc327.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/42e9a08700.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/42e9a08700.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/f66131b95d.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/f66131b95d.jpg&#34; width=&#34;600&#34; height=&#34;449&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/09/10/with-the.html</link>
+      <pubDate>Mon, 10 Sep 2018 17:52:25 -0800</pubDate>
+      <guid>http://localhost:1313/2018/09/10/with-the.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/b71c7ae5f8.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/b71c7ae5f8.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/c32507104c.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/c32507104c.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/b03bfbc65f.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/b03bfbc65f.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/76cf56a4c7.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/76cf56a4c7.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;⚾️ with the 🐶&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/09/10/014624.html</link>
+      <pubDate>Mon, 10 Sep 2018 17:46:24 -0800</pubDate>
+      <guid>http://localhost:1313/2018/09/10/014624.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/358c47912e.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/358c47912e.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;❤️&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/09/07/that-englishman-was.html</link>
+      <pubDate>Fri, 07 Sep 2018 22:57:06 -0800</pubDate>
+      <guid>http://localhost:1313/2018/09/07/that-englishman-was.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/0a558489e9.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/0a558489e9.jpg&#34; width=&#34;417&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/2f4efc1871.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/2f4efc1871.jpg&#34; width=&#34;600&#34; height=&#34;305&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;That Englishman was in there like swimwear&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/09/05/miss-watching-this.html</link>
+      <pubDate>Wed, 05 Sep 2018 16:21:06 -0800</pubDate>
+      <guid>http://localhost:1313/2018/09/05/miss-watching-this.html</guid>
+      <description>&lt;p&gt;Miss watching this guy work&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/31250daa6e.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/09/01/fun-day-at.html</link>
+      <pubDate>Sat, 01 Sep 2018 17:57:01 -0800</pubDate>
+      <guid>http://localhost:1313/2018/09/01/fun-day-at.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/05bb1593d8.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/05bb1593d8.jpg&#34; width=&#34;438&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/03c6b880cf.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/03c6b880cf.jpg&#34; width=&#34;600&#34; height=&#34;219&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/7326081e21.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/7326081e21.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Fun day at the pitch with the 🐶- first time in the Hawk’s nest and Sounders Win ⚽️&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/08/19/gypsy-temple-rocked.html</link>
+      <pubDate>Sun, 19 Aug 2018 20:52:36 -0800</pubDate>
+      <guid>http://localhost:1313/2018/08/19/gypsy-temple-rocked.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/a9f23f2d50.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/a9f23f2d50.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Gypsy Temple rocked the sunset tonight&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/08/19/la-fans-are.html</link>
+      <pubDate>Sun, 19 Aug 2018 15:49:51 -0800</pubDate>
+      <guid>http://localhost:1313/2018/08/19/la-fans-are.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/8806385777.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/8806385777.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/2a34cdc04a.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/2a34cdc04a.jpg&#34; width=&#34;600&#34; height=&#34;405&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;LA fans are the worst&amp;hellip; was a treat to see Kershaw throw&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nanette</title>
+      <link>http://localhost:1313/2018/07/21/only-halfway-through.html</link>
+      <pubDate>Sat, 21 Jul 2018 07:23:00 -0800</pubDate>
+      <guid>http://localhost:1313/2018/07/21/only-halfway-through.html</guid>
+      <description>&lt;p&gt;Only halfway through the year but I have a feeling &lt;a href=&#34;https://www.netflix.com/title/80233611&#34;&gt;Hannah Gadsby’s “Nanette” on Netflix&lt;/a&gt; may be the most impressive and powerful performance I experience this year. &lt;a href=&#34;https://blog.ted.com/how-hannah-gadsby-broke-comedy/&#34;&gt;Hannah&amp;rsquo;s TED talk&lt;/a&gt; is also fantastic.&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/441d038c9d.jpg&#34; width=&#34;426&#34; height=&#34;426&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/07/10/for-tomorrow-is.html</link>
+      <pubDate>Tue, 10 Jul 2018 21:41:39 -0800</pubDate>
+      <guid>http://localhost:1313/2018/07/10/for-tomorrow-is.html</guid>
+      <description>&lt;p&gt;🎾 + ⚽️ for 🏴󠁧󠁢󠁥󠁮󠁧󠁿 tomorrow is 🔥&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/64b1060985.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/07/10/bolted.html</link>
+      <pubDate>Tue, 10 Jul 2018 17:42:35 -0800</pubDate>
+      <guid>http://localhost:1313/2018/07/10/bolted.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/c48612db5a.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/c48612db5a.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;height: auto;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Bolted&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/06/28/happy-birthday.html</link>
+      <pubDate>Thu, 28 Jun 2018 06:11:59 -0800</pubDate>
+      <guid>http://localhost:1313/2018/06/28/happy-birthday.html</guid>
+      <description>&lt;p&gt;Happy Birthday! 🎂🎉&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/45c8c7e187.jpg&#34; width=&#34;597&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/06/25/olympic-tradition-edition.html</link>
+      <pubDate>Mon, 25 Jun 2018 20:07:42 -0800</pubDate>
+      <guid>http://localhost:1313/2018/06/25/olympic-tradition-edition.html</guid>
+      <description>&lt;p&gt;2018-06-22&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/4e6b0d1e68.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/4e6b0d1e68.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/2d21909000.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/2d21909000.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/b44b3006ed.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/b44b3006ed.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/139637137c.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/139637137c.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Olympic tradition 2018 edition. Western Washington does not disappoint 🌲🌊&lt;/p&gt;&#xA;&lt;p&gt;2018-06-24&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/44c22bff9e.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/44c22bff9e.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/63bfb71e71.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/63bfb71e71.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/06/21/aloha-graduate.html</link>
+      <pubDate>Thu, 21 Jun 2018 19:12:22 -0800</pubDate>
+      <guid>http://localhost:1313/2018/06/21/aloha-graduate.html</guid>
+      <description>&lt;p&gt;Aloha Graduate!&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/f9331a0019.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title>Solstice </title>
+      <link>http://localhost:1313/2018/06/17/solstice.html</link>
+      <pubDate>Sun, 17 Jun 2018 11:48:43 -0800</pubDate>
+      <guid>http://localhost:1313/2018/06/17/solstice.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/4ff846f714.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/4ff846f714.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/f226d9f964.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/f226d9f964.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/eeac7db703.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/eeac7db703.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/06/11/st-place-on.html</link>
+      <pubDate>Mon, 11 Jun 2018 20:23:12 -0800</pubDate>
+      <guid>http://localhost:1313/2018/06/11/st-place-on.html</guid>
+      <description>&lt;p&gt;⚾️ 1st place on the line&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/0d7c17feda.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/06/02/tough-night-for.html</link>
+      <pubDate>Sat, 02 Jun 2018 19:53:50 -0800</pubDate>
+      <guid>http://localhost:1313/2018/06/02/tough-night-for.html</guid>
+      <description>&lt;p&gt;Tough night for the Sounders in Sandy UT&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/ca853d4d87.jpg&#34; width=&#34;600&#34; height=&#34;522&#34; /&gt;</description>
+    </item>
+    <item>
+      <title>Courageous Actions</title>
+      <link>http://localhost:1313/2018/06/01/courageous-actions.html</link>
+      <pubDate>Fri, 01 Jun 2018 20:42:24 -0800</pubDate>
+      <guid>http://localhost:1313/2018/06/01/courageous-actions.html</guid>
+      <description>&lt;p&gt;Tonight I tried to order a drink at a recommended local restaurant and was told &amp;ldquo;that must be a Salt Lake thing, I am from Chicago and have never heard of a negroni&amp;rdquo;. It took everything in me to overcome the awkwardness of my decision to stand up and walk out of there, but I was strong and found a spot that new &lt;strong&gt;exactly&lt;/strong&gt; what a negroni is. 🥃&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/05/31/some-people-think.html</link>
+      <pubDate>Thu, 31 May 2018 11:04:18 -0800</pubDate>
+      <guid>http://localhost:1313/2018/05/31/some-people-think.html</guid>
+      <description>&lt;p&gt;Some people think Fremont is the center of the universe and some other people think this place is&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/3037b1b8a7.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/05/29/fricassee.html</link>
+      <pubDate>Tue, 29 May 2018 17:27:27 -0800</pubDate>
+      <guid>http://localhost:1313/2018/05/29/fricassee.html</guid>
+      <description>&lt;p&gt;fricassee&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/878051823b.jpg&#34; width=&#34;600&#34; height=&#34;599&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/05/27/prefunk-as-you.html</link>
+      <pubDate>Sun, 27 May 2018 13:58:50 -0800</pubDate>
+      <guid>http://localhost:1313/2018/05/27/prefunk-as-you.html</guid>
+      <description>&lt;p&gt;prefunk, as you do&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/40c9b3aa34.jpg&#34; width=&#34;480&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/05/24/summer-dessert.html</link>
+      <pubDate>Thu, 24 May 2018 18:03:30 -0800</pubDate>
+      <guid>http://localhost:1313/2018/05/24/summer-dessert.html</guid>
+      <description>&lt;p&gt;Summer dessert&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/9e27d78155.jpg&#34; width=&#34;565&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/05/22/celebrating-months-of.html</link>
+      <pubDate>Tue, 22 May 2018 14:27:42 -0800</pubDate>
+      <guid>http://localhost:1313/2018/05/22/celebrating-months-of.html</guid>
+      <description>&lt;p&gt;Celebrating 12 months of kicking ass&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/ecc4539638.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/05/18/is-good-medicine.html</link>
+      <pubDate>Fri, 18 May 2018 10:55:54 -0800</pubDate>
+      <guid>http://localhost:1313/2018/05/18/is-good-medicine.html</guid>
+      <description>&lt;p&gt;🍲 is good medicine&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/f6bad02c9e.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/04/29/fettuccine-tasting.html</link>
+      <pubDate>Sun, 29 Apr 2018 08:32:50 -0800</pubDate>
+      <guid>http://localhost:1313/2018/04/29/fettuccine-tasting.html</guid>
+      <description>&lt;p&gt;Fettuccine tasting&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/0a16e0f78e.jpg&#34; width=&#34;600&#34; height=&#34;599&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/04/24/so-due.html</link>
+      <pubDate>Tue, 24 Apr 2018 16:46:27 -0800</pubDate>
+      <guid>http://localhost:1313/2018/04/24/so-due.html</guid>
+      <description>&lt;p&gt;So due&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/a746042407.jpg&#34; width=&#34;600&#34; height=&#34;346&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/04/20/favorite-date-night.html</link>
+      <pubDate>Fri, 20 Apr 2018 21:15:25 -0800</pubDate>
+      <guid>http://localhost:1313/2018/04/20/favorite-date-night.html</guid>
+      <description>&lt;p&gt;Favorite date night spot&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/979f84a91a.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/04/11/ive-been-through.html</link>
+      <pubDate>Tue, 10 Apr 2018 23:16:12 -0800</pubDate>
+      <guid>http://localhost:1313/2018/04/11/ive-been-through.html</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been through the desert on a horse with no name — It felt good to be out of the rain&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2018/fbb83a4644.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;&lt;img src=&#34;uploads/2018/c835bc0e99.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;&lt;img src=&#34;uploads/2018/6494dc86f2.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;&lt;img src=&#34;uploads/2018/9c37d7e0c3.jpg&#34; width=&#34;600&#34; height=&#34;599&#34; /&gt;&lt;img src=&#34;uploads/2018/5862d6dd52.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/04/08/221746.html</link>
+      <pubDate>Sun, 08 Apr 2018 14:17:46 -0800</pubDate>
+      <guid>http://localhost:1313/2018/04/08/221746.html</guid>
+      <description>&lt;p&gt;🎾 ☀️&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/05173131f7.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/04/06/bringing-some-courage.html</link>
+      <pubDate>Fri, 06 Apr 2018 19:09:30 -0800</pubDate>
+      <guid>http://localhost:1313/2018/04/06/bringing-some-courage.html</guid>
+      <description>&lt;p&gt;Bringing some courage to the court&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/7c81d3d030.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/04/05/022527.html</link>
+      <pubDate>Thu, 05 Apr 2018 18:25:27 -0800</pubDate>
+      <guid>http://localhost:1313/2018/04/05/022527.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/f49f1c462a.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/04/01/181039.html</link>
+      <pubDate>Sun, 01 Apr 2018 10:10:39 -0800</pubDate>
+      <guid>http://localhost:1313/2018/04/01/181039.html</guid>
+      <description>&lt;p&gt;🥚&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/c124fafcef.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/31/cool-customer.html</link>
+      <pubDate>Sat, 31 Mar 2018 17:34:58 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/31/cool-customer.html</guid>
+      <description>&lt;p&gt;Cool Customer&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/61cb238a76.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/25/doug-and-the.html</link>
+      <pubDate>Sun, 25 Mar 2018 06:27:52 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/25/doug-and-the.html</guid>
+      <description>&lt;p&gt;Doug and the dog&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/fb438f1f83.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/18/tramlines.html</link>
+      <pubDate>Sun, 18 Mar 2018 09:33:00 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/18/tramlines.html</guid>
+      <description>&lt;p&gt;tramlines&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/bf117627fd.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/18/comedy.html</link>
+      <pubDate>Sun, 18 Mar 2018 07:10:17 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/18/comedy.html</guid>
+      <description>&lt;p&gt;🍀 comedy&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/5e291dcdd2.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/13/see-you-next.html</link>
+      <pubDate>Tue, 13 Mar 2018 17:13:14 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/13/see-you-next.html</guid>
+      <description>&lt;p&gt;see you next time guna&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/079ad60548.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/13/another-year-of.html</link>
+      <pubDate>Tue, 13 Mar 2018 08:23:36 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/13/another-year-of.html</guid>
+      <description>&lt;p&gt;another year of awesome tennis in the desert&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/e342d99dfd.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/12/031935.html</link>
+      <pubDate>Mon, 12 Mar 2018 19:19:35 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/12/031935.html</guid>
+      <description>&lt;p&gt;The way the chair calls them “Miss Serena” or “Miss Venus” instead of “Miss Williams” is great&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/e7160919b6.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/12/the-way-the.html</link>
+      <pubDate>Mon, 12 Mar 2018 19:19:35 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/12/the-way-the.html</guid>
+      <description>&lt;p&gt;The way the chair calls them “Miss Serena” or “Miss Venus” instead of “Miss Williams” is great&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/4fe4989516.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/10/053022.html</link>
+      <pubDate>Sat, 10 Mar 2018 21:30:22 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/10/053022.html</guid>
+      <description>&lt;p&gt;House Rules&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/e86d58eeff.jpg&#34; width=&#34;600&#34; height=&#34;313&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/10/house-rules.html</link>
+      <pubDate>Sat, 10 Mar 2018 21:30:22 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/10/house-rules.html</guid>
+      <description>&lt;p&gt;House Rules&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/a9efbd239a.jpg&#34; width=&#34;600&#34; height=&#34;313&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/10/234525.html</link>
+      <pubDate>Sat, 10 Mar 2018 15:45:25 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/10/234525.html</guid>
+      <description>&lt;p&gt;spring pilgrimage&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/42681f9ee2.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/03/10/spring-pilgrimage.html</link>
+      <pubDate>Sat, 10 Mar 2018 15:45:25 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/10/spring-pilgrimage.html</guid>
+      <description>&lt;p&gt;spring pilgrimage&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/623a318571.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title>Mckymonroe Custom Build In Seattle </title>
+      <link>http://localhost:1313/2018/03/10/mckymonroe-custom-build.html</link>
+      <pubDate>Sat, 10 Mar 2018 07:51:08 -0800</pubDate>
+      <guid>http://localhost:1313/2018/03/10/mckymonroe-custom-build.html</guid>
+      <description>&lt;p&gt;2018-02-19&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/270afed606.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/270afed606.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/1114e02a54.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/1114e02a54.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;2018-02-21&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/d46ed6454b.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/d46ed6454b.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/828a154bb2.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/828a154bb2.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;2018-02-22&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/04043ef32e.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/04043ef32e.jpg&#34; width=&#34;450&#34; height=&#34;600&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;2018-02-24&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/e673a8f98e.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/e673a8f98e.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;2018-02-25&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/8b7998f3c3.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/8b7998f3c3.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/143a6c668c.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/143a6c668c.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; style=&#34;display: inline-block; max-height: 200px; width: auto; padding: 1px;&#34; class=&#34;sunlit_image&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Drupal Summit 2018</title>
+      <link>http://localhost:1313/2018/02/04/drupal-summit.html</link>
+      <pubDate>Sun, 04 Feb 2018 15:06:42 -0800</pubDate>
+      <guid>http://localhost:1313/2018/02/04/drupal-summit.html</guid>
+      <description>&lt;p&gt;2018-02-02&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/66948891e4.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/66948891e4.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/07bcdcbc2c.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/07bcdcbc2c.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/0cc5a6a480.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/0cc5a6a480.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;2018-02-03&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/a442aadd88.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/a442aadd88.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/90f16a520c.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/90f16a520c.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/b3215a639b.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/b3215a639b.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/f36e53323f.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/f36e53323f.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/82f447fe53.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/82f447fe53.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;2018-02-04&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://noise.stoneberg.net/uploads/2018/ee4bfa79dc.jpg&#34;&gt;&lt;img src=&#34;uploads/2018/ee4bfa79dc.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>🐕 Turns 5️⃣</title>
+      <link>http://localhost:1313/2018/01/28/turns.html</link>
+      <pubDate>Sun, 28 Jan 2018 14:50:36 -0800</pubDate>
+      <guid>http://localhost:1313/2018/01/28/turns.html</guid>
+      <description>&lt;p&gt;2018-01-25&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/daacb4d122.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&#xA;&lt;p&gt;2018-01-26&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2018/a5d9f6a460.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;img src=&#34;uploads/2018/49fa39a3a3.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;img src=&#34;uploads/2018/51955e104c.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;img src=&#34;uploads/2018/ef6e8ddd92.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/p&gt;&#xA;&lt;p&gt;2018-01-27&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2018/a8eedcdbb6.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;img src=&#34;uploads/2018/e612f8ff5c.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;img src=&#34;uploads/2018/a637922948.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; style=&#34;max-height: 200px; width: auto; padding: 1px;&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/01/18/we-are-missing.html</link>
+      <pubDate>Thu, 18 Jan 2018 18:51:36 -0800</pubDate>
+      <guid>http://localhost:1313/2018/01/18/we-are-missing.html</guid>
+      <description>&lt;p&gt;We are missing Mike tonight @ SEADug&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/999d3d67dc.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/01/14/045523.html</link>
+      <pubDate>Sun, 14 Jan 2018 20:55:23 -0800</pubDate>
+      <guid>http://localhost:1313/2018/01/14/045523.html</guid>
+      <description>&lt;p&gt;🎾 🇦🇺 💯&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/01/09/the-problem-with.html</link>
+      <pubDate>Tue, 09 Jan 2018 23:10:58 -0800</pubDate>
+      <guid>http://localhost:1313/2018/01/09/the-problem-with.html</guid>
+      <description>&lt;p&gt;The problem with going to 🛏 on time is live 🎾 in 🇦🇺&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2018/01/02/a-new-year.html</link>
+      <pubDate>Tue, 02 Jan 2018 22:47:52 -0800</pubDate>
+      <guid>http://localhost:1313/2018/01/02/a-new-year.html</guid>
+      <description>&lt;p&gt;A new year and a new adventure. I am excited for the future and what it holds with work, friends, and family.&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/47f259ab80.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/12/19/oh-yeah-a.html</link>
+      <pubDate>Tue, 19 Dec 2017 17:30:04 -0800</pubDate>
+      <guid>http://localhost:1313/2017/12/19/oh-yeah-a.html</guid>
+      <description>&lt;p&gt;Oh yeah, a Tuesday in Minnesota&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/5c43ef5ca4.jpg&#34; width=&#34;600&#34; height=&#34;599&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/12/15/calling-bullshit-creative.html</link>
+      <pubDate>Fri, 15 Dec 2017 09:47:05 -0800</pubDate>
+      <guid>http://localhost:1313/2017/12/15/calling-bullshit-creative.html</guid>
+      <description>&lt;p&gt;“Calling Bullshit” Creative Mornings talk was great.&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/41714dc3cf.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/12/09/oven-pancake-in.html</link>
+      <pubDate>Sat, 09 Dec 2017 19:28:28 -0800</pubDate>
+      <guid>http://localhost:1313/2017/12/09/oven-pancake-in.html</guid>
+      <description>&lt;p&gt;oven pancake in the solstice house — risk &amp;amp; reward theme this year&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/c28cd11e22.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/12/09/lady-bird-was.html</link>
+      <pubDate>Sat, 09 Dec 2017 09:23:40 -0800</pubDate>
+      <guid>http://localhost:1313/2017/12/09/lady-bird-was.html</guid>
+      <description>&lt;p&gt;Lady Bird was one of my favorite movies this year.&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/0fbf0381ad.jpg&#34; width=&#34;600&#34; height=&#34;599&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/12/06/finding-olympic-qualifying.html</link>
+      <pubDate>Wed, 06 Dec 2017 23:36:43 -0800</pubDate>
+      <guid>http://localhost:1313/2017/12/06/finding-olympic-qualifying.html</guid>
+      <description>&lt;p&gt;Finding Olympic qualifying curling to be a great way to end the day. Would be nice to see curling more than once every 4 years, fun to watch.&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/b1f2f31b6b.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/11/24/started-paying-for.html</link>
+      <pubDate>Fri, 24 Nov 2017 10:50:49 -0800</pubDate>
+      <guid>http://localhost:1313/2017/11/24/started-paying-for.html</guid>
+      <description>&lt;p&gt;Started paying for Micro.blog today after Kickstarter trial expired. Happy to support &lt;a href=&#34;https://micro.blog/manton&#34;&gt;@manton&lt;/a&gt; and goals of Micro.blog around blogging and the open web.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/11/23/headed-to-town.html</link>
+      <pubDate>Thu, 23 Nov 2017 17:57:27 -0800</pubDate>
+      <guid>http://localhost:1313/2017/11/23/headed-to-town.html</guid>
+      <description>&lt;p&gt;Headed to town for a thanksgiving film&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/49519946d2.jpg&#34; width=&#34;600&#34; height=&#34;599&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/11/19/a-fantastic-secular.html</link>
+      <pubDate>Sun, 19 Nov 2017 00:47:31 -0800</pubDate>
+      <guid>http://localhost:1313/2017/11/19/a-fantastic-secular.html</guid>
+      <description>&lt;p&gt;A fantastic secular sing along with Cataldo&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/63e40c4e91.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/11/13/on-the-move.html</link>
+      <pubDate>Mon, 13 Nov 2017 16:47:02 -0800</pubDate>
+      <guid>http://localhost:1313/2017/11/13/on-the-move.html</guid>
+      <description>&lt;p&gt;On the Move&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/69051fab74.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/11/12/tasty.html</link>
+      <pubDate>Sun, 12 Nov 2017 10:09:44 -0800</pubDate>
+      <guid>http://localhost:1313/2017/11/12/tasty.html</guid>
+      <description>&lt;p&gt;Tasty&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/73f5964cc9.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/11/10/punta-mita-morning.html</link>
+      <pubDate>Fri, 10 Nov 2017 07:57:16 -0800</pubDate>
+      <guid>http://localhost:1313/2017/11/10/punta-mita-morning.html</guid>
+      <description>&lt;p&gt;Punta Mita morning grass courts&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/a5220804f8.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/11/02/last-hunt-of.html</link>
+      <pubDate>Thu, 02 Nov 2017 15:41:36 -0800</pubDate>
+      <guid>http://localhost:1313/2017/11/02/last-hunt-of.html</guid>
+      <description>&lt;p&gt;Last hunt of the season. Generally saw less fruit in the forest this autumn.&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/819d51bb98.jpg&#34; width=&#34;600&#34; height=&#34;450&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/10/31/rip-tyler.html</link>
+      <pubDate>Tue, 31 Oct 2017 17:24:27 -0800</pubDate>
+      <guid>http://localhost:1313/2017/10/31/rip-tyler.html</guid>
+      <description>&lt;p&gt;RIP Tyler&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/07c74ed382.jpg&#34; width=&#34;559&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/10/02/soup-time.html</link>
+      <pubDate>Mon, 02 Oct 2017 14:26:00 -0800</pubDate>
+      <guid>http://localhost:1313/2017/10/02/soup-time.html</guid>
+      <description>&lt;p&gt;Soup time&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/0859f97d53.jpg&#34; width=&#34;600&#34; height=&#34;599&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/09/29/so-many-questions.html</link>
+      <pubDate>Fri, 29 Sep 2017 08:43:53 -0800</pubDate>
+      <guid>http://localhost:1313/2017/09/29/so-many-questions.html</guid>
+      <description>&lt;p&gt;So many questions about this note found in the street&amp;hellip;&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/f0b89ddb0c.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/09/25/this-always-makes.html</link>
+      <pubDate>Mon, 25 Sep 2017 13:39:35 -0800</pubDate>
+      <guid>http://localhost:1313/2017/09/25/this-always-makes.html</guid>
+      <description>&lt;p&gt;This always makes me smile&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/57d41b4358.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/09/24/alki-beach-stroll.html</link>
+      <pubDate>Sun, 24 Sep 2017 14:41:23 -0800</pubDate>
+      <guid>http://localhost:1313/2017/09/24/alki-beach-stroll.html</guid>
+      <description>&lt;p&gt;Alki beach stroll&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2017/3c71d6914d.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/08/21/see-you-in.html</link>
+      <pubDate>Mon, 21 Aug 2017 14:21:00 -0800</pubDate>
+      <guid>http://localhost:1313/2017/08/21/see-you-in.html</guid>
+      <description>&lt;p&gt;See you in the shadow #floatality&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;uploads/2018/ee27959a71.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;&lt;img src=&#34;uploads/2018/25f0949e29.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/08/21/180747.html</link>
+      <pubDate>Mon, 21 Aug 2017 10:07:47 -0800</pubDate>
+      <guid>http://localhost:1313/2017/08/21/180747.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/719ff1e6be.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2017/08/21/180659.html</link>
+      <pubDate>Mon, 21 Aug 2017 10:06:59 -0800</pubDate>
+      <guid>http://localhost:1313/2017/08/21/180659.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/0613ff4ca7.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2016/10/03/182733.html</link>
+      <pubDate>Mon, 03 Oct 2016 10:27:33 -0800</pubDate>
+      <guid>http://localhost:1313/2016/10/03/182733.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/02da63871c.jpg&#34; width=&#34;600&#34; height=&#34;400&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2016/01/19/fried-rice-cleaning.html</link>
+      <pubDate>Tue, 19 Jan 2016 18:11:40 -0800</pubDate>
+      <guid>http://localhost:1313/2016/01/19/fried-rice-cleaning.html</guid>
+      <description>&lt;p&gt;Fried rice = cleaning fridge + making dinner&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/8dfe687b4c.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2015/12/27/apple-heroes-save.html</link>
+      <pubDate>Sun, 27 Dec 2015 16:58:35 -0800</pubDate>
+      <guid>http://localhost:1313/2015/12/27/apple-heroes-save.html</guid>
+      <description>&lt;p&gt;Apple heroes save the day&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/ede858b7b3.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2015/12/20/jr-getting-ready.html</link>
+      <pubDate>Sun, 20 Dec 2015 08:37:43 -0800</pubDate>
+      <guid>http://localhost:1313/2015/12/20/jr-getting-ready.html</guid>
+      <description>&lt;p&gt;Jr getting ready to plough some pow&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/943797e04c.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2014/07/26/044619.html</link>
+      <pubDate>Sat, 26 Jul 2014 20:46:19 -0800</pubDate>
+      <guid>http://localhost:1313/2014/07/26/044619.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/3744aea364.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2014/06/04/texas-style.html</link>
+      <pubDate>Wed, 04 Jun 2014 19:18:10 -0800</pubDate>
+      <guid>http://localhost:1313/2014/06/04/texas-style.html</guid>
+      <description>&lt;p&gt;Texas style&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/f1ba4de5b8.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/12/01/wassup.html</link>
+      <pubDate>Sat, 01 Dec 2012 20:45:25 -0800</pubDate>
+      <guid>http://localhost:1313/2012/12/01/wassup.html</guid>
+      <description>&lt;p&gt;Wassup?!&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/357fb82583.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/11/20/growing-ccjaredjunior.html</link>
+      <pubDate>Tue, 20 Nov 2012 14:36:54 -0800</pubDate>
+      <guid>http://localhost:1313/2012/11/20/growing-ccjaredjunior.html</guid>
+      <description>&lt;p&gt;Growing cc/@jaredjunior&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/1e4dea0f6e.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/11/09/making-soup.html</link>
+      <pubDate>Fri, 09 Nov 2012 10:45:25 -0800</pubDate>
+      <guid>http://localhost:1313/2012/11/09/making-soup.html</guid>
+      <description>&lt;p&gt;Making soup&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/6153a14f65.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/06/09/garage-sale.html</link>
+      <pubDate>Sat, 09 Jun 2012 08:44:56 -0800</pubDate>
+      <guid>http://localhost:1313/2012/06/09/garage-sale.html</guid>
+      <description>&lt;p&gt;Garage sale!&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/0381af9e64.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/06/08/after-school-reading.html</link>
+      <pubDate>Fri, 08 Jun 2012 14:33:51 -0800</pubDate>
+      <guid>http://localhost:1313/2012/06/08/after-school-reading.html</guid>
+      <description>&lt;p&gt;After school reading time&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/fb371e174d.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/06/07/storytime.html</link>
+      <pubDate>Thu, 07 Jun 2012 19:01:21 -0800</pubDate>
+      <guid>http://localhost:1313/2012/06/07/storytime.html</guid>
+      <description>&lt;p&gt;Storytime&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/8217e1c1c9.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/06/01/game-night.html</link>
+      <pubDate>Fri, 01 Jun 2012 18:56:44 -0800</pubDate>
+      <guid>http://localhost:1313/2012/06/01/game-night.html</guid>
+      <description>&lt;p&gt;Game night&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/9284c2bd7f.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/03/04/talking-to-grandma.html</link>
+      <pubDate>Sun, 04 Mar 2012 14:27:46 -0800</pubDate>
+      <guid>http://localhost:1313/2012/03/04/talking-to-grandma.html</guid>
+      <description>&lt;p&gt;Talking to grandma&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/82c579c7cf.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/02/26/best-yr-old.html</link>
+      <pubDate>Sun, 26 Feb 2012 09:38:03 -0800</pubDate>
+      <guid>http://localhost:1313/2012/02/26/best-yr-old.html</guid>
+      <description>&lt;p&gt;Best 7 yr old sleepover accessory ever, the sleeping mask&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/cb282b2192.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/02/19/053534.html</link>
+      <pubDate>Sun, 19 Feb 2012 21:35:34 -0800</pubDate>
+      <guid>http://localhost:1313/2012/02/19/053534.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/f79dfcfcff.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/02/19/053529.html</link>
+      <pubDate>Sun, 19 Feb 2012 21:35:29 -0800</pubDate>
+      <guid>http://localhost:1313/2012/02/19/053529.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/7a1936acc9.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/02/19/053526.html</link>
+      <pubDate>Sun, 19 Feb 2012 21:35:26 -0800</pubDate>
+      <guid>http://localhost:1313/2012/02/19/053526.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/3beda3a4c4.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/02/19/my-cool-wife.html</link>
+      <pubDate>Sun, 19 Feb 2012 21:35:02 -0800</pubDate>
+      <guid>http://localhost:1313/2012/02/19/my-cool-wife.html</guid>
+      <description>&lt;p&gt;My cool wife making cool things&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/f7adb77a2a.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/02/13/working-on-valentines.html</link>
+      <pubDate>Mon, 13 Feb 2012 19:14:08 -0800</pubDate>
+      <guid>http://localhost:1313/2012/02/13/working-on-valentines.html</guid>
+      <description>&lt;p&gt;Working on Valentines&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/e0d4f1721a.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/01/07/today-is-all.html</link>
+      <pubDate>Sat, 07 Jan 2012 12:23:05 -0800</pubDate>
+      <guid>http://localhost:1313/2012/01/07/today-is-all.html</guid>
+      <description>&lt;p&gt;Today is all about tomato sauce&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/28fee748fa.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2012/01/02/preparing-for-juice.html</link>
+      <pubDate>Mon, 02 Jan 2012 17:22:40 -0800</pubDate>
+      <guid>http://localhost:1313/2012/01/02/preparing-for-juice.html</guid>
+      <description>&lt;p&gt;Preparing for juice fast that starts in the morning&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/7b91fb7686.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/12/30/crafters.html</link>
+      <pubDate>Fri, 30 Dec 2011 19:46:40 -0800</pubDate>
+      <guid>http://localhost:1313/2011/12/30/crafters.html</guid>
+      <description>&lt;p&gt;Crafters&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/eeee5dad67.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/12/27/nerds.html</link>
+      <pubDate>Tue, 27 Dec 2011 19:49:57 -0800</pubDate>
+      <guid>http://localhost:1313/2011/12/27/nerds.html</guid>
+      <description>&lt;p&gt;Nerds&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/a6475b7b2d.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/12/26/202452.html</link>
+      <pubDate>Mon, 26 Dec 2011 12:24:52 -0800</pubDate>
+      <guid>http://localhost:1313/2011/12/26/202452.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/056e37db2a.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/12/25/201808.html</link>
+      <pubDate>Sun, 25 Dec 2011 12:18:08 -0800</pubDate>
+      <guid>http://localhost:1313/2011/12/25/201808.html</guid>
+      <description>&lt;p&gt;Wassup&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/0b7d949eb3.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/12/06/tree-reward-unlocked.html</link>
+      <pubDate>Tue, 06 Dec 2011 19:16:04 -0800</pubDate>
+      <guid>http://localhost:1313/2011/12/06/tree-reward-unlocked.html</guid>
+      <description>&lt;p&gt;Tree reward [unlocked]&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/d367ac9465.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/11/30/015636.html</link>
+      <pubDate>Wed, 30 Nov 2011 17:56:36 -0800</pubDate>
+      <guid>http://localhost:1313/2011/11/30/015636.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/0a8486418e.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/11/19/jj.html</link>
+      <pubDate>Sat, 19 Nov 2011 08:57:20 -0800</pubDate>
+      <guid>http://localhost:1313/2011/11/19/jj.html</guid>
+      <description>&lt;p&gt;JJ&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/1cf36b49b5.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/09/05/chessmaster.html</link>
+      <pubDate>Mon, 05 Sep 2011 07:11:59 -0800</pubDate>
+      <guid>http://localhost:1313/2011/09/05/chessmaster.html</guid>
+      <description>&lt;p&gt;Chessmaster&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/1668a0b682.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/09/01/000654.html</link>
+      <pubDate>Thu, 01 Sep 2011 16:06:54 -0800</pubDate>
+      <guid>http://localhost:1313/2011/09/01/000654.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/4fa01eb608.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/09/01/jared-jr.html</link>
+      <pubDate>Thu, 01 Sep 2011 16:05:50 -0800</pubDate>
+      <guid>http://localhost:1313/2011/09/01/jared-jr.html</guid>
+      <description>&lt;p&gt;jared jr&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/1344ffbeb7.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/07/28/ummmm.html</link>
+      <pubDate>Thu, 28 Jul 2011 19:11:30 -0800</pubDate>
+      <guid>http://localhost:1313/2011/07/28/ummmm.html</guid>
+      <description>&lt;p&gt;Ummmm&amp;hellip;.&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/1984a9f275.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/07/24/silly-guy.html</link>
+      <pubDate>Sun, 24 Jul 2011 10:37:44 -0800</pubDate>
+      <guid>http://localhost:1313/2011/07/24/silly-guy.html</guid>
+      <description>&lt;p&gt;Silly guy&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/9c8dde4f46.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/07/09/relaxing-in-mn.html</link>
+      <pubDate>Sat, 09 Jul 2011 20:49:40 -0800</pubDate>
+      <guid>http://localhost:1313/2011/07/09/relaxing-in-mn.html</guid>
+      <description>&lt;p&gt;Relaxing in MN&lt;/p&gt;&#xA;&lt;img src=&#34;uploads/2018/0d27eff55b.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/2011/07/09/011731.html</link>
+      <pubDate>Sat, 09 Jul 2011 17:17:31 -0800</pubDate>
+      <guid>http://localhost:1313/2011/07/09/011731.html</guid>
+      <description>&lt;img src=&#34;uploads/2018/de4face736.jpg&#34; width=&#34;600&#34; height=&#34;600&#34; /&gt;</description>
+    </item>
+  </channel>
+</rss>

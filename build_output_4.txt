@@ -1,0 +1,60 @@
+Starting Saunter Theme Development Server...
+Theme Source: /Users/jaredstoneberg/Documents/projects/mbtheme
+Demo Site: examples/demo-site
+--------------------------------------------------
+port 1313 already in use, attempting to use an available port
+Watching for changes in /Users/jaredstoneberg/Documents/projects/mbtheme/{examples,layouts,static}
+Watching for config changes in /Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/config.json, /Users/jaredstoneberg/Documents/projects/mbtheme/config.json
+Start building sites … 
+hugo v0.152.2+extended+withdeploy darwin/arm64 BuildDate=2025-10-24T15:31:49Z VendorInfo=brew
+
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/about.md:1:1": duplicate menu entry with identifier "About" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/reading.md:1:1": duplicate menu entry with identifier "Reading" in menu "main"
+
+                  │ EN  
+──────────────────┼─────
+ Pages            │ 278 
+ Paginator pages  │  12 
+ Non-page files   │   6 
+ Static files     │   7 
+ Processed images │   0 
+ Aliases          │  24 
+ Cleaned          │   0 
+
+Built in 86 ms
+Environment: "development"
+Serving pages from disk
+Web Server is available at http://localhost:56567/ (bind address 127.0.0.1) 
+Press Ctrl+C to stop
+
+Change detected, rebuilding site (#1).
+2025-11-19 18:07:23.308 -0800
+Template changed /reading/single.html
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/about.md:1:1": duplicate menu entry with identifier "About" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/reading.md:1:1": duplicate menu entry with identifier "Reading" in menu "main"
+Web Server is available at http://localhost:56567/ (bind address 127.0.0.1)
+Total in 126 ms
+
+Change detected, rebuilding site (#2).
+2025-11-19 18:09:39.770 -0800
+Template changed /reading/single.html
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/about.md:1:1": duplicate menu entry with identifier "About" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/reading.md:1:1": duplicate menu entry with identifier "Reading" in menu "main"
+Web Server is available at http://localhost:56567/ (bind address 127.0.0.1)
+Total in 19 ms
+
+Change detected, rebuilding site (#3).
+2025-11-19 18:12:08.270 -0800
+Template changed /reading/single.html
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/about.md:1:1": duplicate menu entry with identifier "About" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/reading.md:1:1": duplicate menu entry with identifier "Reading" in menu "main"
+Web Server is available at http://localhost:56567/ (bind address 127.0.0.1)
+Total in 43 ms
+
+Change detected, rebuilding site (#4).
+2025-11-19 18:12:28.775 -0800
+Template changed /reading/single.html
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/about.md:1:1": duplicate menu entry with identifier "About" in menu "main"
+WARN  "/Users/jaredstoneberg/Documents/projects/mbtheme/examples/demo-site/content/reading.md:1:1": duplicate menu entry with identifier "Reading" in menu "main"
+Web Server is available at http://localhost:56567/ (bind address 127.0.0.1)
+Total in 47 ms

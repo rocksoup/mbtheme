@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Photography on Saunter (Local Dev)</title>
+    <link>http://localhost:1313/categories/photography/</link>
+    <description>Recent content in Photography on Saunter (Local Dev)</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Nov 2025 12:00:00 -0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/photography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring the City</title>
+      <link>http://localhost:1313/posts/photography-post/</link>
+      <pubDate>Sun, 16 Nov 2025 12:00:00 -0800</pubDate>
+      <guid>http://localhost:1313/posts/photography-post/</guid>
+      <description>&lt;p&gt;The Saunter theme handles images beautifully, whether you&amp;rsquo;re sharing photography or adding visual context to your posts.&lt;/p&gt;&#xA;&lt;p&gt;Images are automatically responsive and work great in both light and dark modes. The theme&amp;rsquo;s card layout gives photos plenty of space to shine.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tips-for-great-photo-posts&#34;&gt;Tips for Great Photo Posts&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Use high-quality images&lt;/li&gt;&#xA;&lt;li&gt;Add descriptive alt text&lt;/li&gt;&#xA;&lt;li&gt;Consider the aspect ratio&lt;/li&gt;&#xA;&lt;li&gt;Test in both light and dark modes&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The theme&amp;rsquo;s clean design ensures your photos are the star of the show.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
