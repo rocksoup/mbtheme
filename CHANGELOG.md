@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **IMPORTANT:** The `version` field in `plugin.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch. Also update the version in the `<meta name="generator">` tag in `layouts/partials/head.html` to verify updates in the live site's HTML source.
 
+## [0.1.19] - 2025-11-20
+
+### Removed
+- Deleted the `examples/demo-site/` folder from the repo to keep the theme package lean (demo content/builds should live outside the theme).
+
 ## [0.1.18] - 2025-11-20
 
 ### Changed
