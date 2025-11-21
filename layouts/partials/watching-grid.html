@@ -6,30 +6,17 @@
     {{ end }}
   </header>
 
-  {{/* First try to find posts with "Watched:" prefix */}}
+  {{/* Find posts with "Watched:" prefix (Micro.blog micro posts often have empty titles) */}}
   {{ $movies := slice }}
   {{ $posts := slice }}
-  {{ range .Site.RegularPages.ByDate.Reverse }}
-    {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
-    {{ if not $rawTitle }}
-      {{ $rawTitle = (.Plain | default "") | trim " \t\r\n" }}
+  {{ $pages := sort (where .Site.Pages "Kind" "page") "Date" "desc" }}
+  {{ range $pages }}
+    {{ $raw := .Title | default "" | trim " \t\r\n" }}
+    {{ if not $raw }}
+      {{ $raw = (.Content | plainify | default "") | trim " \t\r\n" }}
     {{ end }}
-    {{ if hasPrefix $rawTitle "Watched:" }}
+    {{ if hasPrefix $raw "Watched:" }}
       {{ $posts = $posts | append . }}
-    {{ end }}
-  {{ end }}
-
-  {{/* If nothing matched, broaden the search to all pages (some Micro.blog sites use year sections) */}}
-  {{ if eq (len $posts) 0 }}
-    {{ $pages := sort (where .Site.Pages "Kind" "page") "Date" "desc" }}
-    {{ range $pages }}
-      {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
-      {{ if not $rawTitle }}
-        {{ $rawTitle = (.Plain | default "") | trim " \t\r\n" }}
-      {{ end }}
-      {{ if hasPrefix $rawTitle "Watched:" }}
-        {{ $posts = $posts | append . }}
-      {{ end }}
     {{ end }}
   {{ end }}
 
