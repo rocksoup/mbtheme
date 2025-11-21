@@ -584,28 +584,46 @@ sequenceDiagram
 
 #### 5. Newsletter Integration
 
-**Two modes:**
+**🎯 Architectural Decision: Mailchimp Instead of Micro.blog Native**
 
-**A. Native Micro.blog Newsletter:**
-```html
-<form action="https://micro.blog/users/follow" method="post">
-  <input type="email" name="email" required>
-  <button type="submit">Subscribe</button>
-</form>
-```
+This site **intentionally uses Mailchimp** rather than Micro.blog's built-in newsletter feature. This is a deliberate deviation from Micro.blog conventions.
 
-**B. External (Mailchimp):**
+**Current Configuration (Mailchimp):**
 ```json
 {
   "newsletter": {
     "enabled": true,
-    "action": "https://stoneberg.us6.list-manage.com/subscribe/post...",
+    "action": "https://stoneberg.us6.list-manage.com/subscribe/post?u=...",
     "method": "post",
     "placeholder": "Email address",
     "button": "Subscribe"
   },
   "mailchimp_honeypot": "b_abc123_def456"
 }
+```
+
+**Rationale:**
+- Greater control over email design and delivery
+- Advanced segmentation and analytics
+- Established subscriber base in Mailchimp
+- Custom automation workflows
+
+**Theme Implementation:**
+- Theme checks for `newsletter.action` parameter
+- **If action URL provided** → Renders Mailchimp form with honeypot protection
+- **If action is empty** → Falls back to Micro.blog native button
+
+**To disable Micro.blog native newsletter at platform level:**
+1. Go to Micro.blog Dashboard → Settings → Newsletter
+2. Disable newsletter feature
+3. This prevents Micro.blog from sending notifications while Mailchimp remains active
+
+**Alternative: Micro.blog Native (not currently used):**
+```html
+<form action="https://micro.blog/users/follow" method="post">
+  <input type="email" name="email" required>
+  <button type="submit">Subscribe</button>
+</form>
 ```
 
 ### Publishing Workflow
