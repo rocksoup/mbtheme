@@ -6,15 +6,15 @@
     {{ end }}
   </header>
 
-  {{/* Find posts with "watched" category (preferred) or "Watched:" prefix (legacy fallback) */}}
+  {{/* Find posts with "watch" category (preferred) or "Watched:" prefix (legacy fallback) */}}
   {{ $movies := slice }}
   {{ $posts := slice }}
 
   {{/* Method 1: Category-based filtering (RECOMMENDED) */}}
-  {{ $categoryPosts := where .Site.RegularPages "Params.categories" "intersect" (slice "watched" "Watched") }}
+  {{ $categoryPosts := where .Site.RegularPages "Params.categories" "intersect" (slice "watch") }}
 
   {{/* Method 2: Tag-based filtering (alternative) */}}
-  {{ $tagPosts := where .Site.RegularPages "Params.tags" "intersect" (slice "watched" "Watched") }}
+  {{ $tagPosts := where .Site.RegularPages "Params.tags" "intersect" (slice "watch") }}
 
   {{/* Combine both approaches */}}
   {{ $posts = union $categoryPosts $tagPosts }}
@@ -66,30 +66,6 @@
     {{/* Use posts if found */}}
     {{ $posts = $posts }}
   {{ end }}
-
-  {{/* Debug: remove this once confirmed on Micro.blog */}}
-  <div class="watching-debug" style="font-size:12px;color:#888;margin:1rem 0;padding:1rem;background:#f0f0f0;border-radius:4px;">
-    <strong>Debug v0.1.43</strong> · allPages={{ len $.Site.Pages }} regularPages={{ len $.Site.RegularPages }} matched={{ len $posts }}
-  </div>
-  <div class="watching-debug" style="font-size:11px;color:#666;margin:0 0 1rem 0;padding:1rem;background:#f8f8f8;border-radius:4px;max-height:400px;overflow-y:auto;">
-    <strong>First 30 pages (with kind=page):</strong><br>
-    {{ $count := 0 }}
-    {{ range $.Site.Pages }}
-      {{ if and (eq .Kind "page") (lt $count 30) }}
-        {{ $count = add $count 1 }}
-        {{ $summary := .Summary | default "" }}
-        {{ $summaryPlain := $summary | plainify }}
-        {{ $firstLineFromSummary := index (split $summaryPlain "\n") 0 | default "" | trim " \t\r\n" | truncate 80 }}
-        <div style="margin:0.5rem 0;padding:0.5rem;background:#fff;border-left:3px solid {{ if hasPrefix $firstLineFromSummary "Watched:" }}green{{ else }}#ddd{{ end }};">
-          kind={{ .Kind }} type={{ .Type }} section={{ .Section }}<br>
-          title="{{ .Title }}"<br>
-          summaryPlain="{{ $summaryPlain | truncate 80 }}"<br>
-          firstLineFromSummary="{{ $firstLineFromSummary }}"<br>
-          url={{ .RelPermalink }}
-        </div>
-      {{ end }}
-    {{ end }}
-  </div>
 
   {{ if gt (len $posts) 0 }}
   {{/* Render from posts */}}
