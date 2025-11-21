@@ -56,7 +56,7 @@
 
   {{/* Debug: remove this once confirmed on Micro.blog */}}
   <div class="watching-debug" style="font-size:12px;color:#888;margin:1rem 0;padding:1rem;background:#f0f0f0;border-radius:4px;">
-    <strong>Debug v0.1.40</strong> · allPages={{ len $.Site.Pages }} regularPages={{ len $.Site.RegularPages }} matched={{ len $posts }}
+    <strong>Debug v0.1.43</strong> · allPages={{ len $.Site.Pages }} regularPages={{ len $.Site.RegularPages }} matched={{ len $posts }}
   </div>
   <div class="watching-debug" style="font-size:11px;color:#666;margin:0 0 1rem 0;padding:1rem;background:#f8f8f8;border-radius:4px;max-height:400px;overflow-y:auto;">
     <strong>First 30 pages (with kind=page):</strong><br>
@@ -64,14 +64,14 @@
     {{ range $.Site.Pages }}
       {{ if and (eq .Kind "page") (lt $count 30) }}
         {{ $count = add $count 1 }}
-        {{ $content := .Content | plainify | default "" }}
-        {{ $firstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" | truncate 80 }}
-        {{ $summary := .Summary | default "" | plainify | truncate 80 }}
-        <div style="margin:0.5rem 0;padding:0.5rem;background:#fff;border-left:3px solid {{ if hasPrefix $firstLine "Watched:" }}green{{ else }}#ddd{{ end }};">
+        {{ $summary := .Summary | default "" }}
+        {{ $summaryPlain := $summary | plainify }}
+        {{ $firstLineFromSummary := index (split $summaryPlain "\n") 0 | default "" | trim " \t\r\n" | truncate 80 }}
+        <div style="margin:0.5rem 0;padding:0.5rem;background:#fff;border-left:3px solid {{ if hasPrefix $firstLineFromSummary "Watched:" }}green{{ else }}#ddd{{ end }};">
           kind={{ .Kind }} type={{ .Type }} section={{ .Section }}<br>
           title="{{ .Title }}"<br>
-          summary="{{ $summary }}"<br>
-          firstLine="{{ $firstLine }}"<br>
+          summaryPlain="{{ $summaryPlain | truncate 80 }}"<br>
+          firstLineFromSummary="{{ $firstLineFromSummary }}"<br>
           url={{ .RelPermalink }}
         </div>
       {{ end }}
@@ -84,9 +84,10 @@
     {{ range $posts }}
     {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
     {{ if not $rawTitle }}
-      {{/* No title, extract from summary */}}
-      {{ $summary := .Summary | plainify | default "" }}
-      {{ $firstLine := index (split $summary "\n") 0 | default "" | trim " \t\r\n" }}
+      {{/* No title, extract from summary (don't plainify - it's already text) */}}
+      {{ $summary := .Summary | default "" }}
+      {{ $plainSummary := $summary | plainify }}
+      {{ $firstLine := index (split $plainSummary "\n") 0 | default "" | trim " \t\r\n" }}
       {{ $rawTitle = $firstLine }}
     {{ end }}
     {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
