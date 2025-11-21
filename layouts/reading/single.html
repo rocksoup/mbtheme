@@ -7,42 +7,27 @@
     {{ end }}
   </header>
 
-  {{ $username := .Site.Params.microblog_username | default "jared" }}
-
   {{/* Currently Reading */}}
   <section class="bookshelf-section">
     <h2>Currently Reading</h2>
     <div class="books-grid">
       {{ $currentlyReading := slice }}
-      {{/* Try fetching from Micro.blog API first */}}
-      {{ $apiBooks := partial "get-bookshelf.html" (dict "username" $username "shelf" "currently-reading") }}
-      {{ if $apiBooks }}
-        {{ $currentlyReading = $apiBooks }}
-      {{ else }}
-        {{/* Fall back to local data file */}}
-        {{ with .Site.Data.bookshelves.currentlyreading }}
-          {{ $currentlyReading = . }}
-        {{ end }}
+      {{/* Micro.blog hosted sites provide data via .Site.Data.bookshelves */}}
+      {{ with .Site.Data.bookshelves.currentlyreading }}
+        {{ $currentlyReading = . }}
       {{ end }}
 
       {{ range $currentlyReading }}
-      <a href="{{ .url }}" class="book-card" target="_blank" rel="noopener">
-        {{ $coverUrl := .image | default .cover_url }}
-        {{ if $coverUrl }}
-        <img src="{{ $coverUrl | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
-          <div class="book-author">
-            {{ if .authors }}
-              {{ range .authors }}{{ .name }}{{ end }}
-            {{ else if .author }}
-              {{ .author }}
-            {{ end }}
-          </div>
+          <div class="book-author">{{ .author }}</div>
         </div>
       </a>
       {{ else }}
@@ -56,35 +41,22 @@
     <h2>Books I Want to Read</h2>
     <div class="books-grid">
       {{ $wantToRead := slice }}
-      {{/* Try fetching from Micro.blog API first */}}
-      {{ $apiBooks := partial "get-bookshelf.html" (dict "username" $username "shelf" "want-to-read") }}
-      {{ if $apiBooks }}
-        {{ $wantToRead = $apiBooks }}
-      {{ else }}
-        {{/* Fall back to local data file */}}
-        {{ with .Site.Data.bookshelves.wanttoread }}
-          {{ $wantToRead = . }}
-        {{ end }}
+      {{/* Micro.blog hosted sites provide data via .Site.Data.bookshelves */}}
+      {{ with .Site.Data.bookshelves.wanttoread }}
+        {{ $wantToRead = . }}
       {{ end }}
 
       {{ range $wantToRead }}
-      <a href="{{ .url }}" class="book-card" target="_blank" rel="noopener">
-        {{ $coverUrl := .image | default .cover_url }}
-        {{ if $coverUrl }}
-        <img src="{{ $coverUrl | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
-          <div class="book-author">
-            {{ if .authors }}
-              {{ range .authors }}{{ .name }}{{ end }}
-            {{ else if .author }}
-              {{ .author }}
-            {{ end }}
-          </div>
+          <div class="book-author">{{ .author }}</div>
         </div>
       </a>
       {{ else }}
@@ -98,35 +70,22 @@
     <h2>Books I Have Read</h2>
     <div class="books-grid">
       {{ $finishedReading := slice }}
-      {{/* Try fetching from Micro.blog API first */}}
-      {{ $apiBooks := partial "get-bookshelf.html" (dict "username" $username "shelf" "finished-reading") }}
-      {{ if $apiBooks }}
-        {{ $finishedReading = $apiBooks }}
-      {{ else }}
-        {{/* Fall back to local data file */}}
-        {{ with .Site.Data.bookshelves.finishedreading }}
-          {{ $finishedReading = . }}
-        {{ end }}
+      {{/* Micro.blog hosted sites provide data via .Site.Data.bookshelves */}}
+      {{ with .Site.Data.bookshelves.finishedreading }}
+        {{ $finishedReading = . }}
       {{ end }}
 
       {{ range $finishedReading }}
-      <a href="{{ .url }}" class="book-card" target="_blank" rel="noopener">
-        {{ $coverUrl := .image | default .cover_url }}
-        {{ if $coverUrl }}
-        <img src="{{ $coverUrl | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
-          <div class="book-author">
-            {{ if .authors }}
-              {{ range .authors }}{{ .name }}{{ end }}
-            {{ else if .author }}
-              {{ .author }}
-            {{ end }}
-          </div>
+          <div class="book-author">{{ .author }}</div>
         </div>
       </a>
       {{ else }}

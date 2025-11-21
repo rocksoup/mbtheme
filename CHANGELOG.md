@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **IMPORTANT:** The `version` field in `plugin.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch. Also update the version in the `<meta name="generator">` tag in `layouts/partials/head.html` to verify updates in the live site's HTML source.
 
+## [0.1.23] - 2025-11-21
+
+### Fixed
+- Fixed reading page to use Micro.blog's native `.Site.Data.bookshelves` instead of attempting to fetch from non-existent public API endpoints
+- Corrected data structure to match Micro.blog's bookshelf format (title, author, isbn, cover_url)
+- Removed get-bookshelf.html partial that was trying to fetch from authenticated API endpoints
+- Books now link to `https://micro.blog/books/{isbn}` as per Micro.blog documentation
+
+### Changed
+- Reading page now works correctly on Micro.blog hosted sites without requiring API authentication
+- Simplified bookshelf data access to use platform-provided data structure
+
 ## [0.1.22] - 2025-11-21
 
 ### Fixed
