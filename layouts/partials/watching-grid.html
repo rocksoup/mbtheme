@@ -82,12 +82,14 @@
   {{/* Render from posts */}}
   <div class="watch-grid">
     {{ range $posts }}
-    {{ $rawTitle := .Title | default "" }}
+    {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
     {{ if not $rawTitle }}
-      {{ $rawTitle = (.Plain | default "") }}
+      {{/* No title, extract from content */}}
+      {{ $content := .Content | plainify | default "" }}
+      {{ $firstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
+      {{ $rawTitle = $firstLine }}
     {{ end }}
-    {{ $rawTitle = $rawTitle | trim " \t\r\n" }}
-    {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" }}
+    {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
     {{ if .Params.image }}
