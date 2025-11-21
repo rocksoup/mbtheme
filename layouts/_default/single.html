@@ -1,20 +1,21 @@
 {{ define "main" }}
-  {{ $isSearchPage := hasPrefix .RelPermalink "/search" }}
-  {{ $isReadingPage := or (eq .Type "reading") (eq .RelPermalink "/reading/") }}
-  {{ if $isSearchPage }}
-  <section class="search-page">
-    <div class="search-header">
-      <h1>Search</h1>
-      <form class="search-form" onsubmit="return false;">
-        <label for="site-search-input" class="sr-only">Search</label>
-        <input id="site-search-input" type="search" placeholder="Search posts…" autocomplete="off">
-      </form>
-    </div>
-    <div id="site-search-status" class="search-status" aria-live="polite">Loading posts…</div>
-    <div id="site-search-results" class="search-results"></div>
-  </section>
-  <script>
-  (function() {
+{{ $isSearchPage := hasPrefix .RelPermalink "/search" }}
+{{ $isReadingPage := or (eq .Type "reading") (eq .RelPermalink "/reading/") }}
+{{ $isWatchingPage := or (eq .Type "watching") (eq .RelPermalink "/watching/") }}
+{{ if $isSearchPage }}
+<section class="search-page">
+  <div class="search-header">
+    <h1>Search</h1>
+    <form class="search-form" onsubmit="return false;">
+      <label for="site-search-input" class="sr-only">Search</label>
+      <input id="site-search-input" type="search" placeholder="Search posts…" autocomplete="off">
+    </form>
+  </div>
+  <div id="site-search-status" class="search-status" aria-live="polite">Loading posts…</div>
+  <div id="site-search-results" class="search-results"></div>
+</section>
+<script>
+  (function () {
     const input = document.getElementById("site-search-input");
     const status = document.getElementById("site-search-status");
     const results = document.getElementById("site-search-results");
@@ -123,60 +124,64 @@
 
     loadArchive();
   })();
-  </script>
-  {{ else if $isReadingPage }}
-  {{/* Reading page with bookshelves */}}
-  {{ partial "reading-content.html" . }}
+</script>
+{{ else if $isReadingPage }}
+{{/* Reading page with bookshelves */}}
+{{ partial "reading-content.html" . }}
+{{ else if $isWatchingPage }}
+{{/* Watching page with movie grid */}}
+{{ partial "watching-grid.html" . }}
+{{ else }}
+{{ $isPage := eq .Kind "page" }}
+<article class="post-detail">
+  {{/* Featured image rendering - check featured_image first, then image, then images[0] */}}
+  {{ $featuredImage := "" }}
+  {{ if .Params.featured_image }}
+  {{ $featuredImage = .Params.featured_image }}
+  {{ else if .Params.image }}
+  {{ $featuredImage = .Params.image }}
   {{ else }}
-  {{ $isPage := eq .Kind "page" }}
-  <article class="post-detail">
-    {{/* Featured image rendering - check featured_image first, then image, then images[0] */}}
-    {{ $featuredImage := "" }}
-    {{ if .Params.featured_image }}
-      {{ $featuredImage = .Params.featured_image }}
-      {{ else if .Params.image }}
-        {{ $featuredImage = .Params.image }}
-      {{ else }}
-        {{ with .Params.images }}
-          {{ if gt (len .) 0 }}
-            {{ $featuredImage = index . 0 }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
-
-      {{ $renderFeatured := false }}
-      {{ if and $featuredImage (not .Params.hide_featured_image) }}
-        {{ $renderFeatured = true }}
-        {{ if in .Content $featuredImage }}
-          {{ $renderFeatured = false }}
-        {{ end }}
-      {{ end }}
-
-      {{ if $renderFeatured }}
-      <div class="featured-image">
-        <img src="{{ $featuredImage }}" alt="{{ .Title }}" />
-      </div>
-      {{ end }}
-
-    <div class="content">
-      {{ .Content }}
-    </div>
-
-    {{ if and .Title (not $isPage) }}
-    <p class="meta post-title">
-      {{ .Title }}{{ with .Params.bookmark_of }} (via <a href="{{ . }}" rel="noopener" target="_blank">{{ . | replaceRE "^https?://(www\\.)?" "" | replaceRE "/.*$" "" | title }}</a>){{ end }}
-    </p>
-    {{ end }}
-
-    {{ if not $isPage }}
-    <div class="meta badges">
-      {{ range .Params.categories }}
-        {{ partial "category-badge.html" . }}
-      {{ end }}
-    </div>
-
-    <p class="meta post-date">{{ .Date.Format "January 2, 2006" }}</p>
-    {{ end }}
-  </article>
+  {{ with .Params.images }}
+  {{ if gt (len .) 0 }}
+  {{ $featuredImage = index . 0 }}
   {{ end }}
+  {{ end }}
+  {{ end }}
+
+  {{ $renderFeatured := false }}
+  {{ if and $featuredImage (not .Params.hide_featured_image) }}
+  {{ $renderFeatured = true }}
+  {{ if in .Content $featuredImage }}
+  {{ $renderFeatured = false }}
+  {{ end }}
+  {{ end }}
+
+  {{ if $renderFeatured }}
+  <div class="featured-image">
+    <img src="{{ $featuredImage }}" alt="{{ .Title }}" />
+  </div>
+  {{ end }}
+
+  <div class="content">
+    {{ .Content }}
+  </div>
+
+  {{ if and .Title (not $isPage) }}
+  <p class="meta post-title">
+    {{ .Title }}{{ with .Params.bookmark_of }} (via <a href="{{ . }}" rel="noopener" target="_blank">{{ . | replaceRE
+      "^https?://(www\\.)?" "" | replaceRE "/.*$" "" | title }}</a>){{ end }}
+  </p>
+  {{ end }}
+
+  {{ if not $isPage }}
+  <div class="meta badges">
+    {{ range .Params.categories }}
+    {{ partial "category-badge.html" . }}
+    {{ end }}
+  </div>
+
+  <p class="meta post-date">{{ .Date.Format "January 2, 2006" }}</p>
+  {{ end }}
+</article>
+{{ end }}
 {{ end }}
