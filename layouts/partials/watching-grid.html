@@ -46,8 +46,8 @@
     Debug · pages={{ len $.Site.AllPages }} matched={{ len $posts }}
   </div>
   <div class="watching-debug" style="font-size:12px;color:#888;margin:0 0 1rem 0;">
-    {{ range first 5 $.Site.AllPages.ByDate.Reverse }}
-      <div>• {{ .Kind }} / {{ .Type }} — "{{ .Title }}" — {{ .RelPermalink }}</div>
+    {{ range first 20 $.Site.AllPages.ByDate.Reverse }}
+      <div>• kind={{ .Kind }} type={{ .Type }} title="{{ .Title }}" rel="{{ .RelPermalink }}" layout="{{ .Layout }}" section="{{ .Section }}" bundle="{{ .BundleType }}" file="{{ .File.Path }}" </div>
     {{ end }}
   </div>
 
