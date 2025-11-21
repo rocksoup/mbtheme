@@ -84,9 +84,9 @@
     {{ range $posts }}
     {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
     {{ if not $rawTitle }}
-      {{/* No title, extract from content */}}
-      {{ $content := .Content | plainify | default "" }}
-      {{ $firstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
+      {{/* No title, extract from summary */}}
+      {{ $summary := .Summary | plainify | default "" }}
+      {{ $firstLine := index (split $summary "\n") 0 | default "" | trim " \t\r\n" }}
       {{ $rawTitle = $firstLine }}
     {{ end }}
     {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
