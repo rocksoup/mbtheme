@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **IMPORTANT:** The `version` field in `plugin.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch. Also update the version in the `<meta name="generator">` tag in `layouts/partials/head.html` to verify updates in the live site's HTML source.
 
+## [0.1.21] - 2025-11-21
+
+### Fixed
+- Fixed duplicate image rendering in post summaries when image is already embedded in content
+- Post summary partial now checks if featured image is already in content before rendering, matching the logic in single page template
+
 ## [0.1.20] - 2025-11-21
 
 ### Fixed

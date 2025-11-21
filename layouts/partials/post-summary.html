@@ -20,7 +20,15 @@
 {{- end -}}
 
 <article class="post-summary">
-  {{ if $featuredImage }}
+  {{- $renderFeatured := false -}}
+  {{- if and $featuredImage (not .Params.hide_featured_image) -}}
+    {{- $renderFeatured = true -}}
+    {{- if in .Content $featuredImage -}}
+      {{- $renderFeatured = false -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{ if $renderFeatured }}
   <div class="post-thumbnail">
     <a href="{{ .RelPermalink }}">
       <img src="{{ $featuredImage }}" alt="{{ $title }}" loading="lazy" />
