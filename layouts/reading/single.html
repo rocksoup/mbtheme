@@ -41,9 +41,17 @@
     <h2>Books I Want to Read</h2>
     <div class="books-grid">
       {{ $wantToRead := slice }}
-      {{/* Micro.blog hosted sites provide data via .Site.Data.bookshelves */}}
+      {{/* Try different possible key names for Want to Read shelf */}}
       {{ with .Site.Data.bookshelves.wanttoread }}
         {{ $wantToRead = . }}
+      {{ else }}
+        {{ with .Site.Data.bookshelves.want }}
+          {{ $wantToRead = . }}
+        {{ else }}
+          {{ with index .Site.Data.bookshelves "want-to-read" }}
+            {{ $wantToRead = . }}
+          {{ end }}
+        {{ end }}
       {{ end }}
 
       {{ range $wantToRead }}
@@ -70,9 +78,17 @@
     <h2>Books I Have Read</h2>
     <div class="books-grid">
       {{ $finishedReading := slice }}
-      {{/* Micro.blog hosted sites provide data via .Site.Data.bookshelves */}}
+      {{/* Try different possible key names for Finished Reading shelf */}}
       {{ with .Site.Data.bookshelves.finishedreading }}
         {{ $finishedReading = . }}
+      {{ else }}
+        {{ with .Site.Data.bookshelves.finished }}
+          {{ $finishedReading = . }}
+        {{ else }}
+          {{ with index .Site.Data.bookshelves "finished-reading" }}
+            {{ $finishedReading = . }}
+          {{ end }}
+        {{ end }}
       {{ end }}
 
       {{ range $finishedReading }}

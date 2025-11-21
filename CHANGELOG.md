@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **IMPORTANT:** The `version` field in `plugin.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch. Also update the version in the `<meta name="generator">` tag in `layouts/partials/head.html` to verify updates in the live site's HTML source.
 
+## [0.1.24] - 2025-11-21
+
+### Changed
+- Added fallback logic to try multiple possible key names for "Want to Read" and "Finished Reading" bookshelves
+- Now attempts: wanttoread, want, want-to-read for "Want to Read" shelf
+- Now attempts: finishedreading, finished, finished-reading for "Finished Reading" shelf
+
 ## [0.1.23] - 2025-11-21
 
 ### Fixed
