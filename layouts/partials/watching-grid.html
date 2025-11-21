@@ -2,87 +2,120 @@
   <header class="page-header">
     <h1>{{ .Title }}</h1>
     {{ with .Content }}
-      <p>{{ . }}</p>
+    <p>{{ . }}</p>
     {{ end }}
   </header>
 
-  {{/* Prefer enriched data from middleware; fall back to plain watched data */}}
+  {{/* First try to find posts with "Watched:" prefix */}}
   {{ $movies := slice }}
-  {{/* Primary: data/watched.enriched.json => .Site.Data.watched.enriched.movies */}}
-  {{ with .Site.Data.watched }}
-    {{ with .enriched }}
-      {{ with .movies }}{{ $movies = . }}{{ end }}
+  {{ $posts := slice }}
+  {{ range where .Site.RegularPages "Type" "post" }}
+  {{ if hasPrefix .Title "Watched:" }}
+  {{ $posts = $posts | append . }}
+  {{ end }}
+  {{ end }}
+
+  {{/* If no posts found, fall back to data files */}}
+  {{ if eq (len $posts) 0 }}
+    {{/* Try data/watched.enriched.json first */}}
+    {{ with .Site.Data.watched.enriched.movies }}
+      {{ $movies = . }}
     {{ else }}
-      {{ with .movies }}{{ $movies = . }}{{ end }}
-    {{ end }}
-  {{ end }}
-  {{/* Alternate: data/watched.enriched.json may be keyed as "watched.enriched" */}}
-  {{ if eq (len $movies) 0 }}
-    {{ with index .Site.Data "watched.enriched" }}
-      {{ with .movies }}{{ $movies = . }}{{ end }}
-    {{ end }}
-  {{ end }}
-
-  {{ if gt (len $movies) 0 }}
-    <div class="watch-grid">
-      {{ range $movies }}
-        {{ $posterUrl := "" }}
-        {{ if and .poster_url (not .placeholder) }}
-          {{ $posterUrl = .poster_url }}
+      {{/* Try alternate key structure */}}
+      {{ with index .Site.Data "watched.enriched" }}
+        {{ with .movies }}{{ $movies = . }}{{ end }}
+      {{ else }}
+        {{/* Fall back to data/watched.json */}}
+        {{ with .Site.Data.watched.movies }}
+          {{ $movies = . }}
         {{ end }}
-
-        {{ $watchedDate := "" }}
-        {{ with .watched_date }}
-          {{ $parsed := time . }}
-          {{ $watchedDate = $parsed.Format "January 2, 2006" }}
-        {{ end }}
-
-        <article class="watch-card">
-          <div class="watch-poster">
-            {{ if $posterUrl }}
-              <img src="{{ $posterUrl }}" alt="Poster for {{ .title }}" loading="lazy">
-            {{ else }}
-              <div class="watch-poster-placeholder">
-                <span>No poster</span>
-                {{ if .placeholder }}<small>Awaiting artwork</small>{{ end }}
-              </div>
-            {{ end }}
-          </div>
-          <div class="watch-meta">
-            <div class="watch-title">
-              {{ if .url }}
-                <a href="{{ .url }}">{{ .title }}</a>
-              {{ else }}
-                {{ .title }}
-              {{ end }}
-            </div>
-            <div class="watch-subline">
-              {{ if $watchedDate }}<time datetime="{{ .watched_date }}">{{ $watchedDate }}</time>{{ end }}
-              {{ with .year }}<span class="watch-year">({{ . }})</span>{{ end }}
-            </div>
-            {{ with .notes }}<p class="watch-notes">{{ . }}</p>{{ end }}
-          </div>
-        </article>
       {{ end }}
-    </div>
+    {{ end }}
   {{ else }}
-    <div class="empty-state">
-      <p>No watching data found.</p>
-      <p class="empty-hint">Expected <code>data/watched.enriched.json</code> (or <code>data/watched.json</code>) with a <code>movies</code> array produced by the middleware.</p>
-      <p class="empty-hint">Each movie should include <code>title</code>, <code>watched_date</code>, optional <code>year</code>, <code>notes</code>, and <code>poster_url</code>/<code>placeholder</code>.</p>
-    </div>
+    {{/* Use posts if found */}}
+    {{ $posts = $posts }}
   {{ end }}
 
-  <aside class="integration-note">
-    <h3>How the Watching Page Works</h3>
-    <p>This page now renders from the middleware-generated data feed (<code>data/watched.enriched.json</code>).</p>
-    <ol>
-      <li>Middleware resolves posters from TMDB and emits <code>poster_url</code> plus <code>placeholder</code> when missing.</li>
-      <li>Hugo reads <code>.Site.Data.watched.enriched.movies</code> and renders this grid.</li>
-      <li>New items appear after the scheduled enrich job updates the data file.</li>
-    </ol>
-    <p>For local demos, drop a sample file into <code>examples/demo-site/data/watched.enriched.json</code>.</p>
-  </aside>
+  {{ if gt (len $posts) 0 }}
+  {{/* Render from posts */}}
+  <div class="watch-grid">
+    {{ range $posts }}
+    {{ $title := .Title | replaceRE "^Watched: " "" }}
+    {{ $posterUrl := "" }}
+    {{/* Try to find an image in frontmatter or resources */}}
+    {{ if .Params.image }}
+    {{ $posterUrl = .Params.image }}
+    {{ else if .Params.featured_image }}
+    {{ $posterUrl = .Params.featured_image }}
+    {{ end }}
+
+    <article class="watch-card">
+      <div class="watch-poster">
+        {{ if $posterUrl }}
+        <img src="{{ $posterUrl }}" alt="Poster for {{ $title }}" loading="lazy">
+        {{ else }}
+        <div class="watch-poster-placeholder">
+          <span>{{ $title }}</span>
+        </div>
+        {{ end }}
+      </div>
+      <div class="watch-meta">
+        <div class="watch-title">
+          <a href="{{ .RelPermalink }}">{{ $title }}</a>
+        </div>
+        <div class="watch-subline">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        </div>
+        {{ with .Summary }}<p class="watch-notes">{{ . | truncate 100 }}</p>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+  {{ else if gt (len $movies) 0 }}
+  {{/* Render from data files */}}
+  <div class="watch-grid">
+    {{ range $movies }}
+    {{ $posterUrl := .poster_url }}
+    {{ $watchedDate := "" }}
+    {{ with .watched_date }}
+      {{ $parsed := time . }}
+      {{ $watchedDate = $parsed.Format "January 2, 2006" }}
+    {{ end }}
+
+    <article class="watch-card">
+      <div class="watch-poster">
+        {{ if and $posterUrl (not .placeholder) }}
+        <img src="{{ $posterUrl }}" alt="Poster for {{ .title }}" loading="lazy">
+        {{ else }}
+        <div class="watch-poster-placeholder">
+          <span>{{ .title }}</span>
+          {{ if .placeholder }}<small>Awaiting artwork</small>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <div class="watch-meta">
+        <div class="watch-title">
+          {{ if .url }}
+          <a href="{{ .url }}">{{ .title }}</a>
+          {{ else }}
+          {{ .title }}
+          {{ end }}
+        </div>
+        <div class="watch-subline">
+          {{ if $watchedDate }}<time datetime="{{ .watched_date }}">{{ $watchedDate }}</time>{{ end }}
+          {{ with .year }}<span class="watch-year">({{ . }})</span>{{ end }}
+        </div>
+        {{ with .notes }}<p class="watch-notes">{{ . }}</p>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="empty-state">
+    <p>No watching data found.</p>
+    <p class="empty-hint">To add movies, either create posts with titles starting with "Watched:" or add data to <code>data/watched.enriched.json</code>.</p>
+  </div>
+  {{ end }}
 </div>
 
 <style>

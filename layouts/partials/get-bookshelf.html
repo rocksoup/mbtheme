@@ -1,0 +1,28 @@
+{{ $username := .username }}
+{{ $shelf := .shelf }}
+{{ $limit := .limit | default 10 }}
+{{ $items := slice }}
+
+{{ if $username }}
+{{ $url := printf "https://micro.blog/books/%s/%s.json" $username $shelf }}
+{{ $cacheKey := printf "bookshelf-%s-%s" $username $shelf }}
+
+{{/* Fetch with resources.GetRemote, caching for a bit to avoid build limits/slowness */}}
+{{ $opts := dict "headers" (dict "User-Agent" "Hugo-Theme-Saunter") }}
+{{ $resource := resources.GetRemote $url $opts }}
+
+{{ if $resource }}
+{{ with $resource.Err }}
+{{ warnf "Error fetching bookshelf %s: %s" $shelf . }}
+{{ else }}
+{{ $data := $resource | transform.Unmarshal }}
+{{ if $data.items }}
+{{ $items = first $limit $data.items }}
+{{ end }}
+{{ end }}
+{{ else }}
+{{ warnf "Failed to get remote resource for bookshelf %s" $shelf }}
+{{ end }}
+{{ end }}
+
+{{ return $items }}

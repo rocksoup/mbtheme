@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **IMPORTANT:** The `version` field in `plugin.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch. Also update the version in the `<meta name="generator">` tag in `layouts/partials/head.html` to verify updates in the live site's HTML source.
 
+## [0.1.20] - 2025-11-21
+
+### Fixed
+- Reading page now falls back to local `data/bookshelves.json` when Micro.blog API is unavailable
+- Watching page now falls back to `data/watched.enriched.json` or `data/watched.json` when no "Watched:" posts exist
+- Made templates backwards compatible with both API data structures and local data file formats
+- Fixed regression where reading and watching pages returned empty values when middleware/API data was unavailable
+- Templates now support both `image`/`cover_url` fields for book covers and `authors[]`/`author` fields for authors
+
 ## [0.1.19] - 2025-11-20
 
 ### Removed
