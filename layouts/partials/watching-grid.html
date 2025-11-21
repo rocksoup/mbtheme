@@ -6,29 +6,42 @@
     {{ end }}
   </header>
 
-  {{/* Find posts with "Watched:" prefix (Micro.blog micro posts often have empty titles) */}}
+  {{/* Find posts with "watched" category (preferred) or "Watched:" prefix (legacy fallback) */}}
   {{ $movies := slice }}
   {{ $posts := slice }}
-  {{ $pages := .Site.Pages }}
-  {{ range $pages }}
-    {{ if eq .Kind "page" }}
-      {{ $title := .Title | default "" | trim " \t\r\n" }}
-      {{ $summary := .Summary | default "" }}
-      {{ $content := .Content | plainify | default "" }}
-      {{ $contentFirstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
 
-      {{/* Check if title, summary, or first line of content contains "Watched:" */}}
-      {{ $matched := false }}
-      {{ if hasPrefix $title "Watched:" }}
-        {{ $matched = true }}
-      {{ else if hasPrefix $summary "Watched:" }}
-        {{ $matched = true }}
-      {{ else if hasPrefix $contentFirstLine "Watched:" }}
-        {{ $matched = true }}
-      {{ end }}
+  {{/* Method 1: Category-based filtering (RECOMMENDED) */}}
+  {{ $categoryPosts := where .Site.RegularPages "Params.categories" "intersect" (slice "watched" "Watched") }}
 
-      {{ if $matched }}
-        {{ $posts = $posts | append . }}
+  {{/* Method 2: Tag-based filtering (alternative) */}}
+  {{ $tagPosts := where .Site.RegularPages "Params.tags" "intersect" (slice "watched" "Watched") }}
+
+  {{/* Combine both approaches */}}
+  {{ $posts = union $categoryPosts $tagPosts }}
+
+  {{/* Method 3: Prefix-based fallback for legacy posts without categories */}}
+  {{ if eq (len $posts) 0 }}
+    {{ $pages := .Site.Pages }}
+    {{ range $pages }}
+      {{ if eq .Kind "page" }}
+        {{ $title := .Title | default "" | trim " \t\r\n" }}
+        {{ $summary := .Summary | default "" }}
+        {{ $content := .Content | plainify | default "" }}
+        {{ $contentFirstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
+
+        {{/* Check if title, summary, or first line of content contains "Watched:" */}}
+        {{ $matched := false }}
+        {{ if hasPrefix $title "Watched:" }}
+          {{ $matched = true }}
+        {{ else if hasPrefix $summary "Watched:" }}
+          {{ $matched = true }}
+        {{ else if hasPrefix $contentFirstLine "Watched:" }}
+          {{ $matched = true }}
+        {{ end }}
+
+        {{ if $matched }}
+          {{ $posts = $posts | append . }}
+        {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
