@@ -614,13 +614,12 @@ sequenceDiagram
 graph TB
     subgraph "Content Creation"
         A1[Write in Micro.blog Editor]
-        A2[External Middleware Post]
-        A3[Git Repository Content]
+        A2[External Middleware<br/>Pinboard, enrichment, etc.]
     end
 
     subgraph "Micro.blog Processing"
         B1[Store in Database]
-        B2[Generate Markdown Files]
+        B2[Provide Data to Hugo]
         B3[Assign Frontmatter]
     end
 
@@ -639,7 +638,6 @@ graph TB
 
     A1 --> B1
     A2 --> B1
-    A3 --> B1
     B1 --> B2
     B2 --> B3
     B3 --> C1
@@ -652,6 +650,8 @@ graph TB
 
     style C2 fill:#A7C957
     style B1 fill:#FF6B35
+
+    Note1[All content lives in<br/>Micro.blog's database]
 ```
 
 ---
