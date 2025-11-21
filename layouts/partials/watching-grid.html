@@ -19,7 +19,7 @@
   {{ if eq (len $posts) 0 }}
     {{ $pages := sort (where .Site.Pages "Kind" "page") "Date" "desc" }}
     {{ range $pages }}
-      {{ $title := .Title | strings.TrimSpace }}
+      {{ $title := .Title | trim " \t\r\n" }}
       {{ if hasPrefix $title "Watched:" }}
         {{ $posts = $posts | append . }}
       {{ end }}
