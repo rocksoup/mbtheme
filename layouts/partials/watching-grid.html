@@ -41,6 +41,9 @@
     {{ $posts = $posts }}
   {{ end }}
 
+  {{/* Debug: remove this once confirmed on Micro.blog */}}
+  <!-- watching-debug: pages={{ len $.Site.AllPages }} matched={{ len $posts }} -->
+
   {{ if gt (len $posts) 0 }}
   {{/* Render from posts */}}
   <div class="watch-grid">
