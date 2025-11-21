@@ -1,5 +1,6 @@
 {{ define "main" }}
   {{ $isSearchPage := hasPrefix .RelPermalink "/search" }}
+  {{ $isReadingPage := or (eq .Type "reading") (eq .RelPermalink "/reading/") }}
   {{ if $isSearchPage }}
   <section class="search-page">
     <div class="search-header">
@@ -123,6 +124,9 @@
     loadArchive();
   })();
   </script>
+  {{ else if $isReadingPage }}
+  {{/* Reading page with bookshelves */}}
+  {{ partial "reading-content.html" . }}
   {{ else }}
   {{ $isPage := eq .Kind "page" }}
   <article class="post-detail">
