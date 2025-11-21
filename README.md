@@ -107,6 +107,12 @@ node scripts/fetch-data.js [username]
 Replace `[username]` with your Micro.blog username (default: jared).
 This will generate `data/bookshelves.json` and `data/watched.enriched.json` in the demo site.
 
+**Options:**
+- `--dry-run` - Preview data without writing files: `node scripts/fetch-data.js jfunk --dry-run`
+
+**Requirements:**
+- Node.js 18+ (uses native `fetch()` API)
+
 ## Demo Site: examples/demo-site
 The `examples/demo-site/` folder has been removed from the repo to keep the theme lean. Run your own demo site in a separate checkout or a scratch directory if needed.***
 
