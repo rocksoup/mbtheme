@@ -96,8 +96,24 @@ The search page will automatically be added to your navigation.
 - Reading page reads `data/bookshelves.json` or the `data/bookshelves/` folder with `currentlyreading`, `wanttoread`, and `finishedreading` arrays; prefer enriched `cover_url` values and fall back to placeholders.
 - For local demos, drop sample files into `examples/demo-site/data/` (a sample `watched.enriched.json` is included).
 
-## Demo Site
+## Data Fetching
 
+To populate the reading and watching pages with real data from Micro.blog, run:
+
+```bash
+node scripts/fetch-data.js [username]
+```
+
+Replace `[username]` with your Micro.blog username (default: jared).
+This will generate `data/bookshelves.json` and `data/watched.enriched.json` in the demo site.
+
+**Options:**
+- `--dry-run` - Preview data without writing files: `node scripts/fetch-data.js jfunk --dry-run`
+
+**Requirements:**
+- Node.js 18+ (uses native `fetch()` API)
+
+## Demo Site: examples/demo-site
 The `examples/demo-site/` folder has been removed from the repo to keep the theme lean. Run your own demo site in a separate checkout or a scratch directory if needed.***
 
 ## Theme Structure

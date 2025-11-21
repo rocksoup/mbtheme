@@ -1,6 +1,7 @@
 {
   "title": "Saunter",
   "params": {
+    "microblog_username": "jfunk",
     "mainSections": [
       "post",
       "posts"
