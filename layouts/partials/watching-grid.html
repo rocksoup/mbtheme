@@ -9,10 +9,10 @@
   {{/* First try to find posts with "Watched:" prefix */}}
   {{ $movies := slice }}
   {{ $posts := slice }}
-  {{ range where .Site.RegularPages "Type" "post" }}
-  {{ if hasPrefix .Title "Watched:" }}
-  {{ $posts = $posts | append . }}
-  {{ end }}
+  {{ range .Site.RegularPages.ByDate.Reverse }}
+    {{ if hasPrefix .Title "Watched:" }}
+      {{ $posts = $posts | append . }}
+    {{ end }}
   {{ end }}
 
   {{/* If no posts found, fall back to data files */}}
