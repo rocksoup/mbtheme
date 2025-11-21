@@ -10,7 +10,11 @@
   {{ $movies := slice }}
   {{ $posts := slice }}
   {{ range .Site.RegularPages.ByDate.Reverse }}
-    {{ if hasPrefix .Title "Watched:" }}
+    {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
+    {{ if not $rawTitle }}
+      {{ $rawTitle = (.Plain | default "") | trim " \t\r\n" }}
+    {{ end }}
+    {{ if hasPrefix $rawTitle "Watched:" }}
       {{ $posts = $posts | append . }}
     {{ end }}
   {{ end }}
@@ -19,8 +23,11 @@
   {{ if eq (len $posts) 0 }}
     {{ $pages := sort (where .Site.Pages "Kind" "page") "Date" "desc" }}
     {{ range $pages }}
-      {{ $title := .Title | trim " \t\r\n" }}
-      {{ if hasPrefix $title "Watched:" }}
+      {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
+      {{ if not $rawTitle }}
+        {{ $rawTitle = (.Plain | default "") | trim " \t\r\n" }}
+      {{ end }}
+      {{ if hasPrefix $rawTitle "Watched:" }}
         {{ $posts = $posts | append . }}
       {{ end }}
     {{ end }}
@@ -51,7 +58,12 @@
   {{/* Render from posts */}}
   <div class="watch-grid">
     {{ range $posts }}
-    {{ $title := .Title | replaceRE "^Watched: " "" }}
+    {{ $rawTitle := .Title | default "" }}
+    {{ if not $rawTitle }}
+      {{ $rawTitle = (.Plain | default "") }}
+    {{ end }}
+    {{ $rawTitle = $rawTitle | trim " \t\r\n" }}
+    {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" }}
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
     {{ if .Params.image }}
