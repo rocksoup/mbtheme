@@ -3,6 +3,7 @@ const path = require('path');
 
 // Configuration
 const USERNAME = process.argv[2] || 'jared'; // Default to 'jared' or pass as arg
+const DRY_RUN = process.argv.includes('--dry-run'); // Add --dry-run flag to preview without writing
 const OUTPUT_DIR = path.join(__dirname, '../examples/demo-site/data');
 
 // Ensure output directory exists
@@ -24,7 +25,10 @@ async function fetchBookshelves() {
             const url = `https://micro.blog/books/${USERNAME}/${shelf}.json`;
             console.log(`Fetching ${url}...`);
             const response = await fetch(url);
-            if (!response.ok) throw new Error(`Failed to fetch ${shelf}: ${response.statusText}`);
+            if (!response.ok) {
+                console.error(`Response status: ${response.status} ${response.statusText}`);
+                throw new Error(`Failed to fetch ${shelf}: ${response.statusText}`);
+            }
             const json = await response.json();
 
             // Transform to match theme expectation
@@ -57,8 +61,13 @@ async function fetchBookshelves() {
         }
     }
 
-    fs.writeFileSync(path.join(OUTPUT_DIR, 'bookshelves.json'), JSON.stringify(data, null, 2));
-    console.log('Saved bookshelves.json');
+    if (DRY_RUN) {
+        console.log('\n[DRY RUN] Would save bookshelves.json:');
+        console.log(JSON.stringify(data, null, 2));
+    } else {
+        fs.writeFileSync(path.join(OUTPUT_DIR, 'bookshelves.json'), JSON.stringify(data, null, 2));
+        console.log('✓ Saved bookshelves.json');
+    }
 }
 
 async function fetchWatching() {
@@ -91,16 +100,34 @@ async function fetchWatching() {
         fs.mkdirSync(watchedDir, { recursive: true });
     }
 
-    fs.writeFileSync(path.join(OUTPUT_DIR, 'watched.enriched.json'), JSON.stringify(dummyData, null, 2));
-    // Also save as watched.json in case template checks that
-    fs.writeFileSync(path.join(OUTPUT_DIR, 'watched.json'), JSON.stringify(dummyData, null, 2));
-
-    console.log('Saved watched.enriched.json');
+    if (DRY_RUN) {
+        console.log('\n[DRY RUN] Would save watched.enriched.json:');
+        console.log(JSON.stringify(dummyData, null, 2));
+    } else {
+        fs.writeFileSync(path.join(OUTPUT_DIR, 'watched.enriched.json'), JSON.stringify(dummyData, null, 2));
+        // Also save as watched.json in case template checks that
+        fs.writeFileSync(path.join(OUTPUT_DIR, 'watched.json'), JSON.stringify(dummyData, null, 2));
+        console.log('✓ Saved watched.enriched.json and watched.json');
+    }
 }
 
 async function main() {
+    console.log('='.repeat(50));
+    console.log('Micro.blog Data Fetcher');
+    console.log('='.repeat(50));
+    console.log(`Username: ${USERNAME}`);
+    console.log(`Mode: ${DRY_RUN ? 'DRY RUN (preview only)' : 'WRITE FILES'}`);
+    console.log('='.repeat(50));
+    console.log('');
+
     await fetchBookshelves();
+    console.log('');
     await fetchWatching();
+
+    console.log('');
+    console.log('='.repeat(50));
+    console.log(DRY_RUN ? '✓ Dry run complete' : '✓ Data fetch complete');
+    console.log('='.repeat(50));
 }
 
 main();
