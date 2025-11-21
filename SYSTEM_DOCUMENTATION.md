@@ -260,12 +260,24 @@ graph TB
 3. **Theme reads from Micro.blog only** - No external API calls at build time
 4. **Data files are for local dev only** - Not used in production
 
-**Example: Movie Poster Enrichment**
-- User logs "Watched: Movie Title"
-- Middleware queries TMDB API for poster
-- Middleware posts to Micro.blog with poster URL in `image` field
-- Micro.blog stores post with enriched data
-- Theme displays poster from Micro.blog post
+**Enrichment Workflows:**
+
+**Workflow A: Pre-Enrichment (Pinboard Links)**
+1. User bookmarks in Pinboard
+2. Middleware fetches from Pinboard RSS
+3. Middleware enriches with OG images/metadata
+4. Middleware posts to Micro.blog
+5. Theme displays enriched content
+
+**Workflow B: Post-Facto Enrichment (Books/Movies)**
+1. User posts "Watched: Movie Title" directly in Micro.blog (no poster)
+2. Middleware periodically polls Micro.blog for unenriched posts
+3. Middleware detects missing artwork (`image` field empty)
+4. Middleware fetches poster from TMDB API
+5. Middleware updates Micro.blog post with `image` field
+6. Theme displays enriched content on next build
+
+Both workflows result in Micro.blog as the source of truth with enriched data.
 
 ### Architecture
 
@@ -809,10 +821,16 @@ sequenceDiagram
 
 **🎯 Source of Truth: Micro.blog Bookshelves API**
 
-In production, book data comes from Micro.blog's native Bookshelves feature. Micro.blog automatically:
-- Fetches book metadata and covers from Open Library
-- Provides enriched data via `.Site.Data.bookshelves`
-- Updates when you add/remove books in Micro.blog UI
+In production, book data comes from Micro.blog's native Bookshelves feature.
+
+**Authoring & Enrichment Workflow:**
+1. **You add book** in Micro.blog Bookshelves (by ISBN or title)
+2. **Micro.blog enriches** automatically by fetching cover from Open Library
+3. **API provides** enriched data via `.Site.Data.bookshelves`
+4. **Theme reads** and displays with covers
+5. **(Optional) Middleware can monitor** for missing covers and backfill from alternative sources
+
+Note: Micro.blog handles book enrichment natively, so middleware is typically not needed for books unless cover art is unavailable from Open Library.
 
 ```mermaid
 graph LR
@@ -865,11 +883,17 @@ Books I'm reading, want to read, and have finished.
 
 **🎯 Source of Truth: Micro.blog Posts**
 
-In production, movie/TV data comes from posts with "Watched:" prefix stored in Micro.blog's database. For artwork enrichment:
-1. Middleware fetches poster from TMDB/IMDB API
-2. Posts to Micro.blog with `image` frontmatter
-3. Micro.blog stores enriched post
-4. Theme reads and displays
+In production, movie/TV data comes from posts with "Watched:" prefix stored in Micro.blog's database.
+
+**Authoring & Enrichment Workflow:**
+1. **You author** in Micro.blog: Create post "Watched: Movie Title" (artwork optional)
+2. **Middleware monitors** Micro.blog for posts without `image` field
+3. **Middleware enriches** by fetching poster from TMDB/IMDB API
+4. **Middleware updates** the post in Micro.blog with `image` frontmatter
+5. **Hugo rebuilds** with enriched data
+6. **Theme displays** poster from Micro.blog post
+
+This means you can post immediately without artwork, and the middleware will enrich it later.
 
 **Production: Posts with "Watched:" Prefix**
 
@@ -902,25 +926,31 @@ For local testing, create `data/watched.enriched.json`:
 }
 ```
 
-**Production Workflow with Enrichment:**
+**Production Workflow - Post-Facto Enrichment:**
 
 ```mermaid
 sequenceDiagram
     participant User
+    participant MB as Micro.blog
     participant MW as Middleware
     participant TMDB as TMDB API
-    participant MB as Micro.blog
     participant Site as Live Site
 
-    User->>MW: Log "Watched: Movie Title"
-    MW->>TMDB: Fetch poster & metadata
-    TMDB-->>MW: Return poster_url
-    MW->>MB: POST with enriched data<br/>(title + image)
-    MB->>MB: Store enriched post
+    User->>MB: POST "Watched: Movie Title"<br/>(no image field)
     MB->>Site: Hugo build
-    Site->>Site: Display poster from<br/>Micro.blog post
+    Site->>Site: Display without poster<br/>(graceful fallback)
 
-    Note over Site: Source of truth:<br/>Micro.blog database
+    Note over MW: Runs periodically<br/>(e.g., hourly)
+
+    MW->>MB: GET posts without images
+    MB-->>MW: Return unenriched posts
+    MW->>TMDB: Fetch poster for movie
+    TMDB-->>MW: Return poster_url
+    MW->>MB: UPDATE post with image field
+    MB->>Site: Hugo rebuild
+    Site->>Site: Display with poster
+
+    Note over Site: Source of truth:<br/>Micro.blog database<br/>(now enriched)
 ```
 
 **Local Development Workflow:**
