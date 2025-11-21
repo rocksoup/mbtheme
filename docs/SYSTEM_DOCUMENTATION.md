@@ -913,6 +913,59 @@ In production, movie/TV data comes from posts with "Watched:" prefix stored in M
 
 This means you can post immediately without artwork, and the middleware will enrich it later.
 
+**🔍 Critical Implementation Detail: Handling Titleless Posts**
+
+The watching grid implementation handles a common Micro.blog pattern: **titleless microblog-style posts** where the "Watched:" prefix appears only in the content, not the title field.
+
+**Detection Strategy:**
+```go
+{{ $pages := .Site.Pages }}
+{{ range $pages }}
+  {{ if eq .Kind "page" }}
+    {{ $title := .Title | default "" | trim " \t\r\n" }}
+    {{ $summary := .Summary | default "" }}
+    {{ $content := .Content | plainify | default "" }}
+    {{ $contentFirstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
+
+    {{/* Check if title, summary, or first line of content contains "Watched:" */}}
+    {{ $matched := false }}
+    {{ if hasPrefix $title "Watched:" }}
+      {{ $matched = true }}
+    {{ else if hasPrefix $summary "Watched:" }}
+      {{ $matched = true }}
+    {{ else if hasPrefix $contentFirstLine "Watched:" }}
+      {{ $matched = true }}
+    {{ end }}
+
+    {{ if $matched }}
+      {{ $posts = $posts | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+**Title Extraction for Titleless Posts:**
+```go
+{{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
+{{ if not $rawTitle }}
+  {{/* No title, extract from summary */}}
+  {{ $summary := .Summary | default "" }}
+  {{ $plainSummary := $summary | plainify }}
+  {{ $firstLine := index (split $plainSummary "\n") 0 | default "" | trim " \t\r\n" }}
+  {{ $rawTitle = $firstLine }}
+{{ end }}
+{{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
+```
+
+**Key Learnings:**
+1. **Use `.Site.Pages` not `.Site.RegularPages`** - RegularPages may miss certain post types
+2. **Filter by `.Kind == "page"`** - Ensures you get actual content pages, not sections or home
+3. **Check multiple sources** - Title, Summary, and Content first line
+4. **Use `.Summary | plainify`** - More reliable than `.Content | plainify` for extraction
+5. **The timing of plainify matters** - Get Summary first, then plainify it
+
+See [Working with Titleless Posts](#working-with-titleless-posts) for more details on this pattern.
+
 **Production: Posts with "Watched:" Prefix**
 
 ```yaml
@@ -1053,6 +1106,307 @@ url: "/styleguide/"
 - Shows typography, colors, spacing
 - Live component examples
 - Useful for theme development
+
+---
+
+## Working with Titleless Posts
+
+### Overview
+
+One of the unique characteristics of Micro.blog is support for **titleless posts** (microblog-style content). These posts have an empty `.Title` field, with content starting immediately in the body. This pattern is common for:
+
+- Short status updates
+- Quick thoughts
+- Media posts with custom prefixes (e.g., "Watched: Movie Title", "Reading: Book Title")
+- Twitter-like microposts
+
+### The Challenge
+
+When building features that rely on detecting posts by title prefix (e.g., filtering all "Watched:" posts for a watching page), titleless posts present a unique challenge:
+
+**Problem:**
+- Post has no `.Title` value (empty string or null)
+- The identifying prefix ("Watched:") appears only in the `.Content` or `.Summary`
+- Standard title-based filtering misses these posts
+
+**Example Post Structure:**
+```yaml
+---
+date: 2025-11-14T08:17:48-08:00
+# Note: no title field
+---
+
+Watched: Her 🍿
+
+Surprised how affecting this film is. Joaquin Phoenix's performance is incredible.
+```
+
+### The Solution: Multi-Source Content Detection
+
+The key is to check **multiple sources** in order of reliability:
+
+```go
+{{ $pages := .Site.Pages }}
+{{ range $pages }}
+  {{ if eq .Kind "page" }}
+    {{/* 1. Try title first */}}
+    {{ $title := .Title | default "" | trim " \t\r\n" }}
+
+    {{/* 2. Get summary (Hugo's extracted excerpt) */}}
+    {{ $summary := .Summary | default "" }}
+
+    {{/* 3. Get full content as fallback */}}
+    {{ $content := .Content | plainify | default "" }}
+    {{ $contentFirstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
+
+    {{/* Check all three sources */}}
+    {{ $matched := false }}
+    {{ if hasPrefix $title "Watched:" }}
+      {{ $matched = true }}
+    {{ else if hasPrefix $summary "Watched:" }}
+      {{ $matched = true }}
+    {{ else if hasPrefix $contentFirstLine "Watched:" }}
+      {{ $matched = true }}
+    {{ end }}
+
+    {{ if $matched }}
+      {{ $posts = $posts | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+### Best Practices
+
+#### 1. Use `.Site.Pages` Not `.Site.RegularPages`
+
+**Wrong:**
+```go
+{{ $pages := .Site.RegularPages }}  {{/* May miss certain post types */}}
+```
+
+**Right:**
+```go
+{{ $pages := .Site.Pages }}  {{/* Gets all pages */}}
+{{ range $pages }}
+  {{ if eq .Kind "page" }}  {{/* Filter to content pages */}}
+    {{/* Your logic here */}}
+  {{ end }}
+{{ end }}
+```
+
+**Why:** `.Site.RegularPages` applies Hugo's built-in filtering which may exclude posts based on type or section. `.Site.Pages` gives you complete control.
+
+#### 2. Extract Titles from `.Summary` Not `.Content`
+
+**Less Reliable:**
+```go
+{{ $content := .Content | plainify }}
+{{ $firstLine := index (split $content "\n") 0 }}
+```
+
+**More Reliable:**
+```go
+{{ $summary := .Summary | default "" }}
+{{ $plainSummary := $summary | plainify }}
+{{ $firstLine := index (split $plainSummary "\n") 0 }}
+```
+
+**Why:** `.Summary` is Hugo's intelligently extracted excerpt (first 70 words or until `<!--more-->`). It's already processed and more consistent than raw `.Content`. For titleless posts, `.Summary` typically contains the first sentence, which is exactly what you need.
+
+#### 3. The Order of Plainify Matters
+
+**Wrong (subtle bug):**
+```go
+{{ $summary := .Summary | plainify | default "" }}
+{{/* If Summary is null, plainify runs on null, default never triggers */}}
+```
+
+**Right:**
+```go
+{{ $summary := .Summary | default "" }}
+{{ $plainSummary := $summary | plainify }}
+{{/* Default provides empty string first, THEN plainify runs */}}
+```
+
+**Why:** Hugo template piping is left-to-right. If `.Summary` is null and you pipe directly to `plainify`, the default may not catch it properly. Always apply `default` first to ensure you have a string to work with.
+
+#### 4. Handle `.Plain` vs `.Summary` vs `.Content`
+
+**Understanding the Differences:**
+
+| Property | What It Is | When to Use |
+|----------|-----------|-------------|
+| `.Title` | Post title field | Always check first - fastest |
+| `.Summary` | First ~70 words OR content before `<!--more-->` | Best for extracting first line of titleless posts |
+| `.Content` | Full rendered HTML content | Use when you need complete post text |
+| `.Plain` | Full content as plain text | Use when you need all text without HTML |
+
+**Example - Extracting Movie Title:**
+```go
+{{/* Step 1: Check if there's an explicit title */}}
+{{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
+
+{{/* Step 2: For titleless posts, extract from summary */}}
+{{ if not $rawTitle }}
+  {{ $summary := .Summary | default "" }}
+  {{ $plainSummary := $summary | plainify }}
+  {{ $firstLine := index (split $plainSummary "\n") 0 | default "" | trim " \t\r\n" }}
+  {{ $rawTitle = $firstLine }}
+{{ end }}
+
+{{/* Step 3: Clean up the extracted title */}}
+{{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" }}  {{/* Remove prefix */}}
+{{ $title = $title | replaceRE "🍿.*$" "" }}              {{/* Remove emoji and trailing content */}}
+{{ $title = $title | trim " \t\r\n" }}                    {{/* Final trim */}}
+```
+
+### Common Patterns for Other Content Types
+
+This pattern can be applied to any prefix-based content detection:
+
+#### Reading List ("Reading: Book Title")
+```go
+{{ range .Site.Pages }}
+  {{ if eq .Kind "page" }}
+    {{ $title := .Title | default "" }}
+    {{ $summary := .Summary | default "" | plainify }}
+    {{ if or (hasPrefix $title "Reading:") (hasPrefix $summary "Reading:") }}
+      {{/* This is a reading post */}}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+#### Status Updates ("Status: Current Activity")
+```go
+{{ range .Site.Pages }}
+  {{ if eq .Kind "page" }}
+    {{ $title := .Title | default "" }}
+    {{ $summary := .Summary | default "" | plainify }}
+    {{ if or (hasPrefix $title "Status:") (hasPrefix $summary "Status:") }}
+      {{/* This is a status update */}}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+#### Photo Posts ("Photo:" or hashtag-based)
+```go
+{{ range .Site.Pages }}
+  {{ if eq .Kind "page" }}
+    {{ $title := .Title | default "" }}
+    {{ $content := .Content | plainify }}
+    {{ if or (hasPrefix $title "Photo:") (in $content "#photos") }}
+      {{/* This is a photo post */}}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+### Debugging Titleless Post Detection
+
+If your filter isn't finding posts, add debug output:
+
+```go
+<div style="padding:1rem;background:#f0f0f0;margin:1rem 0;">
+  <strong>Debug Info:</strong><br>
+  Total .Site.Pages: {{ len .Site.Pages }}<br>
+  Total .Site.RegularPages: {{ len .Site.RegularPages }}<br>
+  Matched posts: {{ len $posts }}<br>
+
+  <details>
+    <summary>First 10 pages (click to expand)</summary>
+    {{ range first 10 .Site.Pages }}
+      {{ if eq .Kind "page" }}
+        <div style="margin:0.5rem 0;padding:0.5rem;background:white;border-left:3px solid #ddd;">
+          <strong>Kind:</strong> {{ .Kind }}<br>
+          <strong>Type:</strong> {{ .Type }}<br>
+          <strong>Title:</strong> "{{ .Title }}"<br>
+          <strong>Summary (first 80 chars):</strong> "{{ .Summary | plainify | truncate 80 }}"<br>
+          <strong>URL:</strong> {{ .RelPermalink }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </details>
+</div>
+```
+
+**What to Look For:**
+1. Is the post showing up in the list?
+2. Is `.Title` empty as expected?
+3. Does `.Summary` contain your prefix?
+4. Is `.Kind` equal to "page"?
+
+### Performance Considerations
+
+**Iterating Over All Pages:**
+- `.Site.Pages` can be large (hundreds or thousands of posts)
+- Hugo's template engine is fast, but be mindful
+- Consider caching the filtered list if used in multiple places
+
+**Caching Filtered Results:**
+```go
+{{/* Calculate once */}}
+{{ $watchedPosts := slice }}
+{{ range .Site.Pages }}
+  {{ if eq .Kind "page" }}
+    {{ $summary := .Summary | default "" | plainify }}
+    {{ if hasPrefix $summary "Watched:" }}
+      {{ $watchedPosts = $watchedPosts | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Store in scratch for reuse */}}
+{{ $.Scratch.Set "watchedPosts" $watchedPosts }}
+
+{{/* Use anywhere in template */}}
+{{ range $.Scratch.Get "watchedPosts" }}
+  {{/* Render post */}}
+{{ end }}
+```
+
+### Real-World Example: The Watching Grid Bug
+
+**The Original Problem (v0.1.37):**
+- The `/watching/` page showed "No watching data found"
+- Five "Watched:" posts existed in the archive
+- Posts had empty `.Title` fields - content started with "Watched: Movie Title"
+- Template only checked `.Title`, missed all titleless posts
+
+**The Solution Journey:**
+
+1. **v0.1.38-39:** Tried `.Site.RegularPages` - matched 0 posts
+2. **v0.1.40:** Switched to `.Site.Pages` with `.Kind == "page"` - matched 5 posts! But titles were blank
+3. **v0.1.41:** Tried extracting from `.Content | plainify` - still blank
+4. **v0.1.42-43:** Switched to `.Summary | plainify` - **SUCCESS!** Titles extracted correctly
+
+**Final Working Implementation:**
+- Uses `.Site.Pages` filtered by `.Kind == "page"`
+- Checks `.Title`, `.Summary`, and `.Content` first line
+- Extracts title from `.Summary | plainify` for titleless posts
+- Cleans extracted title with `replaceRE` to remove prefix and emoji
+
+**Files modified:** `layouts/partials/watching-grid.html` (lines 10-93)
+
+### Summary
+
+**Key Takeaways:**
+1. Titleless posts are a Micro.blog feature, not a bug
+2. Always check multiple content sources (Title → Summary → Content)
+3. Use `.Site.Pages` with `.Kind == "page"` for complete control
+4. Extract from `.Summary | plainify` for best results
+5. Apply `default ""` BEFORE `plainify`, not after
+6. Test with debug output when building new filters
+7. This pattern works for any prefix-based content detection
+
+**This pattern enables:**
+- Watching pages (Watched: Movie)
+- Reading logs (Reading: Book)
+- Status updates (Status: Activity)
+- Check-ins (@ Location)
+- Any custom microblog convention
 
 ---
 

@@ -92,9 +92,11 @@ The search page will automatically be added to your navigation.
 
 ## Data Feeds (automation)
 
-- Watching page is populated by posts whose titles start with `Watched:`. For local previews only, you can drop in `data/watched.enriched.json` (or `data/watched.json`) with a `movies` array containing `title`, `watched_date`, optional `year`/`notes`, `poster_url`, and `placeholder` (true when no art).
-- Reading page reads `data/bookshelves.json` or the `data/bookshelves/` folder with `currentlyreading`, `wanttoread`, and `finishedreading` arrays; prefer enriched `cover_url` values and fall back to placeholders.
+- **Watching page** is populated by posts whose titles or content start with `Watched:`. The theme handles both titled posts ("Watched: Movie Title") and titleless microblog-style posts where "Watched:" appears in the content. For local previews only, you can drop in `data/watched.enriched.json` (or `data/watched.json`) with a `movies` array containing `title`, `watched_date`, optional `year`/`notes`, `poster_url`, and `placeholder` (true when no art).
+- **Reading page** reads `data/bookshelves.json` or the `data/bookshelves/` folder with `currentlyreading`, `wanttoread`, and `finishedreading` arrays; prefer enriched `cover_url` values and fall back to placeholders.
 - For local demos, drop sample files into `examples/demo-site/data/` (a sample `watched.enriched.json` is included).
+
+> **Note on Titleless Posts:** Micro.blog supports microblog-style posts without titles. The theme detects these by checking both `.Title` and `.Summary` fields. See [docs/SYSTEM_DOCUMENTATION.md](docs/SYSTEM_DOCUMENTATION.md#working-with-titleless-posts) for implementation details.
 
 ## Data Fetching
 
