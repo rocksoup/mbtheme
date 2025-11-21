@@ -6,6 +6,20 @@
 
 ---
 
+## ⚠️ Important Note
+
+**This is a custom theme built for a specific site and workflow.** It is not intended for general distribution or use by others.
+
+**Key Principles:**
+- **Hard-coded configuration is acceptable** when it serves the specific needs of this site
+- **Micro.blog built-in features should be used** when available, but may be overridden if necessary
+- **Any deviations from Micro.blog conventions** must be clearly documented and consulted on
+- **Customization over generalization** - this theme prioritizes specific requirements over broad compatibility
+
+When deciding between using Micro.blog's built-in features or creating custom overrides, consult the site owner and document the decision and rationale clearly.
+
+---
+
 ## Table of Contents
 
 1. [System Overview](#system-overview)
@@ -202,6 +216,56 @@ graph TB
 ### Overview
 
 The Saunter theme integrates with an external middleware system called **microintegrations** that syncs data from external services into Micro.blog.
+
+### 🎯 Key Architectural Principle: Micro.blog as Source of Truth
+
+**All production data lives in Micro.blog's database.** The theme never directly queries external APIs or relies on local data files in production.
+
+**How Enrichment Works:**
+
+```mermaid
+graph TB
+    subgraph "Enrichment Layer"
+        A[External Source<br/>Pinboard, TMDB, etc.]
+        B[Middleware<br/>microintegrations]
+    end
+
+    subgraph "Source of Truth"
+        C[Micro.blog API]
+        D[Micro.blog Database]
+    end
+
+    subgraph "Presentation Layer"
+        E[Hugo Build]
+        F[Theme Templates]
+        G[Static Site]
+    end
+
+    A -->|Raw data| B
+    B -->|Fetch artwork<br/>& metadata| A
+    B -->|POST enriched<br/>data| C
+    C -->|Store| D
+    D -->|Provide data| E
+    E -->|Render| F
+    F -->|Generate| G
+
+    style D fill:#FF6B35
+    style B fill:#A7C957
+    style G fill:#0EA5E9
+```
+
+**Key Points:**
+1. **Middleware enriches BEFORE posting** - Fetches artwork, metadata, etc.
+2. **Micro.blog stores enriched data** - Database contains complete information
+3. **Theme reads from Micro.blog only** - No external API calls at build time
+4. **Data files are for local dev only** - Not used in production
+
+**Example: Movie Poster Enrichment**
+- User logs "Watched: Movie Title"
+- Middleware queries TMDB API for poster
+- Middleware posts to Micro.blog with poster URL in `image` field
+- Micro.blog stores post with enriched data
+- Theme displays poster from Micro.blog post
 
 ### Architecture
 
@@ -743,21 +807,27 @@ sequenceDiagram
 
 ### 4. Reading/Bookshelf Content
 
-**Method 1: Native Micro.blog Bookshelves (Recommended)**
+**🎯 Source of Truth: Micro.blog Bookshelves API**
+
+In production, book data comes from Micro.blog's native Bookshelves feature. Micro.blog automatically:
+- Fetches book metadata and covers from Open Library
+- Provides enriched data via `.Site.Data.bookshelves`
+- Updates when you add/remove books in Micro.blog UI
 
 ```mermaid
 graph LR
-    A[Add book in<br/>Micro.blog UI] --> B[Micro.blog<br/>Bookshelves]
-    B --> C[Automatic API<br/>data provision]
-    C --> D[Theme reads<br/>.Site.Data]
+    A[Add book in<br/>Micro.blog UI] --> B[Micro.blog<br/>Bookshelves API]
+    B --> C[Automatic enrichment<br/>with cover_url]
+    C --> D[Theme reads<br/>.Site.Data.bookshelves]
     D --> E[Displays on<br/>/reading/]
 
     style B fill:#FF6B35
+    style C fill:#A7C957
 ```
 
-**Method 2: Data Files (Fallback)**
+**Local Development Only: Data Files**
 
-Create `data/bookshelves.json`:
+For local testing without Micro.blog connection, create `data/bookshelves.json`:
 ```json
 {
   "currentlyreading": [
@@ -793,21 +863,29 @@ Books I'm reading, want to read, and have finished.
 
 ### 5. Watching Content
 
-**Method 1: Posts with "Watched:" Prefix**
+**🎯 Source of Truth: Micro.blog Posts**
+
+In production, movie/TV data comes from posts with "Watched:" prefix stored in Micro.blog's database. For artwork enrichment:
+1. Middleware fetches poster from TMDB/IMDB API
+2. Posts to Micro.blog with `image` frontmatter
+3. Micro.blog stores enriched post
+4. Theme reads and displays
+
+**Production: Posts with "Watched:" Prefix**
 
 ```yaml
 ---
 title: "Watched: The Shawshank Redemption"
 date: 2025-11-21T10:00:00-07:00
-image: "https://example.com/poster.jpg"
+image: "https://example.com/poster.jpg"  # Enriched by middleware
 ---
 
 Incredible story about hope and friendship. Morgan Freeman's narration is perfect.
 ```
 
-**Method 2: Data Files**
+**Local Development Only: Data Files**
 
-Create `data/watched.enriched.json`:
+For local testing, create `data/watched.enriched.json`:
 ```json
 {
   "movies": [
@@ -824,22 +902,38 @@ Create `data/watched.enriched.json`:
 }
 ```
 
-**Workflow:**
+**Production Workflow with Enrichment:**
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant MW as Middleware
+    participant TMDB as TMDB API
+    participant MB as Micro.blog
+    participant Site as Live Site
+
+    User->>MW: Log "Watched: Movie Title"
+    MW->>TMDB: Fetch poster & metadata
+    TMDB-->>MW: Return poster_url
+    MW->>MB: POST with enriched data<br/>(title + image)
+    MB->>MB: Store enriched post
+    MB->>Site: Hugo build
+    Site->>Site: Display poster from<br/>Micro.blog post
+
+    Note over Site: Source of truth:<br/>Micro.blog database
+```
+
+**Local Development Workflow:**
 
 ```mermaid
 flowchart TD
-    A[Want to log movie] --> B{Prefer posts<br/>or data files?}
-    B -->|Posts| C[Create post with<br/>'Watched:' prefix]
-    B -->|Data Files| D[Add to<br/>watched.enriched.json]
+    A[Testing locally] --> B[Create data/watched.enriched.json]
+    B --> C[Hugo reads local data]
+    C --> D[Renders grid with posters]
+    D --> E[Test appearance locally]
 
-    C --> E[Hugo reads posts]
-    D --> F[Hugo reads data file]
-
-    E --> G[watching/single.html]
-    F --> G
-
-    G --> H[Renders grid with posters]
-    H --> I[Live on /watching/]
+    style B fill:#FFA500
+    Note1[Not used in production]
 ```
 
 **Page Setup:**
