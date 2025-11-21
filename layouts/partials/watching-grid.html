@@ -9,22 +9,27 @@
   {{/* Find posts with "Watched:" prefix (Micro.blog micro posts often have empty titles) */}}
   {{ $movies := slice }}
   {{ $posts := slice }}
-  {{ $pages := .Site.RegularPages }}
+  {{ $pages := .Site.Pages }}
   {{ range $pages }}
-    {{ $title := .Title | default "" | trim " \t\r\n" }}
-    {{ $plainContent := .Plain | default "" }}
-    {{ $contentFirstLine := index (split $plainContent "\n") 0 | default "" | trim " \t\r\n" }}
+    {{ if eq .Kind "page" }}
+      {{ $title := .Title | default "" | trim " \t\r\n" }}
+      {{ $summary := .Summary | default "" }}
+      {{ $content := .Content | plainify | default "" }}
+      {{ $contentFirstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
 
-    {{/* Check if title or first line of content starts with "Watched:" */}}
-    {{ $matched := false }}
-    {{ if hasPrefix $title "Watched:" }}
-      {{ $matched = true }}
-    {{ else if hasPrefix $contentFirstLine "Watched:" }}
-      {{ $matched = true }}
-    {{ end }}
+      {{/* Check if title, summary, or first line of content contains "Watched:" */}}
+      {{ $matched := false }}
+      {{ if hasPrefix $title "Watched:" }}
+        {{ $matched = true }}
+      {{ else if hasPrefix $summary "Watched:" }}
+        {{ $matched = true }}
+      {{ else if hasPrefix $contentFirstLine "Watched:" }}
+        {{ $matched = true }}
+      {{ end }}
 
-    {{ if $matched }}
-      {{ $posts = $posts | append . }}
+      {{ if $matched }}
+        {{ $posts = $posts | append . }}
+      {{ end }}
     {{ end }}
   {{ end }}
 
@@ -51,19 +56,25 @@
 
   {{/* Debug: remove this once confirmed on Micro.blog */}}
   <div class="watching-debug" style="font-size:12px;color:#888;margin:1rem 0;padding:1rem;background:#f0f0f0;border-radius:4px;">
-    <strong>Debug v0.1.39</strong> · regularPages={{ len $.Site.RegularPages }} matched={{ len $posts }}
+    <strong>Debug v0.1.40</strong> · allPages={{ len $.Site.Pages }} regularPages={{ len $.Site.RegularPages }} matched={{ len $posts }}
   </div>
   <div class="watching-debug" style="font-size:11px;color:#666;margin:0 0 1rem 0;padding:1rem;background:#f8f8f8;border-radius:4px;max-height:400px;overflow-y:auto;">
-    <strong>First 20 regular pages:</strong><br>
-    {{ range first 20 $.Site.RegularPages }}
-      {{ $plainContent := .Plain | default "" }}
-      {{ $firstLine := index (split $plainContent "\n") 0 | default "" | trim " \t\r\n" | truncate 60 }}
-      <div style="margin:0.5rem 0;padding:0.5rem;background:#fff;border-left:3px solid #ddd;">
-        kind={{ .Kind }} type={{ .Type }}<br>
-        title="{{ .Title }}"<br>
-        firstLine="{{ $firstLine }}"<br>
-        url={{ .RelPermalink }}
-      </div>
+    <strong>First 30 pages (with kind=page):</strong><br>
+    {{ $count := 0 }}
+    {{ range $.Site.Pages }}
+      {{ if and (eq .Kind "page") (lt $count 30) }}
+        {{ $count = add $count 1 }}
+        {{ $content := .Content | plainify | default "" }}
+        {{ $firstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" | truncate 80 }}
+        {{ $summary := .Summary | default "" | plainify | truncate 80 }}
+        <div style="margin:0.5rem 0;padding:0.5rem;background:#fff;border-left:3px solid {{ if hasPrefix $firstLine "Watched:" }}green{{ else }}#ddd{{ end }};">
+          kind={{ .Kind }} type={{ .Type }} section={{ .Section }}<br>
+          title="{{ .Title }}"<br>
+          summary="{{ $summary }}"<br>
+          firstLine="{{ $firstLine }}"<br>
+          url={{ .RelPermalink }}
+        </div>
+      {{ end }}
     {{ end }}
   </div>
 
