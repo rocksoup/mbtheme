@@ -9,7 +9,7 @@
   {{/* Find posts with "Watched:" prefix (Micro.blog micro posts often have empty titles) */}}
   {{ $movies := slice }}
   {{ $posts := slice }}
-  {{ $pages := sort (where .Site.Pages "Kind" "page") "Date" "desc" }}
+  {{ $pages := .Site.AllPages.ByDate.Reverse }}
   {{ range $pages }}
     {{ $raw := .Title | default "" | trim " \t\r\n" }}
     {{ if not $raw }}
