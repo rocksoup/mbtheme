@@ -15,6 +15,17 @@
     {{ end }}
   {{ end }}
 
+  {{/* If nothing matched, broaden the search to all pages (some Micro.blog sites use year sections) */}}
+  {{ if eq (len $posts) 0 }}
+    {{ $pages := sort (where .Site.Pages "Kind" "page") "Date" "desc" }}
+    {{ range $pages }}
+      {{ $title := .Title | strings.TrimSpace }}
+      {{ if hasPrefix $title "Watched:" }}
+        {{ $posts = $posts | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
   {{/* If no posts found, fall back to data files */}}
   {{ if eq (len $posts) 0 }}
     {{/* Try data/watched.enriched.json first */}}
