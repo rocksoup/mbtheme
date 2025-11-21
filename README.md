@@ -89,6 +89,7 @@ The search page will automatically be added to your navigation.
 - **[Configuration Guide](docs/configuration.md)** – Complete guide to all theme options
 - **[Customization Guide](docs/customization.md)** – How to customize colors, fonts, and layouts
 - **[Development Guide](docs/development.md)** – Local testing and theme development
+- **[Content Types Guide](docs/content-types.md)** – Filtering posts by category (Read, Watch, Shows)
 
 ## Data Feeds (automation)
 
