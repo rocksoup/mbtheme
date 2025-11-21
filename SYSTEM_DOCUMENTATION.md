@@ -1393,15 +1393,15 @@ stateDiagram-v2
     CheckStorage --> StoredMode: Preference found
 
     SystemMode --> CheckSystemPreference
-    CheckSystemPreference --> DarkMode: prefers-color-scheme: dark
-    CheckSystemPreference --> TimeBasedFallback: No preference
+    CheckSystemPreference --> DarkMode: System prefers dark
+    CheckSystemPreference --> TimeBasedFallback: No system preference
 
-    TimeBasedFallback --> DarkMode: 7pm - 6am
-    TimeBasedFallback --> LightMode: 6am - 7pm
+    TimeBasedFallback --> DarkMode: 7pm to 6am
+    TimeBasedFallback --> LightMode: 6am to 7pm
 
-    StoredMode --> LightMode: Stored "light"
-    StoredMode --> DarkMode: Stored "dark"
-    StoredMode --> CheckSystemPreference: Stored "system"
+    StoredMode --> LightMode: Light mode stored
+    StoredMode --> DarkMode: Dark mode stored
+    StoredMode --> CheckSystemPreference: System mode stored
 
     LightMode --> ApplyLightTheme
     DarkMode --> ApplyDarkTheme
