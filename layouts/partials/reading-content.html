@@ -1,0 +1,184 @@
+<div class="reading-page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+    <p>{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{/* Currently Reading */}}
+  <section class="bookshelf-section">
+    <h2>Currently Reading</h2>
+    <div class="books-grid">
+      {{ $currentlyReading := slice }}
+      {{/* Micro.blog hosted sites provide data via .Site.Data.bookshelves */}}
+      {{ with .Site.Data.bookshelves.currentlyreading }}
+        {{ $currentlyReading = . }}
+      {{ end }}
+
+      {{ range $currentlyReading }}
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        {{ else }}
+        <div class="book-cover-placeholder">No Cover</div>
+        {{ end }}
+        <div class="book-info">
+          <div class="book-title">{{ .title }}</div>
+          <div class="book-author">{{ .author }}</div>
+        </div>
+      </a>
+      {{ else }}
+      <p>No books currently being read.</p>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* Want to Read */}}
+  <section class="bookshelf-section">
+    <h2>Books I Want to Read</h2>
+    <div class="books-grid">
+      {{ $wantToRead := slice }}
+      {{/* Try different possible key names for Want to Read shelf */}}
+      {{ with .Site.Data.bookshelves.wanttoread }}
+        {{ $wantToRead = . }}
+      {{ else }}
+        {{ with .Site.Data.bookshelves.want }}
+          {{ $wantToRead = . }}
+        {{ else }}
+          {{ with index .Site.Data.bookshelves "want-to-read" }}
+            {{ $wantToRead = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ range $wantToRead }}
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        {{ else }}
+        <div class="book-cover-placeholder">No Cover</div>
+        {{ end }}
+        <div class="book-info">
+          <div class="book-title">{{ .title }}</div>
+          <div class="book-author">{{ .author }}</div>
+        </div>
+      </a>
+      {{ else }}
+      <p>No books in the want-to-read list.</p>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* Have Read */}}
+  <section class="bookshelf-section">
+    <h2>Books I Have Read</h2>
+    <div class="books-grid">
+      {{ $finishedReading := slice }}
+      {{/* Try different possible key names for Finished Reading shelf */}}
+      {{ with .Site.Data.bookshelves.finishedreading }}
+        {{ $finishedReading = . }}
+      {{ else }}
+        {{ with .Site.Data.bookshelves.finished }}
+          {{ $finishedReading = . }}
+        {{ else }}
+          {{ with index .Site.Data.bookshelves "finished-reading" }}
+            {{ $finishedReading = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ range $finishedReading }}
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
+        {{ if .cover_url }}
+        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        {{ else }}
+        <div class="book-cover-placeholder">No Cover</div>
+        {{ end }}
+        <div class="book-info">
+          <div class="book-title">{{ .title }}</div>
+          <div class="book-author">{{ .author }}</div>
+        </div>
+      </a>
+      {{ else }}
+      <p>No finished books yet.</p>
+      {{ end }}
+    </div>
+  </section>
+</div>
+
+<style>
+  .reading-page {
+    max-width: 100%;
+  }
+
+  .bookshelf-section {
+    margin-top: var(--space-12);
+  }
+
+  .bookshelf-section h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-6);
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .book-cover {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .book-cover-placeholder {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: var(--color-border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .book-hint {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .book-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .book-author {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .books-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+  }
+</style>

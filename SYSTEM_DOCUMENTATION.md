@@ -1,6 +1,6 @@
 # Saunter Theme - Comprehensive System Documentation
 
-**Version:** 0.1.24
+**Version:** 0.1.25
 **Last Updated:** 2025-11-21
 **Theme:** Saunter - Editorial-style Hugo theme for Micro.blog
 
@@ -1933,4 +1933,4 @@ Git Push → Version Change → Micro.blog Pull → Rebuild → Deploy
 
 ---
 
-*This documentation generated on 2025-11-21 for Saunter v0.1.24*
+*This documentation generated on 2025-11-21 for Saunter v0.1.25*
