@@ -117,6 +117,76 @@ This lets you preview the theme with real posts, photos, and Pinboard bookmarks.
 | Fonts/CSS missing | Check that `themes/saunter/static/css/main.css` exists |
 | Newsletter form not rendering | Verify `[params.newsletter]` is configured in your config file |
 | Search not working | Install the Micro.blog Search plugin when deploying to production |
+| Watching/Reading pages empty | See "Working with Titleless Posts" section below |
+
+### Working with Titleless Posts
+
+One common issue when developing features that filter posts by prefix (like "Watched:", "Reading:", etc.) is that Micro.blog supports titleless posts. These microblog-style posts have an empty `.Title` field with content starting directly in the body.
+
+**Problem:** Your filter checks `.Title` for "Watched:" but titleless posts have the prefix in `.Content` or `.Summary` instead.
+
+**Solution:** Check multiple sources in order:
+
+```go
+{{ range .Site.Pages }}
+  {{ if eq .Kind "page" }}
+    {{ $title := .Title | default "" | trim " \t\r\n" }}
+    {{ $summary := .Summary | default "" }}
+
+    {{/* Check both title and summary */}}
+    {{ if or (hasPrefix $title "Watched:") (hasPrefix $summary "Watched:") }}
+      {{/* Found a watched post */}}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+**Key Points:**
+1. Use `.Site.Pages` not `.Site.RegularPages` (RegularPages may exclude certain post types)
+2. Filter by `.Kind == "page"` to get actual content pages
+3. For title extraction from titleless posts, use `.Summary | plainify`
+4. Apply `default ""` BEFORE `plainify` to avoid null issues
+
+**Example - Extracting title from titleless post:**
+```go
+{{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
+{{ if not $rawTitle }}
+  {{/* Extract from summary for titleless posts */}}
+  {{ $summary := .Summary | default "" }}
+  {{ $plainSummary := $summary | plainify }}
+  {{ $firstLine := index (split $plainSummary "\n") 0 | default "" | trim " \t\r\n" }}
+  {{ $rawTitle = $firstLine }}
+{{ end }}
+{{ $cleanTitle := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
+```
+
+See the [SYSTEM_DOCUMENTATION.md](SYSTEM_DOCUMENTATION.md#working-with-titleless-posts) for a comprehensive guide.
+
+### Debugging Template Issues
+
+Add debug output to your templates to understand what Hugo sees:
+
+```go
+<div style="padding:1rem;background:#f0f0f0;margin:1rem 0;">
+  <strong>Debug Info:</strong><br>
+  Total pages: {{ len .Site.Pages }}<br>
+
+  <details>
+    <summary>First 5 pages (click to expand)</summary>
+    {{ range first 5 .Site.Pages }}
+      {{ if eq .Kind "page" }}
+        <div style="margin:0.5rem 0;padding:0.5rem;background:white;">
+          <strong>Title:</strong> "{{ .Title }}"<br>
+          <strong>Summary:</strong> "{{ .Summary | plainify | truncate 80 }}"<br>
+          <strong>URL:</strong> {{ .RelPermalink }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </details>
+</div>
+```
+
+**Remember to remove debug code before deploying to production!**
 
 ## Building for Production
 
