@@ -82,12 +82,24 @@
       {{ $rawTitle = $firstLine }}
     {{ end }}
     {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
+
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
-    {{ if .Params.image }}
-    {{ $posterUrl = .Params.image }}
+    {{/* Check photos array first (Micropub enrichment uses this) */}}
+    {{ if .Params.photos }}
+      {{ if gt (len .Params.photos) 0 }}
+        {{ $posterUrl = index .Params.photos 0 }}
+      {{ end }}
+    {{ else if .Params.images }}
+      {{ if gt (len .Params.images) 0 }}
+        {{ $posterUrl = index .Params.images 0 }}
+      {{ end }}
+    {{ else if .Params.photo }}
+      {{ $posterUrl = .Params.photo }}
+    {{ else if .Params.image }}
+      {{ $posterUrl = .Params.image }}
     {{ else if .Params.featured_image }}
-    {{ $posterUrl = .Params.featured_image }}
+      {{ $posterUrl = .Params.featured_image }}
     {{ end }}
 
     <article class="watch-card">
