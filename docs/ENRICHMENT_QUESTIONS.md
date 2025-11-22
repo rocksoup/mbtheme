@@ -383,4 +383,98 @@ steps:
 
 ---
 
+### 8. Should We Support Force Re-enrichment? ✅ **RESOLVED**
+
+**Question:** Should the enrichment script support re-enriching posts that have already been enriched?
+
+**Why it matters:** Affects how the script handles already-processed posts and enables manual overrides.
+
+**Use cases for re-enrichment:**
+
+1. **Better artwork becomes available:** TMDB adds higher quality poster later
+2. **Initial enrichment failed:** Movie wasn't in TMDB at first, but is now
+3. **Wrong artwork:** Script picked wrong movie/book, user wants to retry
+4. **Database updates:** External API (TMDB/OpenLibrary) data improved
+5. **Testing:** Developer wants to test enrichment on specific posts
+
+**Current behavior (from implementation plan):**
+- `needsEnrichment()` skips posts that already have `image` field
+- Enrichment log tracks previously processed posts
+- Once enriched, posts are never re-processed
+
+**Option A: No force re-enrichment**
+
+**Pros:**
+- Simple: Stick to current logic
+- Prevents duplicate API calls
+- No additional flags or complexity
+
+**Cons:**
+- Can't fix incorrect enrichments
+- Can't benefit from API improvements
+- Manual workarounds needed (delete image field, edit log)
+
+**Option B: Add --force flag**
+
+**Pros:**
+- Gives manual control when needed
+- Can target specific post URLs
+- Can re-process all posts if needed
+- Simple flag-based interface
+
+**Cons:**
+- Slightly more complex script logic
+- Need to bypass eligibility checks
+
+**Decision:** ✅ **Add force re-enrichment support**
+
+**Rationale:**
+- Provides escape hatch for edge cases
+- Useful for testing and debugging
+- Simple to implement (bypass image field check)
+- Not used in normal hourly runs (only when manually triggered)
+- Gives user control over their enrichments
+
+**Implementation approach:**
+
+**Command-line interface:**
+```bash
+# Re-enrich specific post
+node scripts/post-enrichment.mjs --force --url https://noise.stoneberg.net/2025/11/22/watched-her.html
+
+# Re-enrich all posts matching prefix (last 48 hours)
+node scripts/post-enrichment.mjs --force --all
+
+# Re-enrich specific post in dry run
+DRY_RUN=true node scripts/post-enrichment.mjs --force --url https://noise.../post.html
+```
+
+**Code changes:**
+```javascript
+function needsEnrichment(post, options = {}) {
+  // Force flag bypasses all checks
+  if (options.force) {
+    return detectContentType(post) !== null;
+  }
+
+  // Normal eligibility checks
+  if (post.image) return false;
+  if (alreadyEnriched(post.url)) return false;
+
+  return detectContentType(post) !== null;
+}
+```
+
+**Safety considerations:**
+- `--force` only works with manual `workflow_dispatch` triggers
+- Not available in scheduled hourly runs
+- Requires explicit URL or `--all` flag (prevents accidents)
+- Dry run mode available for testing
+
+**Implementation note:** Add to Milestone 4 (Main Script) or Milestone 7 (Testing) as "nice to have" feature.
+
+**Status:** ✅ **RESOLVED** - Decision made: implement --force flag
+
+---
+
 **Last updated:** 2025-11-22
