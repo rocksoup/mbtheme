@@ -21,6 +21,24 @@
   {{/* Combine both approaches */}}
   {{ $posts = union $categoryPosts $tagPosts }}
 
+  {{/* DEBUG: Show what category/tag filtering found */}}
+  <div style="background: #e3f2fd; padding: 10px; margin: 10px 0; border-left: 4px solid #2196f3;">
+    <strong>🔍 Category/Tag Detection Debug:</strong><br>
+    Posts with "watching" category: {{ len $categoryPosts }}<br>
+    Posts with "watching" tag: {{ len $tagPosts }}<br>
+    Combined unique posts: {{ len $posts }}<br>
+    {{ if gt (len $posts) 0 }}
+      <details>
+        <summary>Post URLs found:</summary>
+        <ul style="margin: 5px 0; padding-left: 20px;">
+        {{ range $posts }}
+          <li><code>{{ .RelPermalink }}</code> - {{ .Title | default .Summary | truncate 50 }}</li>
+        {{ end }}
+        </ul>
+      </details>
+    {{ end }}
+  </div>
+
   {{/* Method 3: Prefix-based fallback for legacy posts without categories */}}
   {{ if eq (len $posts) 0 }}
     {{ $pages := .Site.Pages }}
@@ -46,6 +64,14 @@
         {{ end }}
       {{ end }}
     {{ end }}
+  {{ end }}
+
+  {{/* DEBUG: Show what prefix fallback found */}}
+  {{ if gt (len $posts) 0 }}
+  <div style="background: #fff3e0; padding: 10px; margin: 10px 0; border-left: 4px solid #ff9800;">
+    <strong>🔍 After Prefix Fallback:</strong><br>
+    Total posts to display: {{ len $posts }}<br>
+  </div>
   {{ end }}
 
   {{/* If no posts found, fall back to data files */}}
