@@ -477,4 +477,56 @@ function needsEnrichment(post, options = {}) {
 
 ---
 
+### 9. What Terminology Should We Use? ✅ **RESOLVED**
+
+**Question:** What's the correct term for this enrichment system?
+
+**Why it matters:** Consistency in documentation, code comments, and discussion.
+
+**Options considered:**
+
+**"Middleware"**
+- Traditional meaning: Software that processes requests/responses in real-time
+- Implies processing *during* the posting workflow
+- Not accurate: Our system runs *after* posts are published
+- Common term but misleading in this context
+
+**"Post-processing"**
+- Accurate: Processing happens after posting
+- Generic: Could mean many things
+- Not very descriptive
+
+**"Background enrichment"**
+- Accurate: Runs in background (hourly GitHub Actions)
+- Descriptive: Clearly conveys what it does (enriches posts)
+- Distinguishes from real-time "middleware"
+- Easy to understand
+
+**Decision:** ✅ **Use "background enrichment"**
+
+**Rationale:**
+- More accurate than "middleware" (not processing during request cycle)
+- Clearly describes the system: enriches posts in the background
+- Distinguishes from future real-time webhook-based approaches
+- Better matches the actual architecture (scheduled polling)
+
+**Terminology guide:**
+
+| Use this | Not this | Context |
+|----------|----------|---------|
+| Background enrichment system | Middleware | Overall system |
+| Enrichment script | Middleware script | The Node.js script |
+| Enrichment workflow | Middleware workflow | GitHub Actions workflow |
+| Post enrichment | Middleware processing | The act of adding artwork/categories |
+| Background process | Middleware service | The scheduled job |
+
+**Documentation updates needed:**
+- File names can stay as-is (POST_ENRICHMENT_IMPLEMENTATION.md is accurate)
+- MIDDLEWARE_REQUIREMENTS.md could be renamed if needed
+- Future code/comments should use "background enrichment"
+
+**Status:** ✅ **RESOLVED** - Use "background enrichment" terminology
+
+---
+
 **Last updated:** 2025-11-22
