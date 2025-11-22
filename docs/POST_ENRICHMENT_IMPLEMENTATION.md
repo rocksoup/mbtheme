@@ -4,6 +4,10 @@
 **Status:** Design Phase
 **Target:** Workflow B - Post-facto enrichment of existing posts
 
+> ✅ **All design decisions documented in [ENRICHMENT_QUESTIONS.md](./ENRICHMENT_QUESTIONS.md)**
+>
+> This document provides the implementation guide. For the rationale behind design choices (polling vs webhooks, log storage, terminology, etc.), see ENRICHMENT_QUESTIONS.md.
+
 ---
 
 ## Table of Contents
@@ -27,7 +31,7 @@
 
 ### Purpose
 
-Enable users to quickly post content to Micro.blog with content type prefixes ("Watched:", "Reading:", "Show:") and have the middleware automatically enrich these posts with artwork and metadata from external APIs.
+Enable users to quickly post content to Micro.blog with content type prefixes ("Watched:", "Reading:", "Show:") and have the background enrichment system automatically enrich these posts with artwork and metadata from external APIs.
 
 ### User Workflow
 
@@ -36,7 +40,7 @@ Enable users to quickly post content to Micro.blog with content type prefixes ("
    - Post is published immediately without artwork
    - Theme displays post with graceful fallback (no poster)
 
-2. Middleware runs (hourly via GitHub Actions)
+2. Background enrichment runs (hourly via GitHub Actions)
    - Fetches recent posts from Micro.blog
    - Detects "Watched:" prefix
    - Checks if post has `image` field → NO
@@ -97,8 +101,9 @@ graph TB
 | `post-enrichment.mjs` | Main enrichment script | `scripts/` |
 | `micropub-client.mjs` | Micropub API wrapper (UPDATE function) | `scripts/utils/` |
 | `image-resolver.mjs` | Artwork fetching (already exists) | `scripts/utils/` |
-| `enrichment-log.json` | Activity tracking | Repository root |
+| `.enrichment-log.json` | Activity tracking (in .gitignore) | Repository root (via GitHub Actions artifacts) |
 | GitHub Actions workflow | Hourly scheduling | `.github/workflows/` |
+| `.gitignore` | Excludes log from commits | Repository root |
 
 ---
 
@@ -400,6 +405,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Download previous enrichment log
+        uses: actions/download-artifact@v4
+        with:
+          name: enrichment-log
+        continue-on-error: true  # First run won't have artifact
+
       - name: Run post enrichment
         env:
           MICROBLOG_TOKEN: ${{ secrets.MICROBLOG_TOKEN }}
@@ -407,21 +418,12 @@ jobs:
           GOOGLE_BOOKS_API_KEY: ${{ secrets.GOOGLE_BOOKS_API_KEY }}
         run: node scripts/post-enrichment.mjs
 
-      - name: Commit enrichment log
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-          if [ -f .enrichment-log.json ]; then
-            git add .enrichment-log.json
-          fi
-
-          if ! git diff --quiet --cached; then
-            git commit -m "chore: update enrichment log [skip ci]"
-            git push
-          else
-            echo "No changes to commit"
-          fi
+      - name: Upload enrichment log
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrichment-log
+          path: .enrichment-log.json
+          retention-days: 90
 ```
 
 ### Timing Considerations
@@ -1382,22 +1384,28 @@ DRY_RUN=true node scripts/backfill-enrichment.mjs --days 30
 
 ---
 
-## Questions & Decisions Needed
+## Design Decisions
 
-### Open Questions
+All design decisions and their rationale are documented in **[ENRICHMENT_QUESTIONS.md](./ENRICHMENT_QUESTIONS.md)**.
 
-1. **Category behavior:** Should we add categories automatically, or let user control?
-2. **Prefix removal:** After enrichment, remove "Watched:" from content?
-3. **Private posts:** Enrich draft posts, or only published?
-4. **Rate limiting:** What's our strategy if we hit TMDB/OpenLibrary limits?
-5. **Content ambiguity:** How to handle "Watched: X and Y" (multiple items in one post)?
+### Key Decisions Summary
 
-### Design Decisions Made
+- ✅ **Architecture:** Polling-based (hourly GitHub Actions) vs webhook-based → **Polling**
+- ✅ **Infrastructure:** GitHub Actions vs standalone server → **GitHub Actions**
+- ✅ **Update strategy:** Update existing posts vs create new enriched posts → **Update existing**
+- ✅ **Log storage:** Commit to repo vs artifacts → **GitHub Actions artifacts (.gitignore)**
+- ✅ **Post fetching:** Micro.blog API vs JSON Feed → **JSON Feed**
+- ✅ **Terminology:** "Middleware" vs "Background enrichment" → **Background enrichment**
+- ✅ **Content prefixes:** Keep or remove after enrichment → **Keep prefixes**
+- ✅ **Draft posts:** Enrich drafts or only published → **Only published**
+- ✅ **Multi-prefix posts:** First match only vs multiple enrichments → **First match only**
+- ✅ **Force re-enrichment:** Support `--force` flag → **Yes**
 
-- ✅ Polling-based (hourly) vs webhook-based → **Polling**
-- ✅ GitHub Actions vs standalone server → **GitHub Actions**
-- ✅ Update existing posts vs create new enriched posts → **Update existing**
-- ✅ Log format and location → **JSON file in repo**
+See [ENRICHMENT_QUESTIONS.md](./ENRICHMENT_QUESTIONS.md) for complete rationale, alternatives considered, and implementation notes.
+
+### Blocking Validation
+
+🔴 **Micropub UPDATE API Support** - Must verify before starting Milestone 1 implementation. See ENRICHMENT_QUESTIONS.md Q1 for validation steps and fallback alternatives.
 
 ---
 
