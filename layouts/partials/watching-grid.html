@@ -88,14 +88,14 @@
 
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
-    {{/* Check photos array first (Micropub enrichment uses this) */}}
+    {{/* Check photos array first (Micropub enrichment uses this). Use the last photo in case an update appended the corrected poster. */}}
     {{ if .Params.photos }}
       {{ if gt (len .Params.photos) 0 }}
-        {{ $posterUrl = index .Params.photos 0 }}
+        {{ $posterUrl = index .Params.photos (sub (len .Params.photos) 1) }}
       {{ end }}
     {{ else if .Params.images }}
       {{ if gt (len .Params.images) 0 }}
-        {{ $posterUrl = index .Params.images 0 }}
+        {{ $posterUrl = index .Params.images (sub (len .Params.images) 1) }}
       {{ end }}
     {{ else if .Params.photo }}
       {{ $posterUrl = .Params.photo }}
