@@ -12,11 +12,13 @@ This document tracks questions and decisions needed before/during implementation
 
 ## Questions
 
-### 1. Micropub UPDATE API Support 🔴 **BLOCKING**
+### 1. Micropub UPDATE API Support 🔴 **BLOCKING - VALIDATION REQUIRED**
 
-**Question:** The plan relies heavily on Micropub's `update` action (POST_ENRICHMENT_IMPLEMENTATION.md lines 252-323). Have you or the middleware developer verified that Micro.blog fully supports this?
+**Nature:** This is more of a **validation** than a question. If Micropub UPDATE works, we can proceed with the implementation plan as designed. If it doesn't work, we need to revisit the entire approach.
 
-**Why it matters:** The entire enrichment workflow depends on being able to update existing posts via Micropub. If this doesn't work, we need a different approach (delete/repost, native Micro.blog API, etc.).
+**Question:** The plan relies heavily on Micropub's `update` action (POST_ENRICHMENT_IMPLEMENTATION.md lines 252-323). Does Micro.blog fully support Micropub UPDATE for modifying existing posts?
+
+**Why this is critical:** The entire background enrichment workflow depends on being able to update existing posts via Micropub. If this doesn't work, the current plan is not viable and we need a fundamentally different approach.
 
 **What we need:**
 - Test Micropub UPDATE on a real Micro.blog post
@@ -53,9 +55,43 @@ POST https://micro.blog/micropub
 - [ ] Attempt UPDATE via Micropub with image
 - [ ] Verify post is updated correctly
 - [ ] Document any issues or limitations
-- [ ] If UPDATE doesn't work, research alternatives
+- [ ] If UPDATE doesn't work, evaluate alternatives below
 
-**Status:** 🔴 **BLOCKING** - Must verify before Milestone 1
+**Alternative approaches if Micropub UPDATE fails:**
+
+If Micro.blog doesn't support Micropub UPDATE, here are potential alternatives:
+
+**Option A: Delete and Recreate**
+- Fetch original post content
+- Delete original post via Micropub DELETE
+- Create new post with same content + image + category
+- Preserve original publication date
+- **Risk:** Loses post URL, breaks existing links
+
+**Option B: Native Micro.blog API**
+- Research Micro.blog's native API (not Micropub)
+- May have direct post editing endpoints
+- Requires different authentication approach
+- **Unknown:** What capabilities exist?
+
+**Option C: Manual Hugo Frontmatter**
+- Can't modify posts in Micro.blog directly
+- Instead, override in Hugo theme
+- Maintain external mapping file: `{post_url: {image: url, category: watch}}`
+- Theme reads mapping and injects image/category at build time
+- **Pro:** No Micropub needed
+- **Con:** Metadata not in Micro.blog (two sources of truth)
+
+**Option D: Hybrid Approach**
+- Use Micropub to create new "enrichment annotation" posts
+- Special post type: references original post, contains image
+- Theme detects and merges annotation into original display
+- **Pro:** No modification of originals
+- **Con:** Complex theme logic
+
+**Recommendation if UPDATE fails:** Research Option B (native Micro.blog API) first, fall back to Option C (Hugo mapping) if needed. Avoid Option A (breaks URLs) and Option D (too complex).
+
+**Status:** 🔴 **BLOCKING - VALIDATION REQUIRED** - Must verify before Milestone 1
 
 ---
 
