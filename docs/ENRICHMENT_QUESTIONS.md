@@ -294,4 +294,93 @@ async function fetchRecentPosts() {
 
 ---
 
+### 7. Where Should We Store the Enrichment Log? ✅ **RESOLVED**
+
+**Question:** Where should the `.enrichment-log.json` file be stored and how should it be managed?
+
+**Why it matters:** Affects repository cleanliness and log persistence strategy.
+
+**Option A: Commit to Repository**
+
+**Pros:**
+- Simple: Log tracked in git history
+- Always available in repository
+- Easy to access and review
+
+**Cons:**
+- Clutters git history with frequent `[skip ci]` commits
+- Log grows over time
+- Every enrichment run = new commit
+- Noise in commit history
+
+**Option B: GitHub Gist**
+
+**Pros:**
+- Separate from main repository
+- Updatable via API
+- No repository commits
+
+**Cons:**
+- More complex: Need Gist API integration
+- Additional secret management
+- External dependency
+
+**Option C: Store in Repository but .gitignore + GitHub Actions Artifacts**
+
+**Pros:**
+- Log persists locally during runs
+- No git history clutter
+- GitHub Actions can upload as artifact
+- Can download artifacts from Actions UI
+- Keeps repository clean
+- Log survives between workflow runs (via artifact download)
+
+**Cons:**
+- Artifacts expire after 90 days (GitHub default)
+- Slightly more complex workflow setup
+- Need to download previous artifact at start of each run
+
+**Decision:** ✅ **Store in repository with .gitignore, use GitHub Actions artifacts**
+
+**Rationale:**
+- Keeps repository commit history clean
+- Log is preserved via GitHub Actions artifacts
+- Can review logs by downloading artifacts from Actions runs
+- No external dependencies (Gist API)
+- Workflow can restore previous log from artifacts
+- 90-day artifact retention is sufficient for enrichment history
+
+**Implementation approach:**
+
+1. **Add to `.gitignore`:**
+```
+.enrichment-log.json
+```
+
+2. **GitHub Actions workflow:**
+```yaml
+steps:
+  - name: Download previous enrichment log
+    uses: actions/download-artifact@v4
+    with:
+      name: enrichment-log
+    continue-on-error: true  # First run won't have artifact
+
+  - name: Run enrichment
+    run: node scripts/post-enrichment.mjs
+
+  - name: Upload enrichment log
+    uses: actions/upload-artifact@v4
+    with:
+      name: enrichment-log
+      path: .enrichment-log.json
+      retention-days: 90
+```
+
+**Implementation note:** Update POST_ENRICHMENT_IMPLEMENTATION.md lines 410-424 to remove git commit step and add artifact upload/download instead.
+
+**Status:** ✅ **RESOLVED** - Decision made: .gitignore + GitHub Actions artifacts
+
+---
+
 **Last updated:** 2025-11-22
