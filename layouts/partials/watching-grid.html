@@ -83,25 +83,23 @@
     {{ end }}
     {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
 
-    {{/* DEBUG: Show all available params for this post */}}
-    {{ if eq $title "The Truman Show" }}
-    <div style="background: #f0f0f0; padding: 10px; margin: 10px 0; font-family: monospace; font-size: 12px;">
-      <strong>DEBUG - Available fields for {{ $title }}:</strong><br>
-      Params.image: {{ .Params.image }}<br>
-      Params.featured_image: {{ .Params.featured_image }}<br>
-      Params.images: {{ .Params.images }}<br>
-      Params.photo: {{ .Params.photo }}<br>
-      Params.photos: {{ .Params.photos }}<br>
-      All Params: {{ .Params }}<br>
-    </div>
-    {{ end }}
-
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
-    {{ if .Params.image }}
-    {{ $posterUrl = .Params.image }}
+    {{/* Check photos array first (Micropub enrichment uses this) */}}
+    {{ if .Params.photos }}
+      {{ if gt (len .Params.photos) 0 }}
+        {{ $posterUrl = index .Params.photos 0 }}
+      {{ end }}
+    {{ else if .Params.images }}
+      {{ if gt (len .Params.images) 0 }}
+        {{ $posterUrl = index .Params.images 0 }}
+      {{ end }}
+    {{ else if .Params.photo }}
+      {{ $posterUrl = .Params.photo }}
+    {{ else if .Params.image }}
+      {{ $posterUrl = .Params.image }}
     {{ else if .Params.featured_image }}
-    {{ $posterUrl = .Params.featured_image }}
+      {{ $posterUrl = .Params.featured_image }}
     {{ end }}
 
     <article class="watch-card">
