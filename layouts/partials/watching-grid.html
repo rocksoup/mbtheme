@@ -51,25 +51,6 @@
   {{/* Combine all detection methods (union removes duplicates) */}}
   {{ $posts = union $posts $prefixPosts }}
 
-  {{/* DEBUG: Show what each method found */}}
-  <div style="background: #e3f2fd; padding: 10px; margin: 10px 0; border-left: 4px solid #2196f3;">
-    <strong>🔍 Detection Debug:</strong><br>
-    Category posts: {{ len $categoryPosts }}<br>
-    Tag posts: {{ len $tagPosts }}<br>
-    Prefix posts: {{ len $prefixPosts }}<br>
-    <strong>Total unique posts: {{ len $posts }}</strong><br>
-    {{ if gt (len $posts) 0 }}
-      <details>
-        <summary>All detected posts:</summary>
-        <ul style="margin: 5px 0; padding-left: 20px;">
-        {{ range $posts }}
-          <li><code>{{ .RelPermalink }}</code> - {{ .Title | default .Summary | truncate 50 }}</li>
-        {{ end }}
-        </ul>
-      </details>
-    {{ end }}
-  </div>
-
   {{/* If no posts found, fall back to data files */}}
   {{ if eq (len $posts) 0 }}
     {{/* Try data/watched.enriched.json first */}}
@@ -122,6 +103,19 @@
       {{ $posterUrl = .Params.image }}
     {{ else if .Params.featured_image }}
       {{ $posterUrl = .Params.featured_image }}
+    {{ end }}
+
+    {{/* If no frontmatter image, try to extract from content */}}
+    {{ if not $posterUrl }}
+      {{ $imgMatches := findRE `<img[^>]+src="([^"]+)"` .Content 1 }}
+      {{ if $imgMatches }}
+        {{ $imgTag := index $imgMatches 0 }}
+        {{ $srcMatches := findRE `src="([^"]+)"` $imgTag 1 }}
+        {{ if $srcMatches }}
+          {{ $src := index $srcMatches 0 }}
+          {{ $posterUrl = replaceRE `src="([^"]+)"` "$1" $src }}
+        {{ end }}
+      {{ end }}
     {{ end }}
 
     <article class="watch-card">
