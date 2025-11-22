@@ -59,4 +59,42 @@ POST https://micro.blog/micropub
 
 ---
 
+### 2. Should We Remove Content Prefixes After Enrichment? ✅ **RESOLVED**
+
+**Question:** After enrichment adds the image and category, should we remove the "Watched:", "Reading:", "Show:" prefix from the post content?
+
+**Example:**
+```markdown
+Before: "Watched: Her 🍿"
+After:  "Her 🍿"  (prefix removed)
+```
+
+**Why it matters:** Affects user experience and theme compatibility.
+
+**Arguments for removal:**
+- Cleaner appearance once categorized
+- Category makes the prefix redundant
+- Metadata belongs in frontmatter, not content
+
+**Arguments against removal:**
+- Prefix is part of the post's voice/tone
+- Removing changes the user's original expression
+- Theme's prefix fallback logic needs it for legacy posts
+- User intentionally wrote it that way
+
+**Decision:** ✅ **Keep the prefix**
+
+**Rationale:**
+- The prefix is how the user naturally expresses the activity ("Watched: Her 🍿")
+- It's part of the content's meaning, not just metadata
+- Removing it would alter the user's original post
+- Theme already handles both category-based and prefix-based filtering
+- Legacy posts without categories still work with prefix fallback
+
+**Implementation note:** Enrichment adds `image` + `category` but leaves `content` unchanged.
+
+**Status:** ✅ **RESOLVED** - Decision made: keep prefixes
+
+---
+
 **Last updated:** 2025-11-22
