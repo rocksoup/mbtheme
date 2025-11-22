@@ -6,10 +6,29 @@
   {{ $featuredImage = .Params.featured_image }}
   {{ else if .Params.image }}
   {{ $featuredImage = .Params.image }}
+  {{ else if .Params.photo }}
+  {{ $featuredImage = .Params.photo }}
+  {{ else if .Params.photos }}
+  {{ if gt (len .Params.photos) 0 }}
+  {{ $featuredImage = index .Params.photos 0 }}
+  {{ end }}
   {{ else }}
   {{ with .Params.images }}
   {{ if gt (len .) 0 }}
   {{ $featuredImage = index . 0 }}
+  {{ end }}
+  {{ end }}
+  {{ end }}
+
+  {{/* If no frontmatter image, try to extract from content */}}
+  {{ if not $featuredImage }}
+  {{ $imgMatches := findRE `<img[^>]+src="([^"]+)"` .Content 1 }}
+  {{ if $imgMatches }}
+  {{ $imgTag := index $imgMatches 0 }}
+  {{ $srcMatches := findRE `src="([^"]+)"` $imgTag 1 }}
+  {{ if $srcMatches }}
+  {{ $src := index $srcMatches 0 }}
+  {{ $featuredImage = replaceRE `src="([^"]+)"` "$1" $src }}
   {{ end }}
   {{ end }}
   {{ end }}
