@@ -224,4 +224,74 @@ Both were amazing!
 
 ---
 
+### 6. How to Fetch Posts from Micro.blog? ✅ **RESOLVED**
+
+**Question:** Should we use Micro.blog's API to fetch posts, or use the existing JSON Feed?
+
+**Why it matters:** Affects implementation complexity for Milestone 1, Task 1.2 (Post Fetching).
+
+**Option A: Micro.blog API**
+
+**Pros:**
+- Native API access
+- More flexible querying
+- Direct control over filtering
+
+**Cons:**
+- Need to research API endpoints
+- May require authentication
+- Documentation may be sparse
+- Need to understand date filtering capabilities
+- More moving parts
+
+**Option B: JSON Feed**
+
+**Pros:**
+- Feed already exists at `https://noise.stoneberg.net/feed.json`
+- Standard JSON Feed format (well-documented)
+- No authentication needed for public feeds
+- Simple fetch and parse
+- Already tested and working
+- Contains all published posts
+
+**Cons:**
+- Less flexible filtering
+- May have size limits (typically last N posts)
+- Can't query specific date ranges via API
+- Client-side filtering required
+
+**Decision:** ✅ **Use JSON Feed for post fetching**
+
+**Rationale:**
+- JSON Feed already exists and is publicly accessible
+- Standard format is well-documented and stable
+- No need to research Micro.blog's internal API
+- Simpler implementation (just `fetch()` and parse JSON)
+- 48-hour lookback window means we're only processing recent posts anyway
+- Feed likely contains more than 48 hours of posts
+- Can always switch to API later if feed proves insufficient
+
+**Implementation approach:**
+```javascript
+async function fetchRecentPosts() {
+  const feed = await fetch('https://noise.stoneberg.net/feed.json');
+  const data = await feed.json();
+
+  const twoDaysAgo = new Date(Date.now() - 48 * 60 * 60 * 1000);
+
+  return data.items.filter(post => {
+    const pubDate = new Date(post.date_published);
+    return pubDate > twoDaysAgo;
+  });
+}
+```
+
+**Feed format reference:** https://www.jsonfeed.org/version/1.1/
+
+**Implementation note:** Milestone 1, Task 1.2 simplified - no API research needed, just fetch and parse JSON Feed. Posts are already in usable format with `content_text`, `date_published`, and `url` fields.
+
+**Status:** ✅ **RESOLVED** - Decision made: use JSON Feed
+
+---
+
 **Last updated:** 2025-11-22
