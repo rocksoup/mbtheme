@@ -26,6 +26,11 @@ Context for handoff to another developer.
 4) If `pages` > 0 but none match, expand debug to dump `.Content` for a few items or temporarily render all items (no filter) to see their shape; then refine the match.
 5) Once the filter works and cards render, remove the debug blocks and bump the version again (e.g., 0.1.39).
 
+## New note (Nov 22): Micropub enrichment needs replace, not append
+- The Micropub enrichment is appending photos each run. Live posts (e.g., Pretty Woman) now have multiple poster URLs, and the wrong one can surface.
+- Fix tomorrow: change the enrichment update to use `action: "update"` with `replace: { "photo": [posterUrl] }` (or delete all photos then add one) and short-circuit if the existing photo already matches the chosen poster.
+- After updating the script, run it once (or trigger the GH Action) to overwrite photos so only the correct poster remains, then re-check `/watching/`.
+
 ## Useful evidence
 - Archive JSON shows the posts with empty `title` and the text in `content_text`. Example entry:
   ```json
@@ -37,4 +42,3 @@ Context for handoff to another developer.
   }
   ```
 - Latest live generator before this work was 0.1.37; 0.1.38 (with debug) hasn’t been deployed because commit/push didn’t happen.
-
