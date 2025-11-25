@@ -51,6 +51,9 @@
   {{/* Combine all detection methods (union removes duplicates) */}}
   {{ $posts = union $posts $prefixPosts }}
 
+  {{/* Sort posts by date (newest first) */}}
+  {{ $posts = sort $posts ".Date" "desc" }}
+
   {{/* If no posts found, fall back to data files */}}
   {{ if eq (len $posts) 0 }}
     {{/* Try data/watched.enriched.json first */}}
@@ -74,6 +77,56 @@
 
   {{ if gt (len $posts) 0 }}
   {{/* Render from posts */}}
+
+  {{/* First pass: record which normalized titles have at least one image, so we can skip no-image duplicates */}}
+  {{ $.Scratch.Set "titleHasImage" (dict) }}
+  {{ range $posts }}
+    {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
+    {{ if not $rawTitle }}
+      {{/* No title, extract from summary (don't plainify - it's already text) */}}
+      {{ $summary := .Summary | default "" }}
+      {{ $plainSummary := $summary | plainify }}
+      {{ $firstLine := index (split $plainSummary "\n") 0 | default "" | trim " \t\r\n" }}
+      {{ $rawTitle = $firstLine }}
+    {{ end }}
+    {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
+
+    {{/* Detect poster */}}
+    {{ $posterUrl := "" }}
+    {{ if .Params.photos }}
+      {{ if gt (len .Params.photos) 0 }}
+        {{ $posterUrl = index .Params.photos (sub (len .Params.photos) 1) }}
+      {{ end }}
+    {{ else if .Params.images }}
+      {{ if gt (len .Params.images) 0 }}
+        {{ $posterUrl = index .Params.images (sub (len .Params.images) 1) }}
+      {{ end }}
+    {{ else if .Params.photo }}
+      {{ $posterUrl = .Params.photo }}
+    {{ else if .Params.image }}
+      {{ $posterUrl = .Params.image }}
+    {{ else if .Params.featured_image }}
+      {{ $posterUrl = .Params.featured_image }}
+    {{ end }}
+
+    {{ if not $posterUrl }}
+      {{ $imgMatches := findRE `<img[^>]+src="([^"]+)"` .Content 1 }}
+      {{ if $imgMatches }}
+        {{ $imgTag := index $imgMatches 0 }}
+        {{ $srcMatches := findRE `src="([^"]+)"` $imgTag 1 }}
+        {{ if $srcMatches }}
+          {{ $src := index $srcMatches 0 }}
+          {{ $posterUrl = replaceRE `src="([^"]+)"` "$1" $src }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $posterUrl }}
+      {{ $.Scratch.SetInMap "titleHasImage" $title true }}
+    {{ end }}
+  {{ end }}
+  {{ $titleHasImage := $.Scratch.Get "titleHasImage" }}
+
   <div class="watch-grid">
     {{ range $posts }}
     {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
@@ -116,6 +169,11 @@
           {{ $posterUrl = replaceRE `src="([^"]+)"` "$1" $src }}
         {{ end }}
       {{ end }}
+    {{ end }}
+
+    {{/* If this title has any image elsewhere, skip no-image duplicates */}}
+    {{ if and (not $posterUrl) (index $titleHasImage $title) }}
+      {{ continue }}
     {{ end }}
 
     <article class="watch-card">
