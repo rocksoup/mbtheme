@@ -97,7 +97,7 @@
     {{ end }}
     {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
 
-    <!-- DEBUG Post: "{{ $title }}" | Date: {{ .Date.Format "2006-01-02" }} | File: {{ .File.Path }} | Categories: {{ delimit .Params.categories ", " }} | Tags: {{ delimit .Params.tags ", " }} -->
+    <!-- DEBUG Post: "{{ $title }}" | Date: {{ .Date.Format "2006-01-02" }} | File: {{ with .File }}{{ .Path }}{{ end }} | Categories: {{ with .Params.categories }}{{ delimit . ", " }}{{ end }} | Tags: {{ with .Params.tags }}{{ delimit . ", " }}{{ end }} -->
 
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
