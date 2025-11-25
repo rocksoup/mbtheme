@@ -54,6 +54,14 @@
   {{/* Sort posts by date (newest first) */}}
   {{ $posts = sort $posts ".Date" "desc" }}
 
+  {{/* DEBUG: Output post collection info */}}
+  <!-- DEBUG: Post Collection Info
+  Category posts: {{ len $categoryPosts }}
+  Tag posts: {{ len $tagPosts }}
+  Prefix posts: {{ len $prefixPosts }}
+  Total posts after union: {{ len $posts }}
+  -->
+
   {{/* If no posts found, fall back to data files */}}
   {{ if eq (len $posts) 0 }}
     {{/* Try data/watched.enriched.json first */}}
@@ -128,7 +136,7 @@
   {{ $titleHasImage := $.Scratch.Get "titleHasImage" }}
 
   <div class="watch-grid">
-    {{ range $posts }}
+    {{ range $index, $post := $posts }}
     {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
     {{ if not $rawTitle }}
       {{/* No title, extract from summary (don't plainify - it's already text) */}}
@@ -138,6 +146,8 @@
       {{ $rawTitle = $firstLine }}
     {{ end }}
     {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
+
+    <!-- DEBUG Post {{ $index }}: "{{ $title }}" | Date: {{ .Date.Format "2006-01-02" }} | File: {{ .File.Path }} | Categories: {{ delimit .Params.categories ", " }} | Tags: {{ delimit .Params.tags ", " }} -->
 
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
@@ -173,8 +183,10 @@
 
     {{/* If this title has any image elsewhere, skip no-image duplicates */}}
     {{ if and (not $posterUrl) (index $titleHasImage $title) }}
+      <!-- DEBUG: SKIPPED duplicate without image: "{{ $title }}" -->
       {{ continue }}
     {{ end }}
+    <!-- DEBUG: RENDERING "{{ $title }}" | Has image: {{ if $posterUrl }}YES{{ else }}NO{{ end }} -->
 
     <article class="watch-card">
       <div class="watch-poster">
