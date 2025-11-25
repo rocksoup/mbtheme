@@ -181,11 +181,9 @@
       {{ end }}
     {{ end }}
 
-    {{/* If this title has any image elsewhere, skip no-image duplicates */}}
-    {{ if and (not $posterUrl) (index $titleHasImage $title) }}
-      {{ continue }}
-    {{ end }}
-
+    {{/* Only render if: has image OR no other version with image exists */}}
+    {{ $shouldRender := or $posterUrl (not (index $titleHasImage $title)) }}
+    {{ if $shouldRender }}
     <article class="watch-card">
       <div class="watch-poster">
         {{ if $posterUrl }}
@@ -206,7 +204,8 @@
         {{ with .Summary }}<p class="watch-notes">{{ . | truncate 100 }}</p>{{ end }}
       </div>
     </article>
-    {{ end }}
+    {{ end }}{{/* end $shouldRender */}}
+    {{ end }}{{/* end range $posts */}}
   </div>
   {{ else if gt (len $movies) 0 }}
   {{/* Render from data files */}}
