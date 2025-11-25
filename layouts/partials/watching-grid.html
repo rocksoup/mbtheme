@@ -85,58 +85,8 @@
 
   {{ if gt (len $posts) 0 }}
   {{/* Render from posts */}}
-
-  {{/* First pass: record which normalized titles have at least one image, so we can skip no-image duplicates */}}
-  {{ $.Scratch.Set "titleHasImage" (dict) }}
-  {{ range $posts }}
-    {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
-    {{ if not $rawTitle }}
-      {{/* No title, extract from summary (don't plainify - it's already text) */}}
-      {{ $summary := .Summary | default "" }}
-      {{ $plainSummary := $summary | plainify }}
-      {{ $firstLine := index (split $plainSummary "\n") 0 | default "" | trim " \t\r\n" }}
-      {{ $rawTitle = $firstLine }}
-    {{ end }}
-    {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
-
-    {{/* Detect poster */}}
-    {{ $posterUrl := "" }}
-    {{ if .Params.photos }}
-      {{ if gt (len .Params.photos) 0 }}
-        {{ $posterUrl = index .Params.photos (sub (len .Params.photos) 1) }}
-      {{ end }}
-    {{ else if .Params.images }}
-      {{ if gt (len .Params.images) 0 }}
-        {{ $posterUrl = index .Params.images (sub (len .Params.images) 1) }}
-      {{ end }}
-    {{ else if .Params.photo }}
-      {{ $posterUrl = .Params.photo }}
-    {{ else if .Params.image }}
-      {{ $posterUrl = .Params.image }}
-    {{ else if .Params.featured_image }}
-      {{ $posterUrl = .Params.featured_image }}
-    {{ end }}
-
-    {{ if not $posterUrl }}
-      {{ $imgMatches := findRE `<img[^>]+src="([^"]+)"` .Content 1 }}
-      {{ if $imgMatches }}
-        {{ $imgTag := index $imgMatches 0 }}
-        {{ $srcMatches := findRE `src="([^"]+)"` $imgTag 1 }}
-        {{ if $srcMatches }}
-          {{ $src := index $srcMatches 0 }}
-          {{ $posterUrl = replaceRE `src="([^"]+)"` "$1" $src }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-
-    {{ if $posterUrl }}
-      {{ $.Scratch.SetInMap "titleHasImage" $title true }}
-    {{ end }}
-  {{ end }}
-  {{ $titleHasImage := $.Scratch.Get "titleHasImage" }}
-
   <div class="watch-grid">
-    {{ range $index, $post := $posts }}
+    {{ range $posts }}
     {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
     {{ if not $rawTitle }}
       {{/* No title, extract from summary (don't plainify - it's already text) */}}
@@ -147,7 +97,7 @@
     {{ end }}
     {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
 
-    <!-- DEBUG Post {{ $index }}: "{{ $title }}" | Date: {{ .Date.Format "2006-01-02" }} | File: {{ .File.Path }} | Categories: {{ delimit .Params.categories ", " }} | Tags: {{ delimit .Params.tags ", " }} -->
+    <!-- DEBUG Post: "{{ $title }}" | Date: {{ .Date.Format "2006-01-02" }} | File: {{ .File.Path }} | Categories: {{ delimit .Params.categories ", " }} | Tags: {{ delimit .Params.tags ", " }} -->
 
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
@@ -181,9 +131,6 @@
       {{ end }}
     {{ end }}
 
-    {{/* Only render if: has image OR no other version with image exists */}}
-    {{ $shouldRender := or $posterUrl (not (index $titleHasImage $title)) }}
-    {{ if $shouldRender }}
     <article class="watch-card">
       <div class="watch-poster">
         {{ if $posterUrl }}
@@ -204,7 +151,6 @@
         {{ with .Summary }}<p class="watch-notes">{{ . | truncate 100 }}</p>{{ end }}
       </div>
     </article>
-    {{ end }}{{/* end $shouldRender */}}
     {{ end }}{{/* end range $posts */}}
   </div>
   {{ else if gt (len $movies) 0 }}
