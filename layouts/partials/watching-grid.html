@@ -183,10 +183,8 @@
 
     {{/* If this title has any image elsewhere, skip no-image duplicates */}}
     {{ if and (not $posterUrl) (index $titleHasImage $title) }}
-      <!-- DEBUG: SKIPPED duplicate without image: "{{ $title }}" -->
       {{ continue }}
     {{ end }}
-    <!-- DEBUG: RENDERING "{{ $title }}" | Has image: {{ if $posterUrl }}YES{{ else }}NO{{ end }} -->
 
     <article class="watch-card">
       <div class="watch-poster">
