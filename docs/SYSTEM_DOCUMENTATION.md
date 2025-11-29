@@ -1,8 +1,20 @@
 # Saunter Theme - Comprehensive System Documentation
 
 **Version:** 0.1.25
-**Last Updated:** 2025-11-21
+**Last Updated:** 2025-11-26
 **Theme:** Saunter - Editorial-style Hugo theme for Micro.blog
+
+---
+
+## 📝 Note on This File
+
+This file was originally created in the [mbtheme repository](https://github.com/rocksoup/mbtheme) (the Saunter theme) but is maintained in both repos:
+- **microintegrations repo**: Middleware integration details and enrichment workflows
+- **mbtheme repo**: Theme-specific implementation and Hugo templates
+
+**Keep both copies in sync** when updating system architecture or integration patterns.
+
+**Sync status:** Tracked in [mbtheme issue #21](https://github.com/rocksoup/mbtheme/issues/21) — update both copies when changes are made.
 
 ---
 
@@ -500,7 +512,7 @@ graph LR
 **Data Structure:**
 ```json
 {
-  "currentlyreading": [
+  "currentlyReading": [
     {
       "title": "Book Title",
       "author": "Author Name",
@@ -508,8 +520,10 @@ graph LR
       "cover_url": "https://covers.openlibrary.org/..."
     }
   ],
-  "wanttoread": [...],
-  "finishedreading": [...]
+  "wantToRead": [...],
+  "wanttoread": [...],     // alias for theme fallbacks
+  "want-to-read": [...],   // alias for theme fallbacks
+  "finished": [...]
 }
 ```
 
@@ -978,24 +992,9 @@ image: "https://example.com/poster.jpg"  # Enriched by middleware
 Incredible story about hope and friendship. Morgan Freeman's narration is perfect.
 ```
 
-**Local Development Only: Data Files**
+**Legacy Local Data (removed)**
 
-For local testing, create `data/watched.enriched.json`:
-```json
-{
-  "movies": [
-    {
-      "title": "The Shawshank Redemption",
-      "watched_date": "2025-11-14",
-      "year": "1994",
-      "poster_url": "https://example.com/poster.jpg",
-      "notes": "Incredible story about hope and friendship.",
-      "placeholder": false,
-      "url": "https://www.imdb.com/title/tt0111161/"
-    }
-  ]
-}
-```
+Earlier iterations generated `data/watched.enriched.json` for local Hugo testing. That JSON workflow has been removed; production uses Micropub UPDATE with inline images as the source of truth.
 
 **Production Workflow - Post-Facto Enrichment:**
 
@@ -1028,13 +1027,12 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    A[Testing locally] --> B[Create data/watched.enriched.json]
-    B --> C[Hugo reads local data]
-    C --> D[Renders grid with posters]
+    A[Testing locally] --> B[Run Micropub enrichment in DRY_RUN]
+    B --> C[Micro.blog feed returns enriched posts]
+    C --> D[Hugo/theme consumes enriched feed]
     D --> E[Test appearance locally]
 
-    style B fill:#FFA500
-    Note1[Not used in production]
+    Note1[Feed is source of truth; no local JSON data files]
 ```
 
 **Page Setup:**
