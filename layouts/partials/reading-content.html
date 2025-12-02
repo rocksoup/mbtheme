@@ -18,12 +18,10 @@
 
       {{ range $currentlyReading }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        {{ if .cover_url }}
-        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" crossorigin="anonymous">
-        {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
-        {{ end }}
+        <img src="/images/books/{{ .isbn }}.jpg"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="book-cover-placeholder" style="display: none;">No Cover</div>
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
           <div class="book-author">{{ .author }}</div>
@@ -55,12 +53,10 @@
 
       {{ range $wantToRead }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        {{ if .cover_url }}
-        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" crossorigin="anonymous">
-        {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
-        {{ end }}
+        <img src="/images/books/{{ .isbn }}.jpg"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="book-cover-placeholder" style="display: none;">No Cover</div>
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
           <div class="book-author">{{ .author }}</div>
@@ -92,12 +88,10 @@
 
       {{ range $finishedReading }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        {{ if .cover_url }}
-        <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" crossorigin="anonymous">
-        {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
-        {{ end }}
+        <img src="/images/books/{{ .isbn }}.jpg"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="book-cover-placeholder" style="display: none;">No Cover</div>
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
           <div class="book-author">{{ .author }}</div>
