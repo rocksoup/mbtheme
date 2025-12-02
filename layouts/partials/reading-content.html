@@ -20,7 +20,7 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ if .cover_url }}
         <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" crossorigin="anonymous">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -57,7 +57,7 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ if .cover_url }}
         <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" crossorigin="anonymous">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -94,7 +94,7 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ if .cover_url }}
         <img src="{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" crossorigin="anonymous">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -140,9 +140,10 @@
   .book-cover {
     width: 100%;
     aspect-ratio: 2 / 3;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: var(--color-bg-secondary, #f5f5f5);
   }
 
   .book-cover-placeholder {
