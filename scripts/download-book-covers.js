@@ -33,10 +33,21 @@ function extractBookData(html) {
 
   let match;
   while ((match = bookCardRegex.exec(html)) !== null) {
-    const [, isbn, imageUrl, altTitle, title, author] = match;
+    const [, isbn, cdnUrl, altTitle, title, author] = match;
+
+    // Decode the CDN URL to get the original Google Books URL
+    let imageUrl = cdnUrl.trim();
+    if (imageUrl.includes('cdn.micro.blog/photos/')) {
+      // Extract the encoded URL after /600x/
+      const encodedUrl = imageUrl.split('/600x/')[1];
+      if (encodedUrl) {
+        imageUrl = decodeURIComponent(encodedUrl);
+      }
+    }
+
     books.push({
       isbn: isbn.trim(),
-      imageUrl: imageUrl.trim(),
+      imageUrl,
       title: title.trim(),
       author: author.trim()
     });
