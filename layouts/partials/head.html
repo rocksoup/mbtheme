@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Saunter 0.1.46">
+  <meta name="generator" content="Saunter 0.1.49">
   {{ $cacheBust := or .Site.Params.theme_seconds (now.Unix) }}
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
 
