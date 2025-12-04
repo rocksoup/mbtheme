@@ -1,17 +1,27 @@
 {
   "currentlyReading": [
     {
+      "id": 216019,
+      "title": "The Ketogenic Bible",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=O18xDwAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781628601046",
+      "dateAdded": "2025-12-04T20:57:24+00:00",
+      "cover_url": "https://books.google.com/books/content?id=O18xDwAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    }
+  ],
+  "finished": [
+    {
       "id": 209375,
       "title": "Ministry of time",
       "author": "Unknown Author",
       "isbn": null,
       "image": "https://books.google.com/books/content?id=x8f0EAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
       "url": "https://micro.blog/books/9781668045145",
-      "dateAdded": "2025-09-14T15:41:35+00:00",
+      "dateAdded": "2025-12-04T20:57:46+00:00",
       "cover_url": "https://books.google.com/books/content?id=x8f0EAAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
-    }
-  ],
-  "finished": [
+    },
     {
       "id": 214741,
       "title": "I'm Not Trying To Be Difficult",
@@ -154,7 +164,7 @@
     }
   ],
   "wantToRead": [],
-  "fetched_at": "2025-12-04T19:37:11.505Z",
+  "fetched_at": "2025-12-04T21:09:33.004Z",
   "wanttoread": [],
   "want-to-read": []
 }
