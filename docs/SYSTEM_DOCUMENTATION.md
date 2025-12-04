@@ -543,10 +543,21 @@ graph LR
 {{ end }}
 ```
 
-**Cover Image Optimization:**
+**Cover Image Optimization (0.1.54):**
 ```go
-{{ .cover_url | replaceRE "/300x/" "/600x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}
+{{ $coverUrl := .cover_url | default .image }}
+{{ if $coverUrl }}
+  {{ $cleanCover := $coverUrl | replace "zoom=5" "zoom=0" | replaceRE "%26zoom%3D[0-9]" "%26zoom%3D0" }}
+  {{ $src := replaceRE "/(300x|600x)/" "/1200x/" $cleanCover }}
+  {{ $srcLarge := replaceRE "/(300x|600x|1200x)/" "/2000x/" $cleanCover }}
+  <img src="{{ $src }}"
+       srcset="{{ $src }} 1200w, {{ $srcLarge }} 2000w"
+       alt="Cover of {{ .title }}" loading="lazy" data-cover-ver="0.1.54">
+{{ end }}
 ```
+- `.image` is used as a fallback when `cover_url` is missing.
+- `zoom=0` is enforced even for encoded Google Books URLs (`%26zoom%3D5` → `%26zoom%3D0`).
+- CDN sizes are normalized to 1200px with a 2000px srcset for retina/large screens.
 
 #### 3. Twitter Archive Integration
 
