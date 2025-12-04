@@ -13,14 +13,16 @@
       {{ $currentlyReading := slice }}
       {{/* Micro.blog hosted sites provide data via .Site.Data.bookshelves */}}
       {{ with .Site.Data.bookshelves.currentlyreading }}
-        {{ $currentlyReading = . }}
+      {{ $currentlyReading = . }}
       {{ end }}
 
       {{ range $currentlyReading }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ if .cover_url }}
-        <img src="{{ .cover_url | replaceRE "/300x/" "/1200x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        <img src="{{ .cover_url | replaceRE " /300x/" "/2000x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          srcset="{{ .cover_url | replaceRE " /300x/" "/1200x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }} 1200w, {{
+          .cover_url | replaceRE "/300x/" "/2000x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }} 2000w"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-debug-ver="high-res-fix">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -42,22 +44,24 @@
       {{ $wantToRead := slice }}
       {{/* Try different possible key names for Want to Read shelf */}}
       {{ with .Site.Data.bookshelves.wanttoread }}
-        {{ $wantToRead = . }}
+      {{ $wantToRead = . }}
       {{ else }}
-        {{ with .Site.Data.bookshelves.want }}
-          {{ $wantToRead = . }}
-        {{ else }}
-          {{ with index .Site.Data.bookshelves "want-to-read" }}
-            {{ $wantToRead = . }}
-          {{ end }}
-        {{ end }}
+      {{ with .Site.Data.bookshelves.want }}
+      {{ $wantToRead = . }}
+      {{ else }}
+      {{ with index .Site.Data.bookshelves "want-to-read" }}
+      {{ $wantToRead = . }}
+      {{ end }}
+      {{ end }}
       {{ end }}
 
       {{ range $wantToRead }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ if .cover_url }}
-        <img src="{{ .cover_url | replaceRE "/300x/" "/1200x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        <img src="{{ .cover_url | replaceRE " /300x/" "/2000x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          srcset="{{ .cover_url | replaceRE " /300x/" "/1200x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }} 1200w, {{
+          .cover_url | replaceRE "/300x/" "/2000x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }} 2000w"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-debug-ver="high-res-fix">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -79,22 +83,24 @@
       {{ $finishedReading := slice }}
       {{/* Try different possible key names for Finished Reading shelf */}}
       {{ with .Site.Data.bookshelves.finishedreading }}
-        {{ $finishedReading = . }}
+      {{ $finishedReading = . }}
       {{ else }}
-        {{ with .Site.Data.bookshelves.finished }}
-          {{ $finishedReading = . }}
-        {{ else }}
-          {{ with index .Site.Data.bookshelves "finished-reading" }}
-            {{ $finishedReading = . }}
-          {{ end }}
-        {{ end }}
+      {{ with .Site.Data.bookshelves.finished }}
+      {{ $finishedReading = . }}
+      {{ else }}
+      {{ with index .Site.Data.bookshelves "finished-reading" }}
+      {{ $finishedReading = . }}
+      {{ end }}
+      {{ end }}
       {{ end }}
 
       {{ range $finishedReading }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ if .cover_url }}
-        <img src="{{ .cover_url | replaceRE "/300x/" "/1200x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
+        <img src="{{ .cover_url | replaceRE " /300x/" "/2000x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }}"
+          srcset="{{ .cover_url | replaceRE " /300x/" "/1200x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }} 1200w, {{
+          .cover_url | replaceRE "/300x/" "/2000x/" | replaceRE "%26zoom%3D[15]" "%26zoom%3D0" }} 2000w"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-debug-ver="high-res-fix">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
