@@ -19,8 +19,9 @@
 
       {{ range $currentlyReading }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        {{ if .cover_url }}
-        <img src="{{ replace .cover_url "zoom=5" "zoom=0" }}"
+        {{ $coverUrl := .cover_url | default .image }}
+        {{ if $coverUrl }}
+        <img src="{{ replace $coverUrl "zoom=5" "zoom=0" }}"
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
@@ -56,8 +57,9 @@
 
       {{ range $wantToRead }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        {{ if .cover_url }}
-        <img src="{{ replace .cover_url "zoom=5" "zoom=0" }}"
+        {{ $coverUrl := .cover_url | default .image }}
+        {{ if $coverUrl }}
+        <img src="{{ replace $coverUrl "zoom=5" "zoom=0" }}"
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
@@ -93,8 +95,9 @@
 
       {{ range $finishedReading }}
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        {{ if .cover_url }}
-        <img src="{{ replace .cover_url "zoom=5" "zoom=0" }}"
+        {{ $coverUrl := .cover_url | default .image }}
+        {{ if $coverUrl }}
+        <img src="{{ replace $coverUrl "zoom=5" "zoom=0" }}"
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
