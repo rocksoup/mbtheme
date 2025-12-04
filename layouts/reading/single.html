@@ -18,8 +18,7 @@
       {{ end }}
 
       {{ range $currentlyReading }}
-      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        <!-- Book cover fix: Using .image field with zoom transformation (commit 1c98d13) -->
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
         <img src="{{ replace $coverUrl "zoom=5" "zoom=0" }}"
@@ -57,8 +56,7 @@
       {{ end }}
 
       {{ range $wantToRead }}
-      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        <!-- Book cover fix: Using .image field with zoom transformation (commit 1c98d13) -->
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
         <img src="{{ replace $coverUrl "zoom=5" "zoom=0" }}"
@@ -96,8 +94,7 @@
       {{ end }}
 
       {{ range $finishedReading }}
-      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
-        <!-- Book cover fix: Using .image field with zoom transformation (commit 1c98d13) -->
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
         <img src="{{ replace $coverUrl "zoom=5" "zoom=0" }}"
