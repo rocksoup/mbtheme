@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Saunter 0.1.52">
+  <meta name="generator" content="Saunter 0.1.53">
   {{ $cacheBust := or .Site.Params.theme_seconds (now.Unix) }}
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
 
@@ -27,7 +27,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}?{{ $cacheBust }}">
+  <link rel="stylesheet" href="{{ " css/main.css" | relURL }}?{{ $cacheBust }}">
 
 
 
