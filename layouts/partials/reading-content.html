@@ -1,4 +1,13 @@
 <div class="reading-page">
+  {{/* DEBUG: remove after verifying bookshelf cover URLs */}}
+  <pre style="font-size:12px;color:#666;background:#f5f5f5;padding:0.75rem;border-radius:6px;overflow-x:auto;">
+Debug v0.1.55
+{{ with .Site.Data.bookshelves.currentlyreading }}
+{{ range first 3 . }}
+- title={{ .title }} | cover_url={{ .cover_url }} | image={{ .image }}
+{{ end }}
+{{ end }}
+  </pre>
   <header class="page-header">
     <h1>{{ .Title }}</h1>
     {{ with .Content }}
