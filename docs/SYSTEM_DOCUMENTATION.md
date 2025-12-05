@@ -543,20 +543,20 @@ graph LR
 {{ end }}
 ```
 
-**Cover Image Optimization (0.1.64):**
+**Cover Image Optimization (0.1.66):**
 ```go
 {{ $coverUrl := .cover_url | default .image }}
 {{ if $coverUrl }}
   {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
   {{ $openLibrary := "" }}
   {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-  {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
-  <img src="{{ $final }}" alt="Cover of {{ .title }}" loading="lazy" decoding="async" data-cover-ver="0.1.64"
+  {{ $final := cond (ne $clean "") $clean (cond (ne $openLibrary "") $openLibrary $coverUrl) }}
+  <img src="{{ $final }}" alt="Cover of {{ .title }}" loading="lazy" decoding="async" data-cover-ver="0.1.66"
        data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
 {{ end }}
 ```
 - `.image` is used as a fallback when `cover_url` is missing.
-- Preference order: 1) Open Library by ISBN (largest available), 2) Google Books zoom=0 (2000px CDN), 3) original provided URL as last resort.
+- Preference order: 1) Google Books zoom=0 (2000px CDN), 2) Open Library by ISBN, 3) original provided URL as last resort.
 - Forces Google Books zoom to 0 (even when URL-encoded) and swaps Micro.blog CDN size to 2000px.
 - If all sources fail, the template renders a “Cover unavailable” placeholder and emits hidden debug spans (`data-missing-cover="true"`) with title/ISBN for troubleshooting.
 - For heavier optimization/caching, push this logic upstream (e.g., microintegrations) to store normalized URLs or downloaded images once, rather than per-render.

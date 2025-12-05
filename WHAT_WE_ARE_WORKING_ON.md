@@ -10,13 +10,13 @@ Context for handoff.
 ## Changes in progress (v0.1.64)
 - `layouts/partials/reading-content.html`
   - Uses `.cover_url` with `.image` fallback.
-  - Preference order: (1) Open Library ISBN, (2) Google zoom=0 with `/photos/2000x/`, (3) original URL; `data-cover-ver="0.1.64"` present for checks.
+  - Preference order: (1) Google zoom=0 with `/photos/2000x/`, (2) Open Library ISBN, (3) original URL; `data-cover-ver="0.1.66"` present for checks.
   - If all sources fail, shows “Cover unavailable” and adds hidden `data-missing-cover` debug spans for title/ISBN.
 - `layouts/page/reading.html` and `layouts/reading/single.html` mirror the same cover logic.
 - `layouts/partials/head.html`
   - Fixes the stray leading space in the CSS href.
-  - Bumps generator meta to `Saunter 0.1.62`.
-- `plugin.json` bumped to `0.1.62` so Micro.blog picks up the update.
+  - Bumps generator meta to `Saunter 0.1.66`.
+- `plugin.json` bumped to `0.1.66` so Micro.blog picks up the update.
 
 ## What to verify after deploy
 1) Live `/reading/` shows `generator` = 0.1.57.
