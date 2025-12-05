@@ -32,7 +32,7 @@
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.65"
           data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
+        <div class="book-cover-placeholder">Cover unavailable</div>
         {{ end }}
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
@@ -79,7 +79,7 @@
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.65"
           data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
+        <div class="book-cover-placeholder">Cover unavailable</div>
         {{ end }}
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
@@ -126,7 +126,7 @@
           alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.65"
           data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
+        <div class="book-cover-placeholder">Cover unavailable</div>
         {{ end }}
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
@@ -135,7 +135,44 @@
       </a>
       {{ else }}
       <p>No finished books yet.</p>
+  {{ end }}
+
+  {{/* Debug (hidden): list items missing a usable cover */}}
+  <div aria-hidden="true" style="display:none;">
+    {{ range $currentlyReading }}
+      {{ $coverUrl := .cover_url | default .image }}
+      {{ $clean := "" }}
+      {{ if $coverUrl }}{{ $clean = $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}{{ end }}
+      {{ $openLibrary := "" }}
+      {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
+      {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
+      {{ if not $final }}
+        <span data-missing-cover="true" data-title="{{ .title }}" data-isbn="{{ .isbn }}"></span>
       {{ end }}
+    {{ end }}
+    {{ range $wantToRead }}
+      {{ $coverUrl := .cover_url | default .image }}
+      {{ $clean := "" }}
+      {{ if $coverUrl }}{{ $clean = $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}{{ end }}
+      {{ $openLibrary := "" }}
+      {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
+      {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
+      {{ if not $final }}
+        <span data-missing-cover="true" data-title="{{ .title }}" data-isbn="{{ .isbn }}"></span>
+      {{ end }}
+    {{ end }}
+    {{ range $finishedReading }}
+      {{ $coverUrl := .cover_url | default .image }}
+      {{ $clean := "" }}
+      {{ if $coverUrl }}{{ $clean = $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}{{ end }}
+      {{ $openLibrary := "" }}
+      {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
+      {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
+      {{ if not $final }}
+        <span data-missing-cover="true" data-title="{{ .title }}" data-isbn="{{ .isbn }}"></span>
+      {{ end }}
+    {{ end }}
+  </div>
     </div>
   </section>
 </div>
