@@ -318,7 +318,7 @@ article.post-summary+article.post-summary {
 .post-thumbnail img {
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 300px;
   object-fit: cover;
   border-radius: 8px;
   aspect-ratio: 16 / 9;
@@ -1031,6 +1031,8 @@ body.saunter.dark-mode .category-badge .emoji {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  text-decoration: none;
+  color: inherit;
 }
 
 .watch-poster {

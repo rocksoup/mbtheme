@@ -26,26 +26,26 @@
   {{ $prefixPosts := slice }}
   {{ $pages := .Site.Pages }}
   {{ range $pages }}
-    {{ if eq .Kind "page" }}
-      {{ $title := .Title | default "" | trim " \t\r\n" }}
-      {{ $summary := .Summary | default "" }}
-      {{ $content := .Content | plainify | default "" }}
-      {{ $contentFirstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
+  {{ if eq .Kind "page" }}
+  {{ $title := .Title | default "" | trim " \t\r\n" }}
+  {{ $summary := .Summary | default "" }}
+  {{ $content := .Content | plainify | default "" }}
+  {{ $contentFirstLine := index (split $content "\n") 0 | default "" | trim " \t\r\n" }}
 
-      {{/* Check if title, summary, or first line of content contains "Watched:" */}}
-      {{ $matched := false }}
-      {{ if hasPrefix $title "Watched:" }}
-        {{ $matched = true }}
-      {{ else if hasPrefix $summary "Watched:" }}
-        {{ $matched = true }}
-      {{ else if hasPrefix $contentFirstLine "Watched:" }}
-        {{ $matched = true }}
-      {{ end }}
+  {{/* Check if title, summary, or first line of content contains "Watched:" */}}
+  {{ $matched := false }}
+  {{ if hasPrefix $title "Watched:" }}
+  {{ $matched = true }}
+  {{ else if hasPrefix $summary "Watched:" }}
+  {{ $matched = true }}
+  {{ else if hasPrefix $contentFirstLine "Watched:" }}
+  {{ $matched = true }}
+  {{ end }}
 
-      {{ if $matched }}
-        {{ $prefixPosts = $prefixPosts | append . }}
-      {{ end }}
-    {{ end }}
+  {{ if $matched }}
+  {{ $prefixPosts = $prefixPosts | append . }}
+  {{ end }}
+  {{ end }}
   {{ end }}
 
   {{/* Combine all detection methods (union removes duplicates) */}}
@@ -64,23 +64,23 @@
 
   {{/* If no posts found, fall back to data files */}}
   {{ if eq (len $posts) 0 }}
-    {{/* Try data/watched.enriched.json first */}}
-    {{ with .Site.Data.watched.enriched.movies }}
-      {{ $movies = . }}
-    {{ else }}
-      {{/* Try alternate key structure */}}
-      {{ with index .Site.Data "watched.enriched" }}
-        {{ with .movies }}{{ $movies = . }}{{ end }}
-      {{ else }}
-        {{/* Fall back to data/watched.json */}}
-        {{ with .Site.Data.watched.movies }}
-          {{ $movies = . }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
+  {{/* Try data/watched.enriched.json first */}}
+  {{ with .Site.Data.watched.enriched.movies }}
+  {{ $movies = . }}
   {{ else }}
-    {{/* Use posts if found */}}
-    {{ $posts = $posts }}
+  {{/* Try alternate key structure */}}
+  {{ with index .Site.Data "watched.enriched" }}
+  {{ with .movies }}{{ $movies = . }}{{ end }}
+  {{ else }}
+  {{/* Fall back to data/watched.json */}}
+  {{ with .Site.Data.watched.movies }}
+  {{ $movies = . }}
+  {{ end }}
+  {{ end }}
+  {{ end }}
+  {{ else }}
+  {{/* Use posts if found */}}
+  {{ $posts = $posts }}
   {{ end }}
 
   {{ if gt (len $posts) 0 }}
@@ -89,11 +89,11 @@
     {{ range $posts }}
     {{ $rawTitle := .Title | default "" | trim " \t\r\n" }}
     {{ if not $rawTitle }}
-      {{/* No title, extract from summary (don't plainify - it's already text) */}}
-      {{ $summary := .Summary | default "" }}
-      {{ $plainSummary := $summary | plainify }}
-      {{ $firstLine := index (split $plainSummary "\n") 0 | default "" | trim " \t\r\n" }}
-      {{ $rawTitle = $firstLine }}
+    {{/* No title, extract from summary (don't plainify - it's already text) */}}
+    {{ $summary := .Summary | default "" }}
+    {{ $plainSummary := $summary | plainify }}
+    {{ $firstLine := index (split $plainSummary "\n") 0 | default "" | trim " \t\r\n" }}
+    {{ $rawTitle = $firstLine }}
     {{ end }}
     {{ $title := $rawTitle | replaceRE "^Watched:\\s*" "" | replaceRE "🍿.*$" "" | trim " \t\r\n" }}
 
@@ -101,57 +101,58 @@
 
     {{ $posterUrl := "" }}
     {{/* Try to find an image in frontmatter or resources */}}
-    {{/* Check photos array first (Micropub enrichment uses this). Use the last photo in case an update appended the corrected poster. */}}
+    {{/* Check photos array first (Micropub enrichment uses this). Use the last photo in case an update appended the
+    corrected poster. */}}
     {{ if .Params.photos }}
-      {{ if gt (len .Params.photos) 0 }}
-        {{ $posterUrl = index .Params.photos (sub (len .Params.photos) 1) }}
-      {{ end }}
+    {{ if gt (len .Params.photos) 0 }}
+    {{ $posterUrl = index .Params.photos (sub (len .Params.photos) 1) }}
+    {{ end }}
     {{ else if .Params.images }}
-      {{ if gt (len .Params.images) 0 }}
-        {{ $posterUrl = index .Params.images (sub (len .Params.images) 1) }}
-      {{ end }}
+    {{ if gt (len .Params.images) 0 }}
+    {{ $posterUrl = index .Params.images (sub (len .Params.images) 1) }}
+    {{ end }}
     {{ else if .Params.photo }}
-      {{ $posterUrl = .Params.photo }}
+    {{ $posterUrl = .Params.photo }}
     {{ else if .Params.image }}
-      {{ $posterUrl = .Params.image }}
+    {{ $posterUrl = .Params.image }}
     {{ else if .Params.featured_image }}
-      {{ $posterUrl = .Params.featured_image }}
+    {{ $posterUrl = .Params.featured_image }}
     {{ end }}
 
     {{/* If no frontmatter image, try to extract from content */}}
     {{ if not $posterUrl }}
-      {{ $imgMatches := findRE `<img[^>]+src="([^"]+)"` .Content 1 }}
+    {{ $imgMatches := findRE `<img[^>]+src="([^"]+)"` .Content 1 }}
       {{ if $imgMatches }}
-        {{ $imgTag := index $imgMatches 0 }}
-        {{ $srcMatches := findRE `src="([^"]+)"` $imgTag 1 }}
-        {{ if $srcMatches }}
-          {{ $src := index $srcMatches 0 }}
-          {{ $posterUrl = replaceRE `src="([^"]+)"` "$1" $src }}
-        {{ end }}
+      {{ $imgTag := index $imgMatches 0 }}
+      {{ $srcMatches := findRE `src="([^"]+)"` $imgTag 1 }}
+      {{ if $srcMatches }}
+      {{ $src := index $srcMatches 0 }}
+      {{ $posterUrl = replaceRE `src="([^"]+)"` "$1" $src }}
       {{ end }}
-    {{ end }}
+      {{ end }}
+      {{ end }}
 
-    <article class="watch-card">
-      <div class="watch-poster">
-        {{ if $posterUrl }}
-        <img src="{{ $posterUrl }}" alt="Poster for {{ $title }}" loading="lazy">
-        {{ else }}
-        <div class="watch-poster-placeholder">
-          <span>{{ $title }}</span>
+      <a href="{{ .RelPermalink }}" class="watch-card">
+        <div class="watch-poster">
+          {{ if $posterUrl }}
+          <img src="{{ $posterUrl }}" alt="Poster for {{ $title }}" loading="lazy">
+          {{ else }}
+          <div class="watch-poster-placeholder">
+            <span>{{ $title }}</span>
+          </div>
+          {{ end }}
         </div>
-        {{ end }}
-      </div>
-      <div class="watch-meta">
-        <div class="watch-title">
-          <a href="{{ .RelPermalink }}">{{ $title }}</a>
+        <div class="watch-meta">
+          <div class="watch-title">
+            {{ $title }}
+          </div>
+          <div class="watch-subline">
+            <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          </div>
+          {{ with .Summary }}<p class="watch-notes">{{ . | truncate 100 }}</p>{{ end }}
         </div>
-        <div class="watch-subline">
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-        </div>
-        {{ with .Summary }}<p class="watch-notes">{{ . | truncate 100 }}</p>{{ end }}
-      </div>
-    </article>
-    {{ end }}{{/* end range $posts */}}
+      </a>
+      {{ end }}{{/* end range $posts */}}
   </div>
   {{ else if gt (len $movies) 0 }}
   {{/* Render from data files */}}
@@ -160,11 +161,11 @@
     {{ $posterUrl := .poster_url }}
     {{ $watchedDate := "" }}
     {{ with .watched_date }}
-      {{ $parsed := time . }}
-      {{ $watchedDate = $parsed.Format "January 2, 2006" }}
+    {{ $parsed := time . }}
+    {{ $watchedDate = $parsed.Format "January 2, 2006" }}
     {{ end }}
 
-    <article class="watch-card">
+    <a href="{{ if .url }}{{ .url }}{{ else }}#{{ end }}" class="watch-card">
       <div class="watch-poster">
         {{ if and $posterUrl (not .placeholder) }}
         <img src="{{ $posterUrl }}" alt="Poster for {{ .title }}" loading="lazy">
@@ -177,11 +178,7 @@
       </div>
       <div class="watch-meta">
         <div class="watch-title">
-          {{ if .url }}
-          <a href="{{ .url }}">{{ .title }}</a>
-          {{ else }}
           {{ .title }}
-          {{ end }}
         </div>
         <div class="watch-subline">
           {{ if $watchedDate }}<time datetime="{{ .watched_date }}">{{ $watchedDate }}</time>{{ end }}
@@ -189,13 +186,14 @@
         </div>
         {{ with .notes }}<p class="watch-notes">{{ . }}</p>{{ end }}
       </div>
-    </article>
+    </a>
     {{ end }}
   </div>
   {{ else }}
   <div class="empty-state">
     <p>No watching data found.</p>
-    <p class="empty-hint">To add movies, publish posts with titles starting with "Watched:" or use the "watching" category.</p>
+    <p class="empty-hint">To add movies, publish posts with titles starting with "Watched:" or use the "watching"
+      category.</p>
   </div>
   {{ end }}
 </div>
