@@ -28,6 +28,10 @@ Create a Reading page that pulls live bookshelf data from Micro.blog into three 
 - If a shelf is empty, show a short friendly empty state (e.g., “No books here right now.”) instead of blank space.
 - Page renders without JavaScript errors; if remote fetch fails, show an inline error/empty message instead of breaking the page.
 
+## Notes (Dec 4 2025)
+- Source of covers is Micro.blog’s Bookshelves data (`.Site.Data.bookshelves`) using `cover_url` with `image` as fallback. URLs are served via Micro.blog’s CDN wrapping Google Books; we normalize `zoom` to 0.
+- A recent deploy showed covers broken (“zoom=5” only) when an aggressive `srcset` transformation was added. Rolled back to a simpler normalized `src` (version 0.1.55) until we confirm Micro.blog’s templating keeps the full URL intact.
+
 ## Technical Notes
 - References: https://help.micro.blog/t/bookshelves/515 (more docs on Micro.blog site).
 - Decide on data source:
