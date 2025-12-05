@@ -14,23 +14,41 @@
       {{ $currentlyReading := slice }}
       {{/* Micro.blog hosted sites provide data via .Site.Data.bookshelves */}}
       {{ with .Site.Data.bookshelves.currentlyreading }}
-        {{ $currentlyReading = . }}
+      {{ $currentlyReading = . }}
       {{ end }}
 
       {{ range $currentlyReading }}
-      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener"
+        data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
+        {{ $clean := "" }}
         {{ if $coverUrl }}
-        {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
-        {{ $openLibrary := "" }}
-        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{ end }}
-        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
-        <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.68"
-          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
-        {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
+        {{ $clean = $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE
+        `/photos/[0-9]+x/` "/photos/2000x/" }}
         {{ end }}
+        {{ $openLibrary := "" }}
+        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{
+        end }}
+
+        {{/* Determine Primary and Secondary Sources */}}
+        {{ $primary := "" }}
+        {{ $secondary := "" }}
+
+        {{ if $openLibrary }}
+        {{ $primary = $openLibrary }}
+        {{ if $clean }}{{ $secondary = $clean }}{{ else }}{{ $secondary = $coverUrl }}{{ end }}
+        {{ else if $clean }}
+        {{ $primary = $clean }}
+        {{ $secondary = $coverUrl }}
+        {{ else }}
+        {{ $primary = $coverUrl }}
+        {{ end }}
+
+        <img src="{{ $primary }}" {{ if $secondary }}data-fallback-src="{{ $secondary }}" {{ end }}
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.69"
+          onerror="if (this.getAttribute('data-fallback-src') && this.src !== this.getAttribute('data-fallback-src')) { this.src = this.getAttribute('data-fallback-src'); this.removeAttribute('data-fallback-src'); } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }">
+
+        <div class="book-cover-placeholder" style="display: none;">Cover unavailable</div>
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
           <div class="book-author">{{ .author }}</div>
@@ -49,31 +67,49 @@
       {{ $wantToRead := slice }}
       {{/* Try different possible key names for Want to Read shelf */}}
       {{ with .Site.Data.bookshelves.wanttoread }}
-        {{ $wantToRead = . }}
+      {{ $wantToRead = . }}
       {{ else }}
-        {{ with .Site.Data.bookshelves.want }}
-          {{ $wantToRead = . }}
-        {{ else }}
-          {{ with index .Site.Data.bookshelves "want-to-read" }}
-            {{ $wantToRead = . }}
-          {{ end }}
-        {{ end }}
+      {{ with .Site.Data.bookshelves.want }}
+      {{ $wantToRead = . }}
+      {{ else }}
+      {{ with index .Site.Data.bookshelves "want-to-read" }}
+      {{ $wantToRead = . }}
+      {{ end }}
+      {{ end }}
       {{ end }}
 
       {{ range $wantToRead }}
-      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener"
+        data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
+        {{ $clean := "" }}
         {{ if $coverUrl }}
-        {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
-        {{ $openLibrary := "" }}
-        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{ end }}
-        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
-        <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.68"
-          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
-        {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
+        {{ $clean = $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE
+        `/photos/[0-9]+x/` "/photos/2000x/" }}
         {{ end }}
+        {{ $openLibrary := "" }}
+        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{
+        end }}
+
+        {{/* Determine Primary and Secondary Sources */}}
+        {{ $primary := "" }}
+        {{ $secondary := "" }}
+
+        {{ if $openLibrary }}
+        {{ $primary = $openLibrary }}
+        {{ if $clean }}{{ $secondary = $clean }}{{ else }}{{ $secondary = $coverUrl }}{{ end }}
+        {{ else if $clean }}
+        {{ $primary = $clean }}
+        {{ $secondary = $coverUrl }}
+        {{ else }}
+        {{ $primary = $coverUrl }}
+        {{ end }}
+
+        <img src="{{ $primary }}" {{ if $secondary }}data-fallback-src="{{ $secondary }}" {{ end }}
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.69"
+          onerror="if (this.getAttribute('data-fallback-src') && this.src !== this.getAttribute('data-fallback-src')) { this.src = this.getAttribute('data-fallback-src'); this.removeAttribute('data-fallback-src'); } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }">
+
+        <div class="book-cover-placeholder" style="display: none;">Cover unavailable</div>
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
           <div class="book-author">{{ .author }}</div>
@@ -92,31 +128,49 @@
       {{ $finishedReading := slice }}
       {{/* Try different possible key names for Finished Reading shelf */}}
       {{ with .Site.Data.bookshelves.finishedreading }}
-        {{ $finishedReading = . }}
+      {{ $finishedReading = . }}
       {{ else }}
-        {{ with .Site.Data.bookshelves.finished }}
-          {{ $finishedReading = . }}
-        {{ else }}
-          {{ with index .Site.Data.bookshelves "finished-reading" }}
-            {{ $finishedReading = . }}
-          {{ end }}
-        {{ end }}
+      {{ with .Site.Data.bookshelves.finished }}
+      {{ $finishedReading = . }}
+      {{ else }}
+      {{ with index .Site.Data.bookshelves "finished-reading" }}
+      {{ $finishedReading = . }}
+      {{ end }}
+      {{ end }}
       {{ end }}
 
       {{ range $finishedReading }}
-      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
+      <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener"
+        data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
+        {{ $clean := "" }}
         {{ if $coverUrl }}
-        {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
-        {{ $openLibrary := "" }}
-        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{ end }}
-        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
-        <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.68"
-          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
-        {{ else }}
-        <div class="book-cover-placeholder">No Cover</div>
+        {{ $clean = $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE
+        `/photos/[0-9]+x/` "/photos/2000x/" }}
         {{ end }}
+        {{ $openLibrary := "" }}
+        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{
+        end }}
+
+        {{/* Determine Primary and Secondary Sources */}}
+        {{ $primary := "" }}
+        {{ $secondary := "" }}
+
+        {{ if $openLibrary }}
+        {{ $primary = $openLibrary }}
+        {{ if $clean }}{{ $secondary = $clean }}{{ else }}{{ $secondary = $coverUrl }}{{ end }}
+        {{ else if $clean }}
+        {{ $primary = $clean }}
+        {{ $secondary = $coverUrl }}
+        {{ else }}
+        {{ $primary = $coverUrl }}
+        {{ end }}
+
+        <img src="{{ $primary }}" {{ if $secondary }}data-fallback-src="{{ $secondary }}" {{ end }}
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.69"
+          onerror="if (this.getAttribute('data-fallback-src') && this.src !== this.getAttribute('data-fallback-src')) { this.src = this.getAttribute('data-fallback-src'); this.removeAttribute('data-fallback-src'); } else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }">
+
+        <div class="book-cover-placeholder" style="display: none;">Cover unavailable</div>
         <div class="book-info">
           <div class="book-title">{{ .title }}</div>
           <div class="book-author">{{ .author }}</div>
