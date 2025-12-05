@@ -22,11 +22,8 @@
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
         {{ $cleanCover := $coverUrl | replace "zoom=5" "zoom=0" | replaceRE "%26zoom%3D[0-9]" "%26zoom%3D0" }}
-        {{ $src := replaceRE "/(300x|600x)/" "/1200x/" $cleanCover }}
-        {{ $srcLarge := replaceRE "/(300x|600x|1200x)/" "/2000x/" $cleanCover }}
-        <img src="{{ $src }}"
-          srcset="{{ $src }} 1200w, {{ $srcLarge }} 2000w"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.54">
+        <img src="{{ $cleanCover }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.55">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -64,11 +61,8 @@
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
         {{ $cleanCover := $coverUrl | replace "zoom=5" "zoom=0" | replaceRE "%26zoom%3D[0-9]" "%26zoom%3D0" }}
-        {{ $src := replaceRE "/(300x|600x)/" "/1200x/" $cleanCover }}
-        {{ $srcLarge := replaceRE "/(300x|600x|1200x)/" "/2000x/" $cleanCover }}
-        <img src="{{ $src }}"
-          srcset="{{ $src }} 1200w, {{ $srcLarge }} 2000w"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.54">
+        <img src="{{ $cleanCover }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.55">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -106,11 +100,8 @@
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
         {{ $cleanCover := $coverUrl | replace "zoom=5" "zoom=0" | replaceRE "%26zoom%3D[0-9]" "%26zoom%3D0" }}
-        {{ $src := replaceRE "/(300x|600x)/" "/1200x/" $cleanCover }}
-        {{ $srcLarge := replaceRE "/(300x|600x|1200x)/" "/2000x/" $cleanCover }}
-        <img src="{{ $src }}"
-          srcset="{{ $src }} 1200w, {{ $srcLarge }} 2000w"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.54">
+        <img src="{{ $cleanCover }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.55">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
