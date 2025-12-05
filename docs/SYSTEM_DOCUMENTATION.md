@@ -543,16 +543,18 @@ graph LR
 {{ end }}
 ```
 
-**Cover Image Optimization (0.1.58):**
+**Cover Image Optimization (0.1.62):**
 ```go
 {{ $coverUrl := .cover_url | default .image }}
 {{ if $coverUrl }}
-  {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
-  <img src="{{ $hiRes }}" alt="Cover of {{ .title }}" loading="lazy" data-cover-ver="0.1.58">
+  {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" }}
+  {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $clean }}
+  <img src="{{ $hiRes }}" alt="Cover of {{ .title }}" loading="lazy" data-cover-ver="0.1.62"
+       data-cover-src="{{ $clean }}" data-cover-hires="{{ $hiRes }}">
 {{ end }}
 ```
 - `.image` is used as a fallback when `cover_url` is missing.
-- If a future pass needs higher-res, prefer to pre-process via microintegrations; the template now renders the provided URL directly to avoid Micro.blog truncation.
+- Forces Google Books zoom to 0 (even when URL-encoded) and swaps Micro.blog CDN size to 2000px.
 
 #### 3. Twitter Archive Integration
 

@@ -20,10 +20,11 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $coverUrl }}
+        {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" }}
+        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $clean }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.61"
-          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.62"
+          data-cover-src="{{ $clean }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -60,10 +61,11 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $coverUrl }}
+        {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" }}
+        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $clean }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.61"
-          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.62"
+          data-cover-src="{{ $clean }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -100,10 +102,11 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $coverUrl }}
+        {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" }}
+        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $clean }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.61"
-          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.62"
+          data-cover-src="{{ $clean }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
