@@ -25,7 +25,7 @@
         {{ end }}
         {{ $openLibrary := "" }}
         {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{ end }}
-        {{ $final := cond (ne $clean "") $clean (cond (ne $openLibrary "") $openLibrary $coverUrl) }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
 
         {{ if $final }}
         <img src="{{ $final }}"
@@ -71,8 +71,8 @@
         {{ $clean = $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
         {{ end }}
         {{ $openLibrary := "" }}
-        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-        {{ $final := cond (ne $clean "") $clean (cond (ne $openLibrary "") $openLibrary $coverUrl) }}
+        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{ end }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
 
         {{ if $final }}
         <img src="{{ $final }}"
@@ -118,8 +118,8 @@
         {{ $clean = $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
         {{ end }}
         {{ $openLibrary := "" }}
-        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-        {{ $final := cond (ne $clean "") $clean (cond (ne $openLibrary "") $openLibrary $coverUrl) }}
+        {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{ end }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
 
         {{ if $final }}
         <img src="{{ $final }}"
