@@ -23,7 +23,8 @@
         {{ if $coverUrl }}
         {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58"
+          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -62,7 +63,8 @@
         {{ if $coverUrl }}
         {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58"
+          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -101,7 +103,8 @@
         {{ if $coverUrl }}
         {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58"
+          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
