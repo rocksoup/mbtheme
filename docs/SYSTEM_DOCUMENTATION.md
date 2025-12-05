@@ -543,15 +543,15 @@ graph LR
 {{ end }}
 ```
 
-**Cover Image Optimization (0.1.66):**
+**Cover Image Optimization (0.1.67):**
 ```go
 {{ $coverUrl := .cover_url | default .image }}
 {{ if $coverUrl }}
   {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
   {{ $openLibrary := "" }}
-  {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
+  {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{ end }}
   {{ $final := cond (ne $clean "") $clean (cond (ne $openLibrary "") $openLibrary $coverUrl) }}
-  <img src="{{ $final }}" alt="Cover of {{ .title }}" loading="lazy" decoding="async" data-cover-ver="0.1.66"
+  <img src="{{ $final }}" alt="Cover of {{ .title }}" loading="lazy" decoding="async" data-cover-ver="0.1.67"
        data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
 {{ end }}
 ```
