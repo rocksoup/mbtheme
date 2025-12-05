@@ -11,6 +11,7 @@ Context for handoff.
 - `layouts/partials/reading-content.html`
   - Uses `.cover_url` with `.image` fallback.
   - Preference order: (1) Open Library ISBN, (2) Google zoom=0 with `/photos/2000x/`, (3) original URL; `data-cover-ver="0.1.64"` present for checks.
+  - If all sources fail, shows “Cover unavailable” and adds hidden `data-missing-cover` debug spans for title/ISBN.
 - `layouts/page/reading.html` and `layouts/reading/single.html` mirror the same cover logic.
 - `layouts/partials/head.html`
   - Fixes the stray leading space in the CSS href.

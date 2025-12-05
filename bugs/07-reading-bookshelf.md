@@ -31,6 +31,7 @@ Create a Reading page that pulls live bookshelf data from Micro.blog into three 
 ## Notes (Dec 4 2025)
 - Source of covers is Micro.blog’s Bookshelves data (`.Site.Data.bookshelves`) using `cover_url` with `image` as fallback. URLs are served via Micro.blog’s CDN wrapping Google Books.
 - Cover order (v0.1.64): 1) Open Library ISBN, 2) Google zoom=0 with `/photos/2000x/`, 3) original URL as last resort.
+- If all sources fail, the template shows “Cover unavailable” and adds hidden `data-missing-cover` spans with title/ISBN for debugging.
 - For performance, consider moving normalization to microintegrations to cache/store the final URL once instead of per-render.
 
 ## Technical Notes

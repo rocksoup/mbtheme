@@ -558,6 +558,7 @@ graph LR
 - `.image` is used as a fallback when `cover_url` is missing.
 - Preference order: 1) Open Library by ISBN (largest available), 2) Google Books zoom=0 (2000px CDN), 3) original provided URL as last resort.
 - Forces Google Books zoom to 0 (even when URL-encoded) and swaps Micro.blog CDN size to 2000px.
+- If all sources fail, the template renders a “Cover unavailable” placeholder and emits hidden debug spans (`data-missing-cover="true"`) with title/ISBN for troubleshooting.
 - For heavier optimization/caching, push this logic upstream (e.g., microintegrations) to store normalized URLs or downloaded images once, rather than per-render.
 
 #### 3. Twitter Archive Integration
