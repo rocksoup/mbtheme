@@ -550,13 +550,15 @@ graph LR
   {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
   {{ $openLibrary := "" }}
   {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-  {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean "") }}
-  <img src="{{ $final }}" alt="Cover of {{ .title }}" loading="lazy" data-cover-ver="0.1.64"
-       data-cover-src="{{ $clean }}" data-cover-hires="{{ $final }}" data-openlibrary="{{ $openLibrary }}">
+  {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
+  <img src="{{ $final }}" alt="Cover of {{ .title }}" loading="lazy" decoding="async" data-cover-ver="0.1.64"
+       data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
 {{ end }}
 ```
 - `.image` is used as a fallback when `cover_url` is missing.
-- Forces Google Books zoom to 0 (even when URL-encoded), swaps Micro.blog CDN size to 2000px, and prefers Open Library via ISBN when available.
+- Preference order: 1) Open Library by ISBN (largest available), 2) Google Books zoom=0 (2000px CDN), 3) original provided URL as last resort.
+- Forces Google Books zoom to 0 (even when URL-encoded) and swaps Micro.blog CDN size to 2000px.
+- For heavier optimization/caching, push this logic upstream (e.g., microintegrations) to store normalized URLs or downloaded images once, rather than per-render.
 
 #### 3. Twitter Archive Integration
 
