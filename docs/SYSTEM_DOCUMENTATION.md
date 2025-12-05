@@ -543,18 +543,20 @@ graph LR
 {{ end }}
 ```
 
-**Cover Image Optimization (0.1.62):**
+**Cover Image Optimization (0.1.64):**
 ```go
 {{ $coverUrl := .cover_url | default .image }}
 {{ if $coverUrl }}
-  {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" }}
-  {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $clean }}
-  <img src="{{ $hiRes }}" alt="Cover of {{ .title }}" loading="lazy" data-cover-ver="0.1.62"
-       data-cover-src="{{ $clean }}" data-cover-hires="{{ $hiRes }}">
+  {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
+  {{ $openLibrary := "" }}
+  {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
+  {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean "") }}
+  <img src="{{ $final }}" alt="Cover of {{ .title }}" loading="lazy" data-cover-ver="0.1.64"
+       data-cover-src="{{ $clean }}" data-cover-hires="{{ $final }}" data-openlibrary="{{ $openLibrary }}">
 {{ end }}
 ```
 - `.image` is used as a fallback when `cover_url` is missing.
-- Forces Google Books zoom to 0 (even when URL-encoded) and swaps Micro.blog CDN size to 2000px.
+- Forces Google Books zoom to 0 (even when URL-encoded), swaps Micro.blog CDN size to 2000px, and prefers Open Library via ISBN when available.
 
 #### 3. Twitter Archive Integration
 

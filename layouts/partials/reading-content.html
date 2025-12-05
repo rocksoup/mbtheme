@@ -25,11 +25,11 @@
         {{ end }}
         {{ $openLibrary := "" }}
         {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-        {{ $final := cond (ne $clean "") $clean $openLibrary }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean "") }}
 
         {{ if $final }}
         <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.63"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.64"
           data-cover-src="{{ $clean }}" data-cover-hires="{{ $final }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
@@ -72,11 +72,11 @@
         {{ end }}
         {{ $openLibrary := "" }}
         {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-        {{ $final := cond (ne $clean "") $clean $openLibrary }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean "") }}
 
         {{ if $final }}
         <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.63"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.64"
           data-cover-src="{{ $clean }}" data-cover-hires="{{ $final }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
@@ -119,11 +119,11 @@
         {{ end }}
         {{ $openLibrary := "" }}
         {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-        {{ $final := cond (ne $clean "") $clean $openLibrary }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean "") }}
 
         {{ if $final }}
         <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.63"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.64"
           data-cover-src="{{ $clean }}" data-cover-hires="{{ $final }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>

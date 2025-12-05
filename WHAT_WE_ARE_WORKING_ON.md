@@ -7,15 +7,15 @@ Context for handoff.
 - Ensure all reading templates stay in sync (partial, page layout, section layout).
 - Avoid regressions from the 0.1.53 draft that accidentally broke the CSS path.
 
-## Changes in progress (v0.1.62)
+## Changes in progress (v0.1.64)
 - `layouts/partials/reading-content.html`
   - Uses `.cover_url` with `.image` fallback.
-  - Forces `zoom=0` (including encoded) and swaps Micro.blog CDN path to `/photos/2000x/`; `data-cover-ver="0.1.62"` present for checks.
+  - Forces `zoom=0` (including encoded) and swaps Micro.blog CDN path to `/photos/2000x/`; prefers Open Library ISBN covers first; `data-cover-ver="0.1.64"` present for checks.
 - `layouts/page/reading.html` and `layouts/reading/single.html` mirror the same cover logic.
 - `layouts/partials/head.html`
   - Fixes the stray leading space in the CSS href.
-  - Bumps generator meta to `Saunter 0.1.61`.
-- `plugin.json` bumped to `0.1.61` so Micro.blog picks up the update.
+  - Bumps generator meta to `Saunter 0.1.62`.
+- `plugin.json` bumped to `0.1.62` so Micro.blog picks up the update.
 
 ## What to verify after deploy
 1) Live `/reading/` shows `generator` = 0.1.57.
