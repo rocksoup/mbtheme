@@ -29,8 +29,8 @@ Create a Reading page that pulls live bookshelf data from Micro.blog into three 
 - Page renders without JavaScript errors; if remote fetch fails, show an inline error/empty message instead of breaking the page.
 
 ## Notes (Dec 4 2025)
-- Source of covers is Micro.blog’s Bookshelves data (`.Site.Data.bookshelves`) using `cover_url` with `image` as fallback. URLs are served via Micro.blog’s CDN wrapping Google Books; we normalize `zoom` to 0.
-- A recent deploy showed covers broken (“zoom=5” only) when an aggressive `srcset` transformation was added. Rolled back to rendering the provided URL directly (v0.1.57) until we confirm Micro.blog’s templating keeps the full URL intact.
+- Source of covers is Micro.blog’s Bookshelves data (`.Site.Data.bookshelves`) using `cover_url` with `image` as fallback. URLs are served via Micro.blog’s CDN wrapping Google Books.
+- Currently we upscale the CDN URL to 2000px by swapping `/300x/` or `/600x/` to `/2000x/` (v0.1.58). Avoided more complex `srcset` transforms because Micro.blog previously truncated URLs.
 
 ## Technical Notes
 - References: https://help.micro.blog/t/bookshelves/515 (more docs on Micro.blog site).

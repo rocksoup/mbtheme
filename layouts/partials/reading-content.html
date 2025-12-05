@@ -29,8 +29,9 @@ Debug v0.1.55
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        <img src="{{ $coverUrl }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.57">
+        {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
+        <img src="{{ $hiRes }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -67,8 +68,9 @@ Debug v0.1.55
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        <img src="{{ $coverUrl }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.57">
+        {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
+        <img src="{{ $hiRes }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -105,8 +107,9 @@ Debug v0.1.55
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        <img src="{{ $coverUrl }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.57">
+        {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
+        <img src="{{ $hiRes }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
