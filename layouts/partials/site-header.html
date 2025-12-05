@@ -20,9 +20,11 @@
 
   <nav class="primary-nav" id="primary-nav">
     {{ if .Site.Menus.main }}
+    {{ $currentPath := .RelPermalink }}
     {{ range .Site.Menus.main }}
     {{ if ne .Name "Search" }}
-    <a href="{{ .URL | relURL }}" {{ if $.IsMenuCurrent "main" . }} class="active" {{ end }}>{{ .Name }}</a>
+    {{ $isActive := or ($.IsMenuCurrent "main" .) (hasPrefix $currentPath .URL) }}
+    <a href="{{ .URL | relURL }}" {{ if $isActive }} class="active" {{ end }}>{{ .Name }}</a>
     {{ end }}
     {{ end }}
     {{ else }}
