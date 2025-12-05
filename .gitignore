@@ -32,6 +32,9 @@ yarn-error.log*
 .cache/
 tmp/
 scratch/
+font-study/
+static/css/font-study.css
+static/js/font-study.js
 
 # OS generated files
 Thumbs.db
