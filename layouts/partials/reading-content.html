@@ -20,9 +20,9 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
+        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $coverUrl }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.61"
           data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
@@ -60,9 +60,9 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
+        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $coverUrl }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.61"
           data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
@@ -100,9 +100,9 @@
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
+        {{ $hiRes := replaceRE `/photos/[0-9]+x/` "/photos/2000x/" $coverUrl }}
         <img src="{{ $hiRes }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.58"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.61"
           data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $hiRes }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
