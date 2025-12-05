@@ -29,8 +29,8 @@
   "menu": {
     "main": [
       {
-        "name": "Subscribe",
-        "url": "/subscribe/",
+        "name": "Links",
+        "url": "/links/",
         "weight": 1
       },
       {
@@ -39,19 +39,14 @@
         "weight": 2
       },
       {
-        "name": "Archive",
-        "url": "/archive/",
+        "name": "Reading",
+        "url": "/reading/",
         "weight": 3
       },
       {
-        "name": "Reading",
-        "url": "/reading/",
+        "name": "Watching",
+        "url": "/watching/",
         "weight": 4
-      },
-      {
-        "name": "Tweets",
-        "url": "/tweets/",
-        "weight": 5
       }
     ]
   }
