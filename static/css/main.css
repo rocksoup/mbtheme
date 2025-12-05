@@ -1,6 +1,6 @@
 :root {
   --color-text: #111827;
-  --color-text-muted: #6B7280;
+  --color-text-muted: #5D6470;
   --color-link: #0EA5E9;
   --color-link-visited: #0284C7;
   --color-bg: #F9FAFB;
@@ -50,11 +50,13 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+  letter-spacing: -0.02em;
 }
 
 a {
   color: var(--color-link);
   text-decoration: underline;
+  transition: color 0.2s ease;
 }
 
 a:visited {
@@ -129,6 +131,18 @@ a:hover {
 .primary-nav a.active {
   text-decoration: none;
   font-weight: 600;
+  position: relative;
+}
+
+.primary-nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 99px;
 }
 
 .nav-tools {
@@ -203,6 +217,7 @@ body.saunter.dark-mode .theme-option-item:hover {
   padding: 0.35rem 0.75rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
+  font-family: var(--font-body);
   font-family: var(--font-body);
   font-size: 0.9rem;
   background: var(--color-bg);
@@ -296,6 +311,11 @@ article.post-summary {
   margin-bottom: 0;
   padding-bottom: var(--space-12);
   border-bottom: 1px solid var(--color-border);
+  transition: transform 0.2s ease;
+}
+
+article.post-summary:hover {
+  transform: translateY(-2px);
 }
 
 article.post-summary:last-of-type {
@@ -303,6 +323,18 @@ article.post-summary:last-of-type {
 }
 
 article.post-summary+article.post-summary {
+  padding-top: var(--space-12);
+}
+
+article.post-summary.watched {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+article.post-summary.watched+article.post-summary {
   padding-top: var(--space-12);
 }
 
@@ -327,7 +359,7 @@ article.post-summary+article.post-summary {
 .post-summary h2 {
   font-family: var(--font-heading);
   font-size: var(--font-size-lg);
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-6);
 }
 
 .post-summary h2 a {
@@ -690,7 +722,13 @@ body.saunter.dark-mode .newsletter-error {
   color: var(--color-text-muted);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease, outline 0.1s ease;
+}
+
+.footer-links a:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .footer-links a:hover {

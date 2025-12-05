@@ -19,7 +19,12 @@
 {{- end }}
 {{- end -}}
 
-<article class="post-summary">
+{{- $isWatched := false -}}
+{{- if or (in .Params.categories "watching") (hasPrefix $title "Watched:") -}}
+  {{- $isWatched = true -}}
+{{- end -}}
+
+<article class="post-summary {{ if $isWatched }}watched{{ end }}">
   {{- $renderFeatured := false -}}
   {{- if and $featuredImage (not .Params.hide_featured_image) -}}
     {{- $renderFeatured = true -}}

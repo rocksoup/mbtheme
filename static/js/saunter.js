@@ -219,11 +219,22 @@ const setupNewsletter = () => {
   }
 };
 
+const setupSearchFocus = () => {
+  const searchInput = document.querySelector(".search-form input, input.search-input");
+  if (searchInput) {
+    // Small timeout to ensure everything is rendered
+    setTimeout(() => {
+      searchInput.focus();
+    }, 100);
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeTheme();
   setupThemeToggle();
   setupNavigation();
   setupNewsletter();
+  setupSearchFocus();
   refreshSeattleCam();
 });
 
