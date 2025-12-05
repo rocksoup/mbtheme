@@ -543,11 +543,12 @@ graph LR
 {{ end }}
 ```
 
-**Cover Image Optimization (0.1.57):**
+**Cover Image Optimization (0.1.58):**
 ```go
 {{ $coverUrl := .cover_url | default .image }}
 {{ if $coverUrl }}
-  <img src="{{ $coverUrl }}" alt="Cover of {{ .title }}" loading="lazy" data-cover-ver="0.1.57">
+  {{ $hiRes := $coverUrl | replace "/300x/" "/2000x/" | replace "/600x/" "/2000x/" }}
+  <img src="{{ $hiRes }}" alt="Cover of {{ .title }}" loading="lazy" data-cover-ver="0.1.58">
 {{ end }}
 ```
 - `.image` is used as a fallback when `cover_url` is missing.
