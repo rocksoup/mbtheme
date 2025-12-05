@@ -30,7 +30,7 @@ Create a Reading page that pulls live bookshelf data from Micro.blog into three 
 
 ## Notes (Dec 4 2025)
 - Source of covers is Micro.blog’s Bookshelves data (`.Site.Data.bookshelves`) using `cover_url` with `image` as fallback. URLs are served via Micro.blog’s CDN wrapping Google Books; we normalize `zoom` to 0.
-- A recent deploy showed covers broken (“zoom=5” only) when an aggressive `srcset` transformation was added. Rolled back to a simpler normalized `src` (version 0.1.55) until we confirm Micro.blog’s templating keeps the full URL intact.
+- A recent deploy showed covers broken (“zoom=5” only) when an aggressive `srcset` transformation was added. Rolled back to rendering the provided URL directly (v0.1.57) until we confirm Micro.blog’s templating keeps the full URL intact.
 
 ## Technical Notes
 - References: https://help.micro.blog/t/bookshelves/515 (more docs on Micro.blog site).
