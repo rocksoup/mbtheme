@@ -10,7 +10,7 @@ Context for handoff.
 ## Changes in progress (v0.1.64)
 - `layouts/partials/reading-content.html`
   - Uses `.cover_url` with `.image` fallback.
-  - Preference order: (1) Google zoom=0 with `/photos/2000x/`, (2) Open Library ISBN with `?default=false`, (3) original URL; `data-cover-ver="0.1.66"` present for checks.
+  - Preference order: (1) Google zoom=0 with `/photos/2000x/`, (2) Open Library ISBN with `?default=false`, (3) original URL; `data-cover-ver="0.1.68"` present for checks.
   - If all sources fail, shows “Cover unavailable” and adds hidden `data-missing-cover` debug spans for title/ISBN.
 - `layouts/page/reading.html` and `layouts/reading/single.html` mirror the same cover logic.
 - `layouts/partials/head.html`
