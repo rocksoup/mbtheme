@@ -30,9 +30,8 @@ Debug v0.1.55
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $cleanCover := $coverUrl | replace "zoom=5" "zoom=0" | replaceRE "%26zoom%3D[0-9]" "%26zoom%3D0" }}
-        <img src="{{ $cleanCover }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.55">
+        <img src="{{ $coverUrl }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.57">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -69,9 +68,8 @@ Debug v0.1.55
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $cleanCover := $coverUrl | replace "zoom=5" "zoom=0" | replaceRE "%26zoom%3D[0-9]" "%26zoom%3D0" }}
-        <img src="{{ $cleanCover }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.55">
+        <img src="{{ $coverUrl }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.57">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -108,9 +106,8 @@ Debug v0.1.55
       <a href="https://micro.blog/books/{{ .isbn }}" class="book-card" target="_blank" rel="noopener" data-book-type="{{ .isbn }}">
         {{ $coverUrl := .cover_url | default .image }}
         {{ if $coverUrl }}
-        {{ $cleanCover := $coverUrl | replace "zoom=5" "zoom=0" | replaceRE "%26zoom%3D[0-9]" "%26zoom%3D0" }}
-        <img src="{{ $cleanCover }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.55">
+        <img src="{{ $coverUrl }}"
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.57">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
