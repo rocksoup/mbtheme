@@ -543,23 +543,25 @@ graph LR
 {{ end }}
 ```
 
-**Cover Image Optimization (0.1.67):**
-```go
-{{ $coverUrl := .cover_url | default .image }}
-{{ if $coverUrl }}
-  {{ $clean := $coverUrl | replaceRE `zoom=[0-9]+` "zoom=0" | replaceRE `zoom%3D[0-9]+` "zoom%3D0" | replaceRE `/photos/[0-9]+x/` "/photos/2000x/" }}
-  {{ $openLibrary := "" }}
-  {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg?default=false" . }}{{ end }}
-  {{ $final := cond (ne $clean "") $clean (cond (ne $openLibrary "") $openLibrary $coverUrl) }}
-  <img src="{{ $final }}" alt="Cover of {{ .title }}" loading="lazy" decoding="async" data-cover-ver="0.1.67"
-       data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
-{{ end }}
+**Cover Image Fallback (0.1.69):**
+See `docs/book-covers.md` for full implementation details.
+
+The theme now uses a **client-side fallback strategy** to ensure covers always load:
+
+1.  **Primary:** OpenLibrary (High Res) OR Google Zoom 0.
+2.  **Secondary:** Original Micro.blog URL (`cover_url` or `.image`).
+3.  **Fallback:** "Cover unavailable" placeholder.
+
+```html
+<img src="{{ $primary }}"
+     data-fallback-src="{{ $secondary }}"
+     onerror="if (this.getAttribute('data-fallback-src') && this.src !== this.getAttribute('data-fallback-src')) { ... }"
+     ...>
 ```
-- `.image` is used as a fallback when `cover_url` is missing.
-- Preference order: 1) Google Books zoom=0 (2000px CDN), 2) Open Library by ISBN (`?default=false` to avoid 1×1 placeholders), 3) original provided URL as last resort.
-- Forces Google Books zoom to 0 (even when URL-encoded) and swaps Micro.blog CDN size to 2000px.
-- If all sources fail, the template renders a “Cover unavailable” placeholder and emits hidden debug spans (`data-missing-cover="true"`) with title/ISBN for troubleshooting.
-- For heavier optimization/caching, push this logic upstream (e.g., microintegrations) to store normalized URLs or downloaded images once, rather than per-render.
+
+- Relies on the browser's `onerror` event to switch sources.
+- Solves the "server-side guessing" problem where 404s were rendered.
+- **Note:** Google Books sometimes returns a "No Image" placeholder with status 200 OK, which the browser accepts as valid. These require manual data updates in Micro.blog.
 
 #### 3. Twitter Archive Integration
 

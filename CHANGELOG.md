@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **IMPORTANT:** The `version` field in `plugin.json` MUST be incremented with each release. Micro.blog uses this field to detect and pull theme updates from the main branch. Also update the version in the `<meta name="generator">` tag in `layouts/partials/head.html` to verify updates in the live site's HTML source.
 
+## [0.1.69] - 2025-12-05
+
+### Added
+- **Robust Book Cover Fallback Strategy**: Implemented a client-side (JS) fallback mechanism for book covers.
+  - Tries High-Res (OpenLibrary) -> Original URL -> Placeholder.
+  - Eliminates 404 broken image icons.
+  - See `docs/book-covers.md` for details.
+
 ## [0.1.24] - 2025-11-21
 
 ### Changed
