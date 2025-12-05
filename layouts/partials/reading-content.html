@@ -25,12 +25,12 @@
         {{ end }}
         {{ $openLibrary := "" }}
         {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean "") }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
 
         {{ if $final }}
         <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.64"
-          data-cover-src="{{ $clean }}" data-cover-hires="{{ $final }}" data-openlibrary="{{ $openLibrary }}">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.65"
+          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -72,12 +72,12 @@
         {{ end }}
         {{ $openLibrary := "" }}
         {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean "") }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
 
         {{ if $final }}
         <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.64"
-          data-cover-src="{{ $clean }}" data-cover-hires="{{ $final }}" data-openlibrary="{{ $openLibrary }}">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.65"
+          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
@@ -119,12 +119,12 @@
         {{ end }}
         {{ $openLibrary := "" }}
         {{ with .isbn }}{{ $openLibrary = printf "https://covers.openlibrary.org/b/isbn/%s-L.jpg" . }}{{ end }}
-        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean "") }}
+        {{ $final := cond (ne $openLibrary "") $openLibrary (cond (ne $clean "") $clean $coverUrl) }}
 
         {{ if $final }}
         <img src="{{ $final }}"
-          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" data-cover-ver="0.1.64"
-          data-cover-src="{{ $clean }}" data-cover-hires="{{ $final }}" data-openlibrary="{{ $openLibrary }}">
+          alt="Cover of {{ .title }}" class="book-cover" loading="lazy" decoding="async" data-cover-ver="0.1.65"
+          data-cover-src="{{ $coverUrl }}" data-cover-hires="{{ $clean }}" data-openlibrary="{{ $openLibrary }}">
         {{ else }}
         <div class="book-cover-placeholder">No Cover</div>
         {{ end }}
