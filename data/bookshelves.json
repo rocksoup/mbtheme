@@ -1,0 +1,190 @@
+{
+  "currentlyReading": [
+    {
+      "id": 41716,
+      "title": "The Overstory",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=AmxFtwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780393356687",
+      "dateAdded": "2022-08-18T17:52:23+00:00",
+      "cover_url": "https://books.google.com/books/content?id=AmxFtwEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 216019,
+      "title": "The Ketogenic Bible",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=O18xDwAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781628601046",
+      "dateAdded": "2025-12-04T20:57:24+00:00",
+      "cover_url": "https://books.google.com/books/content?id=O18xDwAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    }
+  ],
+  "finished": [
+    {
+      "id": 221389,
+      "title": "Gold Mountain",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=2f1PEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781728451015",
+      "dateAdded": "2026-02-09T16:48:26+00:00",
+      "cover_url": "https://books.google.com/books/content?id=2f1PEAAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 216934,
+      "title": "Playground",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=bxlx0AEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781324086031",
+      "dateAdded": "2025-12-17T18:20:27+00:00",
+      "cover_url": "https://books.google.com/books/content?id=bxlx0AEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 216056,
+      "title": "The Ministry for the Future",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=HV-_zQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780356508863",
+      "dateAdded": "2025-12-05T17:31:06+00:00",
+      "cover_url": "https://books.google.com/books/content?id=HV-_zQEACAAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 209375,
+      "title": "Ministry of time",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=x8f0EAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781668045145",
+      "dateAdded": "2025-12-04T20:57:46+00:00",
+      "cover_url": "https://books.google.com/books/content?id=x8f0EAAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 214741,
+      "title": "I'm Not Trying To Be Difficult",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=TZpLEQAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781538765593",
+      "dateAdded": "2025-11-14T16:18:25+00:00",
+      "cover_url": "https://books.google.com/books/content?id=TZpLEQAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 197802,
+      "title": "Accidentally on Purpose",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=_o4cEQAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780316580939",
+      "dateAdded": "2025-09-14T15:40:26+00:00",
+      "cover_url": "https://books.google.com/books/content?id=_o4cEQAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 197801,
+      "title": "Uses for Obsession",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=CSAGEQAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781761189999",
+      "dateAdded": "2025-07-13T22:47:24+00:00",
+      "cover_url": "https://books.google.com/books/content?id=CSAGEQAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 194788,
+      "title": "Setting the Table",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=epnumt9tRsAC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780061868245",
+      "dateAdded": "2025-07-13T22:46:41+00:00",
+      "cover_url": "https://books.google.com/books/content?id=epnumt9tRsAC&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 194787,
+      "title": "Unreasonable Hospitality",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=NJVuEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780593418581",
+      "dateAdded": "2025-05-21T17:57:34+00:00",
+      "cover_url": "https://books.google.com/books/content?id=NJVuEAAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 191804,
+      "title": "Going Zero",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=ucdpEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780063227088",
+      "dateAdded": "2025-04-19T01:46:31+00:00",
+      "cover_url": "https://books.google.com/books/content?id=ucdpEAAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 31952,
+      "title": "The Art of Leadership",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=a-jkDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+      "url": "https://micro.blog/books/9781492045649",
+      "dateAdded": "2023-12-03T17:19:39+00:00",
+      "cover_url": "https://books.google.com/books/content?id=a-jkDwAAQBAJ&printsec=frontcover&img=1&zoom=0&edge=curl&source=gbs_api"
+    },
+    {
+      "id": 31955,
+      "title": "Parable of the Sower",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=8thMLkahggcC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781453263617",
+      "dateAdded": "2023-01-13T23:28:36+00:00",
+      "cover_url": "https://books.google.com/books/content?id=8thMLkahggcC&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 31747,
+      "title": "Termination Shock: A Novel",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=8w4eEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780063028074",
+      "dateAdded": "2022-03-20T18:32:47+00:00",
+      "cover_url": "https://books.google.com/books/content?id=8w4eEAAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 41715,
+      "title": "Sing Backwards and Weep",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=d2unDwAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780306922794",
+      "dateAdded": "2022-08-18T17:52:02+00:00",
+      "cover_url": "https://books.google.com/books/content?id=d2unDwAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 41712,
+      "title": "Snow Crash",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=RMd3GpIFxcUC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9780553898194",
+      "dateAdded": "2022-08-18T17:50:42+00:00",
+      "cover_url": "https://books.google.com/books/content?id=RMd3GpIFxcUC&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    },
+    {
+      "id": 31954,
+      "title": "Imaginable",
+      "author": "Unknown Author",
+      "isbn": null,
+      "image": "https://books.google.com/books/content?id=iMgyEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "url": "https://micro.blog/books/9781473598546",
+      "dateAdded": "2022-03-24T15:07:32+00:00",
+      "cover_url": "https://books.google.com/books/content?id=iMgyEAAAQBAJ&printsec=frontcover&img=1&zoom=0&source=gbs_api"
+    }
+  ],
+  "wantToRead": [],
+  "fetched_at": "2026-02-09T18:07:57.830Z",
+  "wanttoread": [],
+  "want-to-read": []
+}
