@@ -1,0 +1,10 @@
+{
+  "_note": "This file contains your personal credentials. It is gitignored and should never be committed.",
+  "params": {
+    "microblog_username": "jfunk",
+    "newsletter": {
+      "action": "https://stoneberg.us6.list-manage.com/subscribe/post?u=589e7750b96d9baf18b9a88b0&id=f901f7d258&f_id=00c91ee2f0"
+    },
+    "mailchimp_honeypot": "b_589e7750b96d9baf18b9a88b0_f901f7d258"
+  }
+}

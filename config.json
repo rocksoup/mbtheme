@@ -1,7 +1,7 @@
 {
   "title": "Saunter",
   "params": {
-    "microblog_username": "jfunk",
+    "microblog_username": "YOUR_MICROBLOG_USERNAME",
     "mainSections": [
       "post",
       "posts"
@@ -13,12 +13,12 @@
       "enabled": true,
       "title": "Subscribe to get updates in your inbox",
       "copy": "Get new posts delivered straight to your inbox.",
-      "action": "https://stoneberg.us6.list-manage.com/subscribe/post?u=589e7750b96d9baf18b9a88b0&id=f901f7d258&f_id=00c91ee2f0",
+      "action": "https://YOUR_ACCOUNT.us6.list-manage.com/subscribe/post?u=YOUR_U_VALUE&id=YOUR_ID&f_id=YOUR_F_ID",
       "method": "post",
       "placeholder": "Email address",
       "button": "Subscribe"
     },
-    "mailchimp_honeypot": "b_589e7750b96d9baf18b9a88b0_f901f7d258",
+    "mailchimp_honeypot": "YOUR_MAILCHIMP_HONEYPOT_FIELD_NAME",
     "city_tagline": {
       "text": "Made with ❤️ in",
       "location": "Seattle, Washington",

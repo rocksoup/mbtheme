@@ -43,3 +43,13 @@ examples/demo-site
 # Micro.blog production source of truth
 data/bookshelves.json
 data/bookshelves/
+
+# Local credentials (never commit)
+config.local.json
+
+# Claude Code session files
+.claude/
+*.txt
+
+# Design work-in-progress
+design-prototypes/
